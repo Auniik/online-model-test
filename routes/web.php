@@ -387,7 +387,7 @@ Route::post('/send-email', [
     'as'   => 'send-email'
 ]);
 
-include 'exam.php';
+include __DIR__.'/exam.php';
 
 Route::get('user/registration','AuthController@register')->name('user.registration');
 Route::post('user/registration','AuthController@registerPost')->name('user.registration.post');
