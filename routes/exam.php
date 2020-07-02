@@ -6,4 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::resource('exams', ExamController::class);
+    Route::resource('subjects', SubjectController::class);
 });

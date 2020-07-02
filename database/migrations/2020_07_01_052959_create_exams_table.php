@@ -17,13 +17,13 @@ class CreateExamsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subject_id');
             $table->string('name');
-            $table->text('description');
-            $table->text('image');
-            $table->timestamp('start_at');
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
+            $table->timestamp('start_at')->nullable();
             $table->string('duration');
             $table->enum('status', ['active', 'inactive', 'ongoing']);
+            $table->boolean('in_homepage')->default(false);
             $table->timestamps();
-
             $table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
