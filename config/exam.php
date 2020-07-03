@@ -3,6 +3,7 @@
 
 return [
     'classes' => [
+        0 => 'all_classes',
         1 => 'one',
         2 => 'two',
         3 => 'three',

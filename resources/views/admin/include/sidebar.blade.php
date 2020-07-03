@@ -22,9 +22,10 @@
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Model test
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('add-event')}}">Manage Exams</a></li>
+                        <li><a href="{{route('exams.create')}}">Create Exam</a></li>
                         <li><a href="{{route('admin.player.add')}}">Manage Participants</a></li>
                         <li><a href="{{route('admin.results')}}">Results</a></li>
+                        <li><a href="{{route('subjects.index')}}">Manage Subjects</a></li>
                     </ul>
                 </li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Work </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>

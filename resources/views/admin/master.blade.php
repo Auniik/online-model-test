@@ -11,7 +11,7 @@
     <meta content="Mannatthemes" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="{{asset('/')}}admin/assets/images/favicon.ico">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
     <!-- jvectormap -->
@@ -23,7 +23,8 @@
     <link href="{{asset('/')}}admin/assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="{{asset('/')}}admin/assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
-    
+    <link href="{{asset('/')}}admin/assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+
     <!-- DataTables -->
     <link href="{{asset('/')}}admin/assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
     <link href="{{asset('/')}}admin/assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
@@ -34,6 +35,8 @@
     <!-- CKEditor Sample-->
     <script src="{{asset('/')}}admin/ckeditor/ckeditor.js"></script>
     <script src="{{asset('/')}}admin/ckeditor/samples/js/sample.js"></script>
+    <link href="{{asset('/')}}admin/assets/swal/sweetalert2.min.css" rel="stylesheet">
+
 
     <!--End Editor-->
 
@@ -139,10 +142,10 @@
 <!--End Pdf-->
 <!-- App js -->
 <script src="{{asset('/')}}admin/assets/js/app.js"></script>
-
-
+<script src="{{asset('/')}}admin/assets/swal/sweetalert2.all.min.js"></script>
+<script src="{{asset('/')}}admin/assets/js/custom.js"></script>
 <script>
-    
+
     var index = 1;
     var slNo = 2;
     $(document).on('click', '.add-question-btn', function () {
@@ -252,6 +255,8 @@
         });
     }
 </script>
+
+@stack('script')
 
 </body>
 </html>

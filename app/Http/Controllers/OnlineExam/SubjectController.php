@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\OnlineExam;
 
 use App\Http\Controllers\Controller;
+use App\Models\OnlineExam\Subject;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return view('admin.online-exam.subject.index', ['subjects' => $subjects]);
     }
 
     /**
@@ -24,7 +22,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,51 +33,33 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Subject::create($request->only('name', 'code', 'class', 'status'));
+        return back_with_success('subject');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return back();
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Subject $subject
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->update($request->all());
+        return updated_response('subject');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return response([
+            'check' => true
+        ]);
     }
 }

@@ -1,6 +1,8 @@
 <div class="topbar">
     <nav class="navbar-custom">
+
         <ul class="list-inline float-right mb-0">
+
             <!-- language-->
             <li class="list-inline-item dropdown notification-list hide-phone">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><img src="assets/images/flags/us_flag.jpg" class="ml-2" height="16" alt=""></a>
@@ -37,6 +39,7 @@
                     {{--<!-- item-->--}}
                     {{--<!-- All--><a href="javascript:void(0);" class="dropdown-item notify-item">View All</a></div>--}}
             {{--</li>--}}
+            <a class="btn btn-info" target="_blank" href="/">Visit Site</a>
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><img src="{{asset('/')}}admin/assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"></a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown">
