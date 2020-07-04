@@ -11,21 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/OnlineExam/ExamQuestionService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/cq-modal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/mcq-modal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/written.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/participants/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/participants/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/CQQuestionMeta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/CQQuestionMeta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Exam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/ExamQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/ExamQuestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/MCQQuestionOption.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/MCQQuestionOption.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/exam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/default.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/exam.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,7 +217,7 @@
       <workItem from="1593530801444" duration="3664000" />
       <workItem from="1593660206002" duration="41000" />
       <workItem from="1593660352485" duration="8011000" />
-      <workItem from="1593703630601" duration="50686000" />
+      <workItem from="1593703630601" duration="52071000" />
     </task>
     <servers />
   </component>
@@ -248,10 +237,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="430" y="187" width="495" height="386" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593777751274">
+    <state x="430" y="187" width="490" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593859221736">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="430" y="187" width="495" height="386" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1593777751274" />
+    <state x="430" y="187" width="490" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1593859221736" />
     <state width="1366" height="270" key="GridCell.Tab.0.bottom" timestamp="1593669429442">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -300,10 +289,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state width="1366" height="270" key="GridCell.Tab.2.right/0.22.1366.746@0.22.1366.746" timestamp="1593669429443" />
-    <state x="295" y="111" width="779" height="534" key="NewPhpClassDialog" timestamp="1593854258996">
+    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog" timestamp="1593859648537">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="295" y="111" width="779" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1593854258996" />
+    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1593859648537" />
     <state x="501" y="308" width="324" height="143" key="NewPhpFileDialog" timestamp="1593752694520">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -312,10 +301,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1593580763181" />
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1593858372021">
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1593860324046">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1593858372021" />
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1593860324046" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -23,7 +23,8 @@
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('exams.create')}}">Create Exam</a></li>
-                        <li><a href="{{route('admin.player.add')}}">Manage Participants</a></li>
+                        <li><a href="{{route('exams.index')}}">All Exams</a></li>
+                        <li><a href="{{route('participants.index')}}">Participants</a></li>
                         <li><a href="{{route('admin.results')}}">Results</a></li>
                         <li><a href="{{route('subjects.index')}}">Manage Subjects</a></li>
                     </ul>
