@@ -10,6 +10,20 @@ class ExamQuestion extends Model
         'title', 'description', 'file', 'level', 'meta', 'type', 'remarks', 'solution', 'exam_id'
     ];
 
+    public function getTranslatedTypeAttribute()
+    {
+        return __('default')[$this->type];
+    }
+
+    public function getRemarkAttribute()
+    {
+        if ($this->type == 'cq')
+            return $this->CQs()->sum('max_remarks');
+        if ($this->type == 'mcq')
+            return 1;
+        return $this->remarks;
+    }
+
     public function CQs()
     {
         return $this->hasMany(CQQuestionMeta::class);

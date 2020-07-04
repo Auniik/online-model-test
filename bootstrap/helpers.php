@@ -11,6 +11,13 @@ if (!function_exists('updated_response')){
         return back()->withSuccess(trans('default.updated_response', ['name' => $context]));
     }
 }
+
+if (!function_exists('deleted_response')){
+    function deleted_response($context) {
+        return back()->withSuccess(trans('default.deleted_response', ['name' => $context]));
+    }
+}
+
 if (!function_exists('get_status')){
     function get_status($status) {
         $class = '';

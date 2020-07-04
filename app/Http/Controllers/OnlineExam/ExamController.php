@@ -57,15 +57,11 @@ class ExamController extends Controller
         return back_with_success('Exam');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Exam $exam
-     * @return Response
-     */
     public function show(Exam $exam)
     {
-        //
+        return view('admin.online-exam.exam.show', [
+            'exam' => $exam
+        ]);
     }
 
 

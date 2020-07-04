@@ -55,12 +55,12 @@
                                         <div class="dropdown-menu">
                                             <a title="Set Participants"
                                                class="dropdown-item"
-                                               href="{{route('exams.edit',  $exam->id)}}">
+                                               href="{{route('exam-participants.create',  $exam->id)}}">
                                                 <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
                                             </a>
-                                            <a title="Set Participants"
+                                            <a title="Set Questions"
                                                class="dropdown-item"
-                                               href="{{route('exams.edit',  $exam->id)}}">
+                                               href="{{route('exam-questions.index',  $exam->id)}}">
                                                 <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
                                             </a>
                                             <a title="Edit"

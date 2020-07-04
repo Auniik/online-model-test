@@ -2,31 +2,32 @@
 
 return [
     //responses
-    'created_response' => ':name has been created successfully!',
-    'updated_response' => ':name has been updated successfully!',
+    'created_response' => 'নতুন :name তৈরি করা হয়েছে!',
+    'updated_response' => ':name হালনাগাদ করা হয়েছে!',
+    'deleted_response' => ':name মুছে ফেলা হয়েছে!',
 
 
     //classes
-    'all_classes' => 'Shokol shrenir',
-    'one' => 'Prothom',
-    'two' => 'dwitiyo',
-    'three' => 'tritiyo',
-    'four' => 'choturtho',
-    'five' => 'ponchom',
-    'six' => 'shoshto',
-    'seven' => 'shoptom',
-    'eight' => 'oshtom',
-    'nine' => 'nobom',
-    'ten' => 'doshom',
+    'all_classes' => 'সবার জন্য',
+    'one' => 'প্রথম',
+    'two' => 'দ্বিতীয়',
+    'three' => 'তৃতীয়',
+    'four' => 'চতুর্থ',
+    'five' => 'পঞ্চম',
+    'six' => 'ষষ্ঠ',
+    'seven' => 'সপ্তম',
+    'eight' => 'অষ্টম',
+    'nine' => 'নবম',
+    'ten' => 'দশম',
 
     //levels
-    'level_1' => 'gyanmulok',
-    'level_2' => 'onudhabonmulok',
-    'level_3' => 'proyog',
-    'level_4' => 'ucchotor dokkhota',
+    'level_1' => 'জ্ঞানমূলক',
+    'level_2' => 'অনুধাবনমূলক',
+    'level_3' => 'প্রয়োগ',
+    'level_4' => 'উচ্চতর দক্ষতা',
 
     //lables,
-    'cq' => 'srijonshil',
-    'mcq' => 'bohunirrbachoni',
-    'written' => 'bornonamUlok'
+    'cq' => 'সৃজনশীল',
+    'mcq' => 'বহুনির্বাচনী',
+    'written' => 'বর্ণনামূলক'
 ];

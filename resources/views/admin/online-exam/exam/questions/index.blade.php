@@ -1,0 +1,185 @@
+@extends('admin.master')
+@section('body')
+    <div class="row m-t-15">
+        <div class="col-12">
+            <form id="refForm" action="{{route('exam-questions.store', $exam)}}" method="POST"
+                  enctype="multipart/form-data">
+                @csrf
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> {{session('success')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                <div class="card">
+                    <div class="card-header">
+                        <div class=" row">
+                            <h4 class="header-title col-2"><span id="header-title">Set Questions</span></h4>
+                            <select name="type" class="form-control offset-7 col-2 type">
+                                @foreach(config('exam.question_types') as $type)
+                                    <option value="{{$type}}">{{__('default')[$type]}}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">Add new</button>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="question-block">
+                            <div class="table-responsive-sm">
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th width="20">Type</th>
+                                        <th>Title</th>
+                                        <th  width="20">Remarks</th>
+                                        <th width="1">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach($exam->questions as $question)
+                                        <tr>
+                                            <td>{{$question->translatedType}}</td>
+                                            <td>{{$question->title}}</td>
+                                            <td>
+                                                {{$question->remark}}
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"
+                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a title="View"
+                                                           class="dropdown-item"
+                                                           href="{{route('exam-questions.index',  $question->id)}}">
+                                                            <i class="fa fa-eye" aria-hidden="true"></i> View Question
+                                                        </a>
+                                                        <a class="dropdown-item deletable"
+                                                           title="Delete"
+                                                           href="{{route('exam-questions.destroy',  $question->id)}}">
+                                                            <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    <tr>
+                                        <td></td>
+                                        <th class="text-right">
+                                            Total Mark:
+                                        </th>
+                                        <th>
+                                            {{$exam->questions->sum('remark')}}
+                                        </th>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @include('admin.online-exam.exam.questions.written', ['exam' => $exam])
+        @include('admin.online-exam.exam.questions.cq-modal', ['exam' => $exam])
+        @include('admin.online-exam.exam.questions.mcq-modal', ['exam' => $exam])
+
+
+    </div>
+@endsection
+
+@push('script')
+    <script>
+
+
+        $(document).ready(function () {
+            $('#add-new').click(function () {
+                const type = $('.type').val();
+                switch (type) {
+                    case 'cq':
+                        makeCQQuestion();
+                        break;
+                    case 'mcq':
+                        makeMCQQuestion();
+                        break;
+                    case 'written':
+                        makeWrittenQuestion();
+                        break;
+                }
+
+            })
+        })
+
+        $(document).on('hidden.bs.modal', '#CQQuestionModal', function (e) {
+            location.reload()
+        })
+
+        function makeCQQuestion() {
+            $('#CQQuestionModal').modal('show')
+            let rowCount = 1;
+            addCQQuestionMeta(rowCount);
+
+            $(document).on('click', '.add-cq-meta', function () {
+                if(rowCount < 4) {
+                    rowCount++;
+                    addCQQuestionMeta(rowCount)
+                }
+            })
+            $(document).on('click', '.remove-cq-meta', function () {
+                if(rowCount <= 1) {
+                    return alert('You need to add at least one question.')
+                }
+                rowCount--;
+                $(this).parents('.question-meta').remove()
+            })
+        }
+        function makeMCQQuestion() {
+            $('#MCQQuestionModal').modal('show')
+        }
+
+        function makeWrittenQuestion() {
+            $('#WrittenModal').modal('show')
+        }
+
+
+
+        function addCQQuestionMeta(questionCount) {
+            $('.cq-question-details').append(`
+                <div class="row question-meta text-right my-3 ">
+                    <div class="col-1 text-center">
+                        <h4>${questionCount}</h4>
+                    </div>
+                    <div class="col-2">
+                        <select name="level[]" class="form-control" required>
+                            @foreach(config('exam.levels') as $level)
+                                <option value="{{$level}}">{{__('default')[$level]}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <textarea class="form-control" style="height:35px" required placeholder="Question Title"
+                        name="name[]"></textarea>
+                    </div>
+                    <div class="col-2">
+                        <input type="type" class="form-control" placeholder="Remarks" value="${questionCount}" required
+                        name="max_remarks[]">
+                    </div>
+                    <div class="col-1 text-center">
+                        <button type="button" class="btn btn-primary add-cq-meta">+</button>
+                        <button type="button" class="btn btn-danger remove-cq-meta">-</button>
+                    </div>
+                </div>
+            `)
+        }
+
+    </script>
+
+@endpush
