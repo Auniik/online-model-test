@@ -15,10 +15,12 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::get('exam-questions/{question}', 'OnlineExam\ExamQuestionController@show')
         ->name('exam-questions.show');
 
-    Route::get('exams/{exam}/participants', 'OnlineExam\ExamParticipantController@create')
+    Route::get('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@create')
         ->name('exam-participants.create');
-    Route::post('exams/{exam}/participants', 'OnlineExam\ExamParticipantController@store')
+    Route::post('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@store')
         ->name('exam-participants.store');
+    Route::DELETE('exams-participants/{id}', 'OnlineExam\ParticipantAssessmentController@destroy')
+        ->name('exam-participants.destroy');
 
     Route::get('participants', 'OnlineExam\ParticipantController@index')
         ->name('participants.index');

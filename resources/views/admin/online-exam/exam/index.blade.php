@@ -25,6 +25,9 @@
                             <th>Class</th>
                             <th>Date</th>
                             <th>Duration</th>
+                            <th>Pass</th>
+                            <th>Participants</th>
+                            <th>Questions</th>
                             <th>Shown</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -41,6 +44,17 @@
                                 <td> {{$exam->class}} </td>
                                 <td>{{$exam->start_at->format('d/m/Y h:m:s')}}</td>
                                 <td>{{$exam->duration}}</td>
+                                <td>{{$exam->competency_score}}</td>
+                                <td align="center">
+                                    <a class="btn btn-info" href="{{route('exam-participants.create',  $exam->id)}}">
+                                        {{$exam->assigned_participants_count}}
+                                    </a>
+                                </td>
+                                <td align="center">
+                                    <a class="btn btn-info" href="{{route('exam-questions.index',  $exam->id)}}">
+                                        {{$exam->questions_count}}
+                                    </a>
+                                </td>
                                 <td>{{$exam->in_homepage ? 'Yes' : 'No'}}</td>
 
                                 <td width="1" align="center">

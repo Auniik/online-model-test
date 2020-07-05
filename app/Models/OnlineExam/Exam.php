@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     protected $fillable = [
-        'name', 'description', 'subject_id', 'class_id', 'image', 'start_at', 'duration', 'in_homepage', 'status'
+        'name', 'description', 'competency_score', 'subject_id', 'class_id', 'image', 'start_at', 'duration', 'in_homepage',
+        'status'
     ];
     protected $dates = [
         'start_at'
@@ -33,5 +34,10 @@ class Exam extends Model
     public function questions()
     {
         return $this->hasMany(ExamQuestion::class);
+    }
+
+    public function assignedParticipants()
+    {
+        return $this->hasMany(ParticipantAssessment::class, 'exam_id');
     }
 }

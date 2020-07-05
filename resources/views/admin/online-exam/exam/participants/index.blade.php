@@ -1,0 +1,74 @@
+@extends('admin.master')
+@section('body')
+    <div class="row m-t-15">
+        <div class="col-12">
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            <div class="card">
+                <div class="card-header">
+                    <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
+                    <h4 class="header-title col-2"><span id="header-title">Participants</span></h4>
+                </div>
+                <div class="card-body">
+                    <div class="question-block">
+                        <div class="table-responsive-sm">
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th width="1">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach($exam->assignedParticipants as $assignedParticipant)
+                                    <tr>
+                                        <td>{{$assignedParticipant->participant->name}}</td>
+                                        <td>
+                                            <a class="deletable"
+                                               title="Delete"
+                                               href="{{route('exam-participants.destroy',  $assignedParticipant->id)}}">
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @include('admin.online-exam.exam.participants.associate', ['participants' => $participants, 'exam'=> $exam])
+
+
+    </div>
+@endsection
+
+@push('script')
+    <script>
+
+
+        $(document).ready(function () {
+            $('#add-new').click(function () {
+                $('#ParticipantAssignModal').modal('show')
+            })
+            $(".select2-tags").select2({
+                tags: true,
+                tokenSeparators: [',']
+            })
+        })
+
+
+    </script>
+
+@endpush

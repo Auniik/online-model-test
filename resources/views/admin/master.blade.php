@@ -36,6 +36,7 @@
     <script src="{{asset('/')}}admin/ckeditor/ckeditor.js"></script>
     <script src="{{asset('/')}}admin/ckeditor/samples/js/sample.js"></script>
     <link href="{{asset('/')}}admin/assets/swal/sweetalert2.min.css" rel="stylesheet">
+    <link href="{{asset('/')}}admin/assets/plugins/select2/select2.min.css" rel="stylesheet">
 
 
     <!--End Editor-->
@@ -66,7 +67,9 @@
     <!-- End Right content here -->
 </div>
 <!-- END wrapper -->
-
+<script>
+    var $t = JSON.parse("{{json_encode(trans('default'))}}".replace(/&quot;/g, '"'));
+</script>
 <!-- jQuery  -->
 <script src="{{asset('/')}}admin/assets/js/jquery.min.js"></script>
 <script src="{{asset('/')}}admin/assets/js/popper.min.js"></script>
@@ -103,14 +106,17 @@
 <script src="{{asset('/')}}admin/assets/plugins/raphael/raphael-min.js"></script>
 <script src="{{asset('/')}}admin/assets/plugins/morris/morris.min.js"></script>
 <script src="{{asset('/')}}admin/assets/pages/dashborad.js"></script>
+<script src="{{asset('/')}}admin/assets/plugins/select2/select2.min.js"></script>
 
 <script>
+
     initSample();
 </script>
 
 
 <script>
     $(document).ready(function() {
+        $('.select2').select2();
         $('#datatable2').DataTable();
     });
 </script>

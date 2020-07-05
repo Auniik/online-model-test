@@ -18,7 +18,11 @@ class ExamController extends Controller
     public function index()
     {
         return view('admin.online-exam.exam.index', [
-            'exams' => Exam::query()->latest()->get()
+            'exams' => Exam::query()
+                ->withCount('assignedParticipants', 'questions')
+                ->with('subject')
+                ->latest()
+                ->get()
         ]);
     }
 

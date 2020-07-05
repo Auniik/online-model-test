@@ -99,7 +99,6 @@
 @push('script')
     <script>
 
-
         $(document).ready(function () {
             $('#add-new').click(function () {
                 const type = $('.type').val();
@@ -118,28 +117,15 @@
             })
         })
 
-        $(document).on('hidden.bs.modal', '#CQQuestionModal', function (e) {
-            location.reload()
-        })
+        // $(document).on('hidden.bs.modal', '#CQQuestionModal', function (e) {
+        //     location.reload()
+        // })
 
         function makeCQQuestion() {
             $('#CQQuestionModal').modal('show')
-            let rowCount = 1;
-            addCQQuestionMeta(rowCount);
 
-            $(document).on('click', '.add-cq-meta', function () {
-                if(rowCount < 4) {
-                    rowCount++;
-                    addCQQuestionMeta(rowCount)
-                }
-            })
-            $(document).on('click', '.remove-cq-meta', function () {
-                if(rowCount <= 1) {
-                    return alert('You need to add at least one question.')
-                }
-                rowCount--;
-                $(this).parents('.question-meta').remove()
-            })
+            for (let i = 1; i<=4; i++ )
+                addCQQuestionMeta(i);
         }
         function makeMCQQuestion() {
             $('#MCQQuestionModal').modal('show')
@@ -149,20 +135,18 @@
             $('#WrittenModal').modal('show')
         }
 
-
-
         function addCQQuestionMeta(questionCount) {
+            const level = $t[`level_${questionCount}`]
             $('.cq-question-details').append(`
                 <div class="row question-meta text-right my-3 ">
                     <div class="col-1 text-center">
                         <h4>${questionCount}</h4>
                     </div>
                     <div class="col-2">
-                        <select name="level[]" class="form-control" required>
-                            @foreach(config('exam.levels') as $level)
-                                <option value="{{$level}}">{{__('default')[$level]}}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" value="${level}"
+                        readonly/>
+                        <input type="hidden" class="form-control" name="Level" value="level_${questionCount}"
+                        readonly/>
                     </div>
                     <div class="col-6">
                         <textarea class="form-control" style="height:35px" required placeholder="Question Title"
@@ -171,10 +155,6 @@
                     <div class="col-2">
                         <input type="type" class="form-control" placeholder="Remarks" value="${questionCount}" required
                         name="max_remarks[]">
-                    </div>
-                    <div class="col-1 text-center">
-                        <button type="button" class="btn btn-primary add-cq-meta">+</button>
-                        <button type="button" class="btn btn-danger remove-cq-meta">-</button>
                     </div>
                 </div>
             `)
