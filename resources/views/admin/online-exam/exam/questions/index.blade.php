@@ -16,8 +16,14 @@
                 <div class="card">
                     <div class="card-header">
                         <div class=" row">
-                            <h4 class="header-title col-2"><span id="header-title">Set Questions</span></h4>
-                            <select name="type" class="form-control offset-7 col-2 type">
+                            <h4 class="header-title col-7"><span id="header-title">Set Questions for
+                                    {{$exam->name}}</span>
+                                <small>(Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
+                                    {{$exam->competency_score}})</small>
+                            </h4>
+
+
+                            <select name="type" class="form-control offset-2 col-2 type">
                                 @foreach(config('exam.question_types') as $type)
                                     <option value="{{$type}}">{{__('default')[$type]}}</option>
                                 @endforeach
@@ -54,8 +60,8 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a title="View"
-                                                           class="dropdown-item"
-                                                           href="{{route('exam-questions.index',  $question->id)}}">
+                                                           data-question="{{$question}}"
+                                                           class="dropdown-item view-question">
                                                             <i class="fa fa-eye" aria-hidden="true"></i> View Question
                                                         </a>
                                                         <a class="dropdown-item deletable"
@@ -91,12 +97,29 @@
         @include('admin.online-exam.exam.questions.written', ['exam' => $exam])
         @include('admin.online-exam.exam.questions.cq-modal', ['exam' => $exam])
         @include('admin.online-exam.exam.questions.mcq-modal', ['exam' => $exam])
+        @include('admin.online-exam.exam.participants.answer')
 
 
     </div>
 @endsection
 
 @push('script')
+    <script>
+        $(document).ready(function () {
+            $('.view-question').click(function () {
+                const question = $(this).data('question');
+                $.ajax({
+                    url: `/exam-questions/${question.id}`,
+                    type:'GET',
+                    dataType:'HTML',
+                }).done(function (data) {
+                    $('.answer-block').html(data)
+                });
+
+                $('#AnswerModal').modal('show')
+            })
+        })
+    </script>
     <script>
 
         $(document).ready(function () {

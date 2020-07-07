@@ -73,4 +73,27 @@ class ExamQuestionService
         }
         return back_with_success('question');
     }
+
+    public function renderWritten(ExamQuestion $question)
+    {
+        return view('admin.online-exam.exam.questions.show.written', [
+            'question' => $question
+        ]);
+    }
+
+    public function renderCQ(ExamQuestion $question)
+    {
+        return view('admin.online-exam.exam.questions.show.cq-modal', [
+            'question' => $question,
+            'cqs' => $question->CQs
+        ]);
+    }
+
+    public function renderMCQ(ExamQuestion $question)
+    {
+        return view('admin.online-exam.exam.questions.show.mcq-modal', [
+            'question' => $question,
+            'options' => $question->MCQs
+        ]);
+    }
 }

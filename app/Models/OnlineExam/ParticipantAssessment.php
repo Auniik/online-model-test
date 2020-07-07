@@ -18,4 +18,15 @@ class ParticipantAssessment extends Model
     {
         return $this->belongsTo(Exam::class);
     }
+    public function answers()
+    {
+        return $this->hasMany(ParticipantAssessmentAnswer::class)
+            ->with('attachments');
+    }
+
+    public function getAnswer($question)
+    {
+        return $this->answers->firstWhere('exam_question_id', $question->id);
+    }
+
 }

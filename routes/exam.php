@@ -14,6 +14,8 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
         ->name('exam-questions.destroy');
     Route::get('exam-questions/{question}', 'OnlineExam\ExamQuestionController@show')
         ->name('exam-questions.show');
+    Route::patch('exam-questions/{question}', 'OnlineExam\ExamQuestionController@update')
+        ->name('exam-questions.update');
 
     Route::get('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@create')
         ->name('exam-participants.create');
@@ -21,6 +23,14 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
         ->name('exam-participants.store');
     Route::DELETE('exams-participants/{id}', 'OnlineExam\ParticipantAssessmentController@destroy')
         ->name('exam-participants.destroy');
+    Route::get('assessments/{assessment}/examine', 'OnlineExam\ParticipantExamineController@index')
+        ->name('assessments-examine.index');
+    Route::post('assessments/{assessment}/answers/{answer}', 'OnlineExam\ParticipantExamineController@store')
+        ->name('assessments-examine.store');
+
+    Route::get('assessments-answers/{answer}', 'OnlineExam\AssessmentAnswerController@show')
+        ->name('assessments-answers.show');
+
 
     Route::get('participants', 'OnlineExam\ParticipantController@index')
         ->name('participants.index');

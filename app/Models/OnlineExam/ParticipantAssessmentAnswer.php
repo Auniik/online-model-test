@@ -16,6 +16,10 @@ class ParticipantAssessmentAnswer extends Model
     }
     public function question()
     {
-        return $this->belongsTo(ExamQuestion::class);
+        return $this->belongsTo(ExamQuestion::class, 'exam_question_id');
+    }
+    public function attachments()
+    {
+        return $this->hasMany(ParticipantAssessmentAttachment::class);
     }
 }

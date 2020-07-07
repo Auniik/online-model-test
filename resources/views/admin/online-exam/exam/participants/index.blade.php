@@ -13,7 +13,9 @@
             <div class="card">
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
-                    <h4 class="header-title col-2"><span id="header-title">Participants</span></h4>
+                    <h4 class="header-title"><span id="header-title">Participants of {{$exam->name}}</span></h4>
+                    <p class="mb-0">Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
+                        {{$exam->competency_score}}</p>
                 </div>
                 <div class="card-body">
                     <div class="question-block">
@@ -22,7 +24,7 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th width="1">Action</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -31,6 +33,10 @@
                                     <tr>
                                         <td>{{$assignedParticipant->participant->name}}</td>
                                         <td>
+                                            <a title="Examine"
+                                               href="{{route('assessments-examine.index',  $assignedParticipant->id)}}">
+                                                <i class="fa fa fa-eye" aria-hidden="true"></i>
+                                            </a>
                                             <a class="deletable"
                                                title="Delete"
                                                href="{{route('exam-participants.destroy',  $assignedParticipant->id)}}">

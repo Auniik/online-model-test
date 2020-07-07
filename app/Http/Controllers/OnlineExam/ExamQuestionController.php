@@ -27,21 +27,20 @@ class ExamQuestionController extends Controller
 
     public function store(Exam $exam)
     {
-        switch (request('type')) {
-            case 'written': {
-                return $this->service->saveWritten($exam);
-                break;
-            }
-            case 'cq': {
-                return $this->service->saveCQ($exam);
-                break;
-            }
-            case 'mcq': {
-                return $this->service->saveMCQ($exam);
-                break;
-            }
-        }
-        return;
+        return [
+            'written' => $this->service->saveWritten($exam),
+            'cq' => $this->service->saveCQ($exam),
+            'mcq' => $this->service->saveMCQ($exam),
+        ][request('type')];
+    }
+
+    public function show(ExamQuestion $question)
+    {
+        return [
+            'written' => $this->service->renderWritten($question),
+            'cq' => $this->service->renderCQ($question),
+            'mcq' => $this->service->renderMCQ($question),
+        ][$question->type];
     }
 
 

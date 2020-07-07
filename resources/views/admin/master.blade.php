@@ -16,7 +16,7 @@
 
     <!-- jvectormap -->
     <link href="{{asset('/')}}admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
-    <link href="{{asset('/')}}admin/assets/plugins/fullcalendar/vanillaCalendar.css" rel="stylesheet" type="text/css">
+{{--    <link href="{{asset('/')}}admin/assets/plugins/fullcalendar/vanillaCalendar.css" rel="stylesheet" type="text/css">--}}
     <link href="{{asset('/')}}admin/assets/plugins/morris/morris.css" rel="stylesheet">
 
     <link href="{{asset('/')}}admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -102,30 +102,31 @@
 <script src="{{asset('/')}}admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
 <script src="{{asset('/')}}admin/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="{{asset('/')}}admin/assets/plugins/skycons/skycons.min.js"></script>
-<script src="{{asset('/')}}admin/assets/plugins/fullcalendar/vanillaCalendar.js"></script>
-<script src="{{asset('/')}}admin/assets/plugins/raphael/raphael-min.js"></script>
-<script src="{{asset('/')}}admin/assets/plugins/morris/morris.min.js"></script>
-<script src="{{asset('/')}}admin/assets/pages/dashborad.js"></script>
+{{--<script src="{{asset('/')}}admin/assets/plugins/fullcalendar/vanillaCalendar.js"></script>--}}
+{{--<script src="{{asset('/')}}admin/assets/plugins/raphael/raphael-min.js"></script>--}}
+{{--<script src="{{asset('/')}}admin/assets/plugins/morris/morris.min.js"></script>--}}
+{{--<script src="{{asset('/')}}admin/assets/pages/dashborad.js"></script>--}}
 <script src="{{asset('/')}}admin/assets/plugins/select2/select2.min.js"></script>
 
 <script>
 
-    initSample();
+
 </script>
 
 
 <script>
     $(document).ready(function() {
+        initSample();
         $('.select2').select2();
         $('#datatable2').DataTable();
     });
 </script>
 
 <!--Date-->
-<script src="{{asset('/')}}admin/js/bootstrap.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.bundle.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script src="{{asset('/')}}admin/js/wickedpicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/wickedpicker@0.4.3/dist/wickedpicker.min.js"></script>
 <script>
     $('#dateTimeMy').daterangepicker({
         singleDatePicker: true,

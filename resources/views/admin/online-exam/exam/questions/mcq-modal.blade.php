@@ -27,7 +27,7 @@
                             <textarea
                                 name="description"
                                 placeholder="Description"
-                                class="form-contro col-9"></textarea>
+                                class="form-control col-9"></textarea>
                         </div>
                         <div class="form-group row">
                             <label class="col-2">File</label>
