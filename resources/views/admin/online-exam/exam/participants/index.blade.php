@@ -24,7 +24,8 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Score</th>
+                                    <th width="10%">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,6 +33,9 @@
                                 @foreach($exam->assignedParticipants as $assignedParticipant)
                                     <tr>
                                         <td>{{$assignedParticipant->participant->name}}</td>
+                                        <td>
+                                            {{$assignedParticipant->score}}
+                                        </td>
                                         <td>
                                             <a title="Examine"
                                                href="{{route('assessments-examine.index',  $assignedParticipant->id)}}">

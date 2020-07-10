@@ -17,6 +17,8 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::patch('exam-questions/{question}', 'OnlineExam\ExamQuestionController@update')
         ->name('exam-questions.update');
 
+    Route::get('assessments', 'OnlineExam\ParticipantAssessmentController@index')
+        ->name('assessments.index');
     Route::get('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@create')
         ->name('exam-participants.create');
     Route::post('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@store')

@@ -16,7 +16,7 @@ class ParticipantAssessment extends Model
     }
     public function exam()
     {
-        return $this->belongsTo(Exam::class);
+        return $this->belongsTo(Exam::class)->withCount('questions');
     }
     public function answers()
     {

@@ -43,6 +43,15 @@ class ExamQuestionController extends Controller
         ][$question->type];
     }
 
+    public function update(ExamQuestion $question)
+    {
+        return [
+            'written' => $this->service->updateWritten($question),
+            'cq' => $this->service->updateCQ($question),
+            'mcq' => $this->service->updateMCQ($question),
+        ][$question->type];
+    }
+
 
     public function destroy(ExamQuestion $question)
     {

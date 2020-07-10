@@ -6,13 +6,13 @@
                 @csrf
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-primary float-right" href="{{route('exams.index')}}">All Exams</a>
-                        <h4 class="header-title"><span id="header-title">Add New</span> Exam</h4>
+                        <a class="btn btn-primary float-right" href="{{route('exams.index')}}">{{__('default.all_exams')}}</a>
+                        <h4 class="header-title"><span id="header-title">{{__('default.add_new_exam')}}</h4>
                     </div>
                     <div class="card-body">
                         @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>Success!</strong> {{session('success')}}
+                                <strong>{{__('default.success')}}!</strong> {{session('success')}}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -20,13 +20,14 @@
                         @endif
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Exam Name *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.exam_name')}}
+                                *</label>
                             <div class="col-sm-10">
                                 <input
                                     class="form-control"
                                     type="text"
                                     value="{{old('name')}}"
-                                    placeholder="Exam name"
+                                    placeholder="{{__('default.exam_name')}}"
                                     name="name"
                                     autocomplete="off"
                                 >
@@ -35,28 +36,32 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Class *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.class')}}
+                                *</label>
                             <div class="col-sm-4">
                                 <select class="form-control class" name="class_id">
-                                    <option value="">Select One</option>
+                                    <option value="">{{__('default.choose_one')}}</option>
                                     @foreach(config('exam.classes') as $key => $name)
-                                        <option value="{{$key}}">{{trans('default')[$name]}}</option>
+                                        <option value="{{$key}}">{{__('default')[$name]}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Subject</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">
+                                {{__('default.subject')}}</label>
                             <div class="col-sm-4">
                                 <select class="form-control subject" name="subject_id" id="">
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Start at</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.start_at')
+                            }}</label>
                             <div class="col-sm-4">
                                 <input type="text" id="dateTimeMy" value="{{old('start_at')}}" name="start_at"
                                        class="form-control">
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Duration</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">
+                                {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30:00" value="{{old('duration')}}" name="duration"
                                        class="form-control">
@@ -64,14 +69,16 @@
 
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Cover Image</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.cover_image')
+                            }}</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" placeholder="Image" name="image"
                                        accept="image/*">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.description')
+                            }}</label>
                             <div class="col-sm-10">
                                 <textarea name="description"  id="editor" class="form-control">{{old('description')
                                 }}</textarea>
@@ -82,7 +89,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-4">
                                 <input type="checkbox" id="in_homepage" value="1" name="in_homepage">
-                                <label for="in_homepage">Show in homepage</label>
+                                <label for="in_homepage">{{__('default.show_in_homepage')}}</label>
                             </div>
                             <label for="example-text-input" class="col-sm-2 col-form-label text-right">Status</label>
                             <div class="col-sm-4">

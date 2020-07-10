@@ -11,12 +11,34 @@ use Illuminate\Support\Str;
 
 class ParticipantAssessmentController extends Controller
 {
+    public function index(Request $request)
+    {
+        $assessments = ParticipantAssessment::with('participant', 'exam')
+            ->withCount('answers');
+
+        if ($request->filled('exam_id')) {
+            $assessments->where('exam_id', $request->exam_id);
+        }
+        if ($request->filled('participant_id')) {
+            $assessments->where('participant_id', $request->participant_id);
+        }
+
+        return view('admin.online-exam.exam.assessment.index', [
+            'assessments' => $assessments->paginate(50),
+            'exams' => Exam::query()->latest()->pluck('name', 'id'),
+            'participants' => Participant::query()->latest()->pluck('name', 'id'),
+        ]);
+    }
+
+
     public function create(Exam $exam)
     {
         $assigned = $exam->assignedParticipants->pluck('participant_id');
         return view('admin.online-exam.exam.participants.index', [
-            'exam' => $exam->load('assignedParticipants'),
-            'participants' => Participant::query()->whereNotIn('id', $assigned)->pluck('name', 'id')
+            'exam' => $exam->load('assignedParticipants')->loadCount('questions'),
+            'participants' => Participant::query()
+                ->whereNotIn('id', $assigned)
+                ->pluck('name', 'id')
         ]);
     }
 

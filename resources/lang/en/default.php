@@ -6,6 +6,8 @@ return [
     'updated_response' => ':name হালনাগাদ করা হয়েছে!',
     'deleted_response' => ':name মুছে ফেলা হয়েছে!',
 
+    'success' => 'সফল' ,
+
 
     //classes
     'all_classes' => 'সবার জন্য',
@@ -29,5 +31,25 @@ return [
     //lables,
     'cq' => 'সৃজনশীল',
     'mcq' => 'বহুনির্বাচনী',
-    'written' => 'বর্ণনামূলক'
+    'written' => 'বর্ণনামূলক',
+
+    'add_new_exam' => 'নতুন পরীক্ষা তৈরী করুন',
+    'exam_name' => 'পরীক্ষার নাম',
+    'class' => 'শ্রেণী',
+    'start_at' => 'শুরুর সময়',
+    'cover_image' => 'ব্যানার ছবি',
+    'description' =>  ' িবরণ',
+    'choose_one' => 'যেকোন একটি বাছাই করুন',
+    'show_in_homepage' => 'হোমে দেখান',
+    'all_exams' => 'সকল পরীক্ষাসমূহ',
+    'manage_exams' => '',
+    'add_new' => 'নতুন তৈরী করুন',
+    'name' => 'নাম',
+    'subject' => 'বিষয়',
+    'date' => 'তারিখ',
+    'duration' => 'সময়কাল',
+    'pass_mark' => 'উত্তীর্ণ (সর্বনিন্ম) ',
+    'participants' => '',
+    'questions' => 'প্রশ্নসমূহ',
+    'shown' => 'দেখান',
 ];

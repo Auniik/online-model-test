@@ -37,7 +37,14 @@
     <script src="{{asset('/')}}admin/ckeditor/samples/js/sample.js"></script>
     <link href="{{asset('/')}}admin/assets/swal/sweetalert2.min.css" rel="stylesheet">
     <link href="{{asset('/')}}admin/assets/plugins/select2/select2.min.css" rel="stylesheet">
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
 
+
+    <style>
+        body {
+            font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        }
+    </style>
 
     <!--End Editor-->
 
@@ -54,6 +61,7 @@
     <div class="content-page">
         <!-- Start content -->
         <div class="content">
+
             <!-- Top Bar Start -->
            @include('admin.include.header')
             <!-- Top Bar End -->
@@ -69,6 +77,7 @@
 <!-- END wrapper -->
 <script>
     var $t = JSON.parse("{{json_encode(trans('default'))}}".replace(/&quot;/g, '"'));
+    var $_loading = false;
 </script>
 <!-- jQuery  -->
 <script src="{{asset('/')}}admin/assets/js/jquery.min.js"></script>
@@ -116,6 +125,7 @@
 
 <script>
     $(document).ready(function() {
+
         initSample();
         $('.select2').select2();
         $('#datatable2').DataTable();

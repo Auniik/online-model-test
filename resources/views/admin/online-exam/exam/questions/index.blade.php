@@ -41,7 +41,7 @@
                                         <th width="20">Type</th>
                                         <th>Title</th>
                                         <th  width="20">Remarks</th>
-                                        <th width="1">Action</th>
+                                        <th width="8%">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -54,23 +54,16 @@
                                                 {{$question->remark}}
                                             </td>
                                             <td>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"
-                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a title="View"
-                                                           data-question="{{$question}}"
-                                                           class="dropdown-item view-question">
-                                                            <i class="fa fa-eye" aria-hidden="true"></i> View Question
-                                                        </a>
-                                                        <a class="dropdown-item deletable"
-                                                           title="Delete"
-                                                           href="{{route('exam-questions.destroy',  $question->id)}}">
-                                                            <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                <a title="View"
+                                                   data-question="{{$question}}"
+                                                   class="view-question">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="deletable"
+                                                   title="Delete"
+                                                   href="{{route('exam-questions.destroy',  $question->id)}}">
+                                                    <i class="fa fa fa-trash" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -94,10 +87,20 @@
             </form>
         </div>
 
+        <div class="modal fade" id="QuestionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="questions-block"> </div>
+                </div>
+            </div>
+        </div>
+
+
+
         @include('admin.online-exam.exam.questions.written', ['exam' => $exam])
         @include('admin.online-exam.exam.questions.cq-modal', ['exam' => $exam])
         @include('admin.online-exam.exam.questions.mcq-modal', ['exam' => $exam])
-        @include('admin.online-exam.exam.participants.answer')
 
 
     </div>
@@ -113,10 +116,11 @@
                     type:'GET',
                     dataType:'HTML',
                 }).done(function (data) {
-                    $('.answer-block').html(data)
+                    $('.questions-block').html(data)
+                    $('#QuestionModal').modal('show')
                 });
 
-                $('#AnswerModal').modal('show')
+
             })
         })
     </script>

@@ -12,7 +12,6 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
                     <h4 class="header-title"><span id="header-title">Examine {{$assessment->participant->name}} of
                             {{$assessment->exam->name}}</span></h4>
                     <p class="mb-0">Subject: {{$assessment->exam->subject->name}}, Class: {{$assessment->exam->class}},
@@ -72,18 +71,23 @@
 
     <script>
 
+
         $(document).ready(function () {
             $('.show-answer').click(function () {
+                $_loading = true
+                $('.answer-block').html('')
                 const answer = $(this).data('answer')
                 $.ajax({
                     url: `/assessments-answers/${answer.id}`,
                     type:'GET',
                     dataType:'HTML',
                 }).done(function (data) {
+                    $_loading = false
                     $('.answer-block').html(data)
+                    $('#AnswerModal').modal('show')
                 });
 
-                $('#AnswerModal').modal('show')
+
             })
         })
 

@@ -6,6 +6,7 @@ namespace App\Services\OnlineExam;
 
 use App\Models\OnlineExam\Exam;
 use App\Models\OnlineExam\ExamQuestion;
+use Illuminate\Support\Facades\Storage;
 
 class ExamQuestionService
 {
@@ -17,7 +18,6 @@ class ExamQuestionService
 
     public function __construct(Exam $exam)
     {
-
         $this->exam = $exam;
     }
 
@@ -95,5 +95,49 @@ class ExamQuestionService
             'question' => $question,
             'options' => $question->MCQs
         ]);
+    }
+
+    public function updateWritten(ExamQuestion $question)
+    {
+//        dd(request()->all());
+        $this->question = $question;
+        $this->updateQuestion(['title', 'description', 'remarks', 'type']);
+        return updated_response('question');
+    }
+
+    public function updateQuestion($keys)
+    {
+        $attributes = request()->only(...$keys);
+        if (request()->hasFile('file')) {
+            Storage::delete($this->question->file);
+            $attributes['file'] = request()->file->store('uploads/exams/questions');
+        }
+        $this->question->update($attributes);
+    }
+
+    public function updateCQ(ExamQuestion $question)
+    {
+        $this->question = $question;
+        $this->updateQuestion(['title', 'description', 'type']);
+        foreach ($question->CQs as $key => $cq) {
+            $cq->update([
+                'title' => request('name')[$key],
+                'max_remarks' => request('max_remarks')[$key],
+            ]);
+        }
+        return updated_response('question');
+    }
+
+    public function updateMCQ(ExamQuestion $question)
+    {
+        $this->question = $question;
+        $this->updateQuestion(['title', 'description', 'type', 'level', 'solution']);
+        foreach ($question->MCQs as $key => $MCQ) {
+            $MCQ->update([
+                'value' => request('value')[$key],
+                'is_correct' => request('is_correct') == $key,
+            ]);
+        }
+        return updated_response('question');
     }
 }

@@ -19,14 +19,16 @@
                         <li><a href="{{route('admin.results')}}">Results</a></li>
                     </ul>
                 </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Model test
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span><b>Model
+                                TEST</b>
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('exams.create')}}">Create Exam</a></li>
                         <li><a href="{{route('exams.index')}}">All Exams</a></li>
                         <li><a href="{{route('participants.index')}}">Participants</a></li>
+                        <li><a href="{{route('assessments.index')}}">Assessments</a></li>
                         <li><a href="{{route('admin.results')}}">Results</a></li>
-                        <li><a href="{{route('subjects.index')}}">Manage Subjects</a></li>
+                        <li><a href="{{route('subjects.index')}}">Subjects</a></li>
                     </ul>
                 </li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Work </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>

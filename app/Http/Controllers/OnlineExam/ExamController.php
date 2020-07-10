@@ -9,20 +9,31 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ExamController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $exams = Exam::query()
+            ->withCount('assignedParticipants', 'questions')
+            ->with('subject')
+            ->latest();
+
+        if ($request->filled('exam_id')){
+            $exams->where('id', $request->exam_id);
+        }
+
+        if ($request->filled('subject_id')){
+            $exams->where('subject_id', $request->subject_id);
+        }
+
+
         return view('admin.online-exam.exam.index', [
-            'exams' => Exam::query()
-                ->withCount('assignedParticipants', 'questions')
-                ->with('subject')
-                ->latest()
-                ->get()
+            'exams' => $exams->paginate(25),
+            'selectableExams' => Exam::query()->latest()->pluck('name','id'),
+            'subjects' => Subject::query()->pluck('name', 'id'),
         ]);
     }
 
@@ -63,7 +74,7 @@ class ExamController extends Controller
 
     public function show(Exam $exam)
     {
-        return view('admin.online-exam.exam.show', [
+        return view('admin.online-exam.exam.show-modal', [
             'exam' => $exam
         ]);
     }

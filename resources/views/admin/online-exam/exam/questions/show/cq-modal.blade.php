@@ -48,7 +48,7 @@
                             <div class="col-2">
                                 <input type="hidden" class="form-control" value="{{$cq->level}}"
                                        readonly/>
-                                <input type="text" class="form-control" name="level"
+                                <input type="text" class="form-control"
                                        value="{{trans('default')[$cq->level]}}"
                                        readonly/>
                             </div>
