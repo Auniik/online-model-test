@@ -22,6 +22,8 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
                                     <th>Mobile</th>
                                     <th>School</th>
                                     <th>District</th>
@@ -35,6 +37,8 @@
                                 @foreach($participants as $participant)
                                     <tr>
                                         <td>{{$participant->name}}</td>
+                                        <td>{{$participant->username}}</td>
+                                        <td>{{$participant->email}}</td>
                                         <td>{{$participant->mobile_number}}</td>
                                         <td>{{$participant->school_name}}</td>
                                         <td>{{$participant->district}}</td>

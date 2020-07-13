@@ -1,5 +1,5 @@
-@extends('front.master')
-@section('body')
+@extends('front..layout.master')
+@section('content')
     <section class="main-slider">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -16,7 +16,7 @@
                 <div class="col-lg-12">
                     <div class="quiz_time">Time left = <span id="timer">{{session('quiz_time')}}</span></div>
                     @include('front.partials.notifications')
-                    <form class="p-4 shadow bg-white" id="newQuestion">
+                    <form class="p-4 shadow bg-white text-center" id="newQuestion">
                         <a href="javascript:" id="startMyQuiz" class="btn btn-lg btn-outline-success">Start My Quiz</a>
                     </form>
                 </div>
@@ -25,9 +25,10 @@
     </section>
 @endsection
 
-@section('script')
+@push('script')
     <script>
         const quizTime = "{{session('quiz_time')}}";
+        const playerType = "{{session('player_type')}}";
         function nextQuestion () {
             $.get('/quiz/new-quiz-question', function (response) {
                 if (response === 'COMPLETE') {
@@ -59,7 +60,10 @@
             $.post('/quiz/submit-answer', data, function (r) {
                 if (r === 'SUCCESS') {
                     nextQuestion();
-                    document.getElementById('timer').innerHTML = quizTime
+                    if(playerType !== 'general') {
+                        document.getElementById('timer').innerHTML = quizTime
+                    }
+
                 }
             })
         });
@@ -92,4 +96,4 @@
     </script>
 
 
-@endsection
+@endpush

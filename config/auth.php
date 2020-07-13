@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\OnlineExam\Participant;
+
 return [
 
     /*
@@ -41,6 +43,11 @@ return [
             'provider' => 'users',
         ],
 
+        'participant' => [
+            'driver' => 'session',
+            'provider' => 'participants',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +76,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'participants' => [
+            'driver' => 'eloquent',
+            'model' => Participant::class
         ],
 
         // 'users' => [

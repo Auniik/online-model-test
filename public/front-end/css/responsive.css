@@ -1,0 +1,1530 @@
+@media (min-width: 280px) and (max-width: 319px) {}
+
+/*
+    ------------------
+    Template Name: tekasaibd
+    Author: Md Hafizul Islam (hafiz)
+    Author Email: hafizul6280@gmail.com
+    ----------------
+*/
+
+
+@media (min-width: 320px) and (max-width: 575px) {
+
+    /*
+    .logo-img img {
+        width: 40px;
+    }
+
+    .logo-img {
+        margin-right: 0px;
+    }
+
+    .mujib-logo-img {
+        margin-right: 7rem;
+        margin-left: -340px;
+    }
+
+    .mujib-logo-img img {
+        width: 60px;
+        margin-top: -346px;
+    }
+*/
+
+    .logo-img {
+        margin-right: 16px;
+    }
+
+    .logo-img img {
+        width: 40px;
+    }
+
+    .mujib-logo-img {
+        margin-left: 0px;
+    }
+
+    .mujib-logo-img img {
+        width: 60px;
+    }
+
+    #navbar .navbar-toggler .navbar-toggler-icon i {
+        font-size: 25px;
+    }
+
+    #navbar button:focus {
+        outline: 0px dotted;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .form-inline .form-control {
+        width: 100%;
+        padding: 20px 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .navbar ul li {
+        padding-left: 10px;
+        padding-right: 0px;
+        margin-bottom: 8px;
+        height: 46px;
+        line-height: 31px;
+    }
+
+    label {
+        padding-top: 15px;
+    }
+
+    .top-bar {
+        top: 55px;
+    }
+
+    .top-bar .update-part .update p {
+        font-size: 14px;
+        padding: 2px 5px;
+    }
+
+    .top-bar .update-part .up-content p {
+        font-size: 14px;
+        padding: 2px 5px;
+    }
+
+    .banner-text-1 p {
+        font-size: 16px;
+        padding: 0 0 20px 0;
+    }
+
+    .banner-text-1 h2 {
+        font-size: 40px;
+        margin-bottom: 25px;
+    }
+
+    .banner-text-1 h2::after {
+        top: 140%;
+    }
+
+    .banner-text-1 .p-2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .banner-text-1 {
+        padding: 150px 0px 55px 0px;
+    }
+
+    #banner .banner-1 .banner-text-1 .btn {
+        font-size: 14px;
+    }
+
+    #banner .banner-2 .banner-text-1 .btn {
+        font-size: 14px;
+    }
+
+    #banner .banner-3 .banner-text-1 .btn {
+        font-size: 14px;
+    }
+
+    .text_center h1 {
+        font-size: 18px;
+        margin: 0px 0px 25px 0px;
+    }
+
+    #online-exam {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #online-exam .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #online-exam .text_center h1 {
+        margin: 20px 0px 8px 0px;
+    }
+
+    #online-exam .text_center h1::after {
+        height: 1px;
+    }
+
+    .book-img .img-overlay .text-part .share-btn {
+        padding: 5px 15px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    .book-img .img-overlay h5 {
+        font-size: 18px;
+    }
+
+    .book-img .img-overlay p {
+        font-size: 18px;
+    }
+
+    .pagination {
+        margin-top: 0rem !important;
+    }
+
+    .secound_section .nav span {
+        font-size: 15px;
+        padding: 0px;
+    }
+
+    .secound_section .tab-content .form-inline {
+        margin: 5px 10px;
+    }
+
+    .secound_section .tab-content .form-inline label {
+        font-size: 14px;
+    }
+
+    .secound_section .tab-content .form-control {
+        width: 100%;
+        margin: 10px;
+        padding: 20px 3px;
+    }
+
+    .secound_section .tab-content .share-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-left: 10px;
+        border-radius: 3px;
+    }
+
+    .secound_section .tab-content .quej-btn {
+        margin-left: 10px;
+        font-size: 14px;
+        padding: 5px 12px;
+        border-radius: 3px;
+    }
+
+    .secound_section {
+        height: 280px;
+    }
+
+    #preferred-category .overlay {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #preferred-category .padding_none {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    #preferred-category .online-left {
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+    #creativity-part {
+        padding: 30px 0px 30px 0px;
+    }
+
+    .text_center h1::before {
+        display: none;
+    }
+
+    .text_center h1::after {
+        height: 1px;
+    }
+
+    #creativity-part .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #creativity-part .book-img {
+        margin-bottom: 20px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        padding: 120px 10px;
+    }
+
+    #our-message {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #our-message .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #communication-part {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #communication-part .online-left {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .contact-form {
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    #communication-part .title-heading .text-muted {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        font-size: 14px;
+        padding: 10px 8px !important;
+    }
+
+    #communication-part .title-heading .social-icon {
+        margin-top: 25px;
+        padding-left: 0px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        margin-right: 5px;
+    }
+
+    .woww {
+        font-size: 5px;
+        padding: 5px 0px;
+    }
+
+    #about_bg {
+        margin-top: 82px;
+    }
+
+    #about_bg .text_center h1 {
+        font-size: 18px;
+        padding: 15px 0px;
+    }
+
+    #about_bg .text_center h1::after {
+        display: none;
+        margin-left: 55px;
+    }
+
+    #about_part .about_content p {
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    #about_part .about_content {
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    #team_member .overlay {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #team_member .left_side .imag_side {
+        margin-bottom: 20px;
+    }
+
+    #bongobondhu_bg {
+        margin-top: 81px;
+    }
+
+    .bongobondhu h5 {
+        text-align: center;
+    }
+
+    .bongobondhu p {
+        font-size: 16px;
+    }
+
+    .scroll_btn {
+        width: 30px;
+        height: 30px;
+        bottom: 40px;
+        right: 10px;
+        line-height: 30px;
+    }
+
+    #our-message .blog-1 {
+        margin-bottom: 20px;
+    }
+
+    #our-message .online-left-last {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .caption-container p {
+        margin-bottom: 0px;
+    }
+
+    .modal {
+        background: none;
+    }
+
+    .close {
+        background: black;
+        top: 0px;
+        padding: 6px;
+    }
+
+    .prev,
+    .next {
+        font-size: 30px;
+    }
+
+    #our_gallery {
+        padding: 30px 0px 3px 0px;
+    }
+
+    .caption-container {
+        padding: 0px;
+    }
+
+    #our-message .blog-1 {
+        height: 550x;
+    }
+
+}
+
+
+
+@media (min-width: 365px) and (max-width: 575px) {
+
+    .book-img .img-overlay .text-part .share-btn {
+        padding: 5px 15px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    .book-img .img-overlay h5 {
+        font-size: 25px;
+    }
+
+    .book-img .img-overlay p {
+        font-size: 25px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 105px 10px;
+    }
+
+    #our-message .blog-1 {
+        border: 2px solid #343A40;
+        background: #f0eeee;
+        height: 550px;
+    }
+
+}
+
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    #navbar .navbar-toggler .navbar-toggler-icon i {
+        font-size: 25px;
+    }
+
+    #navbar button:focus {
+        outline: 0px dotted;
+    }
+
+
+    #navbar .navbar-toggler .navbar-toggler-icon i {
+        font-size: 25px;
+    }
+
+    #navbar button:focus {
+        outline: 0px dotted;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .form-inline .form-control {
+        width: 100%;
+        padding: 20px 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .navbar ul li {
+        padding-left: 10px;
+        padding-right: 0px;
+        margin-bottom: 8px;
+        height: 46px;
+        line-height: 31px;
+    }
+
+    label {
+        padding-top: 15px;
+    }
+
+
+    .top-bar .update-part .update p {
+        font-size: 15px;
+        padding: 2px 5px;
+    }
+
+    .top-bar .update-part .up-content p {
+        font-size: 14px;
+        padding: 2px 5px;
+    }
+
+    .logo-img img {
+        width: 70px;
+    }
+
+    .mujib-logo-img img {
+        width: 110px;
+    }
+
+    .top-bar {
+        top: 92px;
+    }
+
+    .banner-text-1 p {
+        font-size: 28px;
+        padding-bottom: 40px;
+    }
+
+    .banner-text-1 {
+        padding-top: 210px;
+        padding-bottom: 80px;
+    }
+
+    .banner-text-1 h2 {
+        font-size: 50px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+
+    .banner-text-1 .p-2 {
+        font-size: 28px;
+        margin-top: 50px;
+    }
+
+    #banner .banner-1 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #banner .banner-2 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #banner .banner-3 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #online-exam {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    #online-exam .text_center h1::after {
+        height: 2px
+    }
+
+    #online-exam .text_center h1 {
+        margin: 0px 0px 20px 0px;
+    }
+
+    .text_center h1 {
+        font-size: 25px;
+    }
+
+
+
+
+    /*
+    ------------------
+    Template Name: tekasaibd
+    Author: Md Hafizul Islam (hafiz)
+    Author Email: hafizul6280@gmail.com
+    ----------------
+*/
+
+
+
+
+
+
+
+    #online-exam {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #online-exam .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #online-exam .text_center h1 {
+        margin: 20px 0px 8px 0px;
+    }
+
+    #online-exam .text_center h1::after {
+        height: 1px;
+    }
+
+    .book-img .img-overlay .text-part .share-btn {
+        padding: 5px 15px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    .book-img .img-overlay h5 {
+        font-size: 18px;
+    }
+
+    .book-img .img-overlay p {
+        font-size: 18px;
+    }
+
+    .pagination {
+        margin-top: 0rem !important;
+    }
+
+    .secound_section .nav span {
+        font-size: 18px;
+        padding: 83px;
+    }
+
+    .secound_section .tab-content .form-inline {
+        margin: 30px 10px;
+    }
+
+    .secound_section .tab-content .form-inline label {
+        font-size: 14px;
+    }
+
+    .secound_section .tab-content .form-control {
+        margin: 10px;
+        padding: 20px 3px;
+    }
+
+    .secound_section .tab-content .share-btn {
+        padding: 9px 10px;
+        font-size: 15px;
+        margin-left: 10px;
+        border-radius: 3px;
+    }
+
+    .secound_section .tab-content .quej-btn {
+        font-size: 15px;
+        padding: 10px 15px;
+        margin-left: 10px;
+        border-radius: 3px;
+    }
+
+    .secound_section {
+        height: 360px;
+    }
+
+    #preferred-category .overlay {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #preferred-category .padding_none {
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 130px;
+    }
+
+    #preferred-category .online-left {
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+    #creativity-part {
+        padding: 30px 0px 30px 0px;
+    }
+
+    .text_center h1::before {
+        display: none;
+    }
+
+    .text_center h1::after {
+        height: 1px;
+    }
+
+    #creativity-part .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #creativity-part .book-img {
+        margin-bottom: 20px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        padding: 120px 10px;
+    }
+
+    #our-message {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #our-message .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #communication-part {
+        padding: 30px 0px 30px 0px;
+    }
+
+    #communication-part .online-left {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .contact-form {
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    #communication-part .title-heading .text-muted {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        font-size: 14px;
+        padding: 10px 8px !important;
+    }
+
+    #communication-part .title-heading .social-icon {
+        margin-top: 25px;
+        padding-left: 0px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        margin-right: 5px;
+    }
+
+    .woww {
+        font-size: 7px;
+        padding: 5px 0px;
+    }
+
+    #our-message .blog-1 .blog-text {
+        padding: 35px 10px 25px 4px;
+    }
+
+    .pagination {
+        margin-top: 1rem !important;
+    }
+
+    #about_bg {
+        margin-top: 122px;
+    }
+
+    #about_bg .text_center h1::after {
+        display: none;
+    }
+
+    #about_bg .text_center h1 {
+        font-size: 22px;
+        padding: 28px 0px;
+    }
+
+    #about_part .about_content {
+        padding: 40px;
+        margin-bottom: 20px;
+    }
+
+    #team_member .left_side .imag_side {
+        margin-bottom: 20px;
+    }
+
+    #team_member .left_side .imag_side .text h6 {
+        font-size: 20px;
+    }
+
+    #team_member .left_side .imag_side .text p {
+        font-size: 15px;
+    }
+
+    #bongobondhu_bg {
+        margin-top: 121px;
+    }
+
+    #our-message .blog-1 {
+        margin-bottom: 20px;
+    }
+
+    #our-message .online-left-last {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+
+    .column {
+        width: 50%;
+    }
+
+    .caption-container {
+        padding: 0px;
+    }
+
+    .caption-container p {
+        margin-bottom: 0px;
+    }
+
+    .modal {
+        background: none;
+    }
+
+    .close {
+        background: black;
+        top: 0px;
+        padding: 6px;
+    }
+
+    .prev,
+    .next {
+        font-size: 30px;
+    }
+
+    #our_gallery {
+        padding: 30px 0px 30px 0px;
+    }
+
+}
+
+
+
+/*
+@media (min-width: 398px) and (max-width: 567px) {
+
+    
+}
+*/
+
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    #navbar .navbar-toggler .navbar-toggler-icon i {
+        font-size: 25px;
+    }
+
+    #navbar button:focus {
+        outline: 0px dotted;
+    }
+
+
+    #navbar .navbar-toggler .navbar-toggler-icon i {
+        font-size: 25px;
+    }
+
+    #navbar button:focus {
+        outline: 0px dotted;
+    }
+
+    .form-control {
+        font-size: 16px;
+    }
+
+    .form-inline .form-control {
+        width: 100%;
+        padding: 20px 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .navbar ul li {
+        padding-left: 10px;
+        padding-right: 0px;
+        margin-bottom: 8px;
+        height: 46px;
+        line-height: 31px;
+    }
+
+    label {
+        padding-top: 20px;
+    }
+
+
+    .top-bar .update-part .update p {
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
+    .top-bar .update-part .up-content p {
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
+    .logo-img img {
+        width: 80px;
+    }
+
+    .mujib-logo-img img {
+        width: 120px;
+    }
+
+    .top-bar {
+        top: 99px;
+    }
+
+
+
+    .banner-text-1 p {
+        font-size: 35px;
+        padding-bottom: 40px;
+    }
+
+    .banner-text-1 {
+        padding-top: 210px;
+        padding-bottom: 80px;
+    }
+
+    .banner-text-1 h2 {
+        font-size: 60px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+
+    .banner-text-1 .p-2 {
+        font-size: 28px;
+        margin-top: 50px;
+    }
+
+    #banner .banner-1 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #banner .banner-2 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #banner .banner-3 .banner-text-1 .btn {
+        font-size: 1rem;
+    }
+
+    #online-exam {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    #online-exam .text_center h1::after {
+        height: 2px
+    }
+
+    #online-exam .text_center h1 {
+        margin: 0px 0px 20px 0px;
+    }
+
+    .book-img .img-overlay .text-part {
+        text-align: center;
+        color: #fff;
+        padding: 120px 10px;
+    }
+
+    .text_center h1 {
+        font-size: 25px;
+    }
+
+    #preferred-category .padding_none {
+        margin-bottom: 25px;
+    }
+
+    .text_center h1::before {
+        display: none;
+    }
+
+    .text_center h1::after {
+        height: 2px;
+    }
+
+    #preferred-category .overlay {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #creativity-part {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #creativity-part .book-img {
+        margin-bottom: 20px;
+    }
+
+    #preferred-category .row {
+        text-align: center;
+        width: 250px;
+        margin-left: 300px;
+    }
+
+    .secound_section .nav span {
+        padding: 0px 111px;
+        font-size: 25px;
+    }
+
+
+    #our-message .blog-1 .blog-text {
+        padding: 35px 19px 25px 19px;
+    }
+
+    #our-message {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #our-message .online-left {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    #communication-part {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #communication-part .online-left {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    #communication-part .title-heading .text-muted {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        font-size: 14px;
+        padding: 10px 8px !important;
+        margin-right: 10px;
+    }
+
+    #communication-part .title-heading .social-icon {
+        padding-left: 0px;
+    }
+
+    .woww {
+        font-size: 10px;
+        padding: 8px 0px;
+    }
+
+    #our-message .blog-1 .blog-text {
+        padding: 35px 10px 25px 4px;
+    }
+
+
+    /*
+    ------------------
+    Template Name: tekasaibd
+    Author: Md Hafizul Islam (hafiz)
+    Author Email: hafizul6280@gmail.com
+    ----------------
+*/
+
+    #about_bg {
+        margin-top: 140px
+    }
+
+    #about_bg .text_center h1 {
+        font-size: 25px;
+        padding: 30px 0px;
+    }
+
+    #about_bg .text_center h1::after {
+        display: none;
+    }
+
+    #about_part .about_content {
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+
+    #team_member .left_side .imag_side {
+        margin-top: 20px;
+    }
+
+    #bongobondhu_bg {
+        margin-top: 139px;
+    }
+
+
+    #our-message .blog-1 {
+        margin-bottom: 20px;
+    }
+
+    #our-message .online-left-last {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+
+    .column {
+        width: 33%;
+    }
+
+    .caption-container {
+        padding: 0px;
+    }
+
+    .caption-container p {
+        margin-bottom: 0px;
+    }
+
+    .modal {
+        background: none;
+    }
+
+    .close {
+        background: black;
+        top: 0px;
+        padding: 6px;
+    }
+
+    .prev,
+    .next {
+        font-size: 30px;
+    }
+
+    #our_gallery {
+        padding: 40px 0px 40px 0px;
+    }
+    
+    #our-message .blog-1 {
+        border: 2px solid #343A40;
+        background: #f0eeee;
+        height: 500px;
+    }
+
+}
+
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .logo-img img {
+        width: 63px;
+    }
+
+    .mujib-logo-img img {
+        width: 90px;
+    }
+
+    .top-bar {
+        top: 80px;
+    }
+
+    .logo-img {
+        margin-right: 66px;
+    }
+
+
+    .btn-outline-success {
+        font-size: 14px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+    }
+
+    .navbar ul li {
+        height: 43px;
+        line-height: 27px;
+    }
+
+    .form-inline .form-control {
+        padding: 21px 10px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 10px 10px;
+    }
+
+    .book-img .img-overlay h5 {
+        font-size: 16px;
+    }
+
+    .book-img .img-overlay h6 {
+        font-size: 15px;
+    }
+
+    .book-img .img-overlay p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .book-img .img-overlay .text-part .share-btn {
+        padding: 2px 5px;
+        font-size: 13px;
+    }
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    .text_center h1::before {
+        display: none;
+    }
+
+
+
+    .secound_section .nav span {
+        padding: 0px 56px;
+        font-size: 22px;
+    }
+
+
+
+
+    .secound_section {
+        height: 360px;
+    }
+
+
+
+    .secound_section .tab-content .form-inline {
+        margin: 30px 10px;
+    }
+
+    .secound_section .tab-content .form-inline label {
+        font-size: 14px;
+    }
+
+    .secound_section .tab-content .form-control {
+        margin: 10px;
+        padding: 20px 3px;
+    }
+
+    .secound_section .tab-content .share-btn {
+        padding: 9px 10px;
+        font-size: 15px;
+        margin-left: 10px;
+        border-radius: 3px;
+    }
+
+    .secound_section .tab-content .quej-btn {
+        font-size: 15px;
+        padding: 10px 15px;
+        margin-left: 10px;
+        border-radius: 3px;
+    }
+
+    .secound_section .tab-content .form-control {
+        width: 340px;
+    }
+
+    #preferred-category .count h1 {
+        font-size: 18px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        text-align: center;
+        color: #fff;
+        padding: 69px 5px;
+    }
+
+    #creativity-part .book-img .img-overlay p {
+        font-size: 21px;
+        margin-bottom: 50px;
+        font-family: 'Hind Siliguri', sans-serif;
+        font-weight: 500;
+    }
+
+
+    #communication-part {
+        padding: 50px 0px 50px 0px;
+    }
+
+    #communication-part .online-left {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    #communication-part .title-heading .text-muted {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        font-size: 14px;
+        padding: 10px 8px !important;
+        margin-right: 10px;
+    }
+
+    #communication-part .title-heading .social-icon {
+        padding-left: 0px;
+    }
+
+    #about_bg {
+        margin-top: 121px;
+    }
+
+    #bongobondhu_bg {
+        margin-top: 121px;
+    }
+
+
+
+    #our-message .blog-1 {
+        margin-bottom: 20px;
+    }
+
+    #our-message .online-left-last {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+
+    .column {
+        width: 50%;
+    }
+
+    .caption-container {
+        padding: 0px;
+    }
+
+    .caption-container p {
+        margin-bottom: 0px;
+    }
+
+    .modal {
+        background: none;
+    }
+
+    .close {
+        background: black;
+        top: 0px;
+        padding: 6px;
+    }
+
+    .prev,
+    .next {
+        font-size: 30px;
+    }
+
+    #our_gallery {
+        padding: 30px 0px 30px 0px;
+    }
+    
+    #our-message .blog-1 {
+        border: 2px solid #343A40;
+        background: #f0eeee;
+        height: 550px;
+    }
+
+}
+
+/*
+    ------------------
+    Template Name: tekasaibd
+    Author: Md Hafizul Islam (hafiz)
+    Author Email: hafizul6280@gmail.com
+    ----------------
+*/
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    #online-exam .text_center h1::before {
+        display: none;
+    }
+
+    #online-exam .text_center h1::after {
+        height: 2px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 11px 10px;
+    }
+
+    .book-img .img-overlay p {
+        margin-bottom: 25px;
+    }
+
+    .secound_section .nav span {
+        padding: 0px 79px;
+    }
+
+    .secound_section .tab-content .form-inline {
+        margin: 50px 0px 50px 15px;
+    }
+
+    .secound_section .tab-content .share-btn {
+        margin-left: 70px;
+    }
+
+    .secound_section .tab-content .quej-btn {
+        margin-left: 100px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        padding: 90px 5px;
+        padding-bottom: 0px
+    }
+
+    #creativity-part .book-img .img-overlay p {
+        font-size: 26px;
+    }
+
+    #creativity-part .book-img .img-overlay p {
+        margin-bottom: 50px
+    }
+
+    .text_center h1::before {
+        display: none;
+    }
+
+    .text_center h1::after {
+        height: 2px;
+    }
+
+    #our-message .blog-1 .blog-text .share-btn {
+        padding: 2px 5px;
+    }
+
+    #our-message .blog-1 .blog-text span {
+        font-size: 12px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        padding: 5px 9px !important;
+        margin-right: 0;
+    }
+}
+
+
+@media (min-width: 1349px) and (max-width: 1450px) {
+
+    .secound_section .nav span {
+        padding: 0px 97px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 30px 10px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        padding: 115px 5px;
+        padding-bottom: 115px;
+        padding-bottom: 0px;
+    }
+}
+
+
+@media (min-width: 1451px) and (max-width: 1500px) {
+
+    .secound_section .nav span {
+        padding: 0px 110px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 50px 10px;
+    }
+
+    #creativity-part .book-img .img-overlay .text-part {
+        padding: 125px 5px;
+        padding-bottom: 0px;
+    }
+}
+
+
+@media (min-width: 1501px) and (max-width: 1580px) {
+
+    .secound_section .nav span {
+        padding: 0px 115px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 40px 10px;
+    }
+
+    #online-exam .text_center h1::before {
+        left: 280px;
+    }
+
+    .text_center h1::before {
+        left: 688px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        margin-right: 16px;
+    }
+
+}
+
+@media (min-width: 1581px) and (max-width: 1600px) {
+
+    .secound_section .nav span {
+        padding: 0px 126px;
+    }
+
+    .book-img .img-overlay .text-part {
+        padding: 40px 10px;
+    }
+
+    #online-exam .text_center h1::before {
+        left: 280px;
+    }
+
+    .text_center h1::before {
+        left: 688px;
+    }
+
+    #communication-part .title-heading .contact-detail .from-control {
+        margin-right: 16px;
+    }
+
+}
+
+@media (min-width: 1601px) and (max-width: 1700px) {
+
+    .secound_section .nav span {
+        padding: 0px 129px;
+        font-size: 25px;
+    }
+}
+
+
+@media (min-width: 1701px) and (max-width: 1800px) {
+
+    .secound_section .nav span {
+        padding: 0px 135px;
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 1801px) and (max-width: 2000px) {
+
+    .secound_section .nav span {
+        padding: 0px 135px;
+        font-size: 25px;
+    }
+}
+
+/*
+    ------------------
+    Template Name: tekasaibd
+    Author: Md Hafizul Islam (hafiz)
+    Author Email: hafizul6280@gmail.com
+    ----------------
+*/

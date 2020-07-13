@@ -1,5 +1,5 @@
-@extends('front.master')
-@section('body')
+@extends('front.layout.master')
+@section('content')
    <section class="news-scroll">
         <div class="container">
             <div class="row">

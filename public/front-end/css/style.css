@@ -1,0 +1,1863 @@
+/* 
+------------------
+Template Name: tekasaibd
+Author: Md Hafizul Islam (hafiz)
+Author Email: hafizul6280@gmail.com
+----------------
+
+----------------
+Table of Content
+----------------
+1.Navbar Part
+2.Banner part
+3.preferred-category
+4.creativity-part
+5.our-message
+6.communication-part
+7.location-part
+8.footer_part
+
+*/
+
+
+
+
+
+
+
+/*=====================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+.row > .column {
+    padding: 0 8px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    margin-top: 20px;
+}
+
+.column img {
+    width: 100%;
+    height: 240px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 50px 0px;
+    left: 0;
+    top: 162px;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mySlides {
+    display: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+.caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+}
+
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+img.hover-shadow {
+    transition: 0.3s;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+
+
+
+
+#our_gallery {
+    padding: 60px 0px 6px 0px;
+}
+
+#our_gallery .online-left {
+    margin: 0px 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===============================*/
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+i {
+    color: #2F368D;
+    font-size: 14px;
+}
+
+img {
+    border: 0;
+}
+
+body {
+    font-size: 13px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: 400;
+    color: #343A40;
+    background: url(../images/bg.png) center;
+    background-attachment: fixed;
+
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+/*
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1111;
+}
+
+.sticky + .content {
+    padding-top: 120px;
+}
+*/
+
+
+
+/*============================= navbar part start ==============================*/
+
+
+.navbar {
+    background: #c2d7db;
+    width: 100%;
+    top: 0px;
+    z-index: 1111;
+    position: fixed;
+    padding: 0;
+}
+
+.navbar .container {
+    padding: 0px;
+    position: relative;
+}
+
+/*
+.navbar .logo img {
+    width: 320px;
+}
+*/
+
+.navbar ul li a {
+    font-size: 17px;
+    color: #343A40;
+    font-weight: 400;
+    position: relative;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: #06b706;
+}
+
+.navbar ul li a i {
+    color: #71777D;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .3s ease-in-out;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.navbar ul li a:hover i {
+    color: #28a745;
+}
+
+
+.navbar ul li a.active_home {
+    color: #06b706;
+}
+
+.custom-menu {
+    padding-top: 0px;
+
+}
+
+
+.form-inline .form-control {
+    padding: 10 0px;
+    display: inline-block;
+    width: 170px;
+    padding: 24px 10px;
+    margin-right: 15px;
+    background: transparent;
+    border: 1px solid #495057;
+}
+
+.logo-img {
+    margin-right: 90px;
+}
+
+
+.logo-img img {
+    width: 100px;
+}
+
+.mujib-logo-img {
+    margin-right: 0rem;
+    margin-left: 20px;
+}
+
+.mujib-logo-img img {
+    width: 140px;
+}
+
+.btn-outline-success {
+    margin-left: 2px;
+    margin-right: 16px;
+    padding: 10px 20px;
+    color: #343A40;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid #495057;
+    background: transparent;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #c2d7db;
+}
+
+
+.dropdown-menu {
+    background: #fff;
+    border: none;
+    border-radius: none !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: inline-block;
+}
+
+.dropdown-menu a {
+    line-height: 30px;
+    color: #343A40 !important;
+
+}
+
+.dropdown-menu a::after {
+    display: none;
+}
+
+.dropdown-menu a::before {
+    display: none;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    border-radius: 0px;
+    padding-bottom: 0px;
+    position: absolute;
+}
+
+
+.dropdown-toggle::after {
+    border: 0px;
+}
+
+.navbar ul li {
+    padding-left: 18px;
+    padding-right: 18px;
+    line-height: 1.5;
+    background: transparent;
+    background-clip: padding-box;
+    border: 1px solid #495057;
+    border-radius: .25rem;
+    height: 50px;
+    line-height: 37px;
+    margin-right: 15px;
+}
+
+.navbar ul .call-btn a:hover::after {
+    display: none;
+}
+
+.navbar ul .call-btn a:hover::before {
+    display: none;
+}
+
+.call-btn a {
+    padding: 0 !important;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff !important;
+    line-height: 55px;
+}
+
+.call-btn a img {
+    margin-right: 6px;
+}
+
+.call-btn {
+    padding-top: 7px !important;
+    margin-right: 0 !important;
+}
+
+
+/*============================= navbar part end ==============================*/
+
+
+/*============================= top part start ==============================*/
+
+
+.top-bar {
+    background: #fff;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 121px;
+    border: 1px solid #6194CE;
+}
+
+
+.top-bar .update-part .update p {
+    background: #6194CE;
+    color: white;
+    font-size: 19px;
+    padding: 5px 10px;
+    margin-bottom: 0px;
+}
+
+.top-bar .update-part .up-content p {
+    color: black;
+    font-size: 18px;
+    padding: 5px 15px;
+    margin-bottom: 0px;
+}
+
+
+/*============================= top part end ==============================*/
+
+
+/*============================= banner part start ==============================*/
+
+.scroll_btn {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: #2F368D;
+    bottom: 58px;
+    right: 50px;
+    float: right;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #343A40;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    z-index: 9999;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.scroll_btn i {
+    color: #fff;
+}
+
+.scroll_btn:hover {
+    color: #ffffff;
+    background: #343A40;
+}
+
+#banner {
+    position: relative;
+}
+
+
+#banner .banner-1 {
+    background: url(../images/bg1.jpg) no-repeat center;
+    background-size: cover;
+}
+
+#banner .banner-2 {
+    background: url(../images/bg1.jpg) no-repeat center;
+    background-size: cover;
+}
+
+#banner .banner-3 {
+    background: url(../images/bg1.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/*
+#banner .banner-1 {
+    background: rgb(74, 62, 74);
+    background-size: cover;
+}
+
+#banner .banner-2 {
+    background: rgb(68, 62, 74);
+    background-size: cover;
+}
+
+#banner .banner-3 {
+    background: rgb(62, 69, 74);
+    background-size: cover;
+}
+*/
+
+/*
+#banner .banner-2 .banner-text-1 {
+    padding-top: 313px;
+    padding-bottom: 162px;
+}
+*/
+
+#banner .banner-1 .banner-text-1 .btn {
+    background: #6194CE;
+    color: #fff;
+    border-color: #6194CE;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin-top: 20px;
+}
+
+#banner .banner-2 .banner-text-1 .btn {
+    background: #6194CE;
+    color: #fff;
+    border-color: #6194CE;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin-top: 20px;
+}
+
+#banner .banner-3 .banner-text-1 .btn {
+    background: #6194CE;
+    color: #fff;
+    border-color: #6194CE;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin-top: 20px;
+}
+
+.main_banner {
+    position: relative;
+}
+
+.main_banner .right-side {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.banner-text-1 {
+    padding-top: 260px;
+    padding-bottom: 105px;
+    text-align: center;
+}
+
+
+.banner-text-1 h2 {
+    position: relative;
+    font-family: 'Atma', cursive;
+    color: #00f000;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 54px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    letter-spacing: 3px;
+}
+
+.banner-text-1 h2::after {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: #2F368D;
+}
+
+.banner-text-1 h2 span {
+    color: red;
+}
+
+
+.banner-text-1 p {
+    color: #000;
+    font-size: 50px;
+    line-height: 25px;
+    padding: 25px 0px 50px 0px;
+    margin-bottom: 0px;
+    line-height: 45px;
+    font-weight: 400;
+    /*    font-family: 'Atma', cursive;*/
+    /*    font-family: 'Galada', cursive;*/
+    font-family: 'Mina', sans-serif;
+}
+
+.banner-text-1 .p-2 {
+    color: yellow;
+    font-size: 38px;
+    line-height: 35px;
+    padding: 25px 0px 50px 0px;
+    margin-top: 20px;
+    line-height: 45px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    /*    font-family: 'Hind Siliguri', sans-serif;*/
+    font-family: 'Mina', sans-serif;
+}
+
+/*background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(155, 194, 229, 0.3),rgba(0, 0, 0, 0.7)), url(../images/service-box-bg.png);*/
+
+
+/*============================= Banner part end ==============================*/
+
+
+
+
+
+/*============================= about_part start ==============================*/
+
+
+#about_bg {
+    margin-top: 163px;
+    background: url(../images/bg6.jpg) no-repeat center;
+    background-size: cover;
+    text-align: left;
+    position: relative;
+}
+
+#about_bg .text_center h1 {
+    text-align: left;
+    margin-left: 70px;
+    font-size: 35px;
+    padding: 50px 0px;
+    margin-bottom: 0px;
+    color: yellow;
+}
+
+#about_bg .text_center h1::after {
+    background: red;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 30px;
+    left: -15px;
+    position: absolute;
+    top: 50px;
+    border-radius: 0;
+}
+
+
+
+
+
+#about_part {
+
+    padding: 60px 0px 60px 0px;
+}
+
+
+#about_part .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+#about_part .online-left .right_side {
+    padding-right: 2px
+}
+
+
+
+#about_part .about_content {
+    padding: 50px 50px 133px 50px;
+    background: #262626e3;
+}
+
+
+#about_part .about_content h3 {
+    color: yellow;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+#about_part .about_content p {
+    color: #fff;
+    margin-bottom: 0px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 40px;
+    font-weight: 300;
+}
+
+#about_part .about_content p span {
+    color: aqua;
+}
+
+
+#about_part .about_content p i {
+    color: #fff;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+/*
+#about_part .about_content h3::after {
+    background: red;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 20px;
+    left: 0px;
+    position: absolute;
+    top: 7px;
+}
+*/
+
+
+#about_part .left_side {
+    background: #262626e3;
+    padding: 10px;
+}
+
+#about_part .left_side .imag_side {
+    background-color: #868585;
+    padding: 45px 0px;
+    text-align: center;
+}
+
+#about_part .left_side .imag_side .round {
+    padding-bottom: 28px;
+
+}
+
+#about_part .left_side .imag_side .round img {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 1px 6px 0 rgb(21, 19, 19), 0 6px 25px 0 rgba(0, 0, 0, 0.21);
+    border-radius: 50%;
+}
+
+#about_part .left_side .imag_side .text h6 {
+    color: #fff;
+    font-size: 28px;
+}
+
+#about_part .left_side .imag_side .text p {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+#about_part .left_side .imag_side .social a img {
+    width: 12%;
+    margin-right: 30px;
+}
+
+#about_part .left_side .imag_side .social a .last_img {
+    margin-right: 0px;
+}
+
+#about_part .left_side .imag_side hr {
+    margin: 25px 60px;
+}
+
+/*============================= about_part end ==============================*/
+
+
+
+
+
+
+/*============================= team_member start ==============================*/
+
+#team_member .overlay {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 60px 0px 60px 0px;
+}
+
+
+#team_member .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+#team_member .about_content h3::after {
+    background: red;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 20px;
+    left: 0px;
+    position: absolute;
+    top: 7px;
+}
+
+#team_member .left_side .imag_side {
+    background-color: #868585;
+    padding: 40px 0px 40px 0px;
+    text-align: center;
+}
+
+#team_member .left_side .imag_side .round {
+    padding-bottom: 30px;
+
+}
+
+#team_member .left_side .imag_side .round img {
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 1px 6px 0 rgb(21, 19, 19), 0 6px 25px 0 rgba(0, 0, 0, 0.21);
+    border-radius: 50%;
+}
+
+#team_member .left_side .imag_side .text h6 {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 13px;
+}
+
+#team_member .left_side .imag_side .text p {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+#team_member .left_side .imag_side hr {
+    margin: 25px 60px;
+}
+
+#team_member .left_side .imag_side .social a img {
+    width: 12%;
+    margin-right: 20px;
+}
+
+#team_member .left_side .imag_side .social a .last_img {
+    margin-right: 0px;
+}
+
+
+.choice_category {
+    background: #262626e3;
+}
+
+.choice_category .padding_none {
+    box-shadow: 0 1px 6px 0 rgba(255, 255, 255, 3), 0 6px 25px 0 #fff;
+    background: red;
+}
+
+.choice_category .text_center h1 {
+    color: #fff;
+}
+
+
+
+/*============================= team_member end ==============================*/
+
+
+
+
+
+#bongobondhu_bg {
+    margin-top: 163px;
+    background: url(../images/m1.jpg) no-repeat center;
+    background-size: cover;
+    text-align: left;
+    position: relative;
+}
+
+#bongobondhu_bg .text_center h1 {
+    text-align: left;
+    margin-left: 70px;
+    font-size: 35px;
+    padding: 50px 0px;
+    margin-bottom: 0px;
+    color: yellow;
+}
+
+#bongobondhu_bg .text_center h1::after {
+    background: red;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 30px;
+    left: -15px;
+    position: absolute;
+    top: 50px;
+    border-radius: 0;
+}
+
+.bongobondhu {
+    padding: 60px 0px 50px 0px;
+    background: #d0d0d0;
+}
+
+.bongobondhu h5 {
+    font-size: 28px;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.bongobondhu p {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+------------------
+Template Name: tekasaibd
+Author: Md Hafizul Islam (hafiz)
+Author Email: hafizul6280@gmail.com
+----------------
+*/
+
+
+
+/*========================== like_catagories part start =====================*/
+
+
+.like_catagories {
+    background: green;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.like_catagories .icon_circle6,
+.like_catagories .icon_circle5,
+.like_catagories .icon_circle4,
+.like_catagories .icon_circle3,
+.like_catagories .icon_circle2,
+.like_catagories .icon_circle1 {
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 6px solid #EB7036;
+    margin-left: 25%;
+    margin-top: 15px;
+}
+
+.like_catagories .icon_circle6 .circle_icon,
+.like_catagories .icon_circle5 .circle_icon,
+.like_catagories .icon_circle4 .circle_icon,
+.like_catagories .icon_circle3 .circle_icon,
+.like_catagories .icon_circle2 .circle_icon,
+.like_catagories .icon_circle1 .circle_icon {
+    display: inline-block;
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.like_catagories .icon_circle6 .circle_icon i,
+.like_catagories .icon_circle5 .circle_icon i,
+.like_catagories .icon_circle4 .circle_icon i,
+.like_catagories .icon_circle3 .circle_icon i,
+.like_catagories .icon_circle2 .circle_icon i,
+.like_catagories .icon_circle1 .circle_icon i {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 50px;
+}
+
+.like_catagories h5 {
+    text-align: center;
+    margin: 13px 0px 13px 0px;
+    font-size: 18px;
+}
+
+.like_catagories .share_link {
+    height: 25px;
+    width: 90px;
+    background: #fff;
+    margin-left: 35px;
+}
+
+.like_catagories .share_link ul {
+    text-align: center;
+}
+
+.like_catagories .share_link ul li {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.like_catagories .share_link ul li h6 {
+    color: #000;
+}
+
+.like_catagories .icon_circle2 {
+    background: #EABBA1;
+}
+
+.like_catagories .icon_circle3 {
+    border: 6px solid #fff;
+}
+
+.like_catagories .icon_circle4 {
+    border: 6px solid #2885A7;
+}
+
+.like_catagories .icon_circle5 {
+    border: 6px solid #2885A7;
+}
+
+.like_catagories .icon_circle6 {
+    border: 6px solid #A6D1D9;
+}
+
+/*========================== like_catagories part end =====================*/
+
+
+/*============================= Count part start ==============================*/
+
+#preferred-category {
+
+    /*    background: url(../images/office-381228_1920.jpg) no-repeat center;*/
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#preferred-category .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+#preferred-category .overlay {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 60px 0px 60px 0px;
+}
+
+#preferred-category .row {
+    text-align: center;
+}
+
+#preferred-category .count .fast_icon {
+    background: transparent;
+    font-size: 45px;
+    color: #ffff;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 3px solid #dc3545;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+#preferred-category .count h1 {
+    font-size: 30px;
+    color: #ffff;
+    margin-bottom: 35px;
+    font-weight: 500;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+#preferred-category .count h2 {
+    font-size: 70px;
+    color: #ffff;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+#preferred-category .count .share-btn {
+    padding: 3px 15px;
+    color: #000;
+    font-size: 14px;
+    background: #fff;
+    font-weight: 300;
+    font-family: 'Changa', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+
+#preferred-category .padding_none {
+    background: #3c3c3c5e;
+    padding: 30px 0px;
+    margin-right: 20px;
+}
+
+
+/*============================= Count part end ==============================*/
+
+
+
+
+/*========================== #online-exam start =====================*/
+
+#online-exam {
+    /*    background: #f0bfe5;*/
+    padding: 60px 0px 60px 0px;
+}
+
+#online-exam .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#online-exam .text_center h1 {
+    margin: 0px 0px 8px 0px;
+}
+
+#online-exam .text_center h1::after {
+    background: green;
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    left: 50px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+#online-exam .text_center h1::before {
+    /*
+    position: absolute;
+    background: red;
+    content: "";
+    display: block;
+    width: 105px;
+    height: 2px;
+    left: 307px;
+    top: 52px;
+*/
+    display: none;
+}
+
+.book-img {
+    position: relative;
+    margin: 15px 4px;
+}
+
+.book-img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.book-img .text-center a {
+    color: #fff;
+}
+
+.book-img .img-overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.book-img .img-overlay .text-part {
+    text-align: center;
+    color: #fff;
+    padding: 60px 10px;
+}
+
+.book-img .img-overlay h5 {
+    font-size: 25px;
+}
+
+.book-img .img-overlay h6 {
+    font-size: 22px;
+}
+
+.book-img .img-overlay p {
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.book-img .img-overlay .text-part .share-btn {
+    padding: 3px 15px;
+    color: #000;
+    font-size: 14px;
+    background: #fff;
+    font-weight: 300;
+    font-family: 'Changa', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.book-img .img-overlay .text-part .share-btn:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.71), 0 6px 20px 0 rgba(0, 0, 0, 0.74);
+    color: #000;
+}
+
+
+/*========================== #online-exam end =====================*/
+
+
+
+/*========================== banner part start =====================*/
+
+#creativity-part {
+    /*    background: #22a2ba;*/
+    padding: 60px 0px 60px 0px;
+}
+
+#creativity-part .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#creativity-part .book-img .img-overlay p {
+    font-size: 30px;
+    margin-bottom: 70px;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-weight: 500;
+}
+
+#creativity-part .book-img .img-overlay .text-part {
+    text-align: center;
+    color: #fff;
+    padding: 140px 10px;
+}
+
+#creativity-part .book-img {
+    margin: 0px;
+}
+
+
+/*secound_section*/
+.secound_section {
+    width: 100%;
+    height: 541px;
+    margin-top: 23px;
+    background: rgba(255, 255, 255, 0.63);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.secound_section .nav .left-side {
+    text-align: center;
+    width: 50%;
+}
+
+.secound_section .nav .right-side {
+    text-align: center;
+    width: 50%;
+}
+
+.secound_section .nav span {
+    font-size: 25px;
+}
+
+.secound_section .tab-content .form-control {
+    width: 400px;
+    height: 40px;
+    margin: 20px;
+    padding: 25px 10px;
+}
+
+.secound_section .tab-content .form-inline {
+    margin: 50px 100px;
+}
+
+.secound_section .tab-content .form-inline label {
+    font-size: 20px;
+}
+
+.secound_section .tab-content .share-btn {
+    padding: 15px 40px;
+    color: #000;
+    font-size: 28px;
+    background: #ffffff;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 150px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.secound_section .tab-content .quej-btn {
+    padding: 15px 40px;
+    color: #fff;
+    font-size: 28px;
+    background: green;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 150px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.secound_section .tab-content .share-btn:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+    color: #000;
+}
+
+secound_section .tab-content .share-btn:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+    color: #000;
+}
+
+.share {
+    float: right;
+    margin-top: 80px;
+}
+
+
+
+/*========================== banner part end =====================*/
+
+
+
+/*========================== communaction part start =====================*/
+
+#communication-part {
+    /*    background: #a8a8a8;*/
+    padding: 60px 0px 60px 0px;
+}
+
+#communication-part .online-left {
+    margin-left: 180px;
+    margin-right: 180px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#communication-part .title-heading .social-icon {
+    margin-top: 53px;
+    padding-left: 25px
+}
+
+#communication-part .title-heading .text-muted {
+    font-size: 19px;
+    color: #343A40 !important;
+}
+
+#communication-part .title-heading .icon i {
+    font-size: 30px;
+    color: #6194CE;
+    margin-top: 12px;
+}
+
+#communication-part .title-heading .content {
+    font-size: 18px;
+}
+
+#communication-part .title-heading .content h6 {
+    margin-top: 13px;
+}
+
+#communication-part .title-heading .content a {
+    font-family: 'Atma', cursive;
+    color: black !important;
+}
+
+#communication-part .title-heading .content h6::after {
+    background: #dc3545;
+    content: "";
+    display: block;
+    width: 25px;
+    height: 2px;
+    left: 50px;
+    margin: 3px 0px;
+}
+
+/*
+------------------
+Template Name: tekasaibd
+Author: Md Hafizul Islam (hafiz)
+Author Email: hafizul6280@gmail.com
+----------------
+*/
+
+#communication-part .contact_right .form-group {
+    margin-bottom: 0px;
+}
+
+#communication-part .contact_right .form-group label::after {
+    background: #dc3545;
+    content: "";
+    display: block;
+    width: 25px;
+    height: 2px;
+    left: 50px;
+    margin: 3px 0px;
+}
+
+#communication-part .title-heading .contact-detail .from-control {
+    font-size: 18px;
+    color: #fff;
+    padding: 3px 25px !important;
+    font-weight: 400;
+    font-family: 'Changa', sans-serif;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    margin-right: 20px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+/*========================== communaction part end =====================*/
+
+
+
+/*============================= gallery_part start ==============================*/
+
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    border-radius: 0px;
+    background: #828a7d;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-item.show .nav-link {
+    color: #000;
+    border-radius: 0px;
+    border: none !important;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus,
+.nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-item.open .nav-link,
+.nav-tabs .nav-item.open .nav-link:focus,
+.nav-tabs .nav-item.open .nav-link:hover {
+    color: #fff;
+
+}
+
+.nav-tabs .nav-item {
+    margin-top: 0px;
+}
+
+.root-gallery {
+    padding-top: 200px;
+    background: #9BC2E5;
+}
+
+
+/*============================= gallery_part end ==============================*/
+
+
+/*============================= বার্তা অংশ শুরু ==============================*/
+
+#our-message {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 60px 0px 60px 0px;
+}
+
+#our-message .online-left {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#our-message .online-left-last {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 35px;
+}
+
+
+
+.text_center h1 {
+    font-size: 32px;
+    color: #393939;
+    font-family: 'Atma', cursive;
+    font-weight: 600;
+    margin: 0px 0px 40px 0px;
+    text-align: center;
+    position: relative;
+}
+
+.text_center h1::after {
+    background: green;
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    left: 50px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.text_center h1::before {
+    /*
+    position: absolute;
+    background: red;
+    content: "";
+    display: block;
+    width: 105px;
+    height: 2px;
+    left: 739px;
+    top: 52px;
+*/
+    display: none;
+}
+
+#our-message .blog-1 {
+    border: 2px solid #343A40;
+    background: #f0eeee;
+    height: 450px;
+}
+
+
+#our-message .blog-1 .image {
+    overflow: hidden;
+}
+
+#our-message .blog-1 .image img {
+    width: 100%;
+    height: auto;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+#our-message .blog-1:hover .image img {
+    transform: scale(1.15);
+}
+
+#our-message .blog-1 .blog-text {
+    padding: 35px 16px 25px 16px;
+    text-align: justify;
+}
+
+
+#our-message .blog-1 .blog-text h4 {
+    font-size: 16px;
+}
+
+
+#our-message .blog-1 .blog-text p {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: 13px;
+    position: relative;
+    line-height: 23px;
+}
+
+#our-message .blog-1 .blog-text a {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+#our-message .blog-1 .blog-text span {
+    color: color: rgba(0, 0, 0, 0.14);
+    float: right;
+}
+
+#our-message .blog-1 .blog-text p:after {
+    position: absolute;
+    content: '';
+    left: 10px;
+    bottom: 5px;
+    width: 90%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.07);
+}
+
+#our-message .blog-1 .blog-text .share-btn {
+    padding: 2px 14px;
+    color: #000;
+    background: #fff;
+    font-weight: 300;
+    font-family: 'Changa', sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+#our-message .blog-1 .blog-text .share-btn i {
+    font-size: 12px;
+}
+
+
+#our-message .blog_slide {
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/*============================= বার্তা অংশ শেষ ==============================*/
+
+
+
+/*========================== location part start =====================*/
+
+/*
+#location-part {
+    background: green;
+    padding: 80px 0px 80px 0px;
+}
+*/
+
+/*
+.location iframe {
+    height: 400px;
+    width: 100%;
+}
+*/
+
+#youtube_video .video_width{
+    padding: 60px 0px 0px 0px;
+}
+
+/*========================== location part end =====================*/
+
+
+/*========================== শেষ অংশ শুরু =====================*/
+
+
+input[type="submit"] {
+    display: none;
+}
+
+.submit_btn {
+    font-size: 18px;
+    color: #fff;
+    background: green;
+    padding: 5px 30px !important;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-bottom: 0px;
+    margin-top: 42px;
+    border-radius: 3px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+.submit_btn:hover {
+    box-shadow: 0px 10px 20px -10px #2F368D;
+}
+
+
+label {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form-control {
+    height: 45px;
+    font-weight: 300;
+}
+
+.button {
+    text-align: center;
+}
+
+.contact-form {
+    padding: 40px;
+    position: relative;
+}
+
+
+.footer_part {
+    padding: 20px 0px;
+    background: #202A43;
+}
+
+.footer_part .row {
+    margin: 0px;
+}
+
+.footer_part .logo_section {
+    text-align: center;
+}
+
+.footer_part .last-icon {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+.footer_part .last-icon .from-control i {
+    font-size: 25px;
+    color: #fff;
+    background: #129AF6;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.footer_part .logo_section img {
+    width: 70px;
+}
+
+.footer_part .f_text h6 {
+    color: #8CB5F6;
+    font-size: 15px;
+}
+
+.footer_part .f_text p {
+    color: #c2c2c2;
+    font-size: 15px;
+}
+
+.footer_part .f_icon ul li {
+    display: inline-block;
+}
+
+
+.woww p {
+    margin-bottom: 0px;
+    font-weight: 300;
+    font-family: 'Changa', sans-serif;
+}
+
+.woww {
+    background: #000;
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 10px 0px;
+
+    /*========================== শেষ অংশ শেষ =====================*/

@@ -1,5 +1,5 @@
-@extends('front.master')
-@section('body')
+@extends('front.layout.master')
+@section('content')
     <section class="work-section m-b-20" style="margin-top: 125px">
         <div class="container-fluid">
             <div class="col-md-6 offset-md-3">
@@ -74,7 +74,7 @@
                             </div><!--end col-->
 
                             <div class="col-md-12">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-success btn-block">
+                                <button type="submit" name="submit"  class="btn btn-success btn-block"> Submit </button>
                             </div><!--end col-->
 
                         </div><!--end row-->

@@ -16,7 +16,7 @@ class CreateParticipantsTable extends Migration
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('username')->nullable();
+            $table->string('username')->unique();
             $table->text('school_name')->nullable();
             $table->string('class')->nullable();
             $table->integer('roll')->nullable();
@@ -24,7 +24,9 @@ class CreateParticipantsTable extends Migration
             $table->string('district')->nullable();
             $table->string('division')->nullable();
             $table->string('mobile_number')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function addPlayer()
     {
         $events = Event::all();
-        $players = Player::orderBy('id', 'desc')->get();
+        $players = Player::query()->latest()->get();
         return view('admin.player.add-player', [
             'players' => $players,
             'events'  => $events,
@@ -30,6 +30,7 @@ class AdminController extends Controller
             ->where('password', $request->password)
             ->where('player_type', $request->player_type)
             ->first();
+
         if (!$exists) {
             $player = new Player();
             $player->event_id = $request->event_id;

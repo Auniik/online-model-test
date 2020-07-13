@@ -38,7 +38,7 @@ return [
     'class' => 'শ্রেণী',
     'start_at' => 'শুরুর সময়',
     'cover_image' => 'ব্যানার ছবি',
-    'description' =>  ' িবরণ',
+    'description' =>  ' বরণ',
     'choose_one' => 'যেকোন একটি বাছাই করুন',
     'show_in_homepage' => 'হোমে দেখান',
     'all_exams' => 'সকল পরীক্ষাসমূহ',
@@ -52,4 +52,12 @@ return [
     'participants' => '',
     'questions' => 'প্রশ্নসমূহ',
     'shown' => 'দেখান',
+
+    //Quiz
+
+    'add_new_quiz' => ' নতুন কুইজ তৈরি  করুন',
+    'all_quizzes' => 'সকল কুইজ দেখুন',
+    'quiz_name' => ' কুইজের নাম',
+    'is_published' => '  পাবলিশ  করুন',
+    'is_default' => ' ডিফল্ট  রাখুন',
 ];

@@ -12,7 +12,9 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $question = Question::where('event_id', Event::where('status', 1)->first()->id)->first();
+        $question = Question::query()
+            ->where('event_id', Event::where('status', 1)->latest()->first()->id)
+            ->first();
 //        return $question;
         $data = [$question->write_answer, $question->wrong_answer_one, $question->wrong_answer_two, $question->wrong_answer_three];
         //echo '<pre>';
@@ -31,6 +33,7 @@ class QuizController extends Controller
     public function startQuiz()
     {
         $active_event = Event::where('status', 1)->first();
+
         session(['quiz_time'=>$active_event->quiz_time]);
         session(['quiz_question' => '']);
         session(['start_quiz' => true]);

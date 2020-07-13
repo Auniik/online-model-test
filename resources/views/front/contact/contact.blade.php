@@ -44,7 +44,7 @@
                         <h4 class="" style="padding-left:10px">যোগাযোগ</h4>
                     </div>
             <div class="row align-items-center">
-        
+
                 <div class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0 order-2 order-md-1">
                     <div class="custom-form p-4 rounded shadow">
                         <div id="message"></div>

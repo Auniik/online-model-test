@@ -11,7 +11,7 @@ class PlayerController extends Controller
 
     public function newPlayer(Request $request)
     {
-        $event_id = Event::where('status',1)->first()->id;
+        $event_id = Event::where('status',1)->latest()->first()->id;
         if($request->player_type=='general'){
             $player_exists = Player::where('event_id', $event_id)
                 ->where('player_type','general')
@@ -32,6 +32,7 @@ class PlayerController extends Controller
                 $player->player_type = $request->player_type;
                 $player->save();
                 session(['player_id' => $player->id]);
+                session(['player_type' => $request->player_type]);
 
                 return redirect()->route('start.quiz')
                     ->with([
@@ -40,7 +41,8 @@ class PlayerController extends Controller
             }
         }else{
             //dd('1');
-            $player_exists = Player::where('event_id', $event_id)
+            $player_exists = Player::query()
+                ->where('event_id', $event_id)
                 ->where('player_type','vip')
                 ->where('name',$request->name)
                 ->where('password',$request->password)

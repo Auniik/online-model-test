@@ -1,0 +1,55 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 08/02/2020 13:20
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+
+font-style: normal;
+}
+
+.flaticon-molecular:before { content: "\f100"; }
+.flaticon-cell:before { content: "\f101"; }
+.flaticon-research:before { content: "\f102"; }
+.flaticon-healthcare-and-medical:before { content: "\f103"; }
+.flaticon-dermathology:before { content: "\f104"; }
+.flaticon-urine-analysis:before { content: "\f105"; }
+.flaticon-stool-test:before { content: "\f106"; }
+.flaticon-endoscopy:before { content: "\f107"; }
+.flaticon-tube:before { content: "\f108"; }
+.flaticon-x-rays:before { content: "\f109"; }
+.flaticon-ultrasound:before { content: "\f10a"; }
+.flaticon-physiotherapy:before { content: "\f10b"; }
+.flaticon-immune-system:before { content: "\f10c"; }
+.flaticon-flask:before { content: "\f10d"; }
+.flaticon-family:before { content: "\f10e"; }
+.flaticon-insurance:before { content: "\f10f"; }
+.flaticon-lung:before { content: "\f110"; }
+.flaticon-molecular-1:before { content: "\f111"; }
+.flaticon-hand:before { content: "\f112"; }
+.flaticon-care:before { content: "\f113"; }
+.flaticon-gallery:before { content: "\f114"; }
+.flaticon-phone-call:before { content: "\f115"; }
+.flaticon-doctor:before { content: "\f116"; }
+.flaticon-house:before { content: "\f117"; }

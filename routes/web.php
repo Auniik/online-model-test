@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 /*admin*/
 
-auth()->loginUsingId(1);
-
+auth()->loginUsingId(3);
+Route::view('/master', 'front.index.index');
 Route::get('/add-event',[
     'uses' => 'EventController@addEvent',
     'as'   => 'add-event'
@@ -388,6 +388,7 @@ Route::post('/send-email', [
 ]);
 
 include __DIR__.'/exam.php';
+include __DIR__.'/quiz.php';
 
 Route::get('user/registration','AuthController@register')->name('user.registration');
 Route::post('user/registration','AuthController@registerPost')->name('user.registration.post');
