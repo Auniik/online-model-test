@@ -56,22 +56,22 @@
                             <tr>
                                 <td width="1">{{++$key}}</td>
                                 <td>
-                                    <span class="view-exam text-info" data-quiz="{{$quiz}}">{{$exam->name}}</span>
+                                    <span class="view-exam text-info" data-quiz="{{$quiz}}">{{$quiz->name}}</span>
                                 </td>
-                                <td>{{$exam->date->format('d/m/Y h:m:s')}}</td>
-                                <td>{{$exam->duration}}</td>
+                                <td>{{$quiz->date->format('d/m/Y h:m:s')}}</td>
+                                <td>{{$quiz->duration}}</td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('exam-participants.create',  $exam->id)}}">
-{{--                                        {{$exam->assigned_participants_count}}--}}
+                                    <a class="btn btn-info" href="{{route('quiz-participants.create',  $quiz->id)}}">
+                                        {{$quiz->assigned_participants_count}}
                                     </a>
                                 </td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('exam-questions.index',  $exam->id)}}">
-{{--                                        {{$exam->questions_count}}--}}
+                                    <a class="btn btn-info" href="{{route('quiz-questions.index',  $quiz->id)}}">
+                                        {{$quiz->questions_count}}
                                     </a>
                                 </td>
-                                <td>{{$exam->is_default ? 'Yes' : 'No'}}</td>
-                                <td>{{$exam->is_published ? 'Yes' : 'No'}}</td>
+                                <td>{{$quiz->is_default ? 'Yes' : 'No'}}</td>
+                                <td>{{$quiz->is_published ? 'Yes' : 'No'}}</td>
                                 <td width="1" align="center">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"
@@ -80,22 +80,22 @@
                                         <div class="dropdown-menu">
                                             <a title="Set Participants"
                                                class="dropdown-item"
-                                               href="{{route('exam-participants.create',  $quiz->id)}}">
+                                               href="{{route('quiz-participants.create',  $quiz->id)}}">
                                                 <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
                                             </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
-                                               href="{{route('exam-questions.index',  $quiz->id)}}">
+                                               href="{{route('quiz-questions.index',  $quiz->id)}}">
                                                 <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
                                             </a>
                                             <a title="Edit"
                                                class="dropdown-item"
-                                               href="{{route('exams.edit',  $quiz->id)}}">
+                                               href="{{route('quizzes.edit',  $quiz->id)}}">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </a>
                                             <a class="dropdown-item deletable"
                                                title="Delete"
-                                               href="{{route('exams.destroy',  $quiz->id)}}">
+                                               href="{{route('quizzes.destroy',  $quiz->id)}}">
                                                 <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
                                             </a>
                                         </div>

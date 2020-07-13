@@ -13,7 +13,8 @@
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> কুইজ টেস্ট
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('add-event')}}">Manage Event</a></li>
+                        <li><a href="{{route('quizzes.create')}}"> নতুন কুইজ</a></li>
+                        <li><a href="{{route('quizzes.index')}}"> সকল কুইজ</a></li>
                         <li><a href="{{route('admin.player.add')}}">Manage Player</a></li>
                         <li><a href="{{route('add-question')}}">Questions</a></li>
                         <li><a href="{{route('admin.results')}}">Results</a></li>

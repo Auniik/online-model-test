@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $quizzes = Quiz::query()
+            ->withCount('assignedParticipants', 'questions')->latest();
+
+        if ($request->filled('quiz_id')){
+            $quizzes->where('id', 'quiz_id');
+        }
+
         return view('admin.quiz.index', [
-            'quizzes' => Quiz::query()->latest()->paginate(25),
+            'quizzes' => $quizzes->paginate(25),
             'selectableQuizzes' => Quiz::query()->pluck('name', 'id'),
         ]);
     }
@@ -22,6 +29,18 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+        $attributes = $request->validate([
+            'name' => 'required|min:3',
+            'duration' => 'required',
+        ]);
+        $data = $request->only('description', 'date', 'is_default', 'is_published');
 
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->image->store('uploads/quizzes');
+        }
+
+        Quiz::query()->create(array_merge($attributes, $data));
+
+        return back_with_success('Quiz');
     }
 }

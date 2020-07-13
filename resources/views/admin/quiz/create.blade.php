@@ -6,7 +6,7 @@
                 @csrf
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-primary float-right" href="{{route('exams.index')}}">
+                        <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
                         <h4 class="header-title"><span id="header-title">{{__('default.add_new_quiz')}}</h4>
                     </div>
