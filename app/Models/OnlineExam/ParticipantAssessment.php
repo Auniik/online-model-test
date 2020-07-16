@@ -24,9 +24,4 @@ class ParticipantAssessment extends Model
             ->with('attachments');
     }
 
-    public function getAnswer($question)
-    {
-        return $this->answers->firstWhere('exam_question_id', $question->id);
-    }
-
 }

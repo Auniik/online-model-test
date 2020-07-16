@@ -12,7 +12,7 @@ class QuizAssessmentAnswer extends Model
 
     public function assessment()
     {
-        return $this->belongsTo(QuizAssessment::class);
+        return $this->belongsTo(QuizAssessment::class, 'quiz_assessment_id');
     }
     public function question()
     {
@@ -26,7 +26,6 @@ class QuizAssessmentAnswer extends Model
 
     public function isCorrect()
     {
-        $flag = $this->option()->where('is_correct', true);
-        return !!$flag;
+        return $this->option()->where('is_correct', true);
     }
 }

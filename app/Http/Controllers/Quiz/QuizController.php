@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Quiz;
 use App\Http\Controllers\Controller;
 use App\Models\Quiz\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class QuizController extends Controller
 {
@@ -35,6 +36,10 @@ class QuizController extends Controller
         ]);
         $data = $request->only('description', 'date', 'is_default', 'is_published');
 
+        if (isset($data['is_default'])) {
+            $this->makeDefault();
+        }
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->image->store('uploads/quizzes');
         }
@@ -42,5 +47,50 @@ class QuizController extends Controller
         Quiz::query()->create(array_merge($attributes, $data));
 
         return back_with_success('Quiz');
+    }
+
+    public function edit(Quiz $quiz)
+    {
+        return view('admin.quiz.edit', [
+            'quiz' => $quiz
+        ]);
+    }
+
+    public function update(Request $request, Quiz $quiz)
+    {
+        $attributes = $request->validate([
+            'name' => 'required|min:3',
+            'duration' => 'required',
+        ]);
+        $data = $request->only('description', 'date', 'is_default', 'is_published');
+
+        if (isset($data['is_default'])) {
+            $this->makeDefault();
+        }
+
+        if ($request->hasFile('image')) {
+            Storage::delete($quiz->image);
+            $data['image'] = $request->image->store('uploads/quizzes');
+        }
+
+        $quiz->update(array_merge($attributes, $data));
+
+        return updated_response('Quiz');
+    }
+
+    public function makeDefault()
+    {
+        Quiz::query()
+            ->where('is_default', 1)
+            ->update(['is_default'=> 0]);
+    }
+
+    public function destroy(Quiz $quiz)
+    {
+        Storage::delete($quiz->image);
+        $quiz->delete();
+        return response([
+            'check' => true
+        ]);
     }
 }

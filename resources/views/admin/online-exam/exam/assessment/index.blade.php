@@ -26,6 +26,7 @@
                     </form>
                 </div>
                 <div class="card-body">
+                    @include('admin._partials.success-alert')
                     <div class="question-block">
                         <div class="table-responsive-sm">
                             <table class="table table-sm">

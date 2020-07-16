@@ -2,14 +2,6 @@
 @section('body')
     <div class="row  m-t-15">
         <div class="col-12">
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{session('success')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header">
                     <form class="form-horizontal">
@@ -37,6 +29,7 @@
                     </form>
                 </div>
                 <div class="card-body">
+                    @include('admin._partials.success-alert')
                     <table class="table table-striped table-sm table-bordered w-100">
                         <thead>
                         <tr>

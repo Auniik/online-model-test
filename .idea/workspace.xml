@@ -11,18 +11,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizParticipantController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/general-associate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/vip-associate.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/RenderQuestionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/quizzes/question.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/quizzes/renderQ.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizAssessmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizAssessmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizQuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/Quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/ParticipantAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/ParticipantAssessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/QuizAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/QuizAssessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/QuizAssessmentAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/QuizAssessmentAnswer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/assessment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/assessment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/examine.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/examine.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/participants/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/participants/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/subject/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/participant/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/question/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/_partials/success-alert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/question/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/assessment/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/question/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/exam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,19 +179,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/front-end" />
+      <recent name="$PROJECT_DIR$/routes/admin" />
+      <recent name="$PROJECT_DIR$/app/Models/Quiz" />
+      <recent name="$PROJECT_DIR$/public/uploads" />
+      <recent name="$PROJECT_DIR$/resources/lang/en" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin/quiz/participant" />
       <recent name="$PROJECT_DIR$/resources/views/admin/quiz/assessment" />
       <recent name="$PROJECT_DIR$/resources/views/admin/quiz/question" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Quiz" />
       <recent name="$PROJECT_DIR$/resources/views/front/_partials" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models/Quiz" />
-      <recent name="$PROJECT_DIR$/public/uploads" />
-      <recent name="$PROJECT_DIR$/resources/lang/en" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/OnlineExam" />
-      <recent name="$PROJECT_DIR$/app/Models/OnlineExam" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.2020_07_02_040324_create_exam_questions_table.php">
@@ -237,7 +261,10 @@
       <workItem from="1594568991885" duration="2173000" />
       <workItem from="1594615869934" duration="25000" />
       <workItem from="1594615911585" duration="4212000" />
-      <workItem from="1594659379463" duration="7870000" />
+      <workItem from="1594659379463" duration="15763000" />
+      <workItem from="1594746449920" duration="8176000" />
+      <workItem from="1594832738505" duration="97000" />
+      <workItem from="1594832846772" duration="27644000" />
     </task>
     <servers />
   </component>
@@ -261,10 +288,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="430" y="187" width="490" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1593965993308" />
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594661296435">
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594837014998">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1594661296435" />
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1594837014998" />
     <state x="466" y="140" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594617037274">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -317,30 +344,30 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state width="1366" height="270" key="GridCell.Tab.2.right/0.22.1366.746@0.22.1366.746" timestamp="1593669429443" />
-    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog" timestamp="1594660447375">
+    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog" timestamp="1594846243891">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1594660447375" />
+    <state x="295" y="111" width="835" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1594846243891" />
     <state x="501" y="308" width="314" height="143" key="NewPhpFileDialog" timestamp="1594617694126">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="501" y="308" width="314" height="143" key="NewPhpFileDialog/0.22.1366.746@0.22.1366.746" timestamp="1594617694126" />
-    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594397856501">
+    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594700398244">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.22.1366.746@0.22.1366.746" timestamp="1594397856501" />
-    <state x="389" y="131" width="587" height="560" key="find.popup" timestamp="1594459506980">
+    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.22.1366.746@0.22.1366.746" timestamp="1594700398244" />
+    <state x="389" y="131" width="587" height="560" key="find.popup" timestamp="1594849982825">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="389" y="131" width="587" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1594459506980" />
-    <state x="347" y="169" key="run.anything.popup" timestamp="1594666459591">
+    <state x="389" y="131" width="587" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1594849982825" />
+    <state x="347" y="169" key="run.anything.popup" timestamp="1594855766073">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1594666459591" />
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1594665673904">
+    <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1594855766073" />
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1594877711894">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1594665673904" />
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1594877711894" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

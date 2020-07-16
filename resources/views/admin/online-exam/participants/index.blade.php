@@ -2,20 +2,13 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{session('success')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
                     <h4 class="header-title col-2"><span id="header-title">Participants</span></h4>
                 </div>
                 <div class="card-body">
+                    @include('admin._partials.success-alert')
                     <div class="question-block">
                         <div class="table-responsive-sm">
                             <table class="table table-sm">

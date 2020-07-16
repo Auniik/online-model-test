@@ -42,6 +42,7 @@
             display: none;
         }
     </style>
+    @stack('style')
 </head>
 
 <body class="content">

@@ -4,6 +4,7 @@
 namespace App\Models\OnlineExam;
 
 
+use App\Models\Quiz\QuizAssessment;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -39,6 +40,10 @@ class Participant extends User
     public function assessments()
     {
         return $this->hasMany(ParticipantAssessment::class);
+    }
+    public function quizzes()
+    {
+        return $this->hasMany(QuizAssessment::class);
     }
 
     public function makeUsername()

@@ -10,14 +10,7 @@
                         <h4 class="header-title"><span id="header-title">{{__('default.add_new_exam')}}</h4>
                     </div>
                     <div class="card-body">
-                        @if (session()->has('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>{{__('default.success')}}!</strong> {{session('success')}}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        @endif
+                        @include('admin._partials.success-alert')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.exam_name')}}

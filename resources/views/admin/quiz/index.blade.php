@@ -2,34 +2,20 @@
 @section('body')
     <div class="row  m-t-15">
         <div class="col-12">
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{session('success')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-6"><span id="header-title">Manage Quizzes </span></h4>
-                            <select name="exam_id" class="form-control col-2 exam_id">
+                            <h4 class="header-title col-8"><span id="header-title">Manage Quizzes </span></h4>
+                            <select name="quiz_id" class="form-control col-2 quiz_id">
                                 <option value="">Select One</option>
                                 @foreach($selectableQuizzes as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
-                            <select name="subject_id" class="form-control col-2 subject_id">
-                                <option value="">Select One</option>
-{{--                                @foreach($subjects as $id => $name)--}}
-{{--                                    <option value="{{$id}}">{{$name}}</option>--}}
-{{--                                @endforeach--}}
-                            </select>
                             <button type="submit" class="btn btn-secondary" style="height: 35px; "><i
                                     class="fa fa-search-plus"></i></button>
-                            <a class="btn btn-secondary" href="{{route('exams.index')}}" style="height: 35px; "><i
+                            <a class="btn btn-secondary" href="{{route('quizzes.index')}}" style="height: 35px; "><i
                                     class="fa fa-refresh"></i></a>
                             <a href="{{route('quizzes.create')}}" style="height: 35px; " class="btn btn-primary
                             col-1">Add new</a>
@@ -37,6 +23,7 @@
                     </form>
                 </div>
                 <div class="card-body">
+                    @include('admin._partials.success-alert')
                     <table class="table table-striped table-sm table-bordered w-100">
                         <thead>
                         <tr>

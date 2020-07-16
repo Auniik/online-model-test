@@ -25,4 +25,19 @@ class QuizAssessment extends Model
     {
         return $this->hasMany(QuizAssessmentAnswer::class);
     }
+
+    public function correctCount()
+    {
+        return $this->answers->sum(function ($answer) {
+            return $answer->option->is_correct;
+        });
+    }
+
+    public function wrongCount()
+    {
+        return $this->answers->sum(function ($answer) {
+            return !$answer->option->is_correct;
+        });
+    }
+
 }

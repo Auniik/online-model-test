@@ -61,9 +61,11 @@
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <form id="home" class="form-inline tab-pane active" action="{{route('new-player')}}"
+{{--                        <form id="home"  class="form-inline tab-pane active" action="{{route('new-player')}}"--}}
+                        <form id="home" class="form-inline tab-pane active"
+                              action="{{route('participants.register')}}"
                               method="POST">
-                            {{--                        <div  class="">--}}
+{{--                        <div  class="">--}}
 
                             @csrf
                             @include('front.partials.notifications')
@@ -101,7 +103,9 @@
                             {{--                        </div>--}}
                         </form>
 
-                        <form id="menu1" class="form-inline tab-pane" action="{{route('new-player')}}" method="post">
+{{--                        <form id="menu1" class="form-inline tab-pane" action="{{route('new-player')}}" method="post">--}}
+                        <form id="menu1" class="form-inline tab-pane"
+                              action="{{route('participants.register')}}" method="post">
                             {{--                        <div id="menu1" class="tab-pane">--}}
                             @csrf
                             @if(session()->has('warn'))

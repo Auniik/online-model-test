@@ -46,6 +46,8 @@
         }
     </style>
 
+    @stack('style')
+
     <!--End Editor-->
 
 </head>

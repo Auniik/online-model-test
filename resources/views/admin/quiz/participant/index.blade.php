@@ -2,14 +2,6 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{session('success')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
             <div class="card">
                 <div class="card-header">
 
@@ -54,6 +46,7 @@
 
                 </div>
                 <div class="card-body">
+                    @include('admin._partials.success-alert')
                     <div class="question-block">
                         <div class="table-responsive-sm">
                             <table class="table table-sm">
@@ -79,7 +72,7 @@
                                         </td>
                                         <td>
                                             <a title="Examine"
-                                               href="{{route('assessments-examine.index',  $assignedParticipant->id)}}">
+                                               href="{{route('quiz-assessment.show',  $assignedParticipant->id)}}">
                                                 <i class="fa fa fa-eye" aria-hidden="true"></i>
                                             </a>
                                             <a class="deletable"
