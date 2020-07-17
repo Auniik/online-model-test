@@ -23,7 +23,7 @@ class CreateParticipantsTable extends Migration
             $table->string('sub_district')->nullable();
             $table->string('district')->nullable();
             $table->string('division')->nullable();
-            $table->string('mobile_number')->nullable();
+            $table->string('mobile_number')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->rememberToken();

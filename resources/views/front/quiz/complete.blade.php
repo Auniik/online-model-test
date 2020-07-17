@@ -1,5 +1,5 @@
-@extends('front.master')
-@section('body')
+@extends('front.layout.master')
+@section('content')
     <section class="main-slider">
         <div class="container-fluid">
             <div class="row align-items-center">

@@ -10,7 +10,7 @@
         <div id="sidebar-menu">
             <ul>
                 <li><a href="{{asset('/home')}}" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard</span></a></li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> কুইজ টেস্ট
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-clock"></i> <span> কুইজ টেস্ট
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('quizzes.create')}}"> নতুন কুইজ</a></li>
@@ -20,27 +20,26 @@
                         <li><a href="{{route('admin.results')}}">Results</a></li>
                     </ul>
                 </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> অনলাইন পরীক্ষা
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-flask"></i> <span> অনলাইন
+                            পরীক্ষা
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('exams.create')}}">Create Exam</a></li>
                         <li><a href="{{route('exams.index')}}">All Exams</a></li>
-                        <li><a href="{{route('participants.index')}}">Participants</a></li>
                         <li><a href="{{route('assessments.index')}}">Assessments</a></li>
                         <li><a href="{{route('admin.results')}}">Results</a></li>
                         <li><a href="{{route('subjects.index')}}">Subjects</a></li>
                     </ul>
                 </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Work </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('admin.submitted.work')}}">Submitted Work</a></li>
-                    </ul>
-                </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Book Questions </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('admin.book.question')}}">Book Question</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{route('participants.index')}}" class="waves-effect"><i class="mdi mdi-account"></i>
+                        <span> সকল পরীক্ষার্থী</span></a></li>
+
+                <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
+                        <span> Submitted Works</span></a></li>
+
+                <li><a href="{{route('admin.book.question')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> Book Question</span></a></li>
+
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Gallery
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
@@ -58,11 +57,8 @@
                         <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
                     </ul>
                 </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Blog</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{asset('add-blog')}}">Manage Blog</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{route('add-blog')}}" class="waves-effect"><i class="mdi mdi-blogger"></i>
+                        <span>Blog</span></a></li>
                 <!--<li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Video</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>-->
                 <!--    <ul class="list-unstyled">-->
                 <!--        <li><a href="{{route('add-video')}}">Manage Video</a></li>-->

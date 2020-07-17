@@ -18,9 +18,10 @@ class CreateQuizAssessmentsTable extends Migration
             $table->unsignedBigInteger('quiz_id');
             $table->unsignedBigInteger('participant_id');
             $table->enum('participant_type', ['vip', 'general'])->default('general');
-            $table->string('consumed_time')->nullable();
             $table->string('score')->default(0);
             $table->boolean('is_attended')->default(false);
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
             $table->foreign('quiz_id')->references('id')->on('quizzes');
             $table->foreign('participant_id')->references('id')->on('participants');

@@ -6,16 +6,17 @@
     .select2-search--dropdown .select2-search__field {
         width: 80%;
     }
-</style>
 
+
+</style>
 <div class="modal fade" id="VIPParticipantAssignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <form action="{{route('quiz-participants.store', $quiz)}}" method="post">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new VIP Participant</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> অতিথী পরীক্ষার্থী যোগ করুন</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -23,20 +24,10 @@
                 <div class="modal-body">
                     <div class="written-question-details">
                         <div class="form-group row">
-                            <label class="col-2">Add New</label>
-                            <select class="select2-tags form-control"
-                                    name="participants[]" multiple>
-                            </select>
+                            <input type="hidden" name="participant_type" value="vip">
+                            <label class="col-2">Type</label>
+                            <input type="text" class="form-control col-8" disabled placeholder="অতিথী">
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2">Password </label>
-                            <input type="text" class="form-control col-9" autocomplete="off" name="password"
-                                   placeholder=" পাসওয়ার্ড">
-                            <p class="col-10 offset-2">Note: <small>Password will set for newly added
-                                    participants</small>
-                            </p>
-                        </div>
-                        <hr class="mt-3">
                         <div class="form-group row">
                             <label class="col-2">Select Existing</label>
                             <select class="select2 form-control" name="ids[]" multiple>
@@ -46,11 +37,26 @@
                             </select>
                         </div>
                         <hr>
-                        <div class="form-group row">
-                            <input type="hidden" name="participant_type" value="vip">
-                            <label class="col-2">Type</label>
-                            <input type="text" class="form-control col-8" disabled placeholder="অতিথী">
+
+                        <div class="participants">
+                            <table class="table  table-bordered  table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Participant Name</th>
+                                    <th width="18%">Mobile Number</th>
+                                    <th width="18%">Email</th>
+                                    <th width="18%">Password</th>
+                                    <th width="1%">#</th>
+                                </tr>
+                                </thead>
+                                <tbody class="participant-group">
+
+                                </tbody>
+
+                            </table>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="modal-footer">

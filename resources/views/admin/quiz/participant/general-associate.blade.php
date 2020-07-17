@@ -11,12 +11,12 @@
 <div class="modal fade" id="GeneralParticipantAssignModal" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <form action="{{route('quiz-participants.store', $quiz)}}" method="post">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new General Participant</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> সাধারণ পরীক্ষার্থী যোগ করুন</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -32,16 +32,26 @@
                             </select>
                         </div>
                         <div class="form-group row">
-                            <input type="hidden" name="type" value="written">
-                            <label class="col-2">Add New</label>
-                            <select class="select2-tags form-control"
-                                    name="participants[]" multiple>
-                            </select>
-                        </div>
-                        <div class="form-group row">
                             <input type="hidden" name="participant_type" value="general">
                             <label class="col-2">Type</label>
                             <input type="text" class="form-control col-8" disabled placeholder=" সাধারণ">
+                        </div>
+                        <div class="participants">
+                            <table class="table  table-bordered  table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Participant Name</th>
+                                    <th width="18%">Mobile Number</th>
+                                    <th width="18%">Email</th>
+                                    <th width="18%">Password</th>
+                                    <th width="1%">#</th>
+                                </tr>
+                                </thead>
+                                <tbody class="participant-group">
+
+                                </tbody>
+
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ use App\Models\OnlineExam\Participant;
 use App\Models\Quiz\Quiz;
 use App\Models\Quiz\QuizAssessment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class QuizParticipantController extends Controller
@@ -54,28 +55,44 @@ class QuizParticipantController extends Controller
 
     public function store(Request $request, Quiz $quiz)
     {
-        foreach ($request->get('ids', []) as $id) {
-            QuizAssessment::query()
-                ->create([
-                    'quiz_id' => $quiz->id,
-                    'participant_id' => $id,
-                    'participant_type' => $request->participant_type
-                ]);
-        }
-        foreach ($request->get('participants', []) as  $participant) {
-            if (Str::length($participant) > 2) {
-                $participant = Participant::query()->create([
-                    'name' => $participant,
-                    'password' => bcrypt($request->password)
-                ]);
+        DB::transaction(function ()use ($request, $quiz) {
+            foreach ($request->get('ids', []) as $id) {
                 QuizAssessment::query()
+                    ->create([
+                        'quiz_id' => $quiz->id,
+                        'participant_id' => $id,
+                        'participant_type' => $request->participant_type
+                    ]);
+            }
+            $request->validate([
+                'email.*' =>
+                    'required_without:mobile_number|nullable|distinct|email|unique:participants,email',
+                'mobile_number.*' =>
+                    'required_without:email|nullable|distinct|unique:participants,mobile_number'
+            ]);
+
+            foreach ($request->get('name', []) as $key => $name) {
+                $password = '12345678';
+
+                if (optional($request->password)[$key]) {
+                    $password = $request->password[$key];
+                }
+                $participant = Participant::query()->create([
+                    'name' => $name,
+                    'email' => $request->email[$key],
+                    'mobile_number' => $request->mobile_number[$key],
+                    'password' => bcrypt($password)
+                ]);
+
+                $assess =  QuizAssessment::query()
                     ->create([
                         'quiz_id' => $quiz->id,
                         'participant_id' => $participant->id,
                         'participant_type' => $request->participant_type
                     ]);
             }
-        }
+        });
+
         return back_with_success('participant');
     }
 

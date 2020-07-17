@@ -17,12 +17,13 @@ class RenderQuestionController extends Controller
         $questions = $assessment->quiz->questions;
         $totalQuestions = $questions->count();
         $totalAnswered = $assessment->answers->count();
+
         if ($totalQuestions == $totalAnswered) {
-            $assessment->update([
-                'score' => $assessment->correctCount()
-            ]);
+            $this->completeAssessment($assessment);
+            session()->forget(['participant_id', 'quiz', 'type']);
             return 'COMPLETED';
         }
+
         if(!$totalAnswered) {
             $question = $questions->first();
             $options = $question->options->shuffle();
@@ -50,10 +51,37 @@ class RenderQuestionController extends Controller
     public function store(Request $request)
     {
         return DB::transaction(function () use ($request) {
+            $assessment = QuizAssessment::query()->find($request->quiz_assessment_id);
+
+            if ($assessment->end_at) {
+                /** @var QuizAssessment $assessment */
+                return $this->complete($assessment);
+            }
+
             $answer = QuizAssessmentAnswer::query()
                 ->create($request->except('_token'));
             return $this->show($answer->assessment);
         });
 
     }
+
+    public function complete(QuizAssessment $assessment)
+    {
+        $this->completeAssessment($assessment);
+        return view('front.quiz.complete');
+    }
+
+    public function completeAssessment($assessment)
+    {
+        $attributes = [
+            'score' => $assessment->correctCount(),
+        ];
+        if (!$assessment->end_at) {
+            $attributes['end_at'] = now();
+            session()->forget(['participant_id', 'quiz', 'type']);
+        }
+        $assessment->update($attributes);
+        return true;
+    }
+
 }

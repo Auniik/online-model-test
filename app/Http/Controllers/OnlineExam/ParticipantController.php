@@ -13,17 +13,31 @@ class ParticipantController extends Controller
     public function index()
     {
         return view('admin.online-exam.participants.index',[
-            'participants' => Participant::query()->paginate(50)
+            'participants' => Participant::query()
+                ->latest()
+                ->withCount('assessments', 'quizzes')
+                ->paginate(50)
         ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required'
+        $attributes = $request->validate([
+            'name.*' => 'required',
+            'email.*' => 'required_without:mobile_number|email|unique:participants,email|distinct',
+            'mobile_number.*' => 'required_without:email|unique:participants,mobile_number',
+            'password.*' => 'nullable|min:6'
         ]);
-        Participant::query()
-            ->create(\request()->all());
+        foreach ($attributes['name'] as $key => $name) {
+            Participant::query()
+                ->create([
+                    'name' => $name,
+                    'email' => $request->email[$key],
+                    'mobile_number' => $request->mobile_number[$key],
+                    'password' => bcrypt($request->password[$key])
+                ]);
+        }
+
         return back_with_success('participant');
     }
 

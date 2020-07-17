@@ -45,7 +45,7 @@
     @stack('style')
 </head>
 
-<body class="content">
+<body class="content" id="body">
 @include('front._partials.header')
 <!---------------------------- স্ক্রল বাটন শুরু --------------->
 

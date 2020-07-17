@@ -13,7 +13,6 @@ class Participant extends User
 {
 
     use Notifiable;
-
     protected $guard = 'participant';
 
     public static function boot(): void
@@ -23,7 +22,6 @@ class Participant extends User
             static::creating(function ($model){
                 $model->fill([
                     'username' => uniqid(Str::slug($model->name, '.')),
-                    'password' => bcrypt(12345678),
                 ]);
             });
         }

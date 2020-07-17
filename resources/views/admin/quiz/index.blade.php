@@ -6,9 +6,9 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-8"><span id="header-title">Manage Quizzes </span></h4>
+                            <h4 class="header-title col-7"><span id="header-title"> সকল কুইজ সমূহ </span></h4>
                             <select name="quiz_id" class="form-control col-2 quiz_id">
-                                <option value="">Select One</option>
+                                <option value=""> বাছাই করুন</option>
                                 @foreach($selectableQuizzes as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
@@ -18,7 +18,7 @@
                             <a class="btn btn-secondary" href="{{route('quizzes.index')}}" style="height: 35px; "><i
                                     class="fa fa-refresh"></i></a>
                             <a href="{{route('quizzes.create')}}" style="height: 35px; " class="btn btn-primary
-                            col-1">Add new</a>
+                            col-2"> নতুন কুইজ তৈরি করুন</a>
                         </div>
                     </form>
                 </div>
@@ -27,14 +27,14 @@
                     <table class="table table-striped table-sm table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Duration</th>
-                            <th>Participants</th>
-                            <th>Questions</th>
-                            <th>Default</th>
-                            <th>Published</th>
+                            <th>#</th>
+                            <th> নাম</th>
+                            <th> কুইজের তারিখ</th>
+                            <th> সময়সীমা</th>
+                            <th> পরীক্ষার্থী</th>
+                            <th> প্রশ্নসমূহ</th>
+                            <th>  ডিফল্ট কুইজ?</th>
+                            <th> পাবলিশ হয়েছে?</th>
                             <th>Action</th>
                         </tr>
                         </thead>

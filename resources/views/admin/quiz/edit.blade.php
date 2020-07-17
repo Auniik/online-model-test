@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
-                        <h4 class="header-title"><span id="header-title">{{__('default.edit_quiz')}}</h4>
+                        <h4 class="header-title"><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')
@@ -26,8 +26,8 @@
                                     name="name"
                                     autocomplete="off"
                                 >
-                                {{--                                @if($errors->has('name'))<div class="invalid-feedback">{{$errors->name}}</div>--}}
-                                {{--                                @endif--}}
+{{--                                @if($errors->has('name'))<div class="invalid-feedback">{{$errors->name}}</div>--}}
+{{--                                @endif--}}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -54,7 +54,8 @@
                             </div>
                             <div class="col-sm-8">
                                 @if ($quiz->image)
-                                    <p class="text-warning">Want to replace this image ? Then Choose a new one.</p>
+                                    <p class="text-warning"> উক্ত ছবিটি বাদ দিয়ে নতুন ছবি যুক্ত করতে চান ? তবে
+                                   নিচেবাছাই বাছাই করুন </p>
                                 @endif
                                 <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
 

@@ -1,7 +1,7 @@
 <!---------------------------- যোগাযোগ অংশ শুরু --------------->
 
 <section id="communication-part">
-    <div class="container-fulied">
+    <div class="container-fulied contact-form">
         <div class="text_center">
             <h1>যোগাযোগ</h1>
         </div>

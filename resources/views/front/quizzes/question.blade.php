@@ -1,7 +1,5 @@
 @extends('front.layout.master')
 @push('style')
-    {{--    <link href="/front-end/timeto/timeTo.css" type="text/css" rel="stylesheet"/>--}}
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <style>
         @media (max-width: 991px) and (min-width: 768px) {
             label {
@@ -15,7 +13,15 @@
             color: black;
             font-weight: 800;
         }
+        .unselectable {
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
     </style>
+
 @endpush
 @section('content')
     <section class="main-slider">
@@ -28,7 +34,7 @@
             </div>
         </div>
     </section>
-    <section class="section-two bg-light custom-new-quiz" id="question-one">
+    <section class="section-two unselectable bg-light custom-new-quiz" id="question-one">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -63,24 +69,49 @@
         </div>
     </section>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <hr>
     <hr>
 @endsection
 
 @push('script')
+{{--    preventions--}}
     <script>
+        body = document.getElementById('body');
+        $('.contact-form').remove()
+        $('#location-part').remove()
+
+        function handler(event) {
+            event = event || window.event;
+
+            if (event.stopPropagation)
+                event.stopPropagation();
+
+            event.cancelBubble = true;
+            return false;
+        }
+
+
+        body.oncontextmenu = handler;
+        body.onmousedown = handler;
+        body.onmouseup = handler;
+    </script>
+
+{{--    initializations--}}
+    <script>
+
         const assessment = JSON.parse("{{$assessment}}".replace(/&quot;/g, '"'));
         const timeArray = assessment.quiz.duration.split(':')
         const seconds = (parseInt(timeArray[0]) * 60) + parseInt(timeArray[1]);
         const type = assessment.participant_type;
-        loadQuestion();
+
+
         document.getElementById('timer').innerHTML = assessment.quiz.duration
 
+    </script>
 
+{{--    definations--}}
+    <script>
+        loadQuestion();
         function loadQuestion() {
             $.ajax({
                 url: `/render-question/${assessment.id}`,
@@ -123,24 +154,25 @@
             $('#nextButton').attr('disabled', false)
         })
 
-        const COMPLETE_ALERT = `
-        <div class="alert alert-success w-100" role="alert">
-          You have completed this quiz. Thank you
-        </div>
-        `
 
         function completedAction() {
-            ('#nextButton').hide()
-            $('.questions-row').html(COMPLETE_ALERT)
+            $('#nextButton').hide()
             $('#timer').hide()
+            location.href = `complete-quiz/${assessment.id}`
         }
 
-        // window.onbeforeunload = function ( ) {
-        //     return true
-        // }
     </script>
 
+    <script>
+        window.onbeforeunload = function() {
+            window.setTimeout(function () {
+                window.location = `/complete-quiz/${assessment.id}`;
+             }, 0);
+            window.onbeforeunload = null;
+        }
+    </script>
 
+{{--Timer--}}
     <script>
         function startTimer(time = null) {
             let presentTime = time || document.getElementById('timer').innerHTML;
@@ -150,8 +182,8 @@
             if (s === 59) m--
 
             if (m < 0) {
-                // location.href = 'complete';
-                alert('timer completed')
+                location.href = `complete-quiz/${assessment.id}`;
+                // alert('timer completed')
             } else {
 
                 document.getElementById('timer').innerHTML = `${m}:${s}`;

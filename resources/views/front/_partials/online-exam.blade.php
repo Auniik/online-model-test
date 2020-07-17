@@ -66,39 +66,59 @@
                               action="{{route('participants.register')}}"
                               method="POST">
 {{--                        <div  class="">--}}
-
                             @csrf
                             @include('front.partials.notifications')
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label for="name">নাম:</label>
-                                    </td>
-                                    <td>
-                                        <input class="form-control" type="text" name="name"
-                                               placeholder="সম্পূর্ণ নাম দিন" autocomplete="off" required/>
-                                        <input type="hidden" value="general" name="player_type"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="number">মোবাইল:</label>
-                                    </td>
-                                    <td>
-                                        <input class="form-control integer"
-                                               type="text" minlength="11" autocomplete="off"
-                                               placeholder="মোবাইল নাম্বার দিন"
-                                               maxlength="11" name="phone" required/>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row form-group">
+                                        <div class="col-2">
+                                            <label for="name">নাম:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="name" id="name"
+                                                   placeholder="সম্পূর্ণ নাম দিন" autocomplete="off" required/>
+                                            <input type="hidden" value="general" name="player_type"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-2">
+                                            <label for="number">মোবাইল:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control integer"
+                                                   type="text" id="number" minlength="11" autocomplete="off"
+                                                   placeholder="মোবাইল নাম্বার দিন"
+                                                   maxlength="11" name="phone" required/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-2">
+                                            <label for="email"> ইমেইল:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control"
+                                                   type="email" id="email"  autocomplete="off"
+                                                   placeholder="ইমেইল দিন (যদি থাকে)" name="email"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-10 offset-md-2 text-right ">
+                                            <div class="row justify-content-between">
+                                                <a href="javascript:void(0)" class="share-btn btn w-25 p-3
+                                            ml-4">
+                                                    <i class="fas fa-share"></i> Share
+                                                </a>
+                                                <button type="submit" class="btn btn-success p-3 shadow-lg w-25
+                                                mr-0">কুইজ
+                                                    শুরু</button>
+                                            </div>
 
 
-                            <a href="javascript:void(0)" class="share-btn">
-                                <i class="fas fa-share"></i> Share
-                            </a>
-
-                            <button type="submit" class="btn quej-btn">কুইজ শুরু</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             {{--                        </div>--}}
                         </form>
@@ -113,38 +133,46 @@
                                     {{session('warn')}}
                                 </div>
                             @endif
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label for="name">নাম:</label>
-                                    </td>
-                                    <td>
-                                        <input class="form-control" type="text" name="name"
-                                               placeholder="সম্পূর্ণ নাম দিন" autocomplete="off" required/>
-                                        <input type="hidden" value="vip" name="player_type"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="number"> পাসওার্ড:</label>
-                                    </td>
-                                    <td>
-                                        <input class="form-control integer" autocomplete="off" type="password"
-                                               name="password"
-                                               minlength="6"
-                                               required/>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row form-group">
+                                        <div class="col-2">
+                                            <label for="email"> ইমেইল:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="email" id="email"
+                                                   placeholder="ইমেইল দিন" autocomplete="off" required/>
+                                            <input type="hidden" value="vip" name="player_type"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-2">
+                                            <label for="number"> পাসওার্ড:</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control integer" autocomplete="off" type="password"
+                                                   name="password"
+                                                   minlength="6"
+                                                   required/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-10 offset-md-2 text-right ">
+                                            <div class="row justify-content-between">
+                                                <a href="javascript:void(0)" class="share-btn btn w-25 p-3
+                                            ml-4">
+                                                    <i class="fas fa-share"></i> Share
+                                                </a>
+                                                <button type="submit" class="btn btn-success p-3 shadow-lg w-25
+                                                mr-0">কুইজ
+                                                    শুরু</button>
+                                            </div>
 
 
-                            <a href="javascript:void(0)" class="share-btn">
-                                <i class="fas fa-share"></i> Share
-                            </a>
-
-                            <button type="submit" class="btn quej-btn" >কুইজ শুরু</button>
-
-                            {{--                        </div>--}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
