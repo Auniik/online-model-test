@@ -37,4 +37,17 @@ class ExamQuestion extends Model
     {
         return $this->belongsTo(Exam::class);
     }
+
+    public function isMCQ()
+    {
+        return $this->attributes['type'] == 'mcq';
+    }
+    public function isCQ()
+    {
+        return $this->attributes['type'] == 'cq';
+    }
+    public function isWritten()
+    {
+        return $this->attributes['type'] == 'written';
+    }
 }

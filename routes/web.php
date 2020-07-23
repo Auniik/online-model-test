@@ -389,7 +389,7 @@ Route::post('/send-email', [
 
 include __DIR__.'/admin/exam.php';
 include __DIR__.'/admin/quiz.php';
-include __DIR__.'/user.php';
+include __DIR__.'/participant.php';
 
 Route::get('user/registration','AuthController@register')->name('user.registration');
 Route::post('user/registration','AuthController@registerPost')->name('user.registration.post');

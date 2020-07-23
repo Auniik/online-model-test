@@ -79,7 +79,7 @@
                                             {{$assignedParticipant->score}}
                                         </td>
                                         <td>
-                                            @if ($assignedParticipant->score)
+                                            @if ($assignedParticipant->end_at)
                                                 <a title="Examine"
                                                    href="{{route('quiz-assessment.show',  $assignedParticipant->id)}}">
                                                     <i class="fa fa fa-eye" aria-hidden="true"></i>

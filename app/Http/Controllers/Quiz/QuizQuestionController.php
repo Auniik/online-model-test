@@ -22,7 +22,6 @@ class QuizQuestionController extends Controller
 
     public function store(Request $request, Quiz $quiz)
     {
-//        dd($request->all());
 
         DB::transaction(function () use($request, $quiz){
             foreach ($request->get('title', []) as $key => $title) {
@@ -34,7 +33,7 @@ class QuizQuestionController extends Controller
 
                 $question = QuizQuestion::query()->create([
                     'title' => $title,
-                    'path' => $path,
+                    'meta' => $path,
                     'quiz_id' => $quiz->id
                 ]);
                 foreach ($request->options[$key] as $k => $option) {

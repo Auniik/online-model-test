@@ -165,7 +165,7 @@
                     <div class="col-2">
                         <input type="text" class="form-control" value="${level}"
                         readonly/>
-                        <input type="hidden" class="form-control" name="Level" value="level_${questionCount}"
+                        <input type="hidden" class="form-control" name="CQ_LEVEL[]" value="level_${questionCount}"
                         readonly/>
                     </div>
                     <div class="col-6">

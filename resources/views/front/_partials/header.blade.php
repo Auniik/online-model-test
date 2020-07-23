@@ -32,8 +32,20 @@
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="message.html">বার্তা</a> </li>
                 </ul>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন ইন</button>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন আউট</button>
+                @if (!auth('participant')->check())
+                    <a href="/participants/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন ইন</a>
+                @else
+                    <a href="/participants/profile" class="btn btn-link my-2 my-sm-0" type="submit">
+                        {{auth('participant')->user()->name}}
+                    </a>
+                    <form action="/participants/logout" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন আউট</button>
+                    </form>
+
+                @endif
+
+
             </div>
             <a class="navbar-brand mujib-logo-img" href="index.html"><img src="/front-end/images/Mujib_100_Logo.png" alt="logo"></a>
         </div>

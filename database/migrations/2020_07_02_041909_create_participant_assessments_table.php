@@ -17,6 +17,8 @@ class CreateParticipantAssessmentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('exam_id');
             $table->unsignedBigInteger('participant_id');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->integer('score')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();

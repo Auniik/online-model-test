@@ -7,21 +7,36 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Participant;
 use App\Models\Quiz\Quiz;
+use App\Services\Participant\ParticipantAuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class QuizRegisterController extends Controller
 {
+    /**
+     * @var ParticipantAuthService
+     */
+    private $service;
+
+    /**
+     * QuizRegisterController constructor.
+     * @param ParticipantAuthService $service
+     */
+    public function __construct(ParticipantAuthService $service)
+    {
+        $this->service = $service;
+    }
+
+
     public function store(Request $request)
     {
-        $participant = [
-            'vip' => $this->getVIPParticipant($request),
-            'general' => $this->getGeneralParticipant($request)
-        ][$request->player_type];
+        $participant = $this->getParticipant($request);
 
         if (!$participant) {
-            return back()->withWarning('Email and Password not matched.');
+            return back()->withWarning('You are not yet assigned to current quiz.');
         }
+
+        auth('participant')->login($participant);
 
         $defaultQuiz = $this->getCurrentQuiz();
 
@@ -36,11 +51,25 @@ class QuizRegisterController extends Controller
         session([
             'participant_id' => $participant->id,
             'quiz' => $defaultQuiz,
-            'type' => $request->player_type
+            'type' => $request->player_type ?? 'general'
         ]);
         return redirect()->route('quiz-assessment.create');
     }
 
+
+    public function getParticipant($request)
+    {
+        if (auth('participant')->check()) {
+            return auth('participant')->user();
+        }
+        if ($request->player_type == 'general') {
+            return $this->getGeneralParticipant($request);
+        }
+        if ($request->player_type == 'vip') {
+            return $this->getVIPParticipant($request);
+        }
+        return false;
+    }
 
     public function getCurrentQuiz()
     {
@@ -53,12 +82,9 @@ class QuizRegisterController extends Controller
 
     private function getVIPParticipant(Request $request)
     {
+        $attributes = $this->service->validate($request);
 
-
-        $participant = Participant::query()
-            ->where('email', $request->email)
-            ->first();
-
+        $participant = Participant::query()->where($attributes)->first();
 
         if (!$participant) {
             return false;

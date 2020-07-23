@@ -15,4 +15,9 @@ class CQQuestionMeta extends Model
     {
         return $this->belongsTo(ExamQuestion::class);
     }
+
+    public function getTranslatedLevelAttribute()
+    {
+        return __('default')[$this->level];
+    }
 }

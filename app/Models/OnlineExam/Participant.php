@@ -44,6 +44,21 @@ class Participant extends User
         return $this->hasMany(QuizAssessment::class);
     }
 
+    public function performedCurrentQuiz()
+    {
+        return !!$this->hasOne(QuizAssessment::class)
+            ->whereHas('quiz', function ($quiz) {
+                $quiz->where('is_default', 1);
+            })->first();
+    }
+    public function currentAssessment()
+    {
+        return $this->hasOne(QuizAssessment::class)
+            ->whereHas('quiz', function ($quiz) {
+                $quiz->where('is_default', 1);
+            })->first();
+    }
+
     public function makeUsername()
     {
 

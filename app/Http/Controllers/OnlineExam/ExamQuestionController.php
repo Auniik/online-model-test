@@ -27,11 +27,13 @@ class ExamQuestionController extends Controller
 
     public function store(Exam $exam)
     {
-        return [
-            'written' => $this->service->saveWritten($exam),
-            'cq' => $this->service->saveCQ($exam),
-            'mcq' => $this->service->saveMCQ($exam),
-        ][request('type')];
+        if (\request('type') == 'mcq') {
+            return $this->service->saveMCQ($exam);
+        } elseif (\request('type') == 'cq') {
+            return $this->service->saveCQ($exam);
+        } else {
+            return $this->service->saveWritten($exam);
+        }
     }
 
     public function show(ExamQuestion $question)

@@ -19,7 +19,10 @@
                                 <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>
                                 <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
                                 <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">জমা দিন</button></a>
-                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>
+                                @if (!auth('participant')->check())
+                                    <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -29,41 +32,41 @@
 
 
 
-        <div class="banner-2">
-            <div class="overlay">
-                <div class="container main_banner">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="banner-text-1">
-                                <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>
-                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>
-                                <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
-                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">জমা দিন</button></a>
-                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="banner-2">--}}
+{{--            <div class="overlay">--}}
+{{--                <div class="container main_banner">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-12 col-md-12 col-sm-12">--}}
+{{--                            <div class="banner-text-1">--}}
+{{--                                <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>--}}
+{{--                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>--}}
+{{--                                <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>--}}
+{{--                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">জমা দিন</button></a>--}}
+{{--                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="banner-3">
-            <div class="overlay">
-                <div class="container main_banner">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="banner-text-1">
-                                <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>
-                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>
-                                <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
-                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">জমা দিন</button></a>
-                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="banner-3">--}}
+{{--            <div class="overlay">--}}
+{{--                <div class="container main_banner">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-12 col-md-12 col-sm-12">--}}
+{{--                            <div class="banner-text-1">--}}
+{{--                                <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>--}}
+{{--                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>--}}
+{{--                                <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>--}}
+{{--                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">জমা দিন</button></a>--}}
+{{--                                <a href="javascript:void(0)"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">রেজিস্ট্রেশন</button></a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
 
 

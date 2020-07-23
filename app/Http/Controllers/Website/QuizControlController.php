@@ -17,7 +17,7 @@ class QuizControlController extends Controller
         return view('front.quizzes.start', [
             'participant' => Participant::query()->find(session('participant_id')),
             'quiz' => session('quiz'),
-            'type' => session('type'),
+            'type' => session('type') ?? 'general',
         ]);
     }
 

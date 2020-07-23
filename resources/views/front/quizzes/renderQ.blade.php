@@ -1,6 +1,14 @@
 <div class="col-12 text-center">
+    <div class="row align-items-center">
+        <div class="col-lg-12 px-0 ">
+            @if($question->meta)
+            <img src="{{asset($question->meta)}}" class="align-items-center rounded-0 shadow"
+                 style="height: 250px" width="100%" alt="">
+            @endif
+        </div>
+    </div>
     <div class="form-group">
-        <h5>#{{$count}} {{$question->title}}</h5>
+        <h5 class="mt-4">#{{$count}} {{$question->title}}</h5>
         <input type="hidden" name="quiz_question_id" value="{{$question->id}}"/>
         <input type="hidden" name="quiz_assessment_id" value="{{$quiz_assessment_id}}"/>
 

@@ -40,12 +40,12 @@
                             <textarea
                                 class="form-control"
                                 style="height:35px"
-                                placeholder="Option {{++$key}}"
+                                placeholder="Option {{$key + 1}}"
                                 name="value[]">{{$option->value}}</textarea>
                         </div>
                         <div class="col-3 text-left">
                             <label class="control-label">
-                                <input type="radio" value="0" @if ($option->is_correct)
+                                <input type="radio" value="{{$key}}" @if ($option->is_correct)
                                     checked
                                 @endif name="is_correct">
                                 is Correct

@@ -301,11 +301,12 @@ ol {
 
 
 .navbar {
-    background: #c2d7db;
+    /*    background: #c2d7db;*/
+    background: #1d252726;
     width: 100%;
     top: 0px;
     z-index: 1111;
-    position: fixed;
+    position: static;
     padding: 0;
 }
 
@@ -366,19 +367,19 @@ ol {
     padding: 10 0px;
     display: inline-block;
     width: 170px;
-    padding: 24px 10px;
+    padding: 0px 10px;
     margin-right: 15px;
     background: transparent;
     border: 1px solid #495057;
 }
 
 .logo-img {
-    margin-right: 90px;
+    margin-right: 148px;
 }
 
 
 .logo-img img {
-    width: 100px;
+    width: 50px;
 }
 
 .mujib-logo-img {
@@ -387,13 +388,12 @@ ol {
 }
 
 .mujib-logo-img img {
-    width: 140px;
+    width: 80px;
 }
 
 .btn-outline-success {
     margin-left: 2px;
     margin-right: 16px;
-    padding: 10px 20px;
     color: #343A40;
     font-weight: 400;
     font-size: 17px;
@@ -416,7 +416,7 @@ ol {
 
 
 .dropdown-menu {
-    background: #fff;
+    background: #ffffffa6;
     border: none;
     border-radius: none !important;
 }
@@ -458,8 +458,8 @@ ol {
     background-clip: padding-box;
     border: 1px solid #495057;
     border-radius: .25rem;
-    height: 50px;
-    line-height: 37px;
+    height: 40px;
+    line-height: 25px;
     margin-right: 15px;
 }
 
@@ -496,28 +496,33 @@ ol {
 
 
 .top-bar {
-    background: #fff;
-    position: fixed;
+    background: #9898987a;
+    position: static;
     z-index: 1;
     width: 100%;
-    top: 121px;
-    border: 1px solid #6194CE;
+    top: 68px;
+}
 }
 
 
 .top-bar .update-part .update p {
     background: #6194CE;
     color: white;
-    font-size: 19px;
-    padding: 5px 10px;
+    font-size: 18px;
+    padding: 2px 10px;
     margin-bottom: 0px;
 }
 
 .top-bar .update-part .up-content p {
     color: black;
     font-size: 18px;
-    padding: 5px 15px;
+    padding: 2px 15px;
     margin-bottom: 0px;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
 }
 
 
@@ -651,8 +656,7 @@ ol {
 }
 
 .banner-text-1 {
-    padding-top: 260px;
-    padding-bottom: 105px;
+    padding: 100px 0 100px;
     text-align: center;
 }
 
@@ -726,7 +730,7 @@ ol {
 
 
 #about_bg {
-    margin-top: 163px;
+    margin-top: 101px;
     background: url(../images/bg6.jpg) no-repeat center;
     background-size: cover;
     text-align: left;
@@ -965,12 +969,8 @@ ol {
 
 /*============================= team_member end ==============================*/
 
-
-
-
-
 #bongobondhu_bg {
-    margin-top: 163px;
+    margin-top: 101px;
     background: url(../images/m1.jpg) no-repeat center;
     background-size: cover;
     text-align: left;
@@ -1380,7 +1380,8 @@ Author Email: hafizul6280@gmail.com
 }
 
 .secound_section .tab-content .form-control {
-    width: 75%;
+    width: 400px;
+    height: 40px;
     margin: 20px;
     padding: 25px 10px;
 }
@@ -1396,13 +1397,12 @@ Author Email: hafizul6280@gmail.com
 .secound_section .tab-content .share-btn {
     padding: 15px 40px;
     color: #000;
-    margin-left: 2.5rem!important;
-    /*font-size: 28px;*/
+    font-size: 28px;
     background: #ffffff;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.100)!important;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 16px;
     border-radius: 5px;
-    /*margin-left: 150px;*/
+    margin-left: 150px;
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     -ms-transition: all .4s ease;
@@ -1744,7 +1744,7 @@ Author Email: hafizul6280@gmail.com
 }
 */
 
-#youtube_video .video_width{
+#youtube_video .video_width {
     padding: 60px 0px 0px 0px;
 }
 
@@ -1786,7 +1786,7 @@ label {
 }
 
 .form-control {
-    height: 45px;
+    height: 40px;
     font-weight: 300;
 }
 
@@ -1859,5 +1859,203 @@ label {
     font-size: 12px;
     letter-spacing: 2px;
     padding: 10px 0px;
+}
 
-    /*========================== শেষ অংশ শেষ =====================*/
+/*========================== শেষ অংশ শেষ =====================*/
+
+
+
+
+
+
+
+/*==========================  model_test_question start=====================*/
+
+
+
+#home_part {
+    padding: 10px 0px 80px 0px;
+    font-family: 'Baloo Da 2', cursive;
+    background: #eee;
+
+}
+
+#home_part .sadows {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 60px 60px;
+}
+
+#home_part .top_part {
+    text-align: right;
+
+}
+
+#home_part .top_part .page button {
+    margin-bottom: 0px;
+    position: fixed;
+    padding: 4px 16px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #000;
+    background-color: #c2d7db;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+}
+
+#home_part .top_part .top_content {
+    text-align: center;
+}
+
+#home_part .top_part .top_content label {
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#home_part .top_part .top_content .fast_content {
+    padding-left: 0px;
+}
+
+#home_part .top_part .top_content h5 {
+    font-size: 22px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+#home_part .top_part .top_content h4 {
+    font-size: 18px;
+    padding: 5px 0px;
+    background: #1a21cb;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+#home_part .top_part .top_content p {
+    font-size: 16px;
+    margin-bottom: 0px;
+    padding: 15px 0px;
+}
+
+
+#home_part .medile_part form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #b5b5b5;
+    border-radius: .25rem;
+}
+
+#home_part .medile_part .top_content {
+    font-size: 20px;
+    margin: 50px 0px 0px 0px;
+    text-align: center;
+}
+
+#home_part .medile_part .top_content a {
+    color: #fff;
+    background: #1a21cb;
+    padding: 4px 30px;
+}
+
+#home_part .questions_part h6 {
+    font-size: 18px;
+    padding: 10px 0px 5px 0px;
+    color: #000;
+    font-weight: 600;
+}
+
+#home_part .questions_part .my_file input {
+    font-size: 18px;
+    margin: 10px 0px;
+}
+
+#home_part .questions_part .margin_left {
+    margin-left: 50px;
+}
+
+#home_part .questions_part .margin_left label {
+    font-size: 16px;
+    padding-left: 8px;
+    margin-bottom: 3px;
+}
+
+#home_part .questions_part .top_content {
+    font-size: 22px;
+    margin: 40px 0px 0px 0px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#home_part .questions_part .top_content a {
+    color: #fff;
+    background: green;
+    padding: 8px 30px;
+    font-size: 22px;
+}
+
+#home_part .questions_part .pagination {
+    margin: 40px 0px 0px 0px;
+}
+
+#home_part .questions_part .pagination_next {
+    float: right;
+}
+
+#home_part .container {
+    background: #eee;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 50px 200px 80px;
+}
+
+.cq-meta {
+    padding: 4px;
+    background-color: #eaeaea;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.cq-description {
+    font-size: 16px;
+}
+
+.page-item {
+    width: 100%;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6a82c5;
+    border-color: #6a82c5;
+    box-shadow: 1px 0px 9px 0px #000000b0;
+}
+
+.page-link {
+    position: relative;
+    text-align: center;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #ffffff80;
+    border: 1px solid #dee2e6;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600&family=Galada&family=Hind+Siliguri:wght@300;400;500;600&family=Mina:wght@400;700&display=swap');
+
+
+
+
+
+
+
+/*==========================  model_test_question end=====================*/

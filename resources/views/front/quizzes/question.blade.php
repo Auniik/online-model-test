@@ -24,16 +24,6 @@
 
 @endpush
 @section('content')
-    <section class="main-slider">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-12 px-0">
-                    <img src="{{asset('/')}}front/images/coworking/cta.jpg" class="align-items-center rounded-0"
-                         style="height: 250px" width="100%px" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="section-two unselectable bg-light custom-new-quiz" id="question-one">
         <div class="container">
             <div class="row justify-content-center">
