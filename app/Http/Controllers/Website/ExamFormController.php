@@ -18,11 +18,34 @@ class ExamFormController extends Controller
             return redirect("/participants/login?to=exams/$exam->id/start");
         }
 
+        $attributes = [
+            'exam_id' => $exam->id,
+            'participant_id' => auth('participant')->id()
+        ];
         $assessment = ParticipantAssessment::query()
-            ->firstOrCreate(
-                ['exam_id' => $exam->id],
-                ['participant_id' => auth('participant')->id()]
-            );
+            ->where($attributes)
+            ->first();
+
+        if (!$assessment) {
+            $assessment = ParticipantAssessment::query()
+                ->create($attributes);
+        }
+
+
+        if ($assessment->end_at) {
+            return redirect('/');
+        }
+
+        if ($assessment->start_at) {
+            /** @var ParticipantAssessment $assessment */
+            $endAt = $assessment->possibleEndTime();
+
+            if ($endAt->gt(now())) {
+                return redirect()->route('exams.ground');
+            }
+
+            return redirect('/master');
+        }
 
         return view('front.online-exam.form', [
             'assessment' => $assessment->load('exam', 'participant')
@@ -32,21 +55,23 @@ class ExamFormController extends Controller
     public function store(Request $request, ParticipantAssessment $assessment)
     {
         $assessment->participant()->update(
-            $request->only('name', 'school_name', 'roll', 'sub_district', 'district')
+            $request->only('name', 'school_name', 'class', 'roll', 'sub_district', 'district')
         );
-        $assessment->exam()->update([
+
+        $assessment->update([
             'start_at' => now(),
         ]);
 
+        $settingSession = [
+            "participant-".auth('participant')->id() => [
+                'questions' => $assessment->exam
+                    ->questions()
+                    ->with('CQs', 'MCQs')->get(),
+                'assessment' => $assessment->load('exam')
+            ]
+        ];
+        session($settingSession);
 
-        session([
-            'started_at' => now(),
-            'duration' => $assessment->exam->duration,
-            'questions' => $assessment->exam
-                ->questions()
-                ->with('CQs', 'MCQs')->get(),
-            'assessment' => $assessment->load('exam')
-        ]);
-        return redirect('/exam-ground');
+        return redirect('/exam-hall');
     }
 }

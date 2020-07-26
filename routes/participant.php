@@ -47,5 +47,16 @@ Route::get('exams/{exam}/start', 'Website\ExamFormController@index')
 
 Route::post('exams/{assessment}/start', 'Website\ExamFormController@store')
     ->name('exams.start');
-Route::get('exam-ground', 'Website\ExamControlController@index')
+
+Route::get('exam-hall', 'Website\ExamControlController@index')
     ->name('exams.ground');
+
+Route::post('exam-hall/finish', 'Website\ExamControlController@finish')
+    ->name('exams.finish');
+
+
+Route::post('assessments/{assessment}/{question}/answer', 'Website\ExamAnswerController@store')
+    ->name('assessment-answer.store');
+
+Route::post('answer-attachments/{attachment}/delete', 'Website\AnswerAttachmentController@destroy')
+    ->name('attachments.destroy');

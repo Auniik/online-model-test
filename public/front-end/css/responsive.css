@@ -818,7 +818,7 @@
 /*
 @media (min-width: 398px) and (max-width: 567px) {
 
-    
+
 }
 */
 
@@ -1111,7 +1111,7 @@
     #our_gallery {
         padding: 40px 0px 40px 0px;
     }
-    
+
     #our-message .blog-1 {
         border: 2px solid #343A40;
         background: #f0eeee;
@@ -1199,6 +1199,7 @@
 
     .secound_section {
         height: 360px;
+        min-height: 543px;
     }
 
 
@@ -1326,7 +1327,7 @@
     #our_gallery {
         padding: 30px 0px 30px 0px;
     }
-    
+
     #our-message .blog-1 {
         border: 2px solid #343A40;
         background: #f0eeee;
