@@ -8,42 +8,55 @@
                     <h1> অনলাইন পরীক্ষা</h1>
                 </div>
                 <div class="row">
-
-                    @foreach($exams ?? [] as $exam)
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="row book-img">
-                                @if ($exam->image)
-                                    <img src="{{url($exam->image)}}" alt="hero2.jpg">
-                                @else
-                                    <img src="/front-end/images/book1.png" alt="hero2.jpg">
-                                @endif
-
-                                <div class="img-overlay text-center">
-                                    <a href="/exams/{{$exam->id}}/start">
-                                        <div class="text-part">
-                                            <h5>বিষয়</h5>
-                                            <h6>{{$exam->subject->name}}</h6>
-                                            <p>{{$exam->class}}</p>
-                                            <a href="javascript:void(0)" class="share-btn">
-                                                <i class="fas fa-share"></i> Share
-                                            </a>
-                                        </div>
+                    @php
+                        $id = auth('participant')->id();
+                        $session = session("participant-$id");
+                        $assessment = $session ? $session['assessment'] : null;
+                    @endphp
+                    @if ($assessment)
+                        <div class="card shadow-lg w-100  exam-preview-card">
+                            <div class="card-body">
+                                <div class="offset-lg-2 col-8">
+                                    <img src="/{{$assessment->exam->image}}" class="img img-fluid" alt="">
+                                    <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
+                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}}  মিনিট</b> </h5>
+                                    <h5 class="my-4">  শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
+                                        </b> </h5>
+                                    <a href="/exam-hall" class="btn btn-success p-3 shadow-lg w-100">  পরীক্ষা
+                                   বজায় রাখুন
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        @else
+                        @foreach($exams ?? [] as $exam)
 
-                    @endforeach
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="row book-img">
+                                    @if ($exam->image)
+                                        <img src="{{url($exam->image)}}" alt="hero2.jpg">
+                                    @else
+                                        <img src="/front-end/images/book1.png" alt="hero2.jpg">
+                                    @endif
 
+                                    <div class="img-overlay text-center">
+                                        <a href="/exams/{{$exam->id}}/start">
+                                            <div class="text-part">
+                                                <h5>বিষয়</h5>
+                                                <h6>{{$exam->subject->name}}</h6>
+                                                <p>{{$exam->class}}</p>
+                                                <a href="javascript:void(0)" class="share-btn">
+                                                    <i class="fas fa-share"></i> Share
+                                                </a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+                    @endif
                 </div>
-                <ul class="pagination pagination-md justify-content-center mt-3">
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
-                </ul>
             </div>
 
             <!---------------------------- অনলাইন পরীক্ষা part end --------------->

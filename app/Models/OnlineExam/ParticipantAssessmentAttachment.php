@@ -14,4 +14,10 @@ class ParticipantAssessmentAttachment extends Model
     {
         return $this->belongsTo(ParticipantAssessmentAnswer::class);
     }
+
+    public function getNameAttribute()
+    {
+        $array = explode('/', $this->attributes['path']);
+        return $array[array_key_last($array)];
+    }
 }

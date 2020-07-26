@@ -11,10 +11,8 @@
     <meta name="keywords" content="টেকসই বিডি,tekasaibd.com">
     <meta name="author" content="Md Hafizul Islam">
     <link rel="shortcut icon" type="image/x-icon" href="/front-end/images/logo-1.png">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Changa:wght@300;400;500&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Mina:wght@400;700&display=swap" rel="stylesheet">
+
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/front-end/css/fontawesome.min.css">

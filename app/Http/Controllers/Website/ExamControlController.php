@@ -4,7 +4,9 @@
 namespace App\Http\Controllers\Website;
 
 
+use App\Helpers\Helpers;
 use App\Http\Controllers\Controller;
+use App\Models\OnlineExam\ParticipantAssessment;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
@@ -13,40 +15,50 @@ use Illuminate\Support\Collection;
 class ExamControlController extends Controller
 {
 
+    use Helpers;
     public function index(Request $request)
     {
+        $key = "participant-" . auth('participant')->id();
+        $session = session($key);
 
-        $questions = session('questions');
+
+        if (blank($session)) {
+            return redirect('/master');
+        }
+
+        if ($session['assessment']->participant_id != auth('participant')->id()) {
+
+            return redirect('/master');
+        }
+
+        $questions = $session['questions'];
+
         $questions = $this->paginate($questions,
             3,
             $request->get('page', 1),
             $request->url()
         );
         return view('front.online-exam.playground', [
-            'started_at' => session('started_at'),
-            'duration' => session('duration'),
             'questions' => $questions,
-            'assessment' => session('assessment'),
+            'assessment' => $session['assessment'],
         ]);
     }
 
-    public function paginate($items, $perPage = 15, $page = null,
-                             $baseUrl = null,
-                             $options = [])
+
+
+    public function finish(Request $request)
     {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $id = auth('participant')->id();
+        $assessment = ParticipantAssessment::query()
+            ->where('participant_id', $id)
+            ->first();
 
-        $items = $items instanceof Collection ?
-            $items : Collection::make($items);
+        $assessment->update(['end_at', now()]);
 
-        $lap = new LengthAwarePaginator($items->forPage($page, $perPage),
-            $items->count(),
-            $perPage, $page, $options);
+        session()->forget([
+            "participant-$id"
+        ]);
 
-        if ($baseUrl) {
-            $lap->setPath($baseUrl);
-        }
-
-        return $lap;
+        return redirect('/master');
     }
 }

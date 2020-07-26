@@ -19,11 +19,20 @@
             <p>বিষয়ঃ {{$assessment->exam->subject->name}}</p>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 top_content">
-            <p>পরীক্ষার তারিখঃ {{$assessment->exam->start_at->format('d/m/Y')}}</p>
+            <p class="pb-0">পরীক্ষার তারিখঃ <b>{{$assessment->exam->start_at->format('d/m/Y')}}</b></p>
+            <p class="pt-0">নির্ধারিত সময়ঃ <b>{{$assessment->exam->duration}}</b></p>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 top_content">
-            <h4>পরীক্ষার নির্ধারিত সময়ঃ {{$assessment->exam->duration}} ঘন্টা</h4>
+        <div class="col-lg-12 col-md-12 col-sm-12  d-flex justify-content-between text-white times">
+            <h5> <b>শুরুর সময়:</b>
+            @if ($assessment->start_at)
+                 {{$assessment->start_at->format('h:i A')}}
+            @else
+            {{now()->format('h:i A')}}</h5>
+            @endif
+            </h5>
+                <h5><span id="timer"></span></h5>
+            <h5>শেষ হবেঃ {{$assessment->possibleEndTime()->format('h:i A')}}</h5>
         </div>
     </div>
 </div>

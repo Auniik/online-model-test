@@ -16,10 +16,10 @@
                                    placeholder="পরীক্ষার্থীর নামঃ">
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12">
-                            <input type="text" value="{{$assessment->participant->school}}"
+                            <input type="text" value="{{$assessment->participant->school_name}}"
                                    name="school_name"
                                    required
-                                   placeholder="বিদ্যালয়ের নামঃ "
+                                   placeholder="বিদ্যালয়ের নামঃ"
                             />
                         </div>
 
@@ -75,8 +75,7 @@
                     </div>
 
                     <div class="top_content">
-                        <button type="submit" class="btn btn-primary btn-block" >পরীক্ষা শুরু
-                            করুন</button>
+                        <button type="submit" class="btn btn-primary btn-block" >পরীক্ষা শুরু করুন</button>
                     </div>
 
                 </form>
