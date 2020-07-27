@@ -14,6 +14,7 @@ class ParticipantAssessmentController extends Controller
     public function index(Request $request)
     {
         $assessments = ParticipantAssessment::with('participant', 'exam')
+            ->latest()
             ->withCount('answers');
 
         if ($request->filled('exam_id')) {

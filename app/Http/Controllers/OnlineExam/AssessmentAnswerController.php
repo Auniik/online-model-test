@@ -6,17 +6,32 @@ namespace App\Http\Controllers\OnlineExam;
 
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\ParticipantAssessmentAnswer;
+use Illuminate\Http\Request;
 
 class AssessmentAnswerController extends Controller
 {
 
     public function show(ParticipantAssessmentAnswer $answer)
     {
-        return [
-            'mcq' => $this->renderMCQ($answer),
-            'cq' => $this->renderCQ($answer),
-            'written' => $this->renderWritten($answer),
+        $method = [
+            'mcq' => "renderMCQ",
+            'cq' => "renderCQ",
+            'written' => "renderWritten",
         ][$answer->question->type];
+
+        return $this->$method($answer);
+    }
+
+    public function store(Request $request, ParticipantAssessmentAnswer $answer)
+    {
+        $request->validate([
+            'remark' => "required|max:{$answer->question->remark}"
+        ]);
+        $answer->update([
+            'remarks' => $request->get('remark', 0)
+        ]);
+        return back()->withSuccess('Remarked successfully');
+
     }
 
     private function renderMCQ(ParticipantAssessmentAnswer $answer)
@@ -25,7 +40,8 @@ class AssessmentAnswerController extends Controller
         return view('admin.online-exam.exam.examine.mcq-answer', [
             'question' => $answer->question,
             'options' => $options,
-            'answer' => $options->firstWhere('id', $answer->answer)
+            'answer' => $options->firstWhere('id', $answer->answer),
+            'answer_id' => $answer->id
         ]);
     }
 

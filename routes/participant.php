@@ -60,3 +60,4 @@ Route::post('assessments/{assessment}/{question}/answer', 'Website\ExamAnswerCon
 
 Route::post('answer-attachments/{attachment}/delete', 'Website\AnswerAttachmentController@destroy')
     ->name('attachments.destroy');
+

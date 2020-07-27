@@ -62,15 +62,12 @@ class ExamFormController extends Controller
             'start_at' => now(),
         ]);
 
-        $settingSession = [
+        $setAssessment = [
             "participant-".auth('participant')->id() => [
-                'questions' => $assessment->exam
-                    ->questions()
-                    ->with('CQs', 'MCQs')->get(),
-                'assessment' => $assessment->load('exam')
+                'assessment_id' => $assessment->id,
             ]
         ];
-        session($settingSession);
+        session($setAssessment);
 
         return redirect('/exam-hall');
     }

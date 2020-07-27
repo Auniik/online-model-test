@@ -18,7 +18,7 @@ class ParticipantAssessment extends Model
     public function possibleEndTime()
     {
         $duration = explode(':', $this->exam->duration);
-        $startAt = $this->attributes['start_at'] ? Carbon::parse($this->attributes['start_at']) : now();
+        $startAt = $this->start_at ? $this->start_at : now();
 
         return $startAt->addHours($duration[0])
             ->addMinutes($duration[1])
@@ -35,8 +35,28 @@ class ParticipantAssessment extends Model
     }
     public function answers()
     {
-        return $this->hasOne(ParticipantAssessmentAnswer::class, 'participant_assessment_id')
+        return $this->hasMany(ParticipantAssessmentAnswer::class, 'participant_assessment_id')
             ->with('attachments');
+    }
+
+    public function totalRemarks()
+    {
+        return $this->answers()->sum('remarks');
+    }
+
+    public function consumedTime()
+    {
+        if ($this->start_at) {
+            if ($this->end_at) {
+                $seconds = Carbon::parse($this->end_at)->diffInSeconds(Carbon::parse($this->start_at));
+                $secs = floor($seconds);
+                $hours   = floor(($secs/(60*60)));
+                $minutes = (($secs / 60) % 60);
+                $seconds = $secs % 60;
+                return "{$hours}h {$minutes}m {$seconds}s";
+            }
+        }
+        return null;
     }
 
 }

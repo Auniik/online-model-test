@@ -32,11 +32,12 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Participant</th>
-                                    <th>Exam</th>
-                                    <th>Answered/Questions</th>
-                                    <th>Score</th>
-                                    <th>Comment</th>
+                                    <th> পরীক্ষার্থী</th>
+                                    <th> পরীক্ষা</th>
+                                    <th class="text-center"> মোট উত্তর/প্রশ্নসংখ্যা</th>
+                                    <th> শুরু করেছে</th>
+                                    <th> অতিবাহিত সময়</th>
+                                    <th> স্কোর</th>
                                     <th width="1%">Action</th>
                                 </tr>
                                 </thead>
@@ -50,14 +51,23 @@
                                             data-exam="{{$assessment->exam}}">
                                             {{$assessment->exam->name}}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             {{$assessment->answers_count}} / {{$assessment->exam->questions_count}}
                                         </td>
                                         <td>
-                                            {{$assessment->score}}
+                                            @if ($assessment->start_at)
+                                                <strong>{{$assessment->start_at->format('M d, h:i A') }}</strong>
+                                            @else
+                                                এখনও পরীক্ষা দেয়নি
+                                            @endif
                                         </td>
                                         <td>
-                                            {{$assessment->comment}}
+                                            {{$assessment->consumedTime()}}
+                                        </td>
+                                        <td>
+                                            @if ($assessment->start_at)
+                                                {{$assessment->totalRemarks()}}
+                                            @endif
                                         </td>
                                         <td align="center">
                                             <a title="Examine"

@@ -1874,8 +1874,8 @@ label {
 
 
 #home_part {
-    padding: 10px 0px 80px 0px;
-    font-family: 'Baloo Da 2', cursive;
+    padding: 10px 0 80px 0;
+    font-family: 'AdorshoLipi', Arial, sans-serif !important;
     background: #eee;
 
 }
@@ -2064,6 +2064,12 @@ label {
     background: #6a82c5;
     height: 35px;
     padding: 6px;
+}
+
+.time{
+    font-size: 21px;
+    font-weight: bolder;
+    color: #eeeeee;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600&family=Galada&family=Hind+Siliguri:wght@300;400;500;600&family=Mina:wght@400;700&display=swap');

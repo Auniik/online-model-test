@@ -24,15 +24,25 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12  d-flex justify-content-between text-white times">
-            <h5> <b>শুরুর সময়:</b>
-            @if ($assessment->start_at)
-                 {{$assessment->start_at->format('h:i A')}}
-            @else
-            {{now()->format('h:i A')}}</h5>
-            @endif
+            <h5>
+                <b>
+                    শুরুর সময়:
+                </b>
+                <span class="time">
+                @if ($assessment->start_at)
+                    {{$assessment->start_at->format('h:i A')}}
+                @else
+                    {{now()->format('h:i A')}}</h5>
+                @endif
+                </span>
+
+
             </h5>
                 <h5><span id="timer"></span></h5>
-            <h5>শেষ হবেঃ {{$assessment->possibleEndTime()->format('h:i A')}}</h5>
+            <h5>
+                <b>শেষ হবেঃ </b>
+                <span class="time">{{$assessment->possibleEndTime()->format('h:i A')}}</span>
+            </h5>
         </div>
     </div>
 </div>

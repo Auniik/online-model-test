@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/front-end/css/venobox.css">
     <link rel="stylesheet" href="/front-end/css/bootstrap.min.css">
     <!-- Resources Files -->
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
     <link rel="stylesheet" href="/front-end/css/style.css">
     <link rel="stylesheet" href="/front-end/css/responsive.css">
 

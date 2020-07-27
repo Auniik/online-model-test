@@ -11,7 +11,8 @@
             <div class="questions_part">
                 @foreach ($questions as $question)
                     @php
-                        $answer = optional($assessment->answers)->firstWhere('exam_question_id',  $question->id);
+                        $answer = $question->answer ?  $question->answer->answer : null;
+                        $attachments = $question->answer ? $question->answer->attachments : [];
                     @endphp
 
 
@@ -29,7 +30,7 @@
                                        name="answer"
                                        value="{{$mcq->id}}"
                                        @if ($answer)
-                                           @if ($mcq->id == $answer->answer)
+                                           @if ($mcq->id == $answer)
                                            checked
                                         @endif
                                     @endif
@@ -42,23 +43,24 @@
 
 
 
+
                     @if ($question->isWritten())
                         <form class="writtenForm margin_left" action="{{route('assessment-answer.store', [$assessment->id,
                         $question->id])}}">
                             @csrf
                             <textarea class="form-control written-answer" name="answer" placeholder="উত্তর  লিখুন"
-                                      rows="8">@if($answer){{$answer->answer}}@endif</textarea>
+                                      rows="8">@if($answer){{$answer}}@endif</textarea>
                             <br>
                         </form>
 
 
                         @include('front.online-exam._partial.files', [
-                            'answer' => $answer
+                            'attachments' => $attachments
                         ])
 
                         @include('front.online-exam._partial.file-attach-form', [
-                            'assessment' => $assessment,
-                            'question' => $question,
+                            'assessment_id' => $assessment->id,
+                            'question_id' => $question->id,
                         ])
                     @endif
 
@@ -82,11 +84,11 @@
                             </ul>
 
                             @include('front.online-exam._partial.files', [
-                                'answer' => $answer
+                                'attachments' => $attachments
                             ])
                             @include('front.online-exam._partial.file-attach-form', [
-                                'assessment' => $assessment,
-                                'question' => $question,
+                                'assessment_id' => $assessment->id,
+                                'question_id' => $question->id,
                             ])
 
 

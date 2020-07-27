@@ -16,34 +16,61 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Questions</th>
-                                    <th>Answers</th>
+                                    <th>প্রশ্নের ধরন</th>
+                                    <th>প্রশ্ন</th>
+                                    <th class="text-center">নিরীক্ষণ করা হয়েছে?</th>
+                                    <th class="text-center">উত্তর</th>
                                     <th width="20%">Remarks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($assessment->exam->questions as $question)
+                                    @foreach($questions as $question)
+                                        @php
+                                            $answer = $question->answer;
+                                        @endphp
                                         <tr>
+                                            <th>{{$question->translatedType}}</th>
                                             <th>{{$question->title}}</th>
-                                            <th>
-                                                <?php
-                                                    $answer = $assessment->getAnswer($question)
-                                                ?>
+                                            <th class="text-center">
+                                                @if($answer)
+                                                    @if ($answer->remarks !== null)
+                                                         হ্যাঁ
+                                                    @else
+                                                        না
+                                                    @endif
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+
                                                 @if ($answer)
-                                                    <button type="button"
-                                                            data-answer="{{$answer}}"
-                                                            data-question="{{$question->load('CQs', 'MCQs')}}"
-                                                            class="btn btn-success show-answer">Show</button>
+                                                    @if ($answer->remarks === null)
+                                                        <button type="button"
+                                                                data-answer="{{$answer}}"
+                                                                data-question="{{$question->load('CQs', 'MCQs')}}"
+                                                                class="btn btn-warning show-answer">
+                                                             নিরীক্ষণ করুন
+                                                        </button>
+                                                    @else
+                                                        <button type="button"
+                                                                data-answer="{{$answer}}"
+                                                                data-question="{{$question->load('CQs', 'MCQs')}}"
+                                                                class="btn btn-success show-answer">
+                                                            পুনঃরায় নিরীক্ষণ করুন
+                                                        </button>
+                                                    @endif
+
                                                 @else
-                                                    Not answered
+                                                     উত্তর দেয়নি
                                                 @endif
                                             </th>
                                             <th>
                                                 <input type="number"
                                                        max="{{$question->remark}}"
+                                                       min="0"
                                                        class="form-control"
-                                                       placeholder="Remarks"
-                                                       @if (!$answer) disabled @endif
+                                                       placeholder="Mark out of {{$question->remark}}"
+                                                       disabled
+                                                       @if ($answer) value="{{$answer->remarks}}" @endif
                                                 />
                                             </th>
                                         </tr>
