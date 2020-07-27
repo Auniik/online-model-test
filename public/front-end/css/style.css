@@ -1280,10 +1280,9 @@ Author Email: hafizul6280@gmail.com
     opacity: 1;
 }
 
-.book-img .img-overlay .text-part {
+.text-part {
     text-align: center;
-    color: #fff;
-    padding: 60px 10px;
+    color: #fff !important;
 }
 
 .book-img .img-overlay h5 {
@@ -2071,7 +2070,37 @@ label {
     font-weight: bolder;
     color: #eeeeee;
 }
+.pop-up-timer {
+    position: fixed;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    width: 100px;
+    height: 100px;
+    background: #ffffffe0;
+    bottom: 58px;
+    left: 36px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 9999;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all 1.4s ease;
+    border-radius: 100%;
+    box-shadow: -1px 7px 11px 3px #4a4a4994;
+    font-weight: bolder;
+}
 
+
+.scroll-text {
+    font-size: 18px;
+}
+
+.exam-cover{
+    filter: brightness(40%);
+}
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600&family=Galada&family=Hind+Siliguri:wght@300;400;500;600&family=Mina:wght@400;700&display=swap');
 
 

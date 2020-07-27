@@ -38,7 +38,7 @@
 
 
             </h5>
-                <h5><span id="timer"></span></h5>
+                <h5><span class="timer"></span></h5>
             <h5>
                 <b>শেষ হবেঃ </b>
                 <span class="time">{{$assessment->possibleEndTime()->format('h:i A')}}</span>

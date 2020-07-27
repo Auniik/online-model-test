@@ -101,8 +101,6 @@ class TekasaibdController extends Controller
 
     public function blog()
     {
-
-        $contract = Contract::all();
         $sliders = Slider::all();
         $news = News::orderBy('id', 'desc')->take(10)->get();
         $joint = '';
@@ -110,9 +108,11 @@ class TekasaibdController extends Controller
             $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
         }
         return view('front.about.blog', [
-            'blogs'    => Blog::orderBy('id', 'desc')->paginate(6),
+            'blogs'    => Blog::query()
+                ->latest()
+                ->paginate(6),
             'news'     => $joint,
-            'contract' => $contract,
+            'contract' => Contract::all(),
         ]);
     }
 
@@ -209,14 +209,10 @@ class TekasaibdController extends Controller
 
     public function detailsBlog($id)
     {
-
-        $blogs = Blog::find($id);
-        $contract = Contract::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
         return view('front.about.detailsblog', [
-            'blogs'    => $blogs,
-            'news'     => $news,
-            'contract' => $contract,
+            'blogs'    => Blog::query()->find($id),
+            'news'     => News::orderBy('id', 'desc')->take(10)->get(),
+            'contract' => Contract::all(),
         ]);
     }
     public function sendEmail(Request $request){

@@ -106,16 +106,10 @@
                     <br>
                     <br>
                     <br>
-
-                    <form @if (!$flag)
-                            class="d-none"
-                        @endif
-                          id="exam-finish-form"
-                          action="{{route('exams.finish')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="assessment_id" value="{{$assessment->id}}">
-                        <button class="btn btn-block btn-success submit-assessment"> পরীক্ষা শেষ করুন</button>
-                    </form>
+                    <button type="button"
+                            class="btn btn-block btn-success submit-assessment @if (!$flag) d-none @endif">
+                        পরীক্ষা শেষ করুন
+                    </button>
 
                 {{$questions->links()}}
 
@@ -127,42 +121,16 @@
 
 @push('script')
 
-    <script>
-        const started_at = "{{$assessment->possibleEndTime()->format('M d, Y H:i:s')}}"
-        // Set the date we're counting down to
-        let countDownDate = new Date(started_at).getTime();
-
-        // Update the count down every 1 second
-        let x = setInterval(function() {
-
-            // Get today's date and time
-            let now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            let distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Output the result in an element with id="demo"
-            document.getElementById("timer").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-
-            // If the count down is over, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer").innerHTML = 'END';
-                // document.getElementById("exam-finish-form").submit();
-            }
-        }, 1000);
-    </script>
 
     <script>
 
         var writtenAnswer = '';
 
         $(document).ready(function () {
+
+            $('.submit-assessment').click(function (e) {
+                $(".exam-finish-form").submit();
+            })
 
             $('.mcq-answer').click(function (e) {
                 $(e.target).parents('.mcqForm').submit()

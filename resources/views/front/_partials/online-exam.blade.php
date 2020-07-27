@@ -8,52 +8,49 @@
                     <h1> অনলাইন পরীক্ষা</h1>
                 </div>
                 <div class="row">
-                    @php
-                        $id = auth('participant')->id();
-                        $session = session("participant-$id");
-                        $assessment = $session ? $session['assessment'] : null;
-                    @endphp
                     @if ($assessment)
                         <div class="card shadow-lg w-100  exam-preview-card">
                             <div class="card-body">
                                 <div class="offset-lg-2 col-8">
                                     <img src="/{{$assessment->exam->image}}" class="img img-fluid" alt="">
                                     <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}}  মিনিট</b> </h5>
-                                    <h5 class="my-4">  শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
-                                        </b> </h5>
-                                    <a href="/exam-hall" class="btn btn-success p-3 shadow-lg w-100">  পরীক্ষা
-                                   বজায় রাখুন
+                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}} মিনিট</b></h5>
+                                    <h5 class="my-4"> শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
+                                        </b></h5>
+                                    <a href="/exam-hall" class="btn btn-success p-3 shadow-lg w-100"> পরীক্ষা
+                                        বজায় রাখুন
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        @else
+                    @else
                         @foreach($exams ?? [] as $exam)
 
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="row book-img">
+                            <div class="col-md-4 mb-4 mt-4">
+                                <div class="card shadow-lg">
                                     @if ($exam->image)
-                                        <img src="{{url($exam->image)}}" alt="hero2.jpg">
+                                        <img src="{{url($exam->image)}}" class="card-img-top exam-cover" height="200"
+                                             alt="hero2
+                                        .jpg">
                                     @else
-                                        <img src="/front-end/images/book1.png" alt="hero2.jpg">
+                                        <img src="/front-end/images/book1.png" class="card-img-top exam-cover"
+                                             height="200"
+                                             alt="hero2.jpg">
                                     @endif
-
-                                    <div class="img-overlay text-center">
-                                        <a href="/exams/{{$exam->id}}/start">
-                                            <div class="text-part">
-                                                <h5>বিষয়</h5>
-                                                <h6>{{$exam->subject->name}}</h6>
-                                                <p>{{$exam->class}}</p>
-                                                <a href="javascript:void(0)" class="share-btn">
-                                                    <i class="fas fa-share"></i> Share
-                                                </a>
-                                            </div>
+                                    <div class="card-img-overlay text-center">
+                                        <a class="text-part" href="/exams/{{$exam->id}}/start">
+                                            <h5>বিষয়</h5>
+                                            <h6>{{$exam->subject->name}}</h6>
+                                            <h4>{{$exam->class}}</h4>
+                                            <a href="javascript:void(0)" class="btn btn-sm btn-outline-primary mt-5">
+                                                <i class="fas fa-share"></i> Share
+                                            </a>
                                         </a>
+
                                     </div>
+
                                 </div>
                             </div>
-
                         @endforeach
                     @endif
                 </div>
@@ -207,36 +204,37 @@
                                 <div class="col-8 offset-lg-2 mt-5">
                                     <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
                                     <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}}  মিনিট</b></h5>
-                                    <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}}  টি</b></h5>
+                                    <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
+                                    <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b>
+                                    </h5>
                                     <button type="submit" class="btn btn-success p-3 shadow-lg w-100"> এখনই শুরু করুন
                                     </button>
                                 </div>
                             </div>
                         </form>
 
-                @else
-                    @php
-                       $assessment =  auth('participant')->user()->currentAssessment();
-                    @endphp
-                    <div class="row">
-                        <div class="col-8 offset-lg-2 mt-5">
-                            <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
-                            <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                            <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}}  মিনিট</b> </h5>
-                            <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}}  টি</b></h5>
-                            <h5 class="my-4">  সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}}  টি</b></h5>
-                            <h5 class="my-4">   ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}}  টি</b></h5>
-                            <h5 class="my-4">    সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
+                    @else
+                        @php
+                            $assessment =  auth('participant')->user()->currentAssessment();
+                        @endphp
+                        <div class="row">
+                            <div class="col-8 offset-lg-2 mt-5">
+                                <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
+                                <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
+                                <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
+                                <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
+                                <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
+                                <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>
+                                <h5 class="my-4"> সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
 
+                            </div>
                         </div>
-                    </div>
-            </form>
-            @endif
+                        </form>
+                    @endif
 
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     </div>
 </section>
 

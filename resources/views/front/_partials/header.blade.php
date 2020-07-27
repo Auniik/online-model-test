@@ -26,11 +26,10 @@
                             <a class="dropdown-item custom-menu" href="{{asset('amaderkotha')}}">আমাদের সম্পর্কে</a>
                             <a class="dropdown-item custom-menu" href="{{asset('tekasaibd')}}">লক্ষ্য-ও-উদ্দেশ্য</a>
                             <a class="dropdown-item custom-menu" href="{{route('bangabandhu')}}">বঙ্গবন্ধু</a>
-                            <a class="dropdown-item custom-menu" href="{{asset('blog')}}">বার্তা সমূহ</a>
                             <a class="dropdown-item custom-menu" href="{{route('contact')}}">যোগাযোগ</a>
                         </div>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="message.html">বার্তা</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{asset('blog')}}">বার্তা</a> </li>
                 </ul>
                 @if (!auth('participant')->check())
                     <a href="/participants/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন ইন</a>

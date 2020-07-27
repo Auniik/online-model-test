@@ -28,8 +28,15 @@
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
     <link rel="stylesheet" href="/front-end/css/style.css">
     <link rel="stylesheet" href="/front-end/css/responsive.css">
+    <link rel="stylesheet" href="/news/news.css">
+
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+
 
     <style>
+        body {
+            font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        }
         .quiz_time {
             background: #2f55d4;
             color: #fff;
@@ -56,9 +63,27 @@
 
 
 <br><br>
+
+
 <!---------------------------- বার্তা অংশ শেষ --------------->
 @include('front._partials.footer')
 
+
+
+@if ($assessment)
+    <div class="pop-up-timer">
+        <a  href="/exam-hall" title=" পরীক্ষা চালিয়ে যেতে এখানে ক্লিক করুন">
+            <span class="timer"></span>
+        </a>
+
+    </div>
+    <form class="exam-finish-form d-none"
+          action="{{route('exams.finish')}}" method="post">
+        @csrf
+        <input type="hidden" name="assessment_id" value="{{$assessment->id}}">
+        <button class="btn btn-block btn-success submit-assessment"> পরীক্ষা শেষ করুন</button>
+    </form>
+@endif
 
 
 
@@ -85,7 +110,42 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('/')}}viewer/js/jquery.magnify.js"></script>
 <script src="/front-end/js/custom.js"></script>
+<script>
 
+    @if($assessment)
+    const started_at = "{{$assessment->possibleEndTime()->format('M d, Y H:i:s')}}"
+    // Set the date we're counting down to
+    let countDownDate = new Date(started_at).getTime();
+
+    // Update the count down every 1 second
+    let x = setInterval(function() {
+
+        // Get today's date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        // document.querySelector(".timer").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
+        let timerElement = $('.timer')
+        timerElement.text(hours + "h " + minutes + "m " + seconds + "s ")
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            timerElement.text('END');
+            // document.querySelector(".timer").innerHTML = 'END';
+            document.querySelector(".exam-finish-form").submit();
+        }
+    }, 1000);
+    @endif
+</script>
 @stack('script')
 @yield('script')
 

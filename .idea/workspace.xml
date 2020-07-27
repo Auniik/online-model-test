@@ -12,29 +12,22 @@
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/AssessmentAnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/AssessmentAnswerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamQuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantAssessmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantAssessmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantExamineController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantExamineController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamControlController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamControlController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/ExamQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/ExamQuestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/ParticipantAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/ParticipantAssessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/front-end/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/assessment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/assessment/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/cq-answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/cq-answer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/mcq-answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/mcq-answer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/written-answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/examine/written-answer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/answer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/answer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/examine.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/participants/examine.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/file-attach-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/file-attach-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/files.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/files.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/playground.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/playground.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/exam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/privacy/tekasaibd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/privacy/tekasaibd.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +258,8 @@
       <workItem from="1595654629734" duration="37000" />
       <workItem from="1595654678687" duration="26550000" />
       <workItem from="1595732527674" duration="10310000" />
-      <workItem from="1595776498539" duration="20867000" />
+      <workItem from="1595776498539" duration="21225000" />
+      <workItem from="1595864680448" duration="14130000" />
     </task>
     <servers />
   </component>
@@ -293,10 +287,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="430" y="187" width="546" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1595672916752" />
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595828729249">
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595883664637">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1595828729249" />
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1595883664637" />
     <state x="466" y="140" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594617037274">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -365,10 +359,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.22.1366.746@0.22.1366.746" timestamp="1595778387067" />
-    <state x="389" y="131" width="905" height="560" key="find.popup" timestamp="1595824571868">
+    <state x="389" y="131" width="905" height="560" key="find.popup" timestamp="1595879292947">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="389" y="131" width="905" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1595824571868" />
+    <state x="389" y="131" width="905" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1595879292947" />
     <state x="462" y="157" width="432" height="445" key="refactoring.ChangeSignatureDialog" timestamp="1594978544932">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -377,10 +371,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1595822374209" />
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1595828722796">
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup" timestamp="1595886356466">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1595828722796" />
+    <state x="347" y="30" width="672" height="676" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1595886356466" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

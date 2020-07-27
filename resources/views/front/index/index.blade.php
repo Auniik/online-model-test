@@ -92,120 +92,44 @@
                 <h1>বার্তা</h1>
             </div>
             <div class="row blog_slide online-left">
+
+                @foreach($news_feed as $blog)
                 <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/shekhmujib.jpg" alt="shekhhasina.jpg">
-                            </a>
+                    <div class="blog-{{$blog->id}}">
+
+                        <div class="card shadow-lg">
+                            <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
+                                 height="200">
+                            <div class="card-body">
+                                <h6 class="card-text d-flex justify-content-between">
+                                    {{ Str::limit($blog->short_description, 50) }}
+                                </h6>
+                                <span>
+                                    {{$blog->created_at->diffForHumans()}}
+                                </span>
+                                <div class="mt-3 d-flex justify-content-between">
+                                    <a href="javascript:void(0)" class="btn btn-outline-secondary">
+                                        <i class="fas fa-share"></i> Share
+                                    </a>
+                                    <a href="{{route('blog-details',['id'=>$blog->id])}}"
+                                       class="btn btn-outline-info">বিস্তারিত</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>বঙ্গবন্ধু শেখ মুজিবুর রহমান</h4>
-                                <p class="txt-1">শেখ মুজিবুর রহমান, সংক্ষিপ্তাকারে শেখ মুজিব বা মুজিব, ছিলেন বাংলাদেশের প্রথম রাষ্ট্রপতি ও দক্ষিণ এশিয়ার একজন অন্যতম প্রভাবশালী রাজনীতিবিদ।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
+{{--                        @if ($blog->image)--}}
+{{--                            <div class="image">--}}
+{{--                                <a href="javascript:void(0)">--}}
+{{--                                    <img class="img-fluid" src="{{asset($blog->image)}}" alt="shekhhasina.jpg">--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+
+{{--                        <div class="blog-text">--}}
+{{--                                --}}
+{{--                        </div>--}}
                     </div>
                 </div>
-                <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/shekhhasina.jpg" alt="/abdul%20hamid.jpg">
-                            </a>
-                        </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>মাননীয় প্রধানমন্ত্রী শেখ হাসিনা</h4>
-                                <p class="txt-1">শেখ হাসিনা ওয়াজেদ বাংলাদেশের বর্তমান প্রধানমন্ত্রী। তিনি বাংলাদেশের একাদশ জাতীয় সংসদের সরকারদলীয় প্রধান এবং বাংলাদেশ আওয়ামী লীগের সভানেত্রী।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/mirjafokrul.jpg" alt="mirjafokrul.jpg">
-                            </a>
-                        </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>মির্জা ফখরুল ইসলাম আলমগীর</h4>
-                                <p class="txt-1">মির্জা ফখরুল ইসলাম একজন বাংলাদেশি রাজনীতিবিদ ও সাবেক প্রতিমন্ত্রী। তিনি বর্তমানে বাংলাদেশ জাতীয়তাবাদী দলের মহাসচিবের দায়িত্ব পালন করছেন।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/roksan.jpg" alt="roksan.jpg">
-                            </a>
-                        </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>মো: নুরুদ্দিন রক্সার</h4>
-                                <p class="txt-1">সাবেক তথ্য ও গবেষণা বিষয়ক সম্পাদক ঢাকা মহানগর ছাত্রলীগ - উত্তর এবং সাবেক ১ম যুগ্ম আহ্বায়ক, আ স ম আবদুর রব সরকারি কলেজ, বাংলাদেশ ছাত্রলীগ।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/shahriar.jpg" alt="shahriar.jpg">
-                            </a>
-                        </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>শাহরিয়ার আলম</h4>
-                                <p class="txt-1">মো: শাহরিয়ার আলম বাংলাদেশের একজন রাজনীতিবিদ। তিনি ২০১৪ সালের ১৪ জানুয়ারি থেকে বাংলাদেশের পররাষ্ট্র প্রতিমন্ত্রীর দায়িত্ব পালন করছেন।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="blog-1">
-                        <div class="image">
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="/front-end/images/roksan.jpg" alt="roksan.jpg">
-                            </a>
-                        </div>
-                        <div class="blog-text">
-                            <a href="javascript:void(0)">
-                                <h4>মো: নুরুদ্দিন রক্সার</h4>
-                                <p class="txt-1">সাবেক তথ্য ও গবেষণা বিষয়ক সম্পাদক ঢাকা মহানগর ছাত্রলীগ - উত্তর এবং সাবেক ১ম যুগ্ম আহ্বায়ক, আ স ম আবদুর রব সরকারি কলেজ, বাংলাদেশ ছাত্রলীগ।</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                                <span>1/January/2019</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
