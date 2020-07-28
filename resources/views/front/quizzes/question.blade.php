@@ -94,7 +94,6 @@
         const seconds = (parseInt(timeArray[0]) * 60) + parseInt(timeArray[1]);
         const type = assessment.participant_type;
 
-
         document.getElementById('timer').innerHTML = assessment.quiz.duration
 
     </script>

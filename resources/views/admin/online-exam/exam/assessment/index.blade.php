@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-7"><span id="header-title">Assessments </span></h4>
+                            <h4 class="col-7"><span id="header-title">Assessments </span></h4>
                                 <select name="exam_id" class="form-control col-2 exam_id">
                                     @foreach($exams as $id => $name)
                                         <option value="{{$id}}">{{$name}}</option>

@@ -1968,6 +1968,7 @@ label {
     padding: 10px 0px 5px 0px;
     color: #000;
     font-weight: 600;
+    user-select: none;
 }
 
 #home_part .questions_part .my_file input {
@@ -1983,6 +1984,7 @@ label {
     font-size: 16px;
     padding-left: 8px;
     margin-bottom: 3px;
+    user-select: none;
 }
 
 #home_part .questions_part .top_content {

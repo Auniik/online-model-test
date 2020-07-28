@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class=" row">
-                            <h4 class="header-title col-7"><span id="header-title">Set Questions for
+                            <h4 class="col-7"><span id="header-title">Set Questions for
                                     {{$exam->name}}</span>
                                 <small>(Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
                                     {{$exam->competency_score}})</small>

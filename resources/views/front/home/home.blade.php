@@ -36,7 +36,7 @@ margin-bottom: -8px !important;">
                         <div class="bg-overlay"></div>
                         </div>
                         <div class="col-md-6 top-book-slider">
-                            <h3 class="header-title text-center">মুজিববর্ষে,টেকসই লক্ষ্য । স্বনির্ভর অনলাইন প্লাটফর্ম </h3>
+                            <h3 class="text-center">মুজিববর্ষে,টেকসই লক্ষ্য । স্বনির্ভর অনলাইন প্লাটফর্ম </h3>
                             <div class="row">
                                 @foreach($books as $book)
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">

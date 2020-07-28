@@ -30,7 +30,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class=" row">
-                            <h4 class="header-title col-11"><span id="header-title">Set Questions for
+                            <h4 class="col-11"><span id="header-title">Set Questions for
                                     {{$quiz->name}}</span>
                                 <small>(Total Questions: {{$quiz->questions->count()}})</small>
                             </h4>

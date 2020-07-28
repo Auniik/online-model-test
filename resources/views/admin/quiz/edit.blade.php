@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
-                        <h4 class="header-title"><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
+                        <h4><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')

@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage Results</h4>
+                    <h4 class="mt-0 ">Manage Results</h4>
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">Select Result</label>
                         <div class="col-sm-10">

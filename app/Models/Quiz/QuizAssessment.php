@@ -27,7 +27,7 @@ class QuizAssessment extends Model
         return $this->hasMany(QuizAssessmentAnswer::class);
     }
 
-    public function getParticipantTypeAttribute()
+    public function getTranslatedParticipantTypeAttribute()
     {
         return [
             'vip' => ' অতিথী',

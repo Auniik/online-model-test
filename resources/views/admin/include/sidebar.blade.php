@@ -15,9 +15,6 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('quizzes.create')}}"> নতুন কুইজ</a></li>
                         <li><a href="{{route('quizzes.index')}}"> সকল কুইজ</a></li>
-                        <li><a href="{{route('admin.player.add')}}">Manage Player</a></li>
-                        <li><a href="{{route('add-question')}}">Questions</a></li>
-                        <li><a href="{{route('admin.results')}}">Results</a></li>
                     </ul>
                 </li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-flask"></i> <span> অনলাইন
@@ -37,8 +34,24 @@
                 <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
                         <span> Submitted Works</span></a></li>
 
-                <li><a href="{{route('admin.book.question')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> Book Question</span></a></li>
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
+                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{asset('add-book')}}">All Books</a></li>
+                        <li><a href="{{route('create-book')}}">Create Books</a></li>
+                        <li><a href="{{route('admin.book.question')}}"> Book Questions</a></li>
+                        <li><a href="{{route('admin.book.question.create')}}"> Create Questions</a></li>
+                    </ul>
+                </li>
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-blogger"></i> <span> Blogging
+                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('add-blog')}}">All Blogs</a></li>
+                        <li><a href="{{route('create-blog')}}">Add Blog</a></li>
+                    </ul>
+                </li>
+
+
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Gallery
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
@@ -52,13 +65,11 @@
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
                         <li><a href="{{asset('add-contact')}}">Manage Contact</a></li>
                          <li><a href="{{asset('add-bangabandhu')}}">Bangabandhu Page</a></li>
-                        <li><a href="{{asset('add-book')}}">Manage Book</a></li>
                         <li><a href="{{asset('add-news')}}">Manage News</a></li>
                         <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
                     </ul>
                 </li>
-                <li><a href="{{route('add-blog')}}" class="waves-effect"><i class="mdi mdi-blogger"></i>
-                        <span>Blog</span></a></li>
+
                 <!--<li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Video</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>-->
                 <!--    <ul class="list-unstyled">-->
                 <!--        <li><a href="{{route('add-video')}}">Manage Video</a></li>-->

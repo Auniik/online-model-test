@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <form action="{{route('update-slider')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 class="mt-0 header-title">Add Slider</h4>
+                        <h4 class="mt-0">Add Slider</h4>
                         <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>

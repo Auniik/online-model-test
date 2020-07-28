@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('exams.index')}}">All Exams</a>
-                        <h4 class="header-title"><span id="header-title">Edit</span> Exam</h4>
+                        <h4><span id="header-title">Edit</span> Exam</h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')

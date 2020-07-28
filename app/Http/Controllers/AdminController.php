@@ -47,7 +47,7 @@ class AdminController extends Controller
     public function submittedWork(Request $request)
     {
         return view('admin.work.index')->with([
-            'works' => Work::get()
+            'works' => Work::query()->paginate(25)
         ]);
     }
 }

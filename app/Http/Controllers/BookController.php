@@ -16,10 +16,15 @@ class BookController extends Controller
 
     public function addBook()
     {
-        $books = Book::all();
+        $books = Book::query()->latest()->paginate(15);
         return view('admin.book.add-book', [
             'books' => $books,
         ]);
+    }
+
+    public function create()
+    {
+        return view('admin.book.create');
     }
 
     public function newBook(Request $request)
@@ -50,7 +55,7 @@ class BookController extends Controller
 
     public function editBook($id)
     {
-        $book = Book::find($id);
+        $book = Book::query()->find($id);
         return view('admin.book.edit-book', [
             'book' => $book,
         ]);

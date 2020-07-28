@@ -4,7 +4,7 @@
             <div class="card-header">
                 <span class="float-right">{{$exam->in_homepage ? 'Showed' : 'Not Showed'}} in
                     homepage</span>
-                <h4 class="header-title">Show Exam {{get_status($exam->status)}}</h4>
+                <h4>Show Exam {{get_status($exam->status)}}</h4>
             </div>
             <div class="card-body">
                 <div class="form-group row">

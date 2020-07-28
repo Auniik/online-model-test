@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('exams.index')}}">{{__('default.all_exams')}}</a>
-                        <h4 class="header-title"><span id="header-title">{{__('default.add_new_exam')}}</h4>
+                        <h4></h4><span id="header-title">{{__('default.add_new_exam')}}</h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
-                    <h4 class="header-title"><span id="header-title">Participants of {{$exam->name}}</span></h4>
+                    <h4><span id="header-title">Participants of {{$exam->name}}</span></h4>
                     <p class="mb-0">Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
                         {{$exam->competency_score}}</p>
                 </div>

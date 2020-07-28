@@ -24,17 +24,16 @@
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="col-3 align-self-center">
-                                        <div class="round"><i class="mdi mdi-eye"></i></div>
+                                        <div class="round"><i class="mdi mdi-account-multiple-plus "></i></div>
                                     </div>
                                     <div class="col-9 align-self-center text-right">
                                         <div class="m-l-10">
                                             <h5 class="mt-0">
-                                                @php
-                                                    $players = DB::table('players')->count('id');
-                                                @endphp
-                                                {{$players}}
+                                                {{$total_participants}}
                                             </h5>
-                                            <p class="mb-0 text-muted">players <span class="badge bg-soft-success"><i class="mdi mdi-arrow-up"></i></span></p>
+                                            <p class="mb-0 text-muted"> মোট পরীক্ষার্থী <span class="badge
+                                            bg-soft-success"><i
+                                                        class="mdi mdi-arrow-up"></i></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -52,15 +51,13 @@
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="col-3 align-self-center">
-                                        <div class="round"><i class="mdi mdi-account-multiple-plus"></i></div>
+                                        <div class="round"><i class="mdi mdi-eye"></i></div>
                                     </div>
                                     <div class="col-9 text-right align-self-center">
                                         <div class="m-l-10">
-                                            <h5 class="mt-0">@php
-                                                    $events = DB::table('events')->count('id');
-                                                @endphp
-                                                {{$events}}</h5>
-                                            <p class="mb-0 text-muted">Events</p>
+                                            <h5 class="mt-0">
+                                                {{$total_quizzes}}</h5>
+                                            <p class="mb-0 text-muted"> মোট কুইজ</p>
                                         </div>
                                     </div>
                                 </div>
@@ -83,11 +80,9 @@
                                     </div>
                                     <div class="col-9 align-self-center text-right">
                                         <div class="m-l-10">
-                                            <h5 class="mt-0">@php
-                                                    $questions = DB::table('questions')->count('id');
-                                                @endphp
-                                                {{$questions}}</h5>
-                                            <p class="mb-0 text-muted">Total Questions</p>
+                                            <h5 class="mt-0">
+                                                {{$total_exams}}</h5>
+                                            <p class="mb-0 text-muted"> মোট অনলাইন পরীক্ষা</p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,8 +98,11 @@
                 </div>
                 <!--end row-->
                 <div class="card">
+                    <div class="card-header">
+                        <h4 class="mt-0">Dynamic Report</h4>
+                    </div>
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Dynamic Report</h4>
+
                         <p class="text-muted mb-4 font-14"></p>
                         <div id="morris-bar-stacked" class="morris-chart"></div>
                     </div>

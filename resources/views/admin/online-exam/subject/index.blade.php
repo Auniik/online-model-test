@@ -3,11 +3,14 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+
+                </div>
                 <div class="card-body">
                     @include('admin._partials.success-alert')
                     <form id="refForm" action="{{route('subjects.store')}}" method="POST" >
                         @csrf
-                        <h4 class="mt-0 header-title"><span id="header-title">Add New</span> Subject</h4>
+                        <h4 class="mt-0"><span id="header-title">Add New</span> Subject</h4>
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Subject Name *</label>
@@ -58,8 +61,11 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Manage Subjects</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage Subjects</h4>
+
                     <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>

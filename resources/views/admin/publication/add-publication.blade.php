@@ -3,10 +3,13 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Add Publication</h4>
+                </div>
                 <div class="card-body">
                     <form action="{{route('new-publication')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 class="mt-0 header-title">Add Publication</h4>
+
                         <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -59,8 +62,11 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Manage Publication</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage Publication</h4>
+
                     <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>

@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function addBlog(){
-        $blogs = Blog::all();
-        return view('admin.blog.add-blog',[
-            'blogs' => $blogs,
-        ]);
+    public function addBlog() {
 
+        return view('admin.blog.add-blog',[
+            'blogs' => Blog::query()->paginate(15),
+        ]);
+    }
+
+    public function create()
+    {
+        return view('admin.blog.create');
     }
     public function newBlog(Request $request){
 

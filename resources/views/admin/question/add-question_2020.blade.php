@@ -3,10 +3,13 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Add Question</h4>
+                </div>
                 <div class="card-body">
                     <form action="{{route('new-question')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 class="mt-0 header-title">Add Question</h4>
+
                         <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Event Name</label>

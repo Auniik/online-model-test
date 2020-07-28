@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-7"><span id="header-title"> সকল কুইজ সমূহ </span></h4>
+                            <h4 class="col-7"><span id="header-title"> সকল কুইজ সমূহ </span></h4>
                             <select name="quiz_id" class="form-control col-2 quiz_id">
                                 <option value=""> বাছাই করুন</option>
                                 @foreach($selectableQuizzes as $id => $name)

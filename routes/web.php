@@ -182,6 +182,10 @@ Route::get('/add-book', [
     'uses' => 'BookController@addBook',
     'as'   => 'add-book'
 ]);
+Route::get('/create-book', [
+    'uses' => 'BookController@create',
+    'as'   => 'create-book'
+]);
 Route::Post('/new-book', [
     'uses' => 'BookController@newBook',
     'as'   => 'new-book'
@@ -316,6 +320,10 @@ Route::get('/publication-details/{id}', [
 Route::get('/add-blog', [
     'uses' => 'BlogController@addBlog',
     'as'   => 'add-blog'
+]);
+Route::get('/create-blog', [
+    'uses' => 'BlogController@create',
+    'as'   => 'create-blog'
 ]);
 Route::post('/new-blog', [
     'uses' => 'BlogController@newBlog',

@@ -121,6 +121,24 @@
 
 @push('script')
 
+    <script>
+        body = document.getElementById('body');
+        $('.contact-form').remove()
+        $('#location-part').remove()
+
+        function handler(event) {
+            event = event || window.event;
+
+            if (event.stopPropagation)
+                event.stopPropagation();
+
+            event.cancelBubble = true;
+            return false;
+        }
+
+
+        body.oncontextmenu = handler;
+    </script>
 
     <script>
 

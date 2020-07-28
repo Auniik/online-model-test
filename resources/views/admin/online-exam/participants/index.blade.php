@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary"> নতুন পরীক্ষার্থী যোগ করুন
                     </button>
-                    <h4 class="header-title col-2"><span id="header-title"> সকল পরীক্ষার্থী সমূহ</span></h4>
+                    <h4 class="col-2"><span id="header-title"> সকল পরীক্ষার্থী সমূহ</span></h4>
                 </div>
                 <div class="card-body">
                     @include('front.partials.notifications')

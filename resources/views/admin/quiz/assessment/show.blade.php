@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="header-title"><span id="header-title">Examine {{$assessment->participant->name}} of
+                    <h4><span id="header-title">Examine {{$assessment->participant->name}} of
                             {{$assessment->quiz->name}}</span></h4>
                     <p class="mb-0">Question Total: {{$assessment->quiz->questions->count()}},
                         Correct Count: {{$assessment->correctCount()}},

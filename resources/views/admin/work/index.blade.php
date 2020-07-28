@@ -1,11 +1,13 @@
 @extends('admin.master')
 @section('body')
-    <div class="row mt-5">
+    <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4>Submitted Works</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Submitted Work</h4>
-                    <table id="datatable-buttons" class="table table-striped table-bordered w-100">
+                    <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
                             <th>Sl</th>
@@ -24,18 +26,26 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->title}}</td>
                                 <td>{{$row->work_type}}</td>
-                                <td>{{$row->link}}</td>
+                                <td><a href="{{$row->link}}" target="_blank">{{$row->link}}</a></td>
                                 <td>
-                                    <a href="/{{$row->file}}" target="_blank">View File</a>
-                                    <a href="{{route('delete-work',['id'=>$row->id])}}"  onclick="alert('Are You Delete This ')">Delete</a>
+                                    <a href="/{{$row->file}}" target="_blank">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+
+                                    <a href="{{route('delete-work',['id'=>$row->id])}}"  onclick="alert('Are You Delete This ')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                                 <td>{{$row->user_name}}</td>
                                 <td>{{$row->mobile_no}}</td>
-                                <td>{{$row->updated_at}}</td>
+                                <td>{{$row->updated_at->format('M d, Y h:i A')}}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="pull-right">
+                        {{$works->links()}}
+                    </div>
                 </div>
             </div>
         </div>
