@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     protected $fillable = [
-        'name', 'description', 'competency_score', 'subject_id', 'class_id', 'image', 'start_at', 'duration', 'in_homepage',
+        'name', 'description', 'competency_score',
+        'subject_id', 'class_id', 'image', 'start_at', 'end_at', 'duration', 'in_homepage',
         'status'
     ];
     protected $dates = [
-        'start_at'
+        'start_at', 'end_at'
     ];
 
     public function getClassAttribute()
@@ -24,6 +25,10 @@ class Exam extends Model
     public function setStartAtAttribute($value)
     {
         $this->attributes['start_at'] = Carbon::parse($value);
+    }
+    public function setEndAtAttribute($value)
+    {
+        $this->attributes['end_at'] = Carbon::parse($value);
     }
 
     public function subject()

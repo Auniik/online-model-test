@@ -7,13 +7,13 @@
                     <form class="form-horizontal">
                         <div class="row">
                             <h4 class="col-6"><span id="header-title">Manage Exams </span></h4>
-                            <select name="exam_id" class="form-control col-2 exam_id">
+                            <select name="exam_id" class="form-control col-2 exam_id select2">
                                 <option value="">Select One</option>
                                 @foreach($selectableExams as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
-                            <select name="subject_id" class="form-control col-2 subject_id">
+                            <select name="subject_id" class="form-control col-2 subject_id select2">
                                 <option value="">Select One</option>
                                 @foreach($subjects as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
@@ -56,7 +56,8 @@
                                 </td>
                                 <td>{{$exam->subject->name}}</td>
                                 <td> {{$exam->class}} </td>
-                                <td>{{$exam->start_at->format('d/m/Y h:m:s')}}</td>
+
+                                <td>{{$exam->start_at->format('M d, Y')}} - {{ $exam->end_at->format('M d, Y')}}</td>
                                 <td>{{$exam->duration}}</td>
                                 <td>{{$exam->competency_score}}</td>
                                 <td align="center">
@@ -127,6 +128,13 @@
 
 @push('script')
     <script>
+        @if($examId = request('exam_id'))
+            $('.exam_id').val("{{$examId}}")
+        @endif
+        @if($subject_id = request('subject_id'))
+            $('.subject_id').val("{{$subject_id}}")
+        @endif
+
 
         $(document).ready(function () {
             $('.exam-block').html('')

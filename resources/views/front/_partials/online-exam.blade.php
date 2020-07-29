@@ -23,11 +23,17 @@
                                 </div>
                             </div>
                         </div>
+                    @elseif ($exams->isEmpty())
+                        <div class="card shadow-lg w-100 exam-preview-card" style="margin-top: 12px;">
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                                <h2>আজকের মত কোন পরীক্ষা অনুষ্ঠিত হচ্ছেনা!</h2>
+                            </div>
+                        </div>
                     @else
                         @foreach($exams ?? [] as $exam)
 
                             <div class="col-md-4 mb-4 mt-4">
-                                <div class="card shadow-lg">
+                                <div class="card shadow-lg bg-transparent">
                                     @if ($exam->image)
                                         <img src="{{url($exam->image)}}" class="card-img-top exam-cover" height="200"
                                              alt="hero2
@@ -42,12 +48,15 @@
                                             <h5>বিষয়</h5>
                                             <h6>{{$exam->subject->name}}</h6>
                                             <h4>{{$exam->class}}</h4>
-                                            <a href="javascript:void(0)" class="btn btn-sm btn-outline-primary mt-5">
-                                                <i class="fas fa-share"></i> Share
-                                            </a>
+                                            @include('front._partials.share', ['url' => url("/exams/{$exam->id}/start")])
+{{--                                            <a href="" class="btn--}}
+{{--                                            btn-sm btn-outline-primary mt-5">--}}
+{{--                                                <i class="fas fa-share"></i>--}}
+{{--                                                share this--}}
+{{--                                            </a>--}}
                                         </a>
-
                                     </div>
+                                        <p class="text-center pb-0">Available: {{$exam->end_at->diffForHumans()}}</p>
 
                                 </div>
                             </div>
@@ -239,3 +248,4 @@
 </section>
 
 <!---------------------------- অনলাইন পরীক্ষা ও কুইজ অংশ শেষ --------------->
+

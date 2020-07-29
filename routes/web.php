@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 /*admin*/
 
 auth()->loginUsingId(3);
-Route::view('/master', 'front.index.index');
+Route::get('/', 'Website\WebsiteController@home');
 Route::get('/add-event',[
     'uses' => 'EventController@addEvent',
     'as'   => 'add-event'
@@ -399,6 +399,8 @@ include __DIR__.'/admin/exam.php';
 include __DIR__.'/admin/quiz.php';
 include __DIR__.'/participant.php';
 
+Route::get('/messages', 'Admin\MessageController@index');
+
 Route::get('user/registration','AuthController@register')->name('user.registration');
 Route::post('user/registration','AuthController@registerPost')->name('user.registration.post');
 Route::get('user/login','AuthController@login')->name('user.login');
@@ -413,6 +415,6 @@ Route::post('user/password/edit','UserController@updatePassword')->name('user.pa
 
 
 /*Font End*/
-Route::get('/','TekasaibdController@index' )->name('welcome');
+//Route::get('/','TekasaibdController@index' )->name('welcome');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

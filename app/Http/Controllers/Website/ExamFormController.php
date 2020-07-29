@@ -44,7 +44,7 @@ class ExamFormController extends Controller
                 return redirect()->route('exams.ground');
             }
 
-            return redirect('/master');
+            return redirect('/');
         }
 
         return view('front.online-exam.form', [

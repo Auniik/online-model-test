@@ -20,6 +20,7 @@ class CreateWorksTable extends Migration
             $table->text('description');
             $table->text('file');
             $table->text('link');
+            $table->unsignedBigInteger('participant_id');
             $table->timestamps();
         });
     }

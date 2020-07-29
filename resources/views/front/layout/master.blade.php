@@ -10,7 +10,14 @@
     <meta name="description" content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।">
     <meta name="keywords" content="টেকসই বিডি,tekasaibd.com">
     <meta name="author" content="Md Hafizul Islam">
-    <link rel="shortcut icon" type="image/x-icon" href="/front-end/images/logo-1.png">
+    <meta property="og:url"           content="{{request()->fullUrl()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content=" টেকসইবিডি " />
+    <meta property="og:description"   content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।" />
+    <meta property="og:image"         content="/front-end/images/logo-1.png" />
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('/front-end/images/logo-1.png')}}">
 
 
 
@@ -31,29 +38,32 @@
     <link rel="stylesheet" href="/news/news.css">
 
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
-
-
     <style>
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
         }
-        .quiz_time {
-            background: #2f55d4;
-            color: #fff;
-            bottom: 0;
-            padding: 10px 20px;
-            font-size: 20px;
-            border-radius: 10px 10px 0 0;
-            font-weight: bold;
-            display: none;
-        }
+
     </style>
     @stack('style')
 </head>
 
 <body class="content" id="body">
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 @include('front._partials.header')
 <!---------------------------- স্ক্রল বাটন শুরু --------------->
+<!-- Load Facebook SDK for JavaScript -->
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
 
 <section class="scroll">
     <a href="#" class="scroll_btn  animated slideInDown"><i class="fas fa-angle-double-up"></i></a>
@@ -89,6 +99,9 @@
 
 <script src="/front-end/js/jquery-1.12.4.min.js"></script>
 <script src="/front-end/js/jquery.magnific-popup.min.js"></script>
+<!-- Magnific Popup -->
+<script src="{{asset('/')}}front/js/jquery.magnific-popup.min.js"></script>
+<script src="{{asset('/')}}front/js/magnific.init.js"></script>
 <script src="/front-end/js/popper.min.js"></script>
 <script src="/front-end/js/bootstrap.min.js"></script>
 <script src="/front-end/js/venobox.min.js"></script>
@@ -110,6 +123,11 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('/')}}viewer/js/jquery.magnify.js"></script>
 <script src="/front-end/js/custom.js"></script>
+<script>
+    window.prettyPrint && prettyPrint();
+
+</script>
+
 <script>
 
     @if($assessment)

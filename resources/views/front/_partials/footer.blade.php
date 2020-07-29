@@ -8,6 +8,14 @@
         <div class="row online-left">
 
             <div class="col-lg-6 col-md-6 col-sm-12 contact_right animated bounceInRight slow">
+                @if(Session::has('sent'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> {{session('sent')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <form class="contact-form" action="{{route('send-email')}}" method="post">
                     @csrf
                     <div class="form-row">
@@ -27,7 +35,7 @@
                         <div class="form-group last-form col">
                             <label style="margin-top: 18px;">মতামত:</label>
                             <textarea maxlength="1000" data-msg-required="Please enter your message." rows="7"
-                                      class="form-control" name="comments" placeholder="মতামত দিন"
+                                      class="form-control" name="comment" placeholder="মতামত দিন"
                                       required=""></textarea>
                         </div>
                     </div>
@@ -122,17 +130,17 @@
         <div class=" row online-left">
             <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="logo_section">
-                    <a href="index.html"><img src="/front-end/images/logo-1.png" alt="logo-1.png"></a>
+                    <a href="/"><img src="/front-end/images/logo-1.png" alt="logo-1.png"></a>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="f_text text-center mt-2">
                     <ul class="list-unstyled text-sm-center mb-0">
-                        <li class="list-inline-item"><a href="http://www.tekasaibd.com/about" target="_blank">মিশন ভিশন
+                        <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">মিশন ভিশন
                                 । </a></li>
                         <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">টার্মস ও কন্ডিশন
                                 । </a></li>
-                        <li class="list-inline-item"><a href="http://www.tekasaibd.com/privacy" target="_blank">প্রাইভেসি
+                        <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">প্রাইভেসি
                                 পলিসি</a></li>
                     </ul>
                     <p>১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫</p>
@@ -163,10 +171,13 @@
 <!---------------------------- কপিরাইট অংশ শুরু --------------->
 
 <section class="copyright">
-            <span class="woww">
-                <p class="footer-company-name">Copyright © 2020 teka sai bd All Right Reserved. Developed by <a
-                        href="javascript:void(0)" target="_blank"> Md Hafizul Islam</a></p>
-            </span>
+    <span class="woww">
+        <p class="footer-company-name">Copyright © 2020 {{env('APP_NAME')}} All Right Reserved. Designed by <a
+                href="javascript:void(0)" target="_blank"> Md Hafizul Islam</a>
+            Developed by <a
+                href="https://auniik.github.io" target="_blank"> Anik Datta</a>
+        </p>
+    </span>
 </section>
 
 <!---------------------------- কপিরাইট অংশ শেষ --------------->

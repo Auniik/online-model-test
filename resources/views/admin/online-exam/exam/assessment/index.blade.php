@@ -7,12 +7,12 @@
                     <form class="form-horizontal">
                         <div class="row">
                             <h4 class="col-7"><span id="header-title">Assessments </span></h4>
-                                <select name="exam_id" class="form-control col-2 exam_id">
+                                <select name="exam_id" class="form-control col-2 exam_id select2">
                                     @foreach($exams as $id => $name)
                                         <option value="{{$id}}">{{$name}}</option>
                                     @endforeach
                                 </select>
-                                <select name="participant_id" class="form-control col-2 participant_id">
+                                <select name="participant_id" class="form-control col-2 participant_id select2">
                                     <option value="">Select One</option>
                                     @foreach($participants as $id => $name)
                                         <option value="{{$id}}">{{$name}}</option>

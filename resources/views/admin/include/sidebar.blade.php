@@ -24,7 +24,6 @@
                         <li><a href="{{route('exams.create')}}">Create Exam</a></li>
                         <li><a href="{{route('exams.index')}}">All Exams</a></li>
                         <li><a href="{{route('assessments.index')}}">Assessments</a></li>
-                        <li><a href="{{route('admin.results')}}">Results</a></li>
                         <li><a href="{{route('subjects.index')}}">Subjects</a></li>
                     </ul>
                 </li>
@@ -33,6 +32,9 @@
 
                 <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
                         <span> Submitted Works</span></a></li>
+
+                <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> Messages</span></a></li>
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>

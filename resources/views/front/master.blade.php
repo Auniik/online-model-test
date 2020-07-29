@@ -244,6 +244,7 @@
         dragHandle: '.magnify-modal',
         progressiveLoading: true
     };
+    $('[data-magnify]').magnify(defaultOpts);
 
     var vm = new Vue({
         el: '#playground',
@@ -264,7 +265,7 @@
             }
         },
         updated: function () {
-            $('[data-magnify]').magnify(this.options);
+
         }
     });
 

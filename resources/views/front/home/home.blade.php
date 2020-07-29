@@ -51,8 +51,6 @@ margin-bottom: -8px !important;">
                                                 </div>
                                             </div>
 
-
-
                                             {{--<a href="{{route('book.details',$book->id)}}"> <img src="{{asset($book->img)}}" class="card-img-top" alt="..." height="146px"></a>--}}
                                             {{--<div class="card-body">--}}
                                                 {{--<a href="{{route('book.details',$book->id)}}"><p class="card-title text-center book-home-title">{{$book->title}}</p></a>--}}

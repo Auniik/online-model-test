@@ -5,88 +5,27 @@
         <div class="text_center">
             <h1>সৃজনশীলতা</h1>
         </div>
+
         <div class="row online-left">
-
-
-            <div class="col-lg col-md-6 col-sm-6">
-                <div class="row book-img">
-                    <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
-                    <div class="img-overlay text-center">
-                        <a href="javascript:void(0)">
-                            <div class="text-part">
-                                <p>ক্যানভাস</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                            </div>
-                        </a>
+            @foreach($books as $book)
+                <div class="col-lg col-md-6 col-sm-6">
+                    <div class="row book-img">
+                        @if ($book->img)
+                            <img src="{{asset($book->img->image)}}" alt="raiting1.jpg">
+                        @else
+                            <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
+                        @endif
+                        <div class="img-overlay text-center">
+                            <a href="{{route('book.details',$book->id)}}" target="_blank">
+                                <div class="text-part">
+                                    <p>{{$book->title}}</p>
+                                    @include('front._partials.share', ['url' => route('book.details',$book->id)])
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg col-md-6 col-sm-6">
-                <div class="row book-img">
-                    <img src="/front-end/images/raiting1.jpg" alt="hero2.jpg">
-                    <div class="img-overlay text-center">
-                        <a href="javascript:void(0)">
-                            <div class="text-part">
-                                <p>স্ক্রিপ্ট রাইটিং</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg col-md-6 col-sm-6">
-                <div class="row book-img">
-                    <img src="/front-end/images/raiting1.jpg" alt="hero2.jpg">
-                    <div class="img-overlay text-center">
-                        <a href="javascript:void(0)">
-                            <div class="text-part">
-                                <p>ভিডিও কনটেন্ট</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg col-md-6 col-sm-6">
-                <div class="row book-img">
-                    <img src="/front-end/images/raiting1.jpg" alt="hero2.jpg">
-                    <div class="img-overlay text-center">
-                        <a href="javascript:void(0)">
-                            <div class="text-part">
-                                <p>ইতিহাস</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg col-md-6 col-sm-6">
-                <div class="row book-img">
-                    <img src="/front-end/images/raiting1.jpg" alt="hero2.jpg">
-                    <div class="img-overlay text-center">
-                        <a href="javascript:void(0)">
-                            <div class="text-part">
-                                <p>সাহিত্য কণিকা</p>
-                                <a href="javascript:void(0)" class="share-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

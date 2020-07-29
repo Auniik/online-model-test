@@ -38,11 +38,15 @@
     <link href="{{asset('/')}}admin/assets/swal/sweetalert2.min.css" rel="stylesheet">
     <link href="{{asset('/')}}admin/assets/plugins/select2/select2.min.css" rel="stylesheet">
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
     <style>
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        }
+        span.select2-selection.select2-selection--single {
+            height: 36px;
         }
     </style>
 
@@ -118,9 +122,15 @@
 {{--<script src="{{asset('/')}}admin/assets/plugins/morris/morris.min.js"></script>--}}
 {{--<script src="{{asset('/')}}admin/assets/pages/dashborad.js"></script>--}}
 <script src="{{asset('/')}}admin/assets/plugins/select2/select2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 0
+        });
+    } );
 
 </script>
 

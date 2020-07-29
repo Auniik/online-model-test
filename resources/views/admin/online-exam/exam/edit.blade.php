@@ -12,7 +12,7 @@
                         <h4><span id="header-title">Edit</span> Exam</h4>
                     </div>
                     <div class="card-body">
-                        @include('admin._partials.success-alert')
+                        @include('front.partials.notifications')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Exam Name *</label>
@@ -44,17 +44,33 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Start at</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শুরুর তারিখ</label>
                             <div class="col-sm-4">
-                                <input type="text" id="dateTimeMy"  name="start_at"
+                                <input type="text" name="start_at"  value="{{$exam->start_at->format('Y-m-d')}}"
+                                       class="form-control datepicker"
+                                >
+                            </div>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">  শেষের
+                                তারিখ</label>
+                            <div class="col-sm-4">
+                                <input type="text" value="{{$exam->end_at->format('Y-m-d')}}" name="end_at"
+                                       class="form-control datepicker">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Duration</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="02:30:00" autocomplete="off"
+                                       value="{{$exam->duration}}"
+                                       name="duration"
                                        class="form-control">
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Duration</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right"> পাশ মার্ক</label>
                             <div class="col-sm-4">
-                                <input type="text" placeholder="02:30:00" value="{{$exam->duration}}" name="duration"
-                                       class="form-control">
+                                <input type="number" min="0" value="{{$exam->competency_score}}" class="form-control"
+                                       placeholder="Pass mark"
+                                       name="competency_score">
                             </div>
-
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Cover Image</label>
@@ -129,9 +145,6 @@
         }).val("{{$exam->class_id}}").change()
 
 
-        @if($value = $exam->start_at->format('n/d/Y, h:m A'))
-            $('#dateTimeMy').val("{{$value}}").change()
-        @endif
         @if($value = $exam->status)
             $('.status').val("{{$value}}").change()
         @endif

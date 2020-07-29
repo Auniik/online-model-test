@@ -22,6 +22,7 @@ class CreateExamsTable extends Migration
             $table->integer('competency_score');
             $table->text('image')->nullable();
             $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->string('duration');
             $table->enum('status', ['active', 'inactive', 'ongoing']);
             $table->boolean('in_homepage')->default(false);

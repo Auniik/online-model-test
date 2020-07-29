@@ -4,7 +4,7 @@
 <section id="navbar">
     <nav class="navbar navbar-expand-lg menu">
         <div class="container">
-            <a class="navbar-brand logo-img" href="#"><img src="/front-end/images/logo-1.png" alt="logo"></a>
+            <a class="navbar-brand logo-img" href="/"><img src="/front-end/images/logo-1.png" alt="logo"></a>
             <!--                    <a class="navbar-brand logo-img" href="#"><img src="/front-end/images/Mujib_100_Logo.png" alt="logo"></a>-->
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon">
@@ -46,7 +46,8 @@
 
 
             </div>
-            <a class="navbar-brand mujib-logo-img" href="index.html"><img src="/front-end/images/Mujib_100_Logo.png" alt="logo"></a>
+            <a class="navbar-brand mujib-logo-img" href="#"><img src="/front-end/images/Mujib_100_Logo.png"
+                                                                 alt="logo"></a>
         </div>
     </nav>
 </section>
@@ -56,8 +57,8 @@
 
         <table class="update-part">
             <tr>
-                <td class="update">
-                    <p>আপডেট</p>
+                <td >
+                    <p class="update-label">আপডেট</p>
                 </td>
                 <td class="up-content">
                     <marquee behavior="scroll" scrollamount="8" direction="left">

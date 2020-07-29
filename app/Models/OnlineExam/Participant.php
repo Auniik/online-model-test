@@ -5,6 +5,7 @@ namespace App\Models\OnlineExam;
 
 
 use App\Models\Quiz\QuizAssessment;
+use App\Work;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -59,8 +60,8 @@ class Participant extends User
             })->first();
     }
 
-    public function makeUsername()
+    public function submittedWorks()
     {
-
+        return $this->hasMany(Work::class, 'participant_id');
     }
 }

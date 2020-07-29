@@ -20,7 +20,7 @@ class ExamControlController extends Controller
         $session = session($key);
 
         if (blank($session)) {
-            return redirect('/master')->withWarning('Session finished already');
+            return redirect('/')->withWarning('Session finished already');
         }
 
         $assessment = ParticipantAssessment::query()
@@ -29,7 +29,7 @@ class ExamControlController extends Controller
             ->first();
 
         if ($assessment->participant_id != auth('participant')->id()) {
-            return redirect('/master')->withWarning('Something seems wrong');
+            return redirect('/')->withWarning('Something seems wrong');
         }
 
         $questions = ExamQuestion::with(['CQs', 'MCQs', 'answer' => function($query) use($assessment) {
@@ -59,6 +59,6 @@ class ExamControlController extends Controller
             "participant-$id"
         ]);
 
-        return redirect('/master')->withSuccess('Exam Finished successfully.');
+        return redirect('/')->withSuccess('Exam Finished successfully.');
     }
 }

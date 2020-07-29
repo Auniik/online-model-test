@@ -59,6 +59,6 @@ class ParticipantLoginController extends Controller
     public function logout()
     {
          auth('participant')->logout();
-         return redirect('/master');
+         return redirect('/');
     }
 }

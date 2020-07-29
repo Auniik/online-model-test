@@ -10,7 +10,7 @@
                         <h4></h4><span id="header-title">{{__('default.add_new_exam')}}</h4>
                     </div>
                     <div class="card-body">
-                        @include('admin._partials.success-alert')
+                        @include('front.partials.notifications')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.exam_name')}}
@@ -47,19 +47,32 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.start_at')
-                            }}</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শুরুর তারিখ</label>
                             <div class="col-sm-4">
-                                <input type="text" id="dateTimeMy" value="{{old('start_at')}}" name="start_at"
-                                       class="form-control">
+                                <input type="text" name="start_at" autocomplete="off" value="{{old('start_at')}}"
+                                       class="form-control datepicker">
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">  শেষের
+                                তারিখ</label>
+                            <div class="col-sm-4">
+                                <input type="text" autocomplete="off" value="{{old('end_at')}}" name="end_at"
+                                       class="form-control datepicker">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30:00" value="{{old('duration')}}" name="duration"
                                        class="form-control">
                             </div>
-
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right"> পাশ
+                                মার্ক</label>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" class="form-control" placeholder="Pass mark"
+                                       name="competency_score">
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.cover_image')
@@ -69,6 +82,7 @@
                                        accept="image/*">
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.description')
                             }}</label>

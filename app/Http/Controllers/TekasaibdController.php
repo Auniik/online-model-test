@@ -12,6 +12,7 @@ use App\EventMessage;
 use App\EventVideo;
 use App\Gallery;
 use App\Mail\ContactUsMail;
+use App\Models\Message;
 use App\News;
 use App\Publication;
 use App\Slider;
@@ -55,15 +56,8 @@ class TekasaibdController extends Controller
 
     public function about()
     {
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        $abouts = About::all();
         return view('front.about.about', [
-            'abouts' => $abouts,
-            'news'   => $joint,
+            'abouts' => About::all(),
         ]);
     }
 
@@ -131,14 +125,7 @@ class TekasaibdController extends Controller
 
     public function privacy()
     {
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        return view('front.privacy.privacy', [
-            'news' => $joint,
-        ]);
+        return view('front.privacy.privacy');
     }
 
     public function tekasaibd()
@@ -216,18 +203,16 @@ class TekasaibdController extends Controller
         ]);
     }
     public function sendEmail(Request $request){
-        try{
-            $inputs = [
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'message' => $request->input('comments')
-            ];
-            Mail::to('tekasai100@gmail.com')
-                ->send(new ContactUsMail($inputs));
-            return response()->json('success',200);
-        }catch (\Exception $exception){
-            return response()->json($exception->getMessage(),401);
-        }
+//            $inputs = [
+//                'name' => $request->input('name'),
+//                'email' => $request->input('email'),
+//                'comment' => $request->input('comments')
+//            ];
+            Message::query()
+                ->create($request->only('name', 'email', 'comment'));
+//            Mail::to('tekasai100@gmail.com')
+//                ->send(new ContactUsMail($inputs));
+            return back()->withSent('Your comment sent successfully.');
 
     }
 
