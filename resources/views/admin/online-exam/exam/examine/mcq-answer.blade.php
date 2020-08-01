@@ -24,9 +24,8 @@
             @endif
             @if ($question->file)
                 <div class="form-group row">
-                    <label class="col-2">File</label>
-                    <div class="col-9 file-block">
-                        <img src="{{$question->file}}" alt="img">
+                    <div class="col-10  mx-5 file-block">
+                        <img src="{{url($question->file)}}" alt="img">
                     </div>
                 </div>
             @endif

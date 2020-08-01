@@ -37,7 +37,7 @@ class QuizController extends Controller
         $data = $request->only('description', 'date', 'is_default', 'is_published');
 
         if (isset($data['is_default'])) {
-            $this->makeDefault();
+            $this->resetDefault();
         }
 
         if ($request->hasFile('image')) {
@@ -64,8 +64,11 @@ class QuizController extends Controller
         ]);
         $data = $request->only('description', 'date', 'is_default', 'is_published');
 
-        if (isset($data['is_default'])) {
-            $this->makeDefault();
+        if (!isset($data['is_default'])) {
+            $this->resetDefault();
+        }
+        if (!isset($data['is_published'])) {
+            $data['is_published'] = 0;
         }
 
         if ($request->hasFile('image')) {
@@ -78,7 +81,7 @@ class QuizController extends Controller
         return updated_response('Quiz');
     }
 
-    public function makeDefault()
+    public function resetDefault()
     {
         Quiz::query()
             ->where('is_default', 1)
@@ -92,5 +95,22 @@ class QuizController extends Controller
         return response([
             'check' => true
         ]);
+    }
+
+    public function publish(Quiz $quiz)
+    {
+        $quiz->update([
+            'is_published' => 1
+        ]);
+        return back()->withSuccess($quiz->name . ' টির রেজাল্ট পাবলিশ করা হয়েছে।');
+    }
+
+    public function current(Quiz $quiz)
+    {
+        $this->resetDefault();
+        $quiz->update([
+            'is_default' => 1
+        ]);
+        return back()->withSuccess($quiz->name . ' টি বর্তমানে চলছে।');
     }
 }

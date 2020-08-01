@@ -24,6 +24,8 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(['front.index.index', 'front.layout.master'], function($view) {
             $id = auth('participant')->id();
             $session = session("participant-$id");
+
+
             $assessment = $session ? ParticipantAssessment::query()->find($session['assessment_id']) : null;
             $news = News::query()->orderBy('id', 'desc')->take(10)->get();
             $joint = '';

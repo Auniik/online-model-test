@@ -13,29 +13,6 @@
     <div class="amaderkotha-heading bg-transparent text-center">
         <h4 class="my-2 display-4" >বার্তা সমূহ</h4>
     </div>
-    <section class="news-scroll mt-lg-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="onoffswitch3">
-                        <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3"
-                               checked>
-                        <label class="onoffswitch3-label" for="myonoffswitch3">
-        <span class="onoffswitch3-inner">
-            <span class="onoffswitch3-active">
-                @if($news)
-                    <marquee class="scroll-text">{!! $news !!}</marquee>
-                @endif
-                <span class="onoffswitch3-switch">আপডেট </span>
-            </span>
-            <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">SHOW BREAKING NEWS</span></span>
-        </span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="section pt-0 pb-5">
         <div class="container">
             <div class="row align-items-center">
@@ -47,13 +24,15 @@
                                     <div class="card shadow-lg">
                                         <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
                                              height="300">
-                                        <div class="card-body">
+                                        <div class="card-body justify-content-between">
                                             <h5 class="card-text d-flex justify-content-between">
                                                 {{ Str::limit($blog->short_description, 50) }}
                                                 <a href="{{route('blog-details',['id'=>$blog->id])}}"
-                                                   class="btn btn-link">বিস্তারিত</a>
+                                                   class="btn btn-link pull-right">বিস্তারিত</a>
                                             </h5>
-
+                                            <div class="text-center">
+                                                @include('front._partials.share', ['url' => route('blog-details', $blog)])
+                                            </div>
 
                                         </div>
                                     </div>

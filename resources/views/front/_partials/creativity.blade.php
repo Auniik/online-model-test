@@ -19,9 +19,11 @@
                             <a href="{{route('book.details',$book->id)}}" target="_blank">
                                 <div class="text-part">
                                     <p>{{$book->title}}</p>
-                                    @include('front._partials.share', ['url' => route('book.details',$book->id)])
                                 </div>
                             </a>
+                        </div>
+                        <div class="p-2" style="z-index: 2; margin: 0 auto">
+                            @include('front._partials.share', ['url' => route('book.details',$book->id)])
                         </div>
                     </div>
                 </div>

@@ -510,8 +510,8 @@ ol {
     background: #6194CE;
     color: white;
     font-size: 19px;
-    padding: 5px 10px;
-    margin-bottom: 0;
+    padding: 2px 12px;
+    margin-bottom: 3px;
 }
 
 .top-bar .update-part .up-content p {
@@ -1351,7 +1351,8 @@ Author Email: hafizul6280@gmail.com
 }
 
 #creativity-part .book-img {
-    margin: 0px;
+    margin: 0;
+    background: #5a5a5a;
 }
 
 
@@ -1359,7 +1360,7 @@ Author Email: hafizul6280@gmail.com
 .secound_section {
     width: 100%;
     height: 541px;
-    margin-top: 23px;
+    margin-top: -24px;
     background: rgba(105, 105, 105, 0);
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -2052,7 +2053,7 @@ label {
 }
 .exam-preview-card {
     background: rgba(105, 105, 105, 0);
-    margin-top: 38px;
+    margin-top: 12px;
 
     min-height: 543px;
 
@@ -2118,12 +2119,105 @@ label {
     padding: 43px;
     font-size: 18px;
 }
+
+.remark {
+    background: #6982c5f2;
+    color: white;
+    padding: 2px;
+    border-radius: 12px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600&family=Galada&family=Hind+Siliguri:wght@300;400;500;600&family=Mina:wght@400;700&display=swap');
 
 
 
 
 
+/* The Modal (background) */
+.share-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 11111; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
 
+/* Modal Content */
+.share-modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.share-modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.share-modal-body {padding: 2px 16px;}
+
+.share-modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.icon-alias{
+    font-size: 30px;
+    padding: 15px;
+}
+
+.social-icon {
+    display: grid;
+}
 
 /*==========================  model_test_question end=====================*/

@@ -4,7 +4,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4><span id="header-title">Examine {{$assessment->participant->name}} of
+                    <h4><span id="header-title">Examine <a class="text-info"
+                                                           href="{{route('participants.show', $assessment->participant_id)}}">
+                                            {{$assessment->participant->name}}
+                                        </a> of
                             {{$assessment->exam->name}}</span></h4>
                     <p class="mb-0">Subject: {{$assessment->exam->subject->name}}, Class: {{$assessment->exam->class}},
                         Pass Mark: {{$assessment->exam->competency_score}}</p>
@@ -20,7 +23,7 @@
                                     <th>প্রশ্ন</th>
                                     <th class="text-center">নিরীক্ষণ করা হয়েছে?</th>
                                     <th class="text-center">উত্তর</th>
-                                    <th width="20%">Remarks</th>
+                                    <th width="13%">Remarks</th>
                                 </tr>
                                 </thead>
                                 <tbody>

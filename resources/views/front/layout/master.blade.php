@@ -48,15 +48,6 @@
 </head>
 
 <body class="content" id="body">
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
 @include('front._partials.header')
 <!---------------------------- স্ক্রল বাটন শুরু --------------->
@@ -74,6 +65,33 @@
 
 <br><br>
 
+{{--<button id="myBtn">Open Modal</button>--}}
+
+<div id="myModal" class="share-modal">
+
+    <!-- Modal content -->
+    <div class="share-modal-content">
+        <div class="share-modal-content text-center">
+            <div class="share-modal-header">
+                <span class="close">×</span>
+                <h2>Share now!</h2>
+            </div>
+            <div class="share-modal-body">
+                <ul class="d-inline-flex social-icons">
+
+
+                </ul>
+                <div class="col-4 offset-4 d-flex my-5">
+                    <input type="text" class="form-control" autocomplete="off" id="shareable-url"
+                           value="{{request()->url()}}">
+                    <button onclick="copyURL(this)" class="btn btn-outline-success copy-btn">Copy</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 <!---------------------------- বার্তা অংশ শেষ --------------->
 @include('front._partials.footer')
@@ -127,6 +145,67 @@
     window.prettyPrint && prettyPrint();
 
 </script>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    // btn.onclick = function() {
+    //     modal.style.display = "block";
+    // }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    $(document).on('click', '.share-button', function (e) {
+        let url = $(this).data('url')
+        if(!url) {
+            url = "{{request()->url()}}"
+        }
+        $('.copy-btn').html('Copy')
+        $.ajax({
+            url: `/get-social-links?url=${url}`,
+            type: 'GET',
+            dataType:'HTML',
+        }).done(function (data) {
+            if(url) {
+                $('#shareable-url').val(url)
+            }
+
+            $('.social-icons').html(data)
+            modal.style.display = "block"
+        });
+
+    })
+
+    function copyURL(e) {
+        e.innerHTML = 'Copied!'
+        /* Get the text field */
+        var copyText = document.getElementById("shareable-url");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    }
+</script>
 
 <script>
 
@@ -163,6 +242,10 @@
         }
     }, 1000);
     @endif
+</script>
+
+<script>
+
 </script>
 @stack('script')
 @yield('script')

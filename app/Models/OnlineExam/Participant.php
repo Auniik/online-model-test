@@ -40,6 +40,16 @@ class Participant extends User
     {
         return $this->hasMany(ParticipantAssessment::class);
     }
+
+    public function participatedExams()
+    {
+        return $this->assessments()->where('start_at', '<>', null);
+    }
+    public function participatedQuizzes()
+    {
+        return $this->quizzes()->where('is_attended', 1);
+    }
+
     public function quizzes()
     {
         return $this->hasMany(QuizAssessment::class);
@@ -47,11 +57,9 @@ class Participant extends User
 
     public function performedCurrentQuiz()
     {
-        return !!$this->hasOne(QuizAssessment::class)
-            ->whereHas('quiz', function ($quiz) {
-                $quiz->where('is_default', 1);
-            })->first();
+        return !!$this->currentAssessment();
     }
+
     public function currentAssessment()
     {
         return $this->hasOne(QuizAssessment::class)

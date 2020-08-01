@@ -30,9 +30,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class=" row">
-                            <h4 class="col-11"><span id="header-title">Set Questions for
-                                    {{$quiz->name}}</span>
-                                <small>(Total Questions: {{$quiz->questions->count()}})</small>
+                            <h4 class="col-11"><span id="header-title">{{$quiz->name}}- এর প্রশ্নসমূহ সেট করুন
+                                    </span><br>
+                                <small>Total Questions: {{$quiz->questions->count()}}</small>
                             </h4>
                             <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">Add new</button>
                         </div>
@@ -92,7 +92,7 @@
                         <form action="{{route('quiz-questions.store', $quiz)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add new Written Question</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"> কুইজের জন্য প্রশ্নসমূহ যুক্ত করুন</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -102,11 +102,11 @@
                                     <table class="table  table-bordered  table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Title</th>
-                                                <th width="15%">Option 1</th>
-                                                <th width="15%">Option 2</th>
-                                                <th width="15%">Option 3</th>
-                                                <th width="15%">Option 4</th>
+                                                <th>  প্রশ্ন এবং ছবি</th>
+                                                <th width="15%"> অপশন ১ </th>
+                                                <th width="15%">অপশন ২</th>
+                                                <th width="15%">অপশন ৩</th>
+                                                <th width="15%">অপশন  ৪</th>
                                                 <th width="1%">#</th>
                                             </tr>
                                         </thead>
@@ -135,6 +135,11 @@
 
 @push('script')
     <script>
+
+        @if(!$quiz->questions->count())
+            alert('প্রশ্ন তৈরী করুন, অন্যথায় কুইজটি পাবলিশ হবেনা')
+        @endif
+
 
         var count = 1;
         $(document).ready(function () {

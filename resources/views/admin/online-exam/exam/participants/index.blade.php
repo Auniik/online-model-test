@@ -5,8 +5,8 @@
             <div class="card">
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
-                    <h4><span id="header-title">Participants of {{$exam->name}}</span></h4>
-                    <p class="mb-0">Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
+                    <h4><span id="header-title">{{$exam->name}} -এর পরীক্ষার্থীসমূহ</span></h4>
+                    <p class="mb-0"> বিষয়: {{$exam->subject->name}}, শ্রেণী: {{$exam->class}},  পাশ মার্ক:
                         {{$exam->competency_score}}</p>
                 </div>
                 <div class="card-body">
@@ -16,8 +16,10 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Score</th>
+                                    <th> পরীক্ষার্থী</th>
+                                    <th> শুরু করেছে ? </th>
+                                    <th> অতিবাহিত সময়</th>
+                                    <th> স্কোর</th>
                                     <th width="10%">Action</th>
                                 </tr>
                                 </thead>
@@ -25,15 +27,34 @@
 
                                 @foreach($exam->assignedParticipants as $assignedParticipant)
                                     <tr>
-                                        <td>{{$assignedParticipant->participant->name}}</td>
                                         <td>
-                                            {{$assignedParticipant->score}}
+                                            <a class="text-info"
+                                               href="{{route('participants.show', $assignedParticipant->participant_id)}}">
+                                                {{$assignedParticipant->participant->name}}
+                                            </a>
                                         </td>
                                         <td>
+                                            @if ($assignedParticipant->start_at)
+                                                <strong>{{$assignedParticipant->start_at->format('M d, h:i A') }}</strong>
+                                            @else
+                                                এখনও পরীক্ষা দেয়নি
+                                            @endif
+                                        </td>
+                                        <td>
+                                            {{$assignedParticipant->consumedTime()}}
+                                        </td>
+                                        <td>
+                                            @if ($assignedParticipant->start_at)
+                                                {{$assignedParticipant->totalRemarks()}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($assignedParticipant->start_at)
                                             <a title="Examine"
                                                href="{{route('assessments-examine.index',  $assignedParticipant->id)}}">
                                                 <i class="fa fa fa-eye" aria-hidden="true"></i>
                                             </a>
+                                            @endif
                                             <a class="deletable"
                                                title="Delete"
                                                href="{{route('exam-participants.destroy',  $assignedParticipant->id)}}">

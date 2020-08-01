@@ -15,13 +15,16 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Subject Name *</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value="" placeholder="Subject name" name="name">
+                                <input class="form-control" type="text" autocomplete="off" value=""
+                                       placeholder="Subject name"
+                                       name="name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Subject Code</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Subject code" name="code" />
+                                <input type="text" class="form-control" autocomplete="off" placeholder="Subject code"
+                                       name="code" />
                             </div>
                         </div>
                         <div class="form-group row">

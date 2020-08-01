@@ -16,7 +16,9 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 top_content">
-            <p>বিষয়ঃ {{$assessment->exam->subject->name}}</p>
+            <p  class="pb-0">বিষয়ঃ {{$assessment->exam->subject->name}}</p>
+            <p  class="pt-0 pb-0">শ্রেণীঃ {{$assessment->exam->class}}</p>
+            <p class="pt-0" >পূর্ণমানঃ {{$assessment->exam->totalRemarks()}}</p>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 top_content">
             <p class="pb-0">পরীক্ষার তারিখঃ <b>{{$assessment->exam->start_at->format('d/m/Y')}}</b></p>

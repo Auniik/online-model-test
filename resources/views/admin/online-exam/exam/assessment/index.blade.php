@@ -46,7 +46,12 @@
                                 @foreach($assessments as $assessment)
 
                                     <tr>
-                                        <td>{{$assessment->participant->name}}</td>
+                                        <td>
+                                            <a class="text-info"
+                                               href="{{route('participants.show', $assessment->participant_id)}}">
+                                                {{$assessment->participant->name}}
+                                            </a>
+                                        </td>
                                         <td class="text-info view-exam "
                                             data-exam="{{$assessment->exam}}">
                                             {{$assessment->exam->name}}

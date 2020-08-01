@@ -26,9 +26,8 @@
 
             @if ($question->file)
                 <div class="form-group row">
-                    <label class="col-2">File</label>
-                    <div class="col-9 file-block">
-                        <img src="{{$question->file}}" alt="img">
+                    <div class="col-10  mx-5 file-block">
+                        <img src="{{url($question->file)}}" class="w-100" alt="img">
                     </div>
                 </div>
             @endif
@@ -36,7 +35,7 @@
             <div class="row">
                 <div class="col-10 mb-4 mx-5">
                     <h5 class="text-left"> উত্তরঃ </h5>
-                    <b>{{$answer->answer}}</b>
+                    <b class="text-wrap">{{$answer->answer}}</b>
                 </div>
                 <div class="col-6 mt-5 offset-md-3">
                     @if (filled($answer->attachments))

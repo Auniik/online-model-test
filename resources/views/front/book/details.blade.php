@@ -78,6 +78,7 @@
                     </div>
 
                     <hr>
+
                     <p>{!! $book->description !!}</p>
 
                     <div class="sidebar p-4 rounded">

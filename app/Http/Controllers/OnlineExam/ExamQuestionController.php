@@ -27,6 +27,10 @@ class ExamQuestionController extends Controller
 
     public function store(Exam $exam)
     {
+        \request()->validate([
+            'file' => 'nullable|max:2048|image',
+            'title' => 'required'
+        ]);
         $method =  [
             'written' => 'saveWritten',
             'cq' => 'saveCQ',
@@ -49,6 +53,10 @@ class ExamQuestionController extends Controller
 
     public function update(ExamQuestion $question)
     {
+        \request()->validate([
+            'file' => 'nullable|max:2048|image',
+            'title' => 'required'
+        ]);
         $method =  [
             'written' => 'updateWritten',
             'cq' => 'updateCQ',

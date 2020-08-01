@@ -62,10 +62,8 @@
                 </td>
                 <td class="up-content">
                     <marquee behavior="scroll" scrollamount="8" direction="left">
-                        <p>
-                            <a href="#">১। ষষ্ঠ শ্রেণির শিক্ষার্থীদের জন্য অনলাইন পরীক্ষা শুরু হতে যাচ্ছে ,</a>
-                            <a href="#">২। মুজিব বর্ষ উপলক্ষে অনলাইন কুইজে অংশ নিন ,</a>
-                            <a href="#">৩। আপনার সৃজনশীল কাজ জমা দিন ।</a>
+                        <p class="text-primary">
+                            {!! $news !!}
                         </p>
                     </marquee>
                 </td>

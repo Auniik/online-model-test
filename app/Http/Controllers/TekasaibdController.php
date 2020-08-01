@@ -97,15 +97,11 @@ class TekasaibdController extends Controller
     {
         $sliders = Slider::all();
         $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
+
         return view('front.about.blog', [
             'blogs'    => Blog::query()
                 ->latest()
                 ->paginate(6),
-            'news'     => $joint,
             'contract' => Contract::all(),
         ]);
     }

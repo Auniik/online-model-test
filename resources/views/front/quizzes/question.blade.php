@@ -61,6 +61,7 @@
     <br>
     <hr>
     <hr>
+
 @endsection
 
 @push('script')
@@ -81,20 +82,21 @@
         }
 
 
-        body.oncontextmenu = handler;
-        body.onmousedown = handler;
-        body.onmouseup = handler;
+        // body.oncontextmenu = handler;
+        // body.onmousedown = handler;
+        // body.onmouseup = handler;
     </script>
 
 {{--    initializations--}}
     <script>
 
-        const assessment = JSON.parse("{{$assessment}}".replace(/&quot;/g, '"'));
-        const timeArray = assessment.quiz.duration.split(':')
+        var duration = "{{$duration}}";
+        var assessment_id = "{{$assessment_id}}";
+        const timeArray = duration.split(':')
         const seconds = (parseInt(timeArray[0]) * 60) + parseInt(timeArray[1]);
-        const type = assessment.participant_type;
+        const type = "{{$participant_type}}";
 
-        document.getElementById('timer').innerHTML = assessment.quiz.duration
+        document.getElementById('timer').innerHTML = duration
 
     </script>
 
@@ -103,7 +105,7 @@
         loadQuestion();
         function loadQuestion() {
             $.ajax({
-                url: `/render-question/${assessment.id}`,
+                url: `/render-question/{{$assessment_id}}`,
                 type: 'GET',
                 dataType: 'HTML',
             }).done(function (data) {
@@ -111,7 +113,7 @@
                     completedAction()
                 } else {
                     $('.questions-row').html(data)
-                    startTimer(assessment.quiz.duration);
+                    startTimer("{{$duration}}");
                 }
             });
         }
@@ -132,8 +134,8 @@
                 } else {
                     $('#nextButton').attr('disabled', true)
                     $('.questions-row').html(data)
-                    if (type !== 'general') {
-                        document.getElementById('timer').innerHTML = assessment.quiz.duration
+                    if ("{{$participant_type}}" !== 'general') {
+                        document.getElementById('timer').innerHTML = "{{$duration}}"
                     }
                 }
             });
@@ -147,18 +149,18 @@
         function completedAction() {
             $('#nextButton').hide()
             $('#timer').hide()
-            location.href = `complete-quiz/${assessment.id}`
+            location.href = `complete-quiz/{{$assessment_id}}`
         }
 
     </script>
 
     <script>
-        window.onbeforeunload = function() {
-            window.setTimeout(function () {
-                window.location = `/complete-quiz/${assessment.id}`;
-             }, 0);
-            window.onbeforeunload = null;
-        }
+        // window.onbeforeunload = function() {
+        //     window.setTimeout(function () {
+        //         window.location = `/complete-quiz/${assessment.id}`;
+        //      }, 0);
+        //     window.onbeforeunload = null;
+        // }
     </script>
 
 {{--Timer--}}
@@ -171,7 +173,7 @@
             if (s === 59) m--
 
             if (m < 0) {
-                location.href = `complete-quiz/${assessment.id}`;
+                location.href = `complete-quiz/{{$assessment_id}}`;
                 // alert('timer completed')
             } else {
 

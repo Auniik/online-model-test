@@ -12,6 +12,9 @@ class WorkController extends Controller
 {
     public function addWork()
     {
+        if (!auth('participant')->check()) {
+            return redirect('/participants/login?to=submit-work');
+        }
         return view('front.work.submit-work');
     }
 

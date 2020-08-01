@@ -21,10 +21,10 @@
                             পরীক্ষা
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('exams.create')}}">Create Exam</a></li>
-                        <li><a href="{{route('exams.index')}}">All Exams</a></li>
-                        <li><a href="{{route('assessments.index')}}">Assessments</a></li>
-                        <li><a href="{{route('subjects.index')}}">Subjects</a></li>
+                        <li><a href="{{route('exams.create')}}"> নতুন পরীক্ষা</a></li>
+                        <li><a href="{{route('exams.index')}}"> সকল পরীক্ষাসমূহ</a></li>
+                        <li><a href="{{route('assessments.index')}}">নীরিক্ষণ</a></li>
+                        <li><a href="{{route('subjects.index')}}"> বিষয়  সেটিংস</a></li>
                     </ul>
                 </li>
                 <li><a href="{{route('participants.index')}}" class="waves-effect"><i class="mdi mdi-account"></i>
@@ -35,6 +35,8 @@
 
                 <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> Messages</span></a></li>
+                <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> Manage News</span></a></li>
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
@@ -67,7 +69,6 @@
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
                         <li><a href="{{asset('add-contact')}}">Manage Contact</a></li>
                          <li><a href="{{asset('add-bangabandhu')}}">Bangabandhu Page</a></li>
-                        <li><a href="{{asset('add-news')}}">Manage News</a></li>
                         <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
                     </ul>
                 </li>

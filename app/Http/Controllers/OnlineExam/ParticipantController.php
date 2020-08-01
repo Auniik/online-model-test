@@ -25,7 +25,8 @@ class ParticipantController extends Controller
         $attributes = $request->validate([
             'name.*' => 'required',
             'email.*' => 'required_without:mobile_number|email|unique:participants,email|distinct',
-            'mobile_number.*' => 'required_without:email|unique:participants,mobile_number',
+            'mobile_number.*' => ['required_without:email', 'unique:participants,mobile_number',
+                'regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
             'password.*' => 'nullable|min:6'
         ]);
         foreach ($attributes['name'] as $key => $name) {

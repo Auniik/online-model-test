@@ -9,29 +9,31 @@
                 </div>
                 <div class="row">
                     @if ($assessment)
-                        <div class="card shadow-lg w-100  exam-preview-card">
+                        <div class="card shadow-lg w-100  exam-preview-card justify-content-around">
                             <div class="card-body">
-                                <div class="offset-lg-2 col-8">
-                                    <img src="/{{$assessment->exam->image}}" class="img img-fluid" alt="">
+                                <div class="offset-lg-2 col-8 mt-5">
+                                    @if ($assessment->exam->image)
+                                        <img src="{{url($assessment->exam->image)}}" class="img img-fluid mt-4" alt="">
+                                    @endif
+
                                     <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
                                     <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}} মিনিট</b></h5>
                                     <h5 class="my-4"> শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
                                         </b></h5>
-                                    <a href="/exam-hall" class="btn btn-success p-3 shadow-lg w-100"> পরীক্ষা
+                                    <a href="{{url('/exam-hall')}}" class="btn btn-success p-3 shadow-lg w-100"> পরীক্ষা
                                         বজায় রাখুন
                                     </a>
                                 </div>
                             </div>
                         </div>
                     @elseif ($exams->isEmpty())
-                        <div class="card shadow-lg w-100 exam-preview-card" style="margin-top: 12px;">
+                        <div class="card shadow-lg w-100 exam-preview-card">
                             <div class="card-body d-flex justify-content-center align-items-center">
-                                <h2>আজকের মত কোন পরীক্ষা অনুষ্ঠিত হচ্ছেনা!</h2>
+                                <h2> আজ আপনার জন্য আর কোন পরীক্ষা নেই!</h2>
                             </div>
                         </div>
                     @else
                         @foreach($exams ?? [] as $exam)
-
                             <div class="col-md-4 mb-4 mt-4">
                                 <div class="card shadow-lg bg-transparent">
                                     @if ($exam->image)
@@ -48,15 +50,12 @@
                                             <h5>বিষয়</h5>
                                             <h6>{{$exam->subject->name}}</h6>
                                             <h4>{{$exam->class}}</h4>
-                                            @include('front._partials.share', ['url' => url("/exams/{$exam->id}/start")])
-{{--                                            <a href="" class="btn--}}
-{{--                                            btn-sm btn-outline-primary mt-5">--}}
-{{--                                                <i class="fas fa-share"></i>--}}
-{{--                                                share this--}}
-{{--                                            </a>--}}
                                         </a>
+                                        <div class="mt-5">
+                                            @include('front._partials.share', ['url' => url("/exams/{$exam->id}/start")])
+                                        </div>
                                     </div>
-                                        <p class="text-center pb-0">Available: {{$exam->end_at->diffForHumans()}}</p>
+                                        <p class="text-center pb-0">Available to: {{$exam->end_at->format('d-m-Y')}}</p>
 
                                 </div>
                             </div>
@@ -76,7 +75,7 @@
                 <div class="secound_section">
                 @if (!auth('participant')->check())
                     <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
+                        <ul class="nav nav-tabs mt-5" role="tablist">
                             <li class="nav-item left-side">
                                 <a class="nav-link active" data-toggle="tab" href="#home"><span>সাধারণ</span></a>
                             </li>
@@ -131,12 +130,11 @@
                                                 <div class="col-10 offset-md-2 text-right ">
                                                     <div class="row justify-content-between">
                                                         <a href="javascript:void(0)" class="share-btn btn w-25 p-3
-                                            ml-4">
+                                            ml-4 share-button">
                                                             <i class="fas fa-share"></i> Share
                                                         </a>
                                                         <button type="submit" class="btn btn-success p-3 shadow-lg w-25
-                                                mr-0">কুইজ
-                                                            শুরু
+                                                mr-0">কুইজ শুরু
                                                         </button>
                                                     </div>
 
@@ -187,8 +185,7 @@
                                             <div class="row form-group">
                                                 <div class="col-10 offset-md-2 text-right ">
                                                     <div class="row justify-content-between">
-                                                        <a href="javascript:void(0)" class="share-btn btn w-25 p-3
-                                        ml-4">
+                                                        <a href="#" class="share-btn btn w-25 p-3 ml-4 share-button">
                                                             <i class="fas fa-share"></i> Share
                                                         </a>
                                                         <button type="submit" class="btn btn-success p-3 shadow-lg w-25
@@ -205,40 +202,65 @@
                                 </div>
                             </form>
                         </div>
+
+
                     @elseif (!auth('participant')->user()->performedCurrentQuiz())
-                        <form class="mt-5 "
-                              action="{{route('participants.quiz-register')}}" method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="col-8 offset-lg-2 mt-5">
-                                    <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
-                                    <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
-                                    <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b>
-                                    </h5>
-                                    <button type="submit" class="btn btn-success p-3 shadow-lg w-100"> এখনই শুরু করুন
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        @if ($current_quiz)
+                                <form class="mt-5 "
+                                      action="{{route('participants.quiz-register')}}" method="post">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-8 offset-lg-2 mt-5">
+                                            @if ($current_quiz->imag)
+                                                <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
+                                            @endif
+                                            <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
+                                            <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
+                                            <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b>
+                                            </h5>
+                                            <button type="submit" class="btn btn-success p-3 shadow-lg w-100"> এখনই শুরু করুন
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                        @else
+{{--                            <div class=" d-flex justify-content-center align-items-center">--}}
+                                <h2> আজ আপনার জন্য আর কোন কুইজ নেই!</h2>
+{{--                            </div>--}}
+                        @endif
+
 
                     @else
                         @php
                             $assessment =  auth('participant')->user()->currentAssessment();
                         @endphp
-                        <div class="row">
-                            <div class="col-8 offset-lg-2 mt-5">
-                                <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
-                                <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                                <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
-                                <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
-                                <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
-                                <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>
-                                <h5 class="my-4"> সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
+
+                        <div class="mt-5">
+                            <div class="row">
+
+                                    <div class="col-8 offset-lg-2 mt-5">
+                                        @if ($current_quiz->imag)
+                                            <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
+                                        @endif
+                                        <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
+                                        <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
+                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
+                                        @if($assessment->quiz->is_published)
+                                        <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
+                                        <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>
+                                        <h5 class="my-4"> সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
+                                        @else
+                                                <h2>  উত্তর এখনও পাবলিশ করা হয়নি!</h2>
+                                        @endif
+                                    </div>
+
 
                             </div>
                         </div>
-                        </form>
+
+
+
+
                     @endif
 
                 </div>

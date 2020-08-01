@@ -2,16 +2,18 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
+
             <form id="refForm" action="{{route('quizzes.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
+
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
                         <h4><span id="header-title">{{__('default.add_new_quiz')}}</h4>
                     </div>
                     <div class="card-body">
-                        @include('admin._partials.success-alert')
+                        @include('front.partials.notifications')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.quiz_name')}}
@@ -33,8 +35,8 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.date')
                             }}</label>
                             <div class="col-sm-4">
-                                <input type="text" id="dateTimeMy" value="{{old('date')}}" name="date"
-                                       class="form-control">
+                                <input type="text" value="{{old('date')}}" name="date" autocomplete="off"
+                                       class="form-control datepicker">
                             </div>
                             <label for="example-text-input" class="col-sm-2 col-form-label text-right">
                                 {{__('default.duration')}}</label>

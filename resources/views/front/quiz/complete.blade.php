@@ -16,7 +16,7 @@
                     @include('front.partials.notifications')
                     <div class="alert alert-success">Thank you for your participation. Soon we will let you know the result</div>
                     <br>
-                    <a href="{{route('welcome')}}" class="btn btn-lg btn-outline-success">Homepage</a>
+                    <a href="{{url('/')}}" class="btn btn-lg btn-outline-success">Homepage</a>
                 </div>
             </div>
         </div>

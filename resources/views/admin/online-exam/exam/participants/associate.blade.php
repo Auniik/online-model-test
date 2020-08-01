@@ -31,13 +31,6 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group row">
-                            <input type="hidden" name="type" value="written">
-                            <label class="col-2">Add New</label>
-                            <select class="select2-tags form-control"
-                                    name="participants[]" multiple>
-                            </select>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

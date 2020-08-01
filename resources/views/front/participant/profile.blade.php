@@ -191,7 +191,7 @@
                                                     class="text-primary mb-0">Description :</span> {!! $work->description !!}
                                                 <br>
                                                 <div class="text-primary mb-0">File(s) :</div>
-                                                @foreach($work->file as $k => $file)
+                                                @foreach($work->file ?? [] as $k => $file)
                                                     <div>
                                                         <a href="/{{$file}}" class="ml-5"
                                                            target="_blank">{{++$k}}. {{$work->fileName($file)}}</a>

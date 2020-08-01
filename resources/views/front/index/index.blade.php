@@ -1,9 +1,7 @@
 @extends('front.layout.master')
 @section('content')
     <!---------------------------- ব্যানার অংশ শুরু --------------->
-
     <section id="banner">
-
         <div class="banner-1">
             <div class="overlay">
                 <div class="container main_banner">
@@ -55,29 +53,18 @@
                                  height="200">
                             <div class="card-body">
                                 <h6 class="card-text d-flex justify-content-between">
-                                    {{ Str::limit($blog->short_description, 50) }} <a href="{{route('blog-details',['id'=>$blog->id])}}"
-                                                                                      class="btn btn-link">বিস্তারিত</a>
+                                    {{ Str::limit($blog->short_description, 50) }}
+                                    <a href="{{route('blog-details',['id'=>$blog->id])}}" class="btn
+                                    btn-link">বিস্তারিত</a>
                                 </h6>
                                 <span>
                                     {{$blog->created_at->format('M d, Y h:i A')}}
                                 </span>
                                 <div class="mt-3 d-flex justify-content-between">
                                     @include('front._partials.share', ['url' => route('blog-details', $blog)])
-
                                 </div>
                             </div>
                         </div>
-{{--                        @if ($blog->image)--}}
-{{--                            <div class="image">--}}
-{{--                                <a href="javascript:void(0)">--}}
-{{--                                    <img class="img-fluid" src="{{asset($blog->image)}}" alt="shekhhasina.jpg">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-
-{{--                        <div class="blog-text">--}}
-{{--                                --}}
-{{--                        </div>--}}
                     </div>
                 </div>
                 @endforeach

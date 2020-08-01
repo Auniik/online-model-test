@@ -13,9 +13,13 @@
                     @endforeach
                     <div class="card shadow-lg p-5">
                         <div class="card-body">
+
                     @foreach($bangabandhus as $bangabandhu)
-                        <h3>{{$bangabandhu->title}}</h3><br/>
+                        <h3>{{$bangabandhu->title}}</h3>
                         <p class="text-justify">
+                                <div class="text-right mb-5">
+                                    @include('front._partials.share', ['url' => url('/bangabandhu')])
+                                </div>
                             {!! $bangabandhu->description !!}
                         </p>
                     @endforeach

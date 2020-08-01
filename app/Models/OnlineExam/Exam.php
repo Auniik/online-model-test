@@ -45,4 +45,9 @@ class Exam extends Model
     {
         return $this->hasMany(ParticipantAssessment::class, 'exam_id');
     }
+
+    public function totalRemarks()
+    {
+        return $this->questions->sum('remark');
+    }
 }

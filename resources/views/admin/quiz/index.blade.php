@@ -33,7 +33,7 @@
                             <th> সময়সীমা</th>
                             <th> পরীক্ষার্থী</th>
                             <th> প্রশ্নসমূহ</th>
-                            <th>  ডিফল্ট কুইজ?</th>
+                            <th> বর্তমানে চলছে?</th>
                             <th> পাবলিশ হয়েছে?</th>
                             <th>Action</th>
                         </tr>
@@ -48,17 +48,37 @@
                                 <td>{{$quiz->date->format('d/m/Y h:m:s')}}</td>
                                 <td>{{$quiz->duration}}</td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('quiz-participants.create',  $quiz->id)}}">
+                                    <a class="btn btn-info btn-circle" href="{{route('quiz-participants.create',  $quiz->id)}}">
                                         {{$quiz->assigned_participants_count}}
                                     </a>
                                 </td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('quiz-questions.index',  $quiz->id)}}">
+                                    <a class="btn btn-info btn-circle" href="{{route('quiz-questions.index',  $quiz->id)}}">
                                         {{$quiz->questions_count}}
                                     </a>
                                 </td>
-                                <td>{{$quiz->is_default ? 'Yes' : 'No'}}</td>
-                                <td>{{$quiz->is_published ? 'Yes' : 'No'}}</td>
+                                <td>
+                                    @if ($quiz->is_default)
+                                        <a class="btn btn-success btn-circle" href="#">
+                                            Yes
+                                        </a>
+                                    @else
+                                        <a class="btn btn-secondary btn-circle" href="{{route('quizzes.current',  $quiz)}}">
+                                            No
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($quiz->is_published)
+                                        <a class="btn btn-success btn-circle" href="#">
+                                            Yes
+                                        </a>
+                                    @else
+                                        <a class="btn btn-secondary btn-circle" href="{{route('quizzes.publish',  $quiz)}}">
+                                            No
+                                        </a>
+                                    @endif
+                                </td>
                                 <td width="1" align="center">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"

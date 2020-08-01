@@ -16,13 +16,21 @@
                     @endphp
 
 
-                    <h6>প্রশ্ন {{$sl++}}: {{$question->title}}</h6>
+                    <h6 class="d-flex justify-content-between">
+                        <span># {{$question->title}}</span>
+                        <span class="remark">{{$question->remarks}}</span>
+                    </h6>
 
 
                     @if ($question->isMCQ())
+
                         <form class="mcqForm margin_left"
+
                               action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}">
                             @csrf
+                            @if ($question->file)
+                                <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                            @endif
                             @foreach($question->MCQs as $mcq)
                                 <input type="radio"
                                        class="mcq-answer"
@@ -45,6 +53,14 @@
 
 
                     @if ($question->isWritten())
+                        @if ($question->description)
+                            <div style="user-select: none; line-height:1;" class="written-description margin_left"> {!!
+                            $question->description !!}</div>
+                        @endif
+                        @if ($question->file)
+                            <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                        @endif
+
                         <form class="writtenForm margin_left" action="{{route('assessment-answer.store', [$assessment->id,
                         $question->id])}}">
                             @csrf
@@ -71,6 +87,9 @@
                             @if ($question->description)
                                 <p class="cq-description"><b>উদ্দীপকঃ</b> {{$question->description}}</p>
                             @endif
+                                @if ($question->file)
+                                    <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                                @endif
 
                             <ul class="list-group" style="margin-bottom:20px ">
                                 @foreach($question->CQs as $k => $cq)

@@ -7,6 +7,11 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::resource('quizzes', 'Quiz\QuizController');
 
 
+    Route::get('quizzes/{quiz}/current', 'Quiz\QuizController@current')
+        ->name('quizzes.current');
+    Route::get('quizzes/{quiz}/publish', 'Quiz\QuizController@publish')
+        ->name('quizzes.publish');
+
     Route::get('quizzes/{quiz}/participants', 'Quiz\QuizParticipantController@index')
         ->name('quiz-participants.index');
     Route::get('quizzes/{quiz}/participants/create', 'Quiz\QuizParticipantController@create')

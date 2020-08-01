@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <button type="button" id="add-new" class="btn float-right btn-primary"> নতুন পরীক্ষার্থী যোগ করুন
                     </button>
-                    <h4 class="col-2"><span id="header-title"> সকল পরীক্ষার্থী সমূহ</span></h4>
+                    <h4 class="col-3"><span id="header-title"> সকল পরীক্ষার্থী সমূহ</span></h4>
                 </div>
                 <div class="card-body">
                     @include('front.partials.notifications')
@@ -17,7 +17,6 @@
                                 <thead>
                                 <tr>
                                     <th> নাম</th>
-{{--                                    <th>Username</th>--}}
                                     <th> ইমেইল</th>
                                     <th> মোবাইল নং</th>
                                     <th> কুইজ খেলেছেন মোট</th>
@@ -37,8 +36,8 @@
 {{--                                        <td>{{$participant->username}}</td>--}}
                                         <td>{{$participant->email}}</td>
                                         <td>{{$participant->mobile_number}}</td>
-                                        <td>{{$participant->quizzes_count}}</td>
-                                        <td>{{$participant->assessments_count}}</td>
+                                        <td>{{$participant->participatedQuizzes->count()}}</td>
+                                        <td>{{$participant->participatedExams->count()}}</td>
                                         <td>{{$participant->school_name}}</td>
                                         <td>{{$participant->district}}</td>
                                         <td>{{$participant->division}}</td>
@@ -101,12 +100,12 @@
         const participantRow = `
         <tr class="participant-row">
             <th>
-                <input name="name[]" style="height: 36px; margin-bottom: 8px" required
+                <input name="name[]" style="height: 36px; margin-bottom: 8px" required autocomplete="off"
                           placeholder="Please enter name for the participant"
                           class="form-control" />
             </th>
             <th>
-                <input type="tel" name="mobile_number[]" autocomplete="off"
+                <input type="tel" name="mobile_number[]" pattern="(^(\\+88|0088)?(01){1}[3456789]{1}(\\d){8})$" autocomplete="off"
                    class="form-control"
                           required />
             </th>

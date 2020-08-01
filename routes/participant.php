@@ -38,6 +38,8 @@ Route::post('participants/register', 'Website\ParticipantRegisterController@regi
 
 Route::get('participants/profile', 'Website\ParticipantProfileController@show')
         ->name('participants.profile');
+Route::get('participants/{participant}/profile', 'Website\ParticipantProfileController@show')
+        ->name('participants.show');
 
 
 //Online Exam

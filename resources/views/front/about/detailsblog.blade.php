@@ -7,29 +7,7 @@
     </style>
 @endpush
 @section('content')
-{{--    <section class="news-scroll mt-5">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-12">--}}
-{{--                    <div class="onoffswitch3">--}}
-{{--                        <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked>--}}
-{{--                        <label class="onoffswitch3-label" for="myonoffswitch3">--}}
-{{--        <span class="onoffswitch3-inner">--}}
-{{--            <span class="onoffswitch3-active">--}}
-{{--                @foreach($news as $new)--}}
-{{--                    <marquee class="scroll-text">{{$new->title}}</marquee>--}}
-{{--                @endforeach--}}
-{{--                <span class="onoffswitch3-switch">আপডেট </span>--}}
-{{--            </span>--}}
-{{--            <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">SHOW BREAKING NEWS</span></span>--}}
-{{--        </span>--}}
-{{--                        </label>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-    <!-- About Start -->
+
     <section class="section pt-5 pb-5">
         <div class="container">
             <div class="row align-items-center">
@@ -49,6 +27,9 @@
                                                  height="500" width="100%">
                                         </div>
                                         <div class="col-md-9 offset-md-1 text-justify">
+                                           <div class="text-right mb-5">
+                                               @include('front._partials.share', ['url' => route('blog-details', $blogs)])
+                                           </div>
                                             <strong>
                                                 <p style="font-size:20px" class="text-justify pl-5 pr-5">{{
                                             $blogs->short_description }} </p>

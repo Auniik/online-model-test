@@ -6,13 +6,13 @@
                 <div class="card-header">
 
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
 {{--                    <button type="button" id="add-new" class="btn float-right btn-primary"> অতিথি যোগ করুন</button>--}}
                             <h4 class="header-title"><span id="header-title"> {{$quiz->name}} - এর সকল পরীক্ষার্থী সমূহ
                                 </span></h4>
-                            <p class="mb-0">Duration: {{$quiz->duration}}</p>
+                            <p class="mb-0">সময়সীমা: {{$quiz->duration}}</p>
                         </div>
-                        <div class="col-3 offset-3">
+                        <div class="col-3 offset-2">
                             <form action="">
                                 <select name="participant_type" onchange="this.form.submit()" class="form-control participant_type" >
                                     <option value=""> সব দেখুন</option>
@@ -85,11 +85,14 @@
                                                     <i class="fa fa fa-eye" aria-hidden="true"></i>
                                                 </a>
                                             @endif
-                                            <a class="deletable"
-                                               title="Delete"
-                                               href="{{route('quiz-participants.destroy',  $assignedParticipant->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i>
-                                            </a>
+                                                @if (!$assignedParticipant->start_at)
+                                                    <a class="deletable"
+                                                       title="Delete"
+                                                       href="{{route('quiz-participants.destroy',  $assignedParticipant->id)}}">
+                                                        <i class="fa fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -152,12 +155,12 @@
         const participantRow = `
         <tr class="participant-row">
             <th>
-                <input name="name[]" style="height: 36px; margin-bottom: 8px" required
+                <input name="name[]" style="height: 36px; margin-bottom: 8px" required autocomplete="off"
                           placeholder="Please enter name for the participant"
                           class="form-control" />
             </th>
             <th>
-                <input type="tel" name="mobile_number[]" autocomplete="off"
+                <input type="tel" name="mobile_number[]" pattern="(^(\\+88|0088)?(01){1}[3456789]{1}(\\d){8})$" autocomplete="off"
                    class="form-control"
                           required />
             </th>

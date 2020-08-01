@@ -13,6 +13,8 @@
                             <input type="text" value="{{$assessment->participant->name}}"
                                    name="name"
                                    required
+                                   autocomplete="off"
+                                   readonly
                                    placeholder="পরীক্ষার্থীর নামঃ">
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12">
@@ -20,6 +22,7 @@
                                    name="school_name"
                                    required
                                    placeholder="বিদ্যালয়ের নামঃ"
+                                   autocomplete="off"
                             />
                         </div>
 
@@ -28,13 +31,15 @@
                                    value="{{$assessment->participant->class}}"
                                    name="class"
                                    required
-                                   placeholder="শ্রেণীঃ">
+                                   placeholder="শ্রেণীঃ"
+                            autocomplete="off">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12">
                             <input type="text"
                                    value="{{$assessment->participant->roll}}"
                                    name="roll"
                                    required
+                                   autocomplete="off"
                                    placeholder="ক্লাস রোলঃ">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12">
@@ -42,6 +47,7 @@
                                    value="{{$assessment->participant->sub_district}}"
                                    name="sub_district"
                                    placeholder="উপজেলাঃ"
+                                   autocomplete="off"
                             />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12">
@@ -49,6 +55,7 @@
                                    name="district"
                                    placeholder="জেলাঃ"
                                    required
+                                   autocomplete="off"
                             >
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-12">
@@ -59,12 +66,13 @@
                                    @if ($assessment->participant->email)
                                    readonly
                                 @endif
+                                autocomplete="off"
                             >
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12">
                             <input type="email"
                                    value="{{$assessment->participant->email}}"
-                                   name="email"
+                                   name="email" autocomplete="off"
                                    data-msg-email="Please enter a valid mail address"
                                    placeholder="ইমেইলঃ (যদি থাকে)"
                                    @if ($assessment->participant->email)

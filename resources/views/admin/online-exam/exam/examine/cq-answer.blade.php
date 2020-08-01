@@ -23,9 +23,8 @@
             @endif
             @if ($question->file)
                 <div class="form-group row">
-                    <label class="col-2">File</label>
-                    <div class="col-9 file-block">
-                        <img src="{{$question->file}}" alt="img">
+                    <div class="col-10 mx-5 file-block">
+                        <img src="{{url($question->file)}}" alt="img">
                     </div>
                 </div>
             @endif
@@ -38,7 +37,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center
                                     ml-5 p-1">
                                     {{++$k}}. {{$q->title}}
-                                    <span class="badge badge-info badge-pill">{{__('default')[$q->level]}}
+                                    <span class="badge badge-secondary badge-pill">{{__('default')[$q->level]}}
                                         ({{$q->max_remarks}})</span>
                                 </li>
                             @endforeach
