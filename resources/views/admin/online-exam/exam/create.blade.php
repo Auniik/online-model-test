@@ -98,10 +98,15 @@
                                 <input type="checkbox" id="in_homepage" value="1" name="in_homepage">
                                 <label for="in_homepage">{{__('default.show_in_homepage')}}</label>
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Status</label>
+{{--                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Published ?--}}
+{{--                            </label>--}}
                             <div class="col-sm-4">
+                                <input type="checkbox" id="is_published" value="1" name="is_published">
+                                <label for="is_published">{{__('default.is_published')}}</label>
+                            </div>
+                            <div class="col-sm-4 d-none">
                                 <select class="form-control" name="status">
-                                    <option value="active">Active</option>
+                                    <option value="active" selected>Active</option>
                                     <option value="inactive">Inactive</option>
                                 </select>
                             </div>

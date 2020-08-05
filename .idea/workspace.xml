@@ -11,38 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/toastr.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/front/images/client/student.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/toastr.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-0-1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-0-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-3-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/quizzes/RKII0IbaBstRormrF01oDey7Zp1PneoUdoBhAPRB.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamAnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamAnswerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/6I5tgVtTv6iVyDu37djo0i2ACRQ4FjRp2EsUI5hQ.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/Downloaded the image to Messenger_Lite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/F6trM9oMOp9myNhRX1IjVJa6p6u.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/N0v2ArVxSz8roCPIDGpyqxPwbrvobZHhMdGE8jUd.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/Qg1irWtU9qioaZLAyKqYoiBImOqcmUfXPrhk7UmY.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/QvRmqcrEnxPJJgPIAg1uuYkyEbXsqlmbJwNIJnoE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/Screenshot_2020-03-23 aªƒaºçaªòaª+aªç aª¼aª+aªíaª+(6).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/VqClkEQPK33hR7veBCSn2HjEtAB8ZmBG94I1hnp5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/XGwbIuVrjkGjiMaYEz0eDZ6R5HXQGHy7WPtQA3QK.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/gNy3I1Ry9xyd4eHwIq5ap4HvPqqGyn1oqEUo6hC0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/insta.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/ntkQ6UAUZKT1g0mXLFgoVcUDhh14C1aNXOqmAlpa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/submitted_work/wX6MjLOOkWcQdRHAVoNl70TZa5DJD3SWcTMNyc6x.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/files.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/_partial/files.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/playground.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/playground.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Exam.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_01_052959_create_exams_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_01_052959_create_exams_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/work/submit-work.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/work/submit-work.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +261,7 @@
       <workItem from="1596355769878" duration="12818000" />
       <workItem from="1596467299770" duration="620000" />
       <workItem from="1596553361038" duration="18655000" />
-      <workItem from="1596642691277" duration="13245000" />
+      <workItem from="1596642691277" duration="14470000" />
     </task>
     <servers />
   </component>
@@ -401,10 +377,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1596652300727" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596657947591">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596659010108">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596657947591" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596659010108" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

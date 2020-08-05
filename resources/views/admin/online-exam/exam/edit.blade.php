@@ -102,8 +102,13 @@
                                 name="in_homepage">
                                 <label for="in_homepage">Show in homepage</label>
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Status</label>
                             <div class="col-sm-4">
+                                <input type="checkbox" id="is_published" value="1" {{$exam->is_published ? 'checked' : ''}}  name="is_published">
+                                <label for="is_published">{{__('default.is_published')}}</label>
+                            </div>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right
+                            d-none">Status</label>
+                            <div class="col-sm-4 d-none">
                                 <select class="form-control status" name="status">
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>

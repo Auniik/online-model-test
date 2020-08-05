@@ -27,7 +27,7 @@ class WebsiteController extends Controller
         }
 
         return view('front.index.index', [
-            'exams' => $exams
+            'exams' => $exams->whereHas('questions')
                 ->take(6)
                 ->get(),
             'current_quiz' => Quiz::query()

@@ -26,6 +26,7 @@ class CreateExamsTable extends Migration
             $table->string('duration');
             $table->enum('status', ['active', 'inactive', 'ongoing']);
             $table->boolean('in_homepage')->default(false);
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
             $table->foreign('subject_id')->references('id')->on('subjects');
         });

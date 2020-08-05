@@ -4,7 +4,7 @@
     <!-- Hero Start -->
     <section class="bg-profile w-100 ">
         <div class="container">
-            <div class="row ml-1">
+            <div class="row ml-1 mb-5 mt-5">
                 <div class="col-lg-12">
                     <div
                         class="public-profile position-relative p-4 bg-white overflow-hidden rounded shadow bg-transparent"
@@ -241,9 +241,17 @@
                                                     ({{$assessment->created_at->format('M d, Y h:i A')}})
                                                     </span><br>
                                                             @endif
-                                                            @if ($assessment->score !== null)
-                                                                <span class="text-primary mb-0">Correct Answer :</span>
-                                                                {{$assessment->score}}
+                                                            @if ($assessment->exam->is_published)
+                                                                <span class="text-primary mb-0">Result :</span>
+                                                                {{$assessment->totalRemarks()}} out of
+                                                                {{$assessment->exam->totalRemarks()}}
+                                                                ({!! $assessment->totalRemarks()
+                                                                >= $assessment->exam->competency_score ?
+
+                                                                 '<strong class="text-success">উত্তীর্ণ</strong>'
+                                                                 : '<strong class="text-success">অনুত্তীর্ণ</strong>'
+
+                                                                !!})
                                                             @else
                                                                 Result: Not Published yet
                                                             @endif

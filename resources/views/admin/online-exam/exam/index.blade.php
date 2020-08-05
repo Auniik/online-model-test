@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="col-6"><span id="header-title">Manage Exams </span></h4>
+                            <h4 class="col-6"><span id="header-title"> সকল পরীক্ষাসমূহ </span></h4>
                             <select name="exam_id" class="form-control col-2 exam_id select2">
                                 <option value="">Select One</option>
                                 @foreach($selectableExams as $id => $name)
@@ -43,7 +43,7 @@
                             <th>Participants</th>
                             <th>Questions</th>
                             <th>Shown</th>
-                            <th>Status</th>
+                            <th>Published</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -73,7 +73,10 @@
                                 <td>{{$exam->in_homepage ? 'Yes' : 'No'}}</td>
 
                                 <td width="1" align="center">
-                                    {{get_status($exam->status)}}
+                                    {!!
+                                        $exam->is_published ? '<span class="badge badge-success">Yes</span>'
+                                        : '<span class="badge badge-secondary">Not yet</span>'
+                                    !!}
                                 </td>
                                 <td width="1" align="center">
 

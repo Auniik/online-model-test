@@ -65,7 +65,7 @@ class ExamController extends Controller
             'start_at' => 'required|date',
             'end_at' => 'required|date|after_or_equal:start_at'
         ]);
-        $data = $request->only('description', 'in_homepage', 'class_id');
+        $data = $request->only('description', 'in_homepage', 'class_id', 'is_published');
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->image->store('uploads/exams');
@@ -113,11 +113,15 @@ class ExamController extends Controller
             'end_at' => 'required|date|after_or_equal:start_at'
         ]);
 
-        $data = $request->only('description', 'in_homepage', 'class_id');
+        $data = $request->only('description', 'in_homepage', 'class_id', 'is_published');
 
         if ($request->hasFile('image')) {
             Storage::delete($exam->image);
             $data['image'] = $request->image->store('uploads/exams');
+        }
+
+        if (!isset($data['is_published'])) {
+            $data['is_published'] = 0;
         }
 
         $exam->update(array_merge($attributes, $data));

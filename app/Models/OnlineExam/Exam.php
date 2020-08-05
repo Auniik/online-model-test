@@ -10,7 +10,7 @@ class Exam extends Model
     protected $fillable = [
         'name', 'description', 'competency_score',
         'subject_id', 'class_id', 'image', 'start_at', 'end_at', 'duration', 'in_homepage',
-        'status'
+        'status', 'is_published'
     ];
     protected $dates = [
         'start_at', 'end_at'
