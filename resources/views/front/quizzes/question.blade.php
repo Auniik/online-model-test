@@ -29,14 +29,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-12 mt-2 bg-white shadow-sm text-center">
+                        <div class="col-lg-12 mt-2 bg-white shadow-sm text-center">
                             <div id="countdown">
                                 <span id="timer"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row p-4 shadow bg-white">
-                        <div class="col-12">
+                        <div class="col-lg-12">
                             <form id="form" class="question-form">
                                 @csrf
                                 <div class="row questions-row">
@@ -44,16 +44,14 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-12 text-center">
+                        <div class="col-lg-12 text-center">
                             <hr>
                             <div class="form-group">
                                 <input type="button" id="nextButton" disabled class="btn
-                            btn-primary  w-25" value="পরবর্তী"/>
+                            btn-primary w-25" value="পরবর্তী"/>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -61,7 +59,6 @@
     <br>
     <hr>
     <hr>
-
 @endsection
 
 @push('script')
@@ -155,12 +152,12 @@
     </script>
 
     <script>
-        // window.onbeforeunload = function() {
-        //     window.setTimeout(function () {
-        //         window.location = `/complete-quiz/${assessment.id}`;
-        //      }, 0);
-        //     window.onbeforeunload = null;
-        // }
+        window.onbeforeunload = function() {
+            window.setTimeout(function () {
+                window.location = `/complete-quiz/${assessment.id}`;
+             }, 0);
+            window.onbeforeunload = null;
+        }
     </script>
 
 {{--Timer--}}

@@ -417,6 +417,6 @@ Route::post('user/password/edit','UserController@updatePassword')->name('user.pa
 /*Font End*/
 //Route::get('/','TekasaibdController@index' )->name('welcome');
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/dashboard', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('/get-social-links', 'Website\SocialShareController@show');

@@ -2,13 +2,27 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4><span id="header-title">Examine {{$assessment->participant->name}} of
-                            {{$assessment->quiz->name}}</span></h4>
-                    <p class="mb-0">Question Total: {{$assessment->quiz->questions->count()}},
-                        Correct Count: {{$assessment->correctCount()}},
-                        Wrong Count: {{$assessment->wrongCount()}}</p>
+            <div class="card" id="print-this">
+                <div class="card-header  d-flex flex-column align-items-center">
+                    <h4>
+                        <span id="header-title">
+                        <a class="text-info" href="{{route('participants.show', $assessment->participant_id)}}">
+                            {{$assessment->participant->name}} </a> -এর {{$assessment->quiz->name}} -এর
+                        ফলাফল
+                        </span>
+                    </h4>
+                    <p class="mb-0">
+                         মোট প্রশ্ন: {{$assessment->quiz->questions->count()}},
+                         সঠিক উত্তর: {{$assessment->correctCount()}},
+                         ভুল উত্তর: {{$assessment->wrongCount()}}
+                         উত্তর দেয়নি: {{$assessment->quiz->questions->count() - ($assessment->correctCount() +
+                         $assessment->wrongCount())}}
+                    </p>
+
+                    <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
+                    ('print-this')"
+                            style="height: 35px; "><i
+                            class="fa fa-print"></i> Print</button>
                 </div>
                 <div class="card-body">
                     @include('admin._partials.success-alert')
@@ -17,11 +31,11 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Questions</th>
-                                    <th>Option 1</th>
-                                    <th>Option 2</th>
-                                    <th>Option 3</th>
-                                    <th>Option 4</th>
+                                    <th> প্রশ্ন</th>
+                                    <th> অপশন  ১</th>
+                                    <th> অপশন  ২</th>
+                                    <th> অপশন  ৩</th>
+                                    <th> অপশন  ৪</th>
                                     <th width="5%" class="text-center">Remarks</th>
                                 </tr>
                                 </thead>

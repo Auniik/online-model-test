@@ -72,20 +72,20 @@
                 <div class="text_center">
                     <h1>অনলাইন কুইজ</h1>
                 </div>
-                <div class="secound_section">
-                @if (!auth('participant')->check())
-                    <!-- Nav tabs -->
-                        <ul class="nav nav-tabs mt-5" role="tablist">
-                            <li class="nav-item left-side">
+                <div class="card mt-4 bg-transparent shadow-lg">
+                    <div class="card-body">
+                    @if (!auth('participant')->check())
+                        <!-- IF NOT LOGGED IN -->
+                        <ul class="nav nav-tabs quiz-tabs" role="tablist">
+                            <li class="nav-item w-50 text-center h3">
                                 <a class="nav-link active" data-toggle="tab" href="#home"><span>সাধারণ</span></a>
                             </li>
-                            <li class="nav-item right-side">
+                            <li class="nav-item w-50 text-center h3">
                                 <a class="nav-link" data-toggle="tab" href="#menu1"><span>অতিথি</span></a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            {{--                                <form id="home"  class="form-inline tab-pane active" action="{{route('new-player')}}"--}}
                             <form id="home" class="form-inline tab-pane active"
                                   action="{{route('participants.quiz-register')}}"
                                   method="POST">
@@ -93,61 +93,60 @@
                                     @csrf
                                     @include('front.partials.notifications')
                                     <div class="row">
-                                        <div class="col-12">
-                                            <div class="row form-group">
-                                                <div class="col-2">
+                                        <div class="col-lg-12">
+                                            <div class="row form-group mt-3">
+                                                <div class="col-lg-2 col-sm-2 col-md-2">
                                                     <label for="name">নাম:</label>
                                                 </div>
-                                                <div class="col-10">
-                                                    <input class="form-control" type="text" name="name" id="name"
+                                                <div class="col-lg-10 col-md-12 col-sm-12">
+                                                    <input class="form-control my-2 w-100" type="text" name="name"
+                                                           id="name"
                                                            placeholder="সম্পূর্ণ নাম দিন" autocomplete="off" required/>
                                                     <input type="hidden" value="general" name="player_type"/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-2">
+                                                <div class="col-lg-2 col-sm-2 col-md-2">
                                                     <label for="number">মোবাইল:</label>
                                                 </div>
-                                                <div class="col-10">
-                                                    <input class="form-control integer"
+                                                <div class="col-lg-10 col-md-12 col-sm-12">
+                                                    <input class="form-control my-2 w-100 integer"
                                                            type="text" id="number" minlength="11" autocomplete="off"
                                                            placeholder="মোবাইল নাম্বার দিন"
                                                            maxlength="11" name="phone" required/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-2">
+                                                <div class="col-lg-2 col-sm-2 col-md-2">
                                                     <label for="email"> ইমেইল:</label>
                                                 </div>
-                                                <div class="col-10">
-                                                    <input class="form-control"
+                                                <div class="col-lg-10 col-md-12 col-sm-12">
+                                                    <input class="form-control my-2 w-100"
                                                            type="email" id="email" autocomplete="off"
                                                            placeholder="ইমেইল দিন (যদি থাকে)" name="email"
                                                     />
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-10 offset-md-2 text-right ">
+                                                <div class="col-lg-10 offset-lg-2 my-2 w-100 text-right">
                                                     <div class="row justify-content-between">
-                                                        <a href="javascript:void(0)" class="share-btn btn w-25 p-3
-                                            ml-4 share-button">
+                                                        <button type="submit" class="btn btn-success p-3 ml-3
+                                                        shadow-lg">কুইজ শুরু
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn btn-light shadow-sm p-3 mr-3 ml-auto
+                                                            share-button"
+                                                        >
                                                             <i class="fas fa-share"></i> Share
-                                                        </a>
-                                                        <button type="submit" class="btn btn-success p-3 shadow-lg w-25
-                                                mr-0">কুইজ শুরু
                                                         </button>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </form>
-
-                            {{--                                <form id="menu1" class="form-inline tab-pane" action="{{route('new-player')}}" method="post">--}}
                             <form id="menu1" class="form-inline tab-pane"
                                   action="{{route('participants.quiz-register')}}" method="post">
                                 <div id="menu1" class="tab-pane">
@@ -159,42 +158,46 @@
                                     @endif
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="row form-group">
-                                                <div class="col-2">
+                                            <div class="row form-group mt-3">
+                                                <div class="col-lg-2 col-sm-2 col-md-2">
                                                     <label for="email"> ইমেইল:</label>
                                                 </div>
-                                                <div class="col-10">
-                                                    <input class="form-control" type="text" name="id" id="email"
+                                                <div class="col-lg-10 col-sm-12">
+                                                    <input class="form-control my-2 w-100" type="text" name="id"
+                                                           id="email"
                                                            placeholder="ইমেইল অথবা মোবাইল নং. দিন" autocomplete="off"
                                                            required/>
                                                     <input type="hidden" value="vip" name="player_type"/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-2">
-                                                    <label for="number"> পাসওার্ড:</label>
+                                                <div class="col-lg-2 col-sm-2 col-md-2">
+                                                    <label for="number"> পাসওয়ার্ড:</label>
                                                 </div>
-                                                <div class="col-10">
-                                                    <input class="form-control integer" autocomplete="off"
+                                                <div class="col-lg-10 col-sm-12">
+                                                    <input class="form-control my-2 w-100 integer" autocomplete="off"
                                                            type="password"
+                                                           placeholder="পাসওয়ার্ড লিখুন"
                                                            name="password"
                                                            minlength="6"
                                                            required/>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-10 offset-md-2 text-right ">
+                                                <div class="col-lg-10 offset-lg-2 my-2 w-100 text-right">
                                                     <div class="row justify-content-between">
-                                                        <a href="#" class="share-btn btn w-25 p-3 ml-4 share-button">
-                                                            <i class="fas fa-share"></i> Share
-                                                        </a>
-                                                        <button type="submit" class="btn btn-success p-3 shadow-lg w-25
-                                            mr-0">কুইজ
-                                                            শুরু
+                                                        <button type="submit" class="btn btn-success p-3 ml-3
+                                                        shadow-lg">কুইজ শুরু
                                                         </button>
+                                                        <button
+                                                            type="button"
+                                                            class="btn btn-light shadow-sm p-3 mr-3 ml-auto
+                                                            share-button"
+                                                        >
+                                                            <i class="fas fa-share"></i> Share
+                                                        </button>
+
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -203,66 +206,50 @@
                             </form>
                         </div>
 
-
                     @elseif (!auth('participant')->user()->performedCurrentQuiz())
                         @if ($current_quiz)
-                                <form class="mt-5 "
-                                      action="{{route('participants.quiz-register')}}" method="post">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-8 offset-lg-2 mt-5">
-                                            @if ($current_quiz->imag)
-                                                <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
-                                            @endif
-                                            <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                                            <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
-                                            <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b>
-                                            </h5>
-                                            <button type="submit" class="btn btn-success p-3 shadow-lg w-100"> এখনই শুরু করুন
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                        @else
-{{--                            <div class=" d-flex justify-content-center align-items-center">--}}
-                                <h2> আজ আপনার জন্য আর কোন কুইজ নেই!</h2>
-{{--                            </div>--}}
-                        @endif
-
-
-                    @else
-                        @php
-                            $assessment =  auth('participant')->user()->currentAssessment();
-                        @endphp
-
-                        <div class="mt-5">
-                            <div class="row">
-
-                                    <div class="col-8 offset-lg-2 mt-5">
+                            <form action="{{route('participants.quiz-register')}}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-2 col-sm-12">
                                         @if ($current_quiz->imag)
                                             <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
                                         @endif
                                         <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
                                         <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
-                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
-                                        @if($assessment->quiz->is_published)
+                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b>
+                                        </h5>
+                                        <button type="submit" class="btn btn-success p-3 shadow-lg w-100"> এখনই শুরু করুন
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        @else
+                            <h2> আজ আপনার জন্য আর কোন কুইজ নেই!</h2>
+                        @endif
+                    @else
+                        @php
+                            $assessment =  auth('participant')->user()->currentAssessment();
+                        @endphp
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-2 col-sm-12">
+                                    @if ($current_quiz->imag)
+                                        <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
+                                    @endif
+                                    <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
+                                    <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
+                                    <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
+                                    @if($assessment->quiz->is_published)
                                         <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
                                         <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>
                                         <h5 class="my-4"> সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
-                                        @else
-                                                <h2>  উত্তর এখনও পাবলিশ করা হয়নি!</h2>
-                                        @endif
-                                    </div>
-
-
+                                    @else
+                                        <h2>  উত্তর এখনও পাবলিশ করা হয়নি!</h2>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-
-
-
-
-                    @endif
-
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

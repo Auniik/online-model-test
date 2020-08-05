@@ -840,7 +840,7 @@
     }
 
     #navbar button:focus {
-        outline: 0px dotted;
+        outline: 0 dotted;
     }
 
     .form-control {
@@ -860,9 +860,11 @@
     .navbar ul li {
         padding-left: 10px;
         padding-right: 0px;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
+        margin-top: 4px;
         height: 46px;
         line-height: 31px;
+        text-align: center;
     }
 
     label {

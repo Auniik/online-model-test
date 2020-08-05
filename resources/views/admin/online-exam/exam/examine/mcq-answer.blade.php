@@ -60,7 +60,7 @@
                         </span>
                         <div class="mt-5">
                             <label for="">Remarks</label>
-                            <input type="number" name="remark" class="form-control" readonly
+                            <input type="number" name="remark" class="form-control integer" readonly
                                    value="{{$answer->is_correct ?: 0 }}"
                                    @if(!$answer->is_correct) readonly @endif>
                         </div>

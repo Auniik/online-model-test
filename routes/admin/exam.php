@@ -43,10 +43,9 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::DELETE('participants/{participant}', 'OnlineExam\ParticipantController@destroy')
         ->name('participants.destroy');
 
-    Route::resource('exams', 'OnlineExam\ExamController');
+
 
     Route::resource('subjects', 'OnlineExam\SubjectController');
 
-
-
+    Route::resource('exams', 'OnlineExam\ExamController');
 });

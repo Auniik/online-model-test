@@ -155,36 +155,21 @@ class TekasaibdController extends Controller
 
     public function amaderkotha()
     {
-
         $abouts = About::all();
-        $contract = Contract::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
         return view('front.about.amaderkotha', [
-            'eventmessages' => EventMessage::orderBy('id', 'desc')->paginate(2),
-            'publications' => Publication::orderBy('id', 'desc')->paginate(6),
-            'news'         => $joint,
-            'youtubes'     => Youtube::orderBy('id', 'desc')->paginate(4),
-            'eventvideos'  => EventVideo::orderBy('id', 'desc')->take(1)->get(),
-            'contract'     => $contract,
+            'eventmessages' => EventMessage::query()->orderBy('id', 'desc')->paginate(2),
+            'publications' => Publication::query()->orderBy('id', 'desc')->paginate(6),
+            'youtubes'     => Youtube::query()->orderBy('id', 'desc')->paginate(4),
+            'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')->take(1)->get(),
             'abouts'       => $abouts,
-            'galleris'     => Gallery::orderBy('id', 'desc')->paginate(12),
+            'galleris'     => Gallery::query()->orderBy('id', 'desc')->paginate(12),
         ]);
     }
     public function detailsEvents($id){
         $contract = Contract::all();
-        $eventmessages = EventMessage::find($id);
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
+        $eventmessages = EventMessage::query()->find($id);
 
         return view('front.about.details-events-message',[
-            'news'          => $joint,
             'eventmessages' => $eventmessages,
             'contract'     => $contract,
         ]);

@@ -24,9 +24,4 @@ class ParticipantExamineController extends Controller
             'questions' => $questions
         ]);
     }
-
-    public function store(ParticipantAssessment $assessment, ParticipantAssessmentAnswer $answer)
-    {
-
-    }
 }

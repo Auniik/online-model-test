@@ -21,7 +21,7 @@ class ParticipantRegisterController extends Controller
         if (!auth('participant')->check()) {
             return view('front.participant.register');
         }
-        if ($request->filled('to')) {
+        if ($request->get('to')) {
             return redirect("/$request->to");
         }
         return redirect('/participants/profile');

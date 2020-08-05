@@ -77,11 +77,11 @@
                 <h2>Share now!</h2>
             </div>
             <div class="share-modal-body">
-                <ul class="d-inline-flex social-icons">
+                <div class="social-icons">
 
 
-                </ul>
-                <div class="col-4 offset-4 d-flex my-5">
+                </div>
+                <div class="col-lg-5 d-flex my-5" style="margin: 0 auto">
                     <input type="text" class="form-control" autocomplete="off" id="shareable-url"
                            value="{{request()->url()}}">
                     <button onclick="copyURL(this)" class="btn btn-outline-success copy-btn">Copy</button>
@@ -143,7 +143,17 @@
 <script src="/front-end/js/custom.js"></script>
 <script>
     window.prettyPrint && prettyPrint();
+    $("input.integer").bind("change keyup input", function () {
+        var position = this.selectionStart - 1;
+        //remove all but number and .
+        var fixed = this.value.replace(/[^0-9]/g, '');
 
+        if (this.value !== fixed) {
+            this.value = fixed;
+            this.selectionStart = position;
+            this.selectionEnd = position;
+        }
+    });
 </script>
 <script>
     // Get the modal

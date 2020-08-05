@@ -67,7 +67,7 @@
                     <div class="mt-5">
                         <label for="">Remarks</label>
                         <input type="number"
-                               class="form-control"
+                               class="form-control integer"
                                name="remark"
                                min="0"
                                max="{{$max_remarks}}"

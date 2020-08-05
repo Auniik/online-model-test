@@ -364,18 +364,15 @@ ol {
 
 
 .form-inline .form-control {
-    padding: 10 0px;
-    display: inline-block;
-    width: 170px;
-    padding: 0px 10px;
-    margin-right: 15px;
-    background: transparent;
-    border: 1px solid #495057;
+    /*padding: 10 0px;*/
+    /*display: inline-block;*/
+    /*width: 170px;*/
+    /*padding: 0px 10px;*/
+    /*margin-right: 15px;*/
+    /*background: transparent;*/
+    /*border: 1px solid #495057;*/
 }
 
-.logo-img {
-    margin-right: 148px;
-}
 
 
 .logo-img img {
@@ -1381,10 +1378,10 @@ Author Email: hafizul6280@gmail.com
 }
 
 .secound_section .tab-content .form-control {
-    width: 400px;
-    height: 40px;
-    margin: 20px;
-    padding: 25px 10px;
+    /*width: 400px;*/
+    /*height: 40px;*/
+    /*margin: 20px;*/
+    /*padding: 25px 10px;*/
 }
 
 .secound_section .tab-content .form-inline {
@@ -2053,15 +2050,12 @@ label {
 }
 .exam-preview-card {
     background: rgba(105, 105, 105, 0);
-    margin-top: 12px;
-
-    min-height: 543px;
+    margin-top: 13px;
 
 }
 
 .times {
     background: #6a82c5;
-    height: 35px;
     padding: 6px;
 }
 
@@ -2218,6 +2212,10 @@ label {
 
 .social-icon {
     display: grid;
+}
+
+.quiz-tabs {
+    margin: -20px -20px 0 -20px;
 }
 
 /*==========================  model_test_question end=====================*/

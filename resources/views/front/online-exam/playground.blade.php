@@ -1,7 +1,7 @@
 @extends('front.layout.master')
 @section('content')
-    <section id="home_part">
-        <div class="container">
+    <div  class="col-lg-8 offset-lg-2 col-md-12 col-sm-12 col-xs-12">
+        <div class="card mx-lg-5 mx-sm-1 mx-md-1 p-lg-5 p-3 shadow-lg mt-5 bg-transparent">
             @include('front.online-exam.header' , ['assessment' => $assessment])
 
 
@@ -17,14 +17,14 @@
 
 
                     <h6 class="d-flex justify-content-between">
-                        <span># {{$question->title}}</span>
-                        <span class="remark">{{$question->remarks}}</span>
+                        <span class="h3 mt-4"># {{$question->title}}</span>
+                        <span class="remark my-5">{{$question->remarks}}</span>
                     </h6>
 
 
                     @if ($question->isMCQ())
 
-                        <form class="mcqForm margin_left"
+                        <form class="mcqForm ml-lg-5"
 
                               action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}">
                             @csrf
@@ -54,14 +54,15 @@
 
                     @if ($question->isWritten())
                         @if ($question->description)
-                            <div style="user-select: none; line-height:1;" class="written-description margin_left"> {!!
+                            <div style="user-select: none; line-height:1;" class="written-description ml-lg-5 text-justify">
+                                {!!
                             $question->description !!}</div>
                         @endif
                         @if ($question->file)
                             <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
                         @endif
 
-                        <form class="writtenForm margin_left" action="{{route('assessment-answer.store', [$assessment->id,
+                        <form class="writtenForm ml-lg-5" action="{{route('assessment-answer.store', [$assessment->id,
                         $question->id])}}">
                             @csrf
                             <textarea class="form-control written-answer" name="answer" placeholder="উত্তর  লিখুন"
@@ -83,7 +84,7 @@
 
                     @if ($question->isCQ())
 
-                        <div class="margin_left">
+                        <div class="ml-lg-5">
                             @if ($question->description)
                                 <p class="cq-description"><b>উদ্দীপকঃ</b> {{$question->description}}</p>
                             @endif
@@ -126,7 +127,7 @@
                     <br>
                     <br>
                     <button type="button"
-                            class="btn btn-block btn-success submit-assessment @if (!$flag) d-none @endif">
+                            class="btn btn-block mb-5 btn-success submit-assessment @if (!$flag) d-none @endif">
                         পরীক্ষা শেষ করুন
                     </button>
 
@@ -135,7 +136,8 @@
 
             </div>
         </div>
-    </section>
+    </div>
+
 @endsection
 
 @push('script')

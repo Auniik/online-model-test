@@ -30,7 +30,8 @@
                                 <td>{{$row->work_type}}</td>
                                 <td><a href="{{$row->link}}" target="_blank">{{$row->link}}</a></td>
                                 <td>
-                                    <buttton data-files="{{$row->file}}"  class="btn btn-success btn-sm files-button">
+                                    <buttton data-files="{{json_encode($row->file)}}"  class="btn btn-success btn-sm
+                                    files-button">
                                         <i class="fa fa-eye"></i>
                                     </buttton>
                                 </td>

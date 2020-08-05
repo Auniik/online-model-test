@@ -18,13 +18,13 @@
                         @include('front.partials.notifications')
                         <input type="hidden" value="{{request('to')}}" name="to">
                         <div class="row shadow bg-white">
-                            <div class="col-12 p-4">
-                                <div class="col-12  my-3">
+                            <div class="col-lg-12 p-4">
+                                <div class="col-lg-12 col-md-12 my-3">
                                     <div class="row">
-                                        <div class="col-2 offset-lg-2 text-right">
+                                        <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
                                             <label for=""> Email or Mobile</label>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-lg-6 col-md-12">
                                             <input type="text"
                                                    name="id"
                                                    required
@@ -35,12 +35,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12  my-3">
+                                <div class="col-lg-12 col-md-12 my-3">
                                     <div class="row">
-                                        <div class="col-2 offset-lg-2 text-right">
+                                        <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
                                             <label for=""> Password </label>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-lg-6 col-md-12">
                                             <input type="password"
                                                    name="password"
                                                    required

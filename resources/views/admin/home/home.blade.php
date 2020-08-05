@@ -31,9 +31,10 @@
                                             <h5 class="mt-0">
                                                 {{$total_participants}}
                                             </h5>
-                                            <p class="mb-0 text-muted"> মোট পরীক্ষার্থী <span class="badge
-                                            bg-soft-success"><i
-                                                        class="mdi mdi-arrow-up"></i></span></p>
+                                            <p class="mb-0 text-muted">
+                                                <a href="/participants">মোট পরীক্ষার্থী</a> <span class="badge
+                                                bg-soft-success"><i class="mdi
+                                                mdi-arrow-up"></i></span></p>
                                         </div>
                                     </div>
                                 </div>

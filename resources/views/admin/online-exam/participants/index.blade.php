@@ -24,7 +24,6 @@
                                     <th> বিদ্যালয়</th>
                                     <th> জেলা</th>
                                     <th> বিভাগ</th>
-                                    <th> র‍্যাংক</th>
                                     <th width="1">Action</th>
                                 </tr>
                                 </thead>
@@ -32,7 +31,12 @@
 
                                 @foreach($participants as $participant)
                                     <tr>
-                                        <td>{{$participant->name}}</td>
+                                        <td>
+                                            <a class="text-info"
+                                               href="{{route('participants.show', $participant->id)}}">
+                                                {{$participant->name}}
+                                            </a>
+                                        </td>
 {{--                                        <td>{{$participant->username}}</td>--}}
                                         <td>{{$participant->email}}</td>
                                         <td>{{$participant->mobile_number}}</td>
@@ -41,9 +45,6 @@
                                         <td>{{$participant->school_name}}</td>
                                         <td>{{$participant->district}}</td>
                                         <td>{{$participant->division}}</td>
-                                        <td>
-                                            {{$participant->score}}
-                                        </td>
                                         <td>
                                             <a class="deletable"
                                                title="Delete"

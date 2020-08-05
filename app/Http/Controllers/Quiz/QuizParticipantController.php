@@ -14,25 +14,6 @@ use Illuminate\Support\Str;
 
 class QuizParticipantController extends Controller
 {
-    public function index(Request $request)
-    {
-//        $assessments = QuizAssessment::with('participant', 'quiz')
-//            ->withCount('answers');
-//
-//        if ($request->filled('quiz_id')) {
-//            $assessments->where('exam_id', $request->exam_id);
-//        }
-//        if ($request->filled('participant_id')) {
-//            $assessments->where('participant_id', $request->participant_id);
-//        }
-//
-//        return view('admin.quiz.assessment.index', [
-//            'assessments' => $assessments->paginate(50),
-//            'quizzes' => Quiz::query()->latest()->pluck('name', 'id'),
-//            'participants' => Participant::query()->latest()->pluck('name', 'id'),
-//        ]);
-    }
-
 
     public function create(Request $request, Quiz $quiz)
     {

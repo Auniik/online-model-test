@@ -1,4 +1,4 @@
-<div class="left side-menu">
+<div class="left side-menu no-print">
     <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
     <!-- LOGO -->
     <div class="topbar-left">
@@ -9,12 +9,14 @@
     <div class="sidebar-inner niceScrollleft">
         <div id="sidebar-menu">
             <ul>
-                <li><a href="{{asset('/home')}}" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{asset('/dashboard')}}" class="waves-effect"><i class="mdi mdi-airplay"></i>
+                        <span>Dashboard</span></a></li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-clock"></i> <span> কুইজ টেস্ট
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('quizzes.create')}}"> নতুন কুইজ</a></li>
                         <li><a href="{{route('quizzes.index')}}"> সকল কুইজ</a></li>
+                        <li><a href="{{route('quizzes.results.index')}}"> কুইজ ফলাফল</a></li>
                     </ul>
                 </li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-flask"></i> <span> অনলাইন

@@ -1,4 +1,4 @@
-<form class="writtenFileForm margin_left mt-4"
+<form class="writtenFileForm ml-lg-5 mt-4"
       action="{{route('assessment-answer.store', [$assessment_id, $question_id])}}"
       method="post" enctype="multipart/form-data">
     @csrf

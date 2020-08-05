@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
-    Route::resource('quizzes', 'Quiz\QuizController');
+
 
 
     Route::get('quizzes/{quiz}/current', 'Quiz\QuizController@current')
@@ -35,4 +35,9 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
         ->name('quiz-assessment.index');
     Route::get('quiz-assessments/{assessment}', 'Quiz\QuizAssessmentController@show')
         ->name('quiz-assessment.show');
+
+
+
+    Route::get('/quizzes/results', 'Quiz\QuizResultsController@index')->name('quizzes.results.index');
+    Route::resource('quizzes', 'Quiz\QuizController');
 });

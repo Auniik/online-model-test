@@ -54,14 +54,14 @@
                             <div class="card-body">
                                 <h6 class="card-text d-flex justify-content-between">
                                     {{ Str::limit($blog->short_description, 50) }}
-                                    <a href="{{route('blog-details',['id'=>$blog->id])}}" class="btn
-                                    btn-link">বিস্তারিত</a>
                                 </h6>
                                 <span>
                                     {{$blog->created_at->format('M d, Y h:i A')}}
                                 </span>
                                 <div class="mt-3 d-flex justify-content-between">
                                     @include('front._partials.share', ['url' => route('blog-details', $blog)])
+                                    <a href="{{route('blog-details',['id'=>$blog->id])}}" class="btn
+                                    btn-link">বিস্তারিত</a>
                                 </div>
                             </div>
                         </div>
@@ -89,14 +89,4 @@
     }
 
 </script>
-
-
-
-
-
-
-
-    <!-- js Scripts -->
-
-
 @stop

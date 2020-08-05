@@ -48,9 +48,10 @@ class WorkController extends Controller
     public function deleteSubmitWork($id){
        $work  = Work::query()->find($id);
 
-       $files = json_decode($work->file);
+        $files = $work->file;
 
-       $work->delete();
+
+        $work->delete();
 
         foreach ($files as $file)
             if (Storage::exists($file)) {
