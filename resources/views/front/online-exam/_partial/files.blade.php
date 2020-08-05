@@ -1,5 +1,5 @@
 @if (filled($attachments))
-    <ul class="list-group margin_left">
+    <ul class="list-group ml-lg-5">
         @foreach($attachments ?? [] as $attachment)
             <li class="list-group-item d-flex justify-content-between align-items-center
                                     file-item ">

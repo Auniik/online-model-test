@@ -16,6 +16,10 @@ class ExamAnswerController extends Controller
 {
     public function store(Request $request, ParticipantAssessment $assessment, ExamQuestion $question)
     {
+        $request->validate([
+            'attachments.*' => 'file|max:5000|mimes:jpeg,bmp,png,jpg,gif,zip,pdf|required_without:answer',
+            'answer' => 'required_without:attachments'
+        ]);
         $attributes = [
             'participant_assessment_id' => $assessment->id,
             'exam_question_id' => $question->id

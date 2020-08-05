@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/front-end/css/style.css">
     <link rel="stylesheet" href="/front-end/css/responsive.css">
     <link rel="stylesheet" href="/news/news.css">
+    <link rel="stylesheet" href="/css/toastr.min.css">
 
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
     <style>
@@ -100,7 +101,7 @@
 
 @if ($assessment)
     <div class="pop-up-timer">
-        <a  href="/exam-hall" title=" পরীক্ষা চালিয়ে যেতে এখানে ক্লিক করুন">
+        <a  href="{{url('exam-hall')}}" title=" পরীক্ষা চালিয়ে যেতে এখানে ক্লিক করুন">
             <span class="timer"></span>
         </a>
 
@@ -130,6 +131,7 @@
 <script src="/front-end/js/selectivizr-min.js"></script>
 <script src="/front-end/js/script.js"></script>
 
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script>
@@ -141,7 +143,12 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('/')}}viewer/js/jquery.magnify.js"></script>
 <script src="/front-end/js/custom.js"></script>
+<script src="/js/toastr.min.js"></script>
 <script>
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.closeDuration = 300;
+    toastr.options.closeEasing = 'swing';
+    toastr.options.progressBar = true;
     window.prettyPrint && prettyPrint();
     $("input.integer").bind("change keyup input", function () {
         var position = this.selectionStart - 1;
@@ -154,6 +161,24 @@
             this.selectionEnd = position;
         }
     });
+
+</script>
+<script>
+    @if(session()->has('errors'))
+        @foreach ($errors->all() as $error)
+            toastr.error("{{$error}}")
+        @endforeach
+    @endif
+    @if(session()->has('success'))
+        toastr.success("{{session('success')}}")
+    @endif
+    @if(session()->has('danger'))
+        toastr.error("{{session('danger')}}")
+    @endif
+    @if(session()->has('warning'))
+        toastr.warning("{{session('warning')}}")
+    @endif
+
 </script>
 <script>
     // Get the modal

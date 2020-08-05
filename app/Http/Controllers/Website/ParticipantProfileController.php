@@ -21,7 +21,12 @@ class ParticipantProfileController extends Controller
 
         return view('front.participant.profile', [
             'participant' => $participant,
-            'submitted_works' => Work::query()->where('participant_id', $participant->id)->get()
+            'submitted_works' => Work::query()->latest()->where('participant_id', $participant->id)
+                ->paginate(2, ['*'], 'works'),
+            'quizzes' => $participant->quizzes()->latest()
+                ->paginate(2, ['*'], 'quizzes'),
+            'exams' => $participant->assessments()->latest()
+                ->paginate(2, ['*'], 'exams')
         ]);
     }
 }

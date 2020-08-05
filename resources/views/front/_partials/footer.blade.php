@@ -57,7 +57,7 @@
                         </div>
                         <div class="content mt-3 overflow-hidden d-block">
                             <h6 class="mb-0">ইমেইল :</h6>
-                            <a href="mailto:contact@example.com" style="font-family: 'Changa', sans-serif;"
+                            <a href="mailto:tekasai100@gmail.com" style="font-family: 'Changa', sans-serif;"
                                class="text-primary">tekasai100@gmail.com</a>
                         </div>
                     </div>
@@ -83,17 +83,21 @@
                         </div>
                     </div>
 
-                    <div class="contact-detail social-icon">
+                    <div class="contact-detail">
+                        <div class="d-flex">
+                            <a href="https://www.facebook.com/Tekasaibd/" class="social-icon mt-0" target="blank">
+                            <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
+                            </a>
 
-                        <a class="from-control btn-info btn-sm" style="background: #129AF6"
-                           href="https://www.facebook.com/Tekasaibd/" target="_blank">Facebook</a>
+                            <a href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0" class="social-icon mt-0"
+                               target="blank">
+                                <i class="fab fa-youtube icon-alias" style="color: #f21d1d"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="social-icon mt-0" target="blank">
+                                <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
+                            </a>
+                        </div>
 
-                        <a class="from-control btn-danger btn-sm"
-                           href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
-                           target="_blank">Youtube</a>
-
-                        <a class="from-control btn-info btn-sm" style="background: #129AF6" href="javascript:void(0)"
-                           target="_blank">Twitter</a>
                     </div>
                 </div>
 

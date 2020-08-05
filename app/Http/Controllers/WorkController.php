@@ -22,7 +22,9 @@ class WorkController extends Controller
     {
         return DB::transaction(function () use ($request) {
             $request->validate([
-                'file.*' => 'required|max:20480|mimes:jpeg,bmp,png,mp4,jpg,gif',
+                'title' => 'required|min:3',
+                'work_type' => 'required',
+                'file.*' => 'required|max:20480|mimes:jpeg,bmp,png,mp4,jpg,gif,zip,pdf',
             ]);
 
             $fileUrl = [];
@@ -40,7 +42,7 @@ class WorkController extends Controller
             $work->save();
 
 
-            return redirect()->back()->withSiccess(' সৃজনশীল কাজ  সাবমিট করা সফল  হয়েছে');
+            return redirect()->back()->withSuccess(' সৃজনশীল কাজ সফলভাবে সাবমিট করা হয়েছে');
         });
 
 

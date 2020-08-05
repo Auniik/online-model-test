@@ -212,7 +212,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-8 offset-lg-2 col-sm-12">
-                                        @if ($current_quiz->imag)
+                                        @if ($current_quiz->image)
                                             <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
                                         @endif
                                         <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
@@ -233,12 +233,15 @@
                         @endphp
                             <div class="row">
                                 <div class="col-lg-8 offset-lg-2 col-sm-12">
-                                    @if ($current_quiz->imag)
-                                        <img src="/{{$current_quiz->image}}" class="img img-fluid" alt="">
+                                    @if ($assessment->image)
+                                        <img src="/{{$assessment->image}}" class="img img-fluid" alt="">
                                     @endif
-                                    <h5 class="my-4"> কুইজের নামঃ <b>{{$current_quiz->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$current_quiz->duration}} মিনিট</b></h5>
-                                    <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$current_quiz->questions->count()}} টি</b></h5>
+                                    <h5 class="my-4"> কুইজের নামঃ <b>{{$assessment->quiz->name}}</b></h5>
+                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->quiz->duration}} মিনিট</b></h5>
+                                    @if ($assessment->quiz->questions)
+                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$assessment->quiz->questions->count()}} টি</b></h5>
+                                    @endif
+
                                     @if($assessment->quiz->is_published)
                                         <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
                                         <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>

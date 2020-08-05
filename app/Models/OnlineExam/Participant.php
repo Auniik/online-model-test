@@ -57,14 +57,15 @@ class Participant extends User
 
     public function performedCurrentQuiz()
     {
-        return !!$this->currentAssessment();
+        return !!$this->currentAssessment()->is_attended;
     }
 
     public function currentAssessment()
     {
         return $this->hasOne(QuizAssessment::class)
             ->whereHas('quiz', function ($quiz) {
-                $quiz->where('is_default', 1);
+                $quiz->where('is_default', 1)
+                ;
             })->first();
     }
 

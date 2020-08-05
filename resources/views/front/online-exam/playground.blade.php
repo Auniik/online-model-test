@@ -168,6 +168,7 @@
         $(document).ready(function () {
 
             $('.submit-assessment').click(function (e) {
+                toastr.success('পরীক্ষা  জমা দেয়া হচ্ছে...')
                 $(".exam-finish-form").submit();
             })
 
@@ -190,6 +191,7 @@
                 $(e.target)
                     .parents('.writtenFileForm')
                     .submit()
+                toastr.info(' ফাইলসমূহ আপলোড করা হচ্ছে...')
             })
 
             $('.writtenForm').on('submit', function (e) {
@@ -219,7 +221,7 @@
                             _token: "{{csrf_token()}}"
                         }
                     }).done(function (data) {
-                        alert(data.message)
+                        toastr.success(data.message)
                         li.remove()
                     });
                 }
@@ -238,7 +240,9 @@
                     type: 'POST',
                     data
                 }).done(function (data) {
-                    alert(data.message)
+                    toastr.success(data.message)
+                }).catch(({res}) => {
+                    toastr.error(res.data.message)
                 });
             }
 
