@@ -135,10 +135,10 @@
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            class="btn btn-light shadow-sm p-3 mr-3 ml-auto
+                                                            class="btn btn-primary shadow-sm p-3 mr-3 ml-auto
                                                             share-button"
                                                         >
-                                                            <i class="fas fa-share"></i> Share
+                                                            <i class="fas fa-share text-white"></i> Share
                                                         </button>
                                                     </div>
                                                 </div>
@@ -191,10 +191,10 @@
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            class="btn btn-light shadow-sm p-3 mr-3 ml-auto
+                                                            class="btn btn-primary shadow-sm p-3 mr-3 ml-auto
                                                             share-button"
                                                         >
-                                                            <i class="fas fa-share"></i> Share
+                                                            <i class="fas fa-share  text-white"></i> Share
                                                         </button>
 
                                                     </div>

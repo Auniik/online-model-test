@@ -7,35 +7,46 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function addNews(){
-        $news = News::query()->latest()->paginate(15);
-        return view('admin.news.news',[
-            'news' => $news,
+    public function addNews()
+    {
+        return view('admin.news.news', [
+            'news' => News::query()->latest()->paginate(15),
         ]);
     }
-    public function newNews(Request $request){
+
+
+    public function newNews(Request $request)
+    {
         $request->validate([
             'title' => 'required'
         ]);
         $news = new News();
         $news->title = $request->title;
+        $news->link = $request->link;
         $news->save();
         return redirect('add-news')->withSuccess('News update saved successfully');
     }
-    public function editNews($id){
+
+    public function editNews($id)
+    {
         $news = News::query()->find($id);
-        return view('admin.news.edit-news',[
+        return view('admin.news.edit-news', [
             'news' => $news,
         ]);
     }
-    public function updateNews(Request $request){
+
+    public function updateNews(Request $request)
+    {
         $news = News::query()->find($request->id);
         $news->title = $request->title;
+        $news->link = $request->link;
         $news->save();
         return redirect('add-news')->withSuccess('News Update updated.');
 
     }
-    public function deleteNews($id){
+
+    public function deleteNews($id)
+    {
         $news = News::query()->find($id);
         $news->delete();
         return redirect('add-news')->withSuccess('News Update Deleted');

@@ -19,7 +19,6 @@ class CreateParticipantsTable extends Migration
             $table->string('username')->unique();
             $table->string('occupation')->default('student');
             $table->string('thumbnail')->nullable();
-            $table->string('username')->unique();
             $table->text('school_name')->nullable();
             $table->string('class')->nullable();
             $table->integer('roll')->nullable();

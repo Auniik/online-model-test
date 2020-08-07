@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 
 /*admin*/
-\auth()->loginUsingId(1);
 include __DIR__.'/admin/exam.php';
 include __DIR__.'/admin/quiz.php';
 include __DIR__.'/participant.php';
@@ -148,8 +147,8 @@ Route::get('amaderkotha','TekasaibdController@amaderkotha')->name('amaderkotha')
 Route::get('blog','TekasaibdController@blog')->name('blog');
 Route::get('/blog-details/{id}', 'TekasaibdController@detailsBlog')->name('blog-details');
 Route::get('/event-details/{id}', 'TekasaibdController@detailsEvents')->name('event-details');
+Route::get('smash-users','SmashUsersController@index')->name('users-smash');
 Route::post('/send-email', 'TekasaibdController@sendEmail')->name('send-email');
-
 Route::get('/book/details/{id}', 'TekasaibdController@bookDetails')->name('book.details');
 Route::get('/submit-work', 'WorkController@addWork')->name('submit-work');
 Route::post('/new-work','WorkController@newWork')->name('new-work');

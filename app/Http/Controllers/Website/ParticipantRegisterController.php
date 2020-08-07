@@ -32,8 +32,8 @@ class ParticipantRegisterController extends Controller
     {
         $attributes = $request->validate([
             'name' => 'min:3|required',
-            'email' => 'email|unique:participants,email|required_without:mobile_number',
-            'mobile_number' => 'unique:participants,mobile_number|required_without:email',
+            'email' => 'email|unique:participants,email|required_without:mobile_number|nullable',
+            'mobile_number' => 'unique:participants,mobile_number|required_without:email|nullable',
             'password' => 'min:8|required'
         ]);
         $attributes['password'] = bcrypt($request->password);

@@ -41,10 +41,12 @@ class ParticipantLoginController extends Controller
 
         $participant = Participant::query()->where($attributes)->first();
 
-        $checked = Hash::check($request->password, $participant->password);
+
+        $password = $request->get('password');
+        $checked = Hash::check($password, $participant->password);
 
         if (!$checked) {
-            return back()->withInput()->with('errors');
+            return back()->withInput()->withError('Seems like password you entered is wrong.');
         }
         auth('participant')->loginUsingId($participant->id);
 

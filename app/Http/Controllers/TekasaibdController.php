@@ -77,8 +77,6 @@ class TekasaibdController extends Controller
 
     public function blog()
     {
-        $sliders = Slider::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
 
         return view('front.about.blog', [
             'blogs'    => Blog::query()
@@ -122,15 +120,10 @@ class TekasaibdController extends Controller
     public function bookDetails($id)
     {
         $book = Book::find($id);
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
+
         $question = BookQuestion::where('book_id', $id)->first();
         return view('front.book.details')->with([
             'book'     => $book,
-            'news'     => $joint,
             'question' => $question,
         ]);
     }
@@ -139,7 +132,6 @@ class TekasaibdController extends Controller
     {
         $abouts = About::all();
         return view('front.about.amaderkotha', [
-            'eventmessages' => EventMessage::query()->orderBy('id', 'desc')->paginate(2),
             'publications' => Publication::query()->orderBy('id', 'desc')->paginate(6),
             'youtubes'     => Youtube::query()->orderBy('id', 'desc')->paginate(4),
             'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')->take(1)->get(),

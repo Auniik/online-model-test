@@ -22,25 +22,30 @@ class ComposerServiceProvider extends ServiceProvider
     public function register()
     {
 
-        View::composer(['front.index.index', 'front.layout.master'], function($view) {
-            $id = auth('participant')->id();
-            $session = session("participant-$id");
+        if (!app()->runningInConsole()) {
+            View::composer(['front.index.index', 'front.layout.master'], function($view) {
+                $id = auth('participant')->id();
+                $session = session("participant-$id");
 
 
-            $assessment = $session ? ParticipantAssessment::query()->find($session['assessment_id']) : null;
-            $news = News::query()->orderBy('id', 'desc')->take(10)->get();
-            $joint = '';
-            foreach ($news as $key => $item){
-                $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-            }
+                $assessment = $session ? ParticipantAssessment::query()->find($session['assessment_id']) : null;
+                $news = News::query()->latest()->orderBy('id', 'desc')->take(10)->get();
+                $joint = '';
+                foreach ($news as $key => $item) {
+                 ++$key;
+                 $l = $item->link ? "$item->link" : '#';
+                    $joint .= "{$key}. <a href=$l>$item->title</a> &nbsp;&nbsp;&nbsp;&nbsp;";
+                }
 
-            return $view->with([
-                'assessment' => $assessment,
-                'news' => $joint,
-                'news_feed' => Blog::query()->take(10)->get(),
-                'contacts' => Contract::query()->first()
-            ]);
-        });
+                return $view->with([
+                    'assessment' => $assessment,
+                    'news' => $joint,
+                    'news_feed' => Blog::query()->latest()->take(10)->get(),
+                    'contacts' => Contract::query()->first()
+                ]);
+            });
+        }
+
     }
 
     /**

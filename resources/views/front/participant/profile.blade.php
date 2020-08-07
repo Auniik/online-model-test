@@ -74,7 +74,7 @@
     <section class="section mt-60">
         <div class="container mt-lg-3">
             <div class="row">
-                @if ($submitted_works->count())
+
                     <div class="col-lg-12 col-md-12 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <div class="ml-lg-3">
                             <div class="card shadow-lg bg-transparent mb-5">
@@ -83,39 +83,47 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        @foreach($submitted_works ?? [] as $work)
-                                            <div class="col-lg-6">
-                                                <ul class="list-inline mb-0 mt-4 pl-4">
+                                        @if ($submitted_works->count())
+                                            @foreach($submitted_works ?? [] as $work)
+                                                <div class="col-lg-6">
+                                                    <ul class="list-inline mb-0 mt-4 pl-4">
 
-                                                    <li>
-                                                        <span class="text-primary mb-0">Title :</span> {{$work->title}}
-                                                        <br>
-                                                        <span
-                                                            class="text-primary mb-0">Work Type :</span> {{$work->work_type}}
-                                                        <br>
-                                                        <span
-                                                            class="text-primary mb-0">Description :</span> {!! $work->description !!}
-                                                        <br>
-                                                        <div class="text-primary mb-0">File(s) :</div>
-                                                        @foreach($work->file ?? [] as $k => $file)
-                                                            <div>
-                                                                <a href="/{{$file}}" class="ml-5"
-                                                                   target="_blank">{{++$k}}
-                                                                    . {{$work->fileName($file)}}</a>
-                                                            </div>
+                                                        <li>
+                                                            <span class="text-primary mb-0">Title :</span> {{$work->title}}
+                                                            <br>
+                                                            <span
+                                                                class="text-primary mb-0">Work Type :</span> {{$work->work_type}}
+                                                            <br>
+                                                            <span
+                                                                class="text-primary mb-0">Description :</span> {!! $work->description !!}
+                                                            <br>
+                                                            <div class="text-primary mb-0">File(s) :</div>
+                                                            @foreach($work->file ?? [] as $k => $file)
+                                                                <div>
+                                                                    <a href="/{{$file}}" class="ml-5"
+                                                                       target="_blank">{{++$k}}
+                                                                        . {{$work->fileName($file)}}</a>
+                                                                </div>
 
-                                                        @endforeach
-                                                        <br>
-                                                        <span class="text-primary mb-0">Link :</span> <a
-                                                            href="{{$work->link}}" target="_blank">View Link</a>
-                                                        <br>
-                                                        <span class="text-primary mb-0">Sent at: </span>
-                                                        {{$work->created_at->diffForHumans()}}
-                                                        ({{$work->created_at->format('M d, Y h:i A')}})
-                                                    </li>
-                                                </ul>
+                                                            @endforeach
+                                                            <br>
+                                                            <span class="text-primary mb-0">Link :</span> <a
+                                                                href="{{$work->link}}" target="_blank">View Link</a>
+                                                            <br>
+                                                            <span class="text-primary mb-0">Sent at: </span>
+                                                            {{$work->created_at->diffForHumans()}}
+                                                            ({{$work->created_at->format('M d, Y h:i A')}})
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            @endforeach
+
+                                        @else
+                                            <div class="col-lg-12 text-center">
+                                                <h4> এখনও কোন সৃজনশীল কাজ  জমা দেয়নি</h4>
                                             </div>
-                                        @endforeach
+                                        @endif
+
                                     </div>
 
                                 </div>
@@ -132,13 +140,12 @@
                             </div>
                         </div>
                     </div><!--end col-->
-                @endif
 
                 <div class="col-lg-12 col-md-12 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                     <div class="ml-lg-3">
                         <div class="pb-4">
                             <div class="row">
-                                @if ($quizzes->count())
+
                                     <div class="col-lg-6 pb-4">
                                         <div class="card shadow-lg bg-transparent">
                                             <div class="card-header">
@@ -146,6 +153,7 @@
                                                     ({{$quizzes->count()}})</h5>
                                             </div>
                                             <div class="card-body">
+                                                @if ($quizzes->count())
                                                 <ul class="list-inline mb-0 pl-4">
                                                     @foreach($quizzes ?? [] as $assessment)
                                                         <li>
@@ -184,6 +192,11 @@
                                                         @endif
                                                     @endforeach
                                                 </ul>
+                                                @else
+                                                    <div class=" text-center">
+                                                        <h4> এখনও কোন  কুইজে অংশগ্রহন করেনি</h4>
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="card-footer">
                                                 <div class="text-center">
@@ -197,9 +210,8 @@
                                             </div>
                                         </div>
                                     </div><!--end col-->
-                                @endif
 
-                                @if ($exams->count())
+
                                     <div class="col-lg-6">
                                         <div class="card shadow-lg bg-transparent">
                                             <div class="card-header">
@@ -207,6 +219,7 @@
                                                     ({{$exams->count()}})</h5>
                                             </div>
                                             <div class="card-body">
+                                                @if ($exams->count())
                                                 <ul class="list-inline mb-0 pl-4">
                                                     @foreach($exams ?? [] as $assessment)
                                                         <li>
@@ -261,6 +274,11 @@
                                                         @endif
                                                     @endforeach
                                                 </ul>
+                                                @else
+                                                    <div class=" text-center">
+                                                        <h4> এখনও কোন অনলাইন পরীক্ষায় অংশগ্রহন করেনি</h4>
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="card-footer">
                                                 <div class="text-center">
@@ -275,7 +293,6 @@
                                         </div>
 
                                     </div><!--end col-->
-                                @endif
 
                             </div><!--end row-->
                         </div>

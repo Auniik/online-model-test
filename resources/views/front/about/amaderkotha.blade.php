@@ -73,14 +73,14 @@
                                     </div>
                                     <hr>
                                     <div class="d-flex justify-content-center">
-                                        <a href="{{$director->facebook_link}}" class="social-icon mt-0" target="blank">
+                                        <a href="{{$team_member->facebook_link}}" class="social-icon mt-0" target="blank">
                                             <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
                                         </a>
 
-                                        <a href="{{$director->twitter_link}}" class="social-icon mt-0" target="blank">
+                                        <a href="{{$team_member->twitter_link}}" class="social-icon mt-0" target="blank">
                                             <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
                                         </a>
-                                        <a href="{{$director->instagram_link}}" class="social-icon mt-0"
+                                        <a href="{{$team_member->instagram_link}}" class="social-icon mt-0"
                                            target="blank">
                                             <i class="fab fa-instagram icon-alias" style="color: #8a2387;"></i>
                                         </a>

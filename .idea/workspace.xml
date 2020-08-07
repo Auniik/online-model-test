@@ -11,192 +11,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SmashUsersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/event-message-image/auniik.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/event-message-image/roksar2.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Event.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BangabandhuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BangabandhuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContractController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventMessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlayerController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuizController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SocialController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Player.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/QuizResult.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_185405_create_event_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_14_185405_create_event_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/1 (7).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/1 (8).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/10.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/2.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/52025311_304.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/F6trM9oMOp9myNhRX1IjVJa6p6u.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/about-image/F6trM9oMOp9myNhRX1IjVJa6p6u.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/bb100-mujib-6sxe74vt2j0wd4ms223m6rvj9uysyug56d8k0fmyrsw.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/received_222122575324457.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/received_27685r8439579530.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/received_297713804153804.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/about-image/received_326922904709966.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog-image/0vvv003.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog-image/received_235780833753833.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog-image/received_27685r8439579530.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog-image/received_297713804153804.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bon-image/29342667_2040591582865379_6772336245011750795_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book-image/2FFvzA2zeqoVJ2SVhDmmumdPfnVEcahMce9nMwwksSDdRvbFLqa3Lk2uQxcLmVtaRgVBdgSEkSuVs1gjJqQo3MjKdbaV4GpSebqzH5FHPX3hM2PGcL1pZnPgh3Kjk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/01 - Copy.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/10.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/100.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/1ead0390203543.Y3JvcCw4NzMsNjgyLDE2NCwyNTk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/29342667_2040591582865379_6772336245011750795_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/31.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/52025311_304.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/7-Ways-to-Increase-Sales-Using-SEO-blog.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/82339761_1247917295398126_6757522662433488896_o.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/Screenshot from 2020-06-27 12-11-14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/blacklist_subscribers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/maxresdefault (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/maxresdefault.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/new_year.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-image/unnamed copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/0003.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/0006.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/02.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/03.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/1 (10).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/12c8be77613675.5c8ca35b6dcb5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/17799170_1667639606584918_8427050421111976342_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/250.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/received_27685r8439579530.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/received_297713804153804.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/received_729424747425398.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-video/20200310_174022.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-video/7-march-5a9ecd24b3dfd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front-end/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/0003.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/0005.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/0006.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/1 (2).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/14ac1077613903.5c8ca5c82bfbf.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/68751605_1300538410115752_4308285465598885888_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/73a86d63300741.5aabe414acfea.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/7d7e9364343321.5acf0757b5008.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/7fb1e377613837.5c8ca4fb0f74e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/82173046_2854716284590774_173007613464674304_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gallery-image/cleaning.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/account/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/05.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/06.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/07.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/blog/08.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/05.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/06.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/07.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/08.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/amazon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/google.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/lenovo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/man.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/paypal.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/shopify.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/client/spotify.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Appdynamics.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Circleci.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Codepen.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Discord.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Eslint.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Gitlab.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Gradle.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Mg.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Sketch.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Twilio.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Udemy.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/Webhooks.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/candidate.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/company.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/full.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/part.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/job/remote.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/03.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/recovery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/user/signup.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/1 (2).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_1976420692414912.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_222122575324457.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_235780833753833.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_276858439579530.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_27685r8439579530.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_297713804153804.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/received_447874442388456.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/slider-image/benar 002 copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-0-1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-0-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/answers/10/Answer-File-of-Question-No-3-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/answers/8/Answer-File-of-Question-No-0-1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/answers/9/Answer-File-of-Question-No-0-1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/exams/hQhI3h3i1gMEE7CWD3rVuFt3viVQjG1CHsOugmEy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/exams/questions/0z9BUv4PMmT4xPZzcJeBpptURNy0UdMnXUVeeLKX.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/exams/questions/2gCGBq1bNZtpV0ta0zetyA53NTro9hL3aMbu8wVG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/exams/questions/3aIkIth0i06FvZMIjswOAFGTHPGbIDZ9awBbBahi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/exams/questions/LRlOxiaN49dz57XvtaHJCxQ7L9ecJI684Rd9wEHB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/quizzes/5GXD6XaqvHRuJtACXiT17mpc1tzranm7iRvs8pmj.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/quizzes/RKII0IbaBstRormrF01oDey7Zp1PneoUdoBhAPRB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/user-image/7d7e9364343321.5acf0757b5008.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bangabandhu/edit-bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bangabandhu/edit-bangabandhu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/edit-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/edit-blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/book.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/contact/edit-contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contact/edit-contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/event/add-event.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/event/edit-event.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/message/add-event-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/message/add-event-message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/message/edit-event-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/message/edit-event-message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/player/add-player.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/add-question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/add-question_2020.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/participant/general-associate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/general-associate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/participant/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/participant/vip-associate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/participant/vip-associate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/result/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_165542_create_events_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_172715_create_players_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_175915_create_questions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_21_151058_create_answers_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_133533_create_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_133533_create_news_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/event-message-image/DSC_4901.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/event-message-image/roksar.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/event-message-image/DSC_4905.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/event-message-image/roksar1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/edit-news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/edit-news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/share.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/share.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/about/publication-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/publication-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/partials/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/partials/notifications.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/quiz/new-question.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/quiz/new-quiz.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/quiz/start.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/question.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -441,7 +280,7 @@
       <workItem from="1596467299770" duration="620000" />
       <workItem from="1596553361038" duration="18655000" />
       <workItem from="1596642691277" duration="14854000" />
-      <workItem from="1596728928090" duration="19343000" />
+      <workItem from="1596728928090" duration="24142000" />
     </task>
     <servers />
   </component>
@@ -529,10 +368,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state width="1366" height="270" key="GridCell.Tab.2.right/0.22.1366.746@0.22.1366.746" timestamp="1593669429443" />
-    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog" timestamp="1596743778680">
+    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog" timestamp="1596764551410">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1596743778680" />
+    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1596764551410" />
     <state x="501" y="308" width="314" height="143" key="NewPhpFileDialog" timestamp="1594617694126">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -557,10 +396,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="100" y="96" width="1166" height="572" key="dock-window-2/0.22.1366.746@0.22.1366.746" timestamp="1596754348358" />
-    <state x="389" y="131" width="905" height="560" key="find.popup" timestamp="1596759885838">
+    <state x="389" y="131" width="905" height="560" key="find.popup" timestamp="1596762399044">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="389" y="131" width="905" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1596759885838" />
+    <state x="389" y="131" width="905" height="560" key="find.popup/0.22.1366.746@0.22.1366.746" timestamp="1596762399044" />
     <state x="332" y="103" width="700" height="530" key="recent.locations.popup" timestamp="1596191232176">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -573,9 +412,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1596752870800" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596759734482">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596764492260">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596759734482" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596764492260" />
   </component>
 </project>

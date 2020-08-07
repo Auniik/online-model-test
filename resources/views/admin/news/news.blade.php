@@ -1,20 +1,21 @@
 @extends('admin.master')
 @section('body')
     <div class="row m-t-15">
-        <div class="col-12">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="mt-0">Manage News Updates</h4>
                 </div>
                 <div class="card-body">
                     @include('front.partials.notifications')
-                    <p class="text-muted mb-4 font-14"></p>
+                    <p class="text-muted  font-14"></p>
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
                             <th class="1%">#</th>
                             <th>Title</th>
-                            <th class="10%">Action</th>
+                            <th>Redirect to</th>
+                            <th class="1%">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,9 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$new->title}}</td>
+                                <td>
+                                    <a class="text-primary" target="_blank" href="{{$new->link}}">{{$new->link}}</a>
+                                </td>
                                 <td>
                                     <a href="{{route('edit-news',['id'=>$new->id])}}" class=""><i class="fa fa-edit"></i></a>
                                     <a href="{{route('delete-news',['id'=>$new->id])}}" class=""><i class="fa fa-trash"></i></a>
@@ -47,12 +51,21 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('new-news')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('new-news')}}" method="POST" >
                     @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-1 col-form-label text-right">Title</label>
                             <div class="col-sm-11">
                                 <input class="form-control" autocomplete="off" type="text" value="" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-1 col-form-label text-right">Redirect
+                                URL</label>
+                            <div class="col-sm-11">
+                                <input class="form-control" autocomplete="off" type="text"
+                                       placeholder="https://your-url.com"
+                                       name="link">
                             </div>
                         </div>
                         <div class="form-group row">

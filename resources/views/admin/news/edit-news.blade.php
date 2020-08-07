@@ -12,10 +12,20 @@
 
                         <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Title</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{$news->title}}" name="title">
                                 <input class="form-control" type="hidden" name="id" value="{{$news->id}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Redirect
+                                URL</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" autocomplete="off" type="text"
+                                       value="{{$news->link}}"
+                                       placeholder="https://your-url.com"
+                                       name="link">
                             </div>
                         </div>
                         <div class="form-group row">

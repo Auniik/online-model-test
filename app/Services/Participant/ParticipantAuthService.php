@@ -13,7 +13,7 @@ class ParticipantAuthService
     public function validate(Request $request)
     {
         $rules = [
-            'password' => 'min:6|required',
+            'password' => 'min:8|required',
         ];
         $attributes = [];
 
@@ -26,6 +26,7 @@ class ParticipantAuthService
             $rules['mobile_number'] = 'exists:participants,mobile_number|min:11|required';
             $message = ['mobile_number' => 'It seems problem with your phone number.'];
         }
+
         Validator::make(
             array_merge(['password' => $request->password], $attributes),
             $rules,
