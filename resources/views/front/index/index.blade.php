@@ -9,7 +9,10 @@
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="banner-text-1">
                                 <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>
-                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">টেকসই <span>বাংলা</span></h2>
+                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms"
+                                    data-wow-duration="1500ms" style="visibility: visible; animation-duration:
+                                    1500ms; animation-delay: 0ms; animation-name: fadeInRight; font-family: shorif-shishir">টেকসই
+                                    <span>বাংলা</span></h2>
                                 <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
                                 <a href="{{url('/submit-work')}}">
                                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> সৃজনশীলতা জমা

@@ -9,7 +9,7 @@
                 </div>
                 <div class="row">
                     @if ($assessment)
-                        <div class="card shadow-lg w-100  exam-preview-card justify-content-around">
+                        <div class="card shadow-lg w-100 exam-preview-card justify-content-around">
                             <div class="card-body">
                                 <div class="offset-lg-2 col-8 mt-5">
                                     @if ($assessment->exam->image)

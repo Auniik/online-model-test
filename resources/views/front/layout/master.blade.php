@@ -44,6 +44,10 @@
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
         }
 
+        @font-face {
+            font-family: shorif-shishir;
+            src: url('/front-end/fonts/Shorif-Shishir-Unicode.ttf');
+        }
     </style>
     @stack('style')
 </head>
