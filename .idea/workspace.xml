@@ -11,32 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SmashUsersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/event-message-image/auniik.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/event-message-image/roksar2.JPG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_165542_create_events_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_172715_create_players_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_175915_create_questions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_21_151058_create_answers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_25_133533_create_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_25_133533_create_news_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/DSC_4901.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/event-message-image/roksar.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/event-message-image/DSC_4905.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/event-message-image/roksar1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/edit-news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/edit-news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/share.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/share.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +256,7 @@
       <workItem from="1596467299770" duration="620000" />
       <workItem from="1596553361038" duration="18655000" />
       <workItem from="1596642691277" duration="14854000" />
-      <workItem from="1596728928090" duration="24142000" />
+      <workItem from="1596728928090" duration="25456000" />
     </task>
     <servers />
   </component>
