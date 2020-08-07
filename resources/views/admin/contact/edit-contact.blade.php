@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Edit Contact</h4>
+                    <h4 class="mt-0">Manage Contact</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{route('update-contact')}}" method="POST" enctype="multipart/form-data">
@@ -27,7 +27,8 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Phone</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="number" value="{{$contract->phone}}" name="phone">
+                                <input class="form-control" type="text" value="{{$contract->phone}}"
+                                       name="phone">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -42,14 +43,14 @@
                                 <textarea class="form-control" name="address">{{$contract->address}}</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row d-none">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-10">
-                                <img src="{{asset($contract->image)}}" width="150" height="150">
-                                <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*" required>
+                                <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*" >
+                                <img src="{{asset($contract->image)}}" class="img-fluid my-3">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row d-none">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-10">
                                 <div class="form-check form-check-radio">

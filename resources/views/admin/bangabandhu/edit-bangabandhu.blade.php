@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Edit Bangabandhu INFO</h4>
+                    <h4 class="mt-0"> বঙ্গবন্ধু পেজের ইনফরমেশন হালনাগাদ করুন</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{route('update-bangabandhu')}}" method="POST" enctype="multipart/form-data">

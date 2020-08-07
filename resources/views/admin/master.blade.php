@@ -40,7 +40,7 @@
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
+    <link rel="stylesheet" href="/css/toastr.min.css">
     <style>
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
@@ -203,7 +203,23 @@
 <script src="{{asset('/')}}admin/assets/js/app.js"></script>
 <script src="{{asset('/')}}admin/assets/swal/sweetalert2.all.min.js"></script>
 <script src="{{asset('/')}}admin/assets/js/custom.js"></script>
-
+<script src="/js/toastr.min.js"></script>
+<script>
+    @if(session()->has('errors'))
+        @foreach ($errors->all() as $error)
+            toastr.error("{{$error}}")
+        @endforeach
+    @endif
+    @if(session()->has('success'))
+        toastr.success("{{session('success')}}")
+    @endif
+    @if(session()->has('danger'))
+        toastr.error("{{session('danger')}}")
+    @endif
+    @if(session()->has('warning'))
+        toastr.warning("{{session('warning')}}")
+    @endif
+</script>
 @stack('script')
 
 </body>

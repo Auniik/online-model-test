@@ -63,33 +63,15 @@ class TekasaibdController extends Controller
 
     public function contact()
     {
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-         $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        $contract = Contract::all();
         return view('front.contact.contact', [
-            'contract' => $contract,
-            'news'     => $joint,
+            'contract' => Contract::query()->first()
         ]);
     }
 
     public function bangabandhu()
     {
-        $contract = Contract::all();
-        $sliders = Slider::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        $bangabandhus = Bangabandhu::all();
         return view('front.bangabandhu.bangabandhu', [
-            'bangabandhus' => $bangabandhus,
-            'news'         => $joint,
-            'sliders'      => $sliders,
-            'contract'     => $contract,
+            'bangabandhu' => Bangabandhu::query()->first(),
         ]);
     }
 
@@ -163,6 +145,8 @@ class TekasaibdController extends Controller
             'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')->take(1)->get(),
             'abouts'       => $abouts,
             'galleris'     => Gallery::query()->orderBy('id', 'desc')->paginate(12),
+            'director' => EventMessage::query()->where('is_team_member', 0)->first(),
+            'team_members' => EventMessage::query()->where('is_team_member', 1)->take(4)->get(),
         ]);
     }
     public function detailsEvents($id){

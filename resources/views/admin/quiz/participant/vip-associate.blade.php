@@ -38,8 +38,8 @@
                         </div>
                         <hr>
 
-                        <div class="participants">
-                            <table class="table  table-bordered  table-hover">
+                        <div class="participants d-none">
+                            <table class="table table-bordered  table-hover">
                                 <thead>
                                 <tr>
                                     <th>Participant Name</th>
@@ -54,8 +54,11 @@
                                 </tbody>
 
                             </table>
-                        </div>
 
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success add-new-participants mb-4">Add More</button>
+                        </div>
 
                     </div>
                 </div>

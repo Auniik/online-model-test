@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Blog;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Image;
 use Illuminate\Http\Request;
 
@@ -10,7 +12,7 @@ class BlogController extends Controller
     public function addBlog() {
 
         return view('admin.blog.add-blog',[
-            'blogs' => Blog::query()->paginate(15),
+            'blogs' => Blog::query()->latest()->paginate(15),
         ]);
     }
 
@@ -22,7 +24,7 @@ class BlogController extends Controller
 
         $blogImage = $request->file('image');
         $directory = "blog-image/";
-        $imageName = $blogImage->getClientOriginalName();
+        $imageName = Str::random(40) ."." . $blogImage->getClientOriginalExtension();
         $blogImage->move($directory,$imageName);
         $imageUrl = $directory.$imageName;
 
@@ -36,21 +38,25 @@ class BlogController extends Controller
         return redirect('add-blog')->with('message','Blog Save Successfully');
     }
     public function editBlog($id){
-        $blog = Blog::find($id);
+        $blog = Blog::query()->find($id);
         return view('admin.blog.edit-blog',[
             'blog' => $blog,
         ]);
     }
     public function updateBlog(Request $request){
 
-        $blogImage = $request->file('image');
-        $directory = "about-image/";
-        $imageName = $blogImage->getClientOriginalName();
-        //$aboutImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-        Image::make($blogImage)->resize(1500, 500)->save($imageUrl);
+        $blog = Blog::query()->find($request->id);
+        if ( $blogImage = $request->file('image')) {
+            $directory = "blog-image/";
+            $imageName = Str::random(40) ."." . $blogImage->getClientOriginalExtension();
+            //$aboutImage->move($directory,$imageName);
+            $blogImage->move($directory, $imageName);
+            $imageUrl = $directory.$imageName;
+            Storage::delete($blog->image);
+        } else {
+            $imageUrl = $blog->image;
+        }
 
-        $blog = Blog::find($request->id);
         $blog->title               = $request->title;
         $blog->short_description   = $request->short_description;
         $blog->long_description    = $request->long_description;
@@ -60,7 +66,8 @@ class BlogController extends Controller
         return redirect('/add-blog');
     }
     public function deleteBlog($id){
-        $blog = Blog::find($id);
+        $blog = Blog::query()->find($id);
+        Storage::delete($blog->image);
         $blog->delete();
         return redirect('/add-blog');
     }

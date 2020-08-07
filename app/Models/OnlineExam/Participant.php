@@ -30,7 +30,7 @@ class Participant extends User
 
     protected $fillable = [
         'name', 'username', 'email', 'password', 'mobile_number', 'school_name', 'class', 'roll', 'sub_district',
-        'district', 'division'
+        'district', 'division', 'thumbnail', 'occupation'
     ];
     protected $hidden = [
         'password', 'remember_token',
@@ -57,7 +57,7 @@ class Participant extends User
 
     public function performedCurrentQuiz()
     {
-        return !!$this->currentAssessment()->is_attended;
+        return !!optional($this->currentAssessment())->is_attended;
     }
 
     public function currentAssessment()

@@ -29,8 +29,8 @@ class BangabandhuController extends Controller
         $bangabandhu->save();
         return redirect('add-bangabandhu')->with('message','Slider Save Successfully');
     }
-    public function editBangabandhu($id){
-        $bangabandhu = Bangabandhu::find($id);
+    public function editBangabandhu(){
+        $bangabandhu = Bangabandhu::first();
         return view('admin.bangabandhu.edit-bangabandhu',[
             'bangabandhu' => $bangabandhu,
         ]);

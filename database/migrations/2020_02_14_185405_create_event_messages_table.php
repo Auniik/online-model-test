@@ -18,7 +18,7 @@ class CreateEventMessagesTable extends Migration
             $table->text('name');
             $table->text('image');
             $table->text('message');
-            $table->tinyInteger('status');
+            $table->boolean('is_team_member')->default(1);
             $table->timestamps();
         });
     }

@@ -79,7 +79,7 @@
         }
 
 
-        // body.oncontextmenu = handler;
+        body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>

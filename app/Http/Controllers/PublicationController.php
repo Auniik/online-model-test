@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Publication;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Image;
-use App\Contract;
-use App\News;
 use Illuminate\Http\Request;
 
 class PublicationController extends Controller
@@ -27,11 +27,14 @@ class PublicationController extends Controller
 //        Image::make($publicationImage)->resize(300, 300)->save($imageUrl);
 
 
-        $publicationImage = $request->file('image');
-        $directory = "publication-image/";
-        $imageName = $publicationImage->getClientOriginalName();
-        $publicationImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
+        if ($request->has('image')) {
+            $publicationImage = $request->file('image');
+            $directory = "publication-image/";
+            $imageName = Str::random(40) . '.' . $publicationImage->getClientOriginalExtension();
+            $publicationImage->move($directory,$imageName);
+            $imageUrl = $directory.$imageName;
+        }
+
 
 
         $publication = new Publication();
@@ -54,14 +57,18 @@ class PublicationController extends Controller
 
     public function updatePublication(Request $request)
     {
+        $publication = Publication::query()->find($request->id);
+        if ($request->has('image')) {
+            $publicationImage = $request->file('image');
+            $directory = "publication-image/";
+            $imageName = Str::random(40) . '.' . $publicationImage->getClientOriginalExtension();
+            $imageUrl = $directory.$imageName;
+           Storage::delete($publication->image);
+        } else {
+            $imageUrl = $publication->image;
+        }
 
-        $publicationImage = $request->file('image');
-        $directory = "publication-image/";
-        $imageName = $publicationImage->getClientOriginalName();
-        $imageUrl = $directory.$imageName;
-        Image::make($publicationImage)->resize(300, 300)->save($imageUrl);
 
-        $publication = Publication::find($request->id);
         $publication->title = $request->title;
         $publication->description = $request->description;
         $publication->image = $imageUrl;
@@ -70,22 +77,18 @@ class PublicationController extends Controller
         return redirect('/add-publication');
     }
     public function deletePublication($id){
-        $publication = Publication::find($id);
+        $publication = Publication::query()->find($id);
+        Storage::delete($publication->image);
         $publication->delete();
         return redirect('/add-publication');
     }
+
+
     public function detailsPublication($id){
-        $contract = Contract::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        $publications = Publication::find($id);
+
+        $publications = Publication::query()->find($id);
         return view('front.about.publication-details',[
             'publications' => $publications,
-            'news' =>$joint,
-            'contract'=>$contract,
         ]);
     }
 }

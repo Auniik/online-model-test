@@ -728,7 +728,6 @@ ol {
 
 
 #about_bg {
-    margin-top: 101px;
     background: url(../images/bg6.jpg) no-repeat center;
     background-size: cover;
     text-align: left;
@@ -968,7 +967,6 @@ ol {
 /*============================= team_member end ==============================*/
 
 #bongobondhu_bg {
-    margin-top: 101px;
     background: url(../images/m1.jpg) no-repeat center;
     background-size: cover;
     text-align: left;

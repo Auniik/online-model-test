@@ -25,17 +25,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Cover Image:</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*"
+                                       required>
+                                <p class="text-primary">Image height must be in 500px, Width: 1000px</p>
+                                <img src="{{url($blog->image)}}" class="img img-fluid" alt="{{$blog->name}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>
                             <div class="col-sm-10">
                                 <textarea name="long_description" class="form-control" id="editor" required>{{$blog->long_description}}</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Image 2000*400</label>
-                            <div class="col-sm-10">
-                                <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*" required>
-                            </div>
-                        </div>
+
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Status</label>
                             <div class="col-sm-10">

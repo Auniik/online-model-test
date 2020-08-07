@@ -34,12 +34,6 @@
 
                 <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
                         <span> Submitted Works</span></a></li>
-
-                <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> Messages</span></a></li>
-                <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> Manage News</span></a></li>
-
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
@@ -49,6 +43,11 @@
                         <li><a href="{{route('admin.book.question.create')}}"> Create Questions</a></li>
                     </ul>
                 </li>
+
+
+
+
+
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-blogger"></i> <span> Blogging
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
@@ -57,7 +56,20 @@
                     </ul>
                 </li>
 
+                <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> Manage News</span></a></li>
+                <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> Messages</span></a></li>
 
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Page </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
+                         <li><a href="{{asset('edit-bangabandhu-info')}}"> বঙ্গবন্ধু</a></li>
+                        <li><a href="{{route('add-event-message')}}"> আমাদের সম্পর্কে</a></li>
+                        <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
+                        <li><a href="{{asset('edit-contact')}}"> Contacts</a></li>
+                    </ul>
+                </li>
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Gallery
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
@@ -66,34 +78,17 @@
                         <li><a href="{{route('add-video')}}">Video Gallery</a></li>
                     </ul>
                 </li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Page </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="list-unstyled">
-                        {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
-                        <li><a href="{{asset('add-contact')}}">Manage Contact</a></li>
-                         <li><a href="{{asset('add-bangabandhu')}}">Bangabandhu Page</a></li>
-                        <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
-                    </ul>
-                </li>
-
                 <!--<li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Video</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>-->
                 <!--    <ul class="list-unstyled">-->
                 <!--        <li><a href="{{route('add-video')}}">Manage Video</a></li>-->
                 <!--    </ul>-->
                 <!--</li>-->
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Event Video</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('add-event-video')}}">Manage Event Video</a></li>
-                    </ul>
-                </li>
+
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i>
                         <span>Settings</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{asset('add-slider')}}">Manage Slider</a></li>
-                    </ul>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('add-event-message')}}">Manage Message</a></li>
-                    </ul>
-                    <ul class="list-unstyled">
+                        <li><a href="{{route('add-event-video')}}">Manage Event Video</a></li>
                         <li><a href="{{asset('add-about')}}">Manage Image</a></li>
                     </ul>
                 </li>

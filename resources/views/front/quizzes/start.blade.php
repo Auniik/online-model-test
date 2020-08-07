@@ -59,12 +59,10 @@
                                                           autocomplete="off">
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3">
-                                        বিভাগ: <input type="text"
-                                                      name="participant[division]"
-                                                      placeholder="বিভাগের নাম লিখুন"
-                                                      class="form-control"
-                                                      value="{{$participant->division}}"
-                                                      autocomplete="off">
+                                         পেশা: <select class="form-control" name="participant[occupation]">
+                                            <option value="student"> স্টুডেন্ট</option>
+                                            <option value="job-holder"> চাকুরিজীবী</option>
+                                        </select>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3">
                                         জেলা: <input type="text" name="participant[district]"

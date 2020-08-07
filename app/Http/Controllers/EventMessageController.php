@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
 use App\EventMessage;
 use Illuminate\Http\Request;
 use Image;
-use Illuminate\Http\UploadedFile;
 use App\file;
 
 class EventMessageController extends Controller
@@ -17,6 +15,7 @@ class EventMessageController extends Controller
            'eventmessages' => $eventmessages,
        ]);
    }
+
    public function newEventMessage(Request $request){
 
        $eventMessageImage = $request->file('image');
@@ -30,18 +29,18 @@ class EventMessageController extends Controller
        $eventmessage->designation   = $request->designation;
        $eventmessage->image         = $imageUrl;
        $eventmessage->message       = $request->message;
-       $eventmessage->status        = $request->status;
+       $eventmessage->is_team_member  = isset($request->is_team_member) ? 1 : 0;
        $eventmessage->save();
        return redirect('add-event-message')->with('message','Data save successfully');
    }
-   public function editEventMessage($id){
-       $eventmessage = EventMessage::find($id);
+   public function editEventMessage($id)
+   {
        return view('admin.message.edit-event-message',[
-           'eventmessage' => $eventmessage,
+           'eventmessage' => EventMessage::query()->find($id),
        ]);
    }
    public function updateEventMessage(Request $request){
-       $eventmessage = EventMessage::find($request->id);
+       $eventmessage = EventMessage::query()->find($request->id);
        if ($eventMessageImage = $request->file('image'))
        {
            if (file_exists($eventmessage->image))
@@ -60,7 +59,7 @@ class EventMessageController extends Controller
        $eventmessage->designation   = $request->designation;
        $eventmessage->image         = $imageUrl;
        $eventmessage->message       = $request->message;
-       $eventmessage->status        = $request->status;
+       $eventmessage->is_team_member  = isset($request->is_team_member) ? 1 : 0;
        $eventmessage->save();
        return redirect('add-event-message')->with('message','Data Update successfully');
    }

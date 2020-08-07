@@ -1,69 +1,99 @@
 @extends('front.layout.master')
 @section('content')
 
-
-    <section class="section pt-0 pb-5">
-        <div class="container-fluid px-0">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-md-12 mt-4 mt-sm-0 pt-sm-0">
-                    <div class="position-relative">
-                        @foreach($abouts as $about)
-                            <img src="{{asset($about->image)}}" class="img img-fluid" width="100%">
-                        @endforeach
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
+    <section id="about_bg">
+        <div class="overlay">
+            <div class="container-fulied">
+                <div class="text_center animated zoomIn">
+                    <h1> আমাদের সম্পর্কে</h1>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="section pt-0 pb-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-md-12">
-                    <div class="amaderkotha-heading bg-transparent text-center">
-                        <h4>আমাদের কথা</h4>
+    <section id="about_part">
+        <div class="container-fulied">
+            <div class="row online-left">
+                <div class="col-lg-9 col-md-12 col-sm-12 right_side">
+                    <div class="about_content animated bounceInRight slow">
+                       {!! $director->message !!}}
                     </div>
-                    <div class="position-relative">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="amaderkotha-heading bg-primary text-center">
-                                    <h4 class="p-2" style="padding-left:10px; color:#fff;">ফেসবুকে আমাদের সাথে থাকুন</h4>
-                                </div>
-                                <div class="card shadow-lg bg-transparent">
-                                    <div class="card-body">
-                                        <iframe class="shadow-sm"
-                                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTekasaibd%2F&tabs=timeline&width=350&height=375&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=442275712930029"
-                                            width="300" height="340" style="border:none;overflow:hidden"
-                                            allowTransparency="true"
-                                            allow="encrypted-media"></iframe>
+                </div>
 
-                                    </div>
-                                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 left_side">
+                    <div class="imag_side">
+                        <a href="javascript:void(0)">
+                            <div class="round animated zoomIn slow">
+                                <img src="{{url($director->image)}}" alt="testi_3">
                             </div>
-                            @foreach($eventmessages as $eventmessag)
-                                <div class="col-md-4 mb-1">
-                                    <div class="card shadow-lg bg-transparent">
-                                        <img class="card-img-top" src="{{asset($eventmessag->image)}}"
-                                             alt="Card image cap" width="100%" height="300">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">{{$eventmessag->name}}</h5>
-                                            <p class="text-center">{{$eventmessag->designation}} <span
-                                                    class="pl-2"><br/><a href="{{route('event-details',
-                                                    ['id'=> $eventmessag->id])}}">বিস্তারিত</a></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                            <div class="text">
+                                <h6>{{$director->name}}</h6>
+                                <p>{{$director->designation}}</p>
+                                <p>টেকসই বাংলা লি.</p>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <a href="{{$director->facebook_link}}" class="social-icon mt-0" target="blank">
+                                    <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
+                                </a>
 
-
-                        </div>
+                                <a href="{{$director->twitter_link}}" class="social-icon mt-0" target="blank">
+                                    <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
+                                </a>
+                                <a href="{{$director->instagram_link}}" class="social-icon mt-0"
+                                   target="blank">
+                                    <i class="fab fa-instagram icon-alias" style="color: #8a2387;"></i>
+                                </a>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+    <section id="team_member">
+        <div class="overlay">
+            <div class="container-fulied">
+                <div class="text_center">
+                    <h1> টিম মেম্বার </h1>
+                </div>
+                <div class="row online-left">
+                    @foreach ($team_members as $team_member)
+                        <div class="col-lg-3 col-md-6 col-sm-6 left_side">
+                            <div class="imag_side">
+                                <a href="javascript:void(0)">
+                                    <div class="round">
+                                        <img src="{{url($team_member->image)}}" alt="testi_3">
+                                    </div>
+                                    <div class="text">
+                                        <h6>{{$team_member->name}}</h6>
+                                        <p>{!! $team_member->designation !!}</p>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{$director->facebook_link}}" class="social-icon mt-0" target="blank">
+                                            <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
+                                        </a>
+
+                                        <a href="{{$director->twitter_link}}" class="social-icon mt-0" target="blank">
+                                            <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
+                                        </a>
+                                        <a href="{{$director->instagram_link}}" class="social-icon mt-0"
+                                           target="blank">
+                                            <i class="fab fa-instagram icon-alias" style="color: #8a2387;"></i>
+                                        </a>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section pt-0 pb-5">
         <div class="container">
@@ -73,7 +103,7 @@
                         <div class="amaderkotha-heading bg-transparent text-center">
                             <h4 class="mt-5" style="padding-left:10px">প্রকাশনা</h4>
                         </div>
-                        <div class="row">
+                        <div class="row d-flex justify-content-between">
                             @foreach($publications as $publication)
                                 <div class="col-md-3 mb-2 mt-2">
                                     <div class="card shadow-lg">
@@ -158,5 +188,33 @@
                 </div><!--end col-->
             </div><!--end row-->
         </div><!--end container-->
+    </section>
+
+    <section class="section pt-0 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12">
+                    <div class="position-relative">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-4">
+                                <div class="amaderkotha-heading bg-primary text-center">
+                                    <h4 class="p-2" style="padding-left:10px; color:#fff;">ফেসবুকে আমাদের সাথে থাকুন</h4>
+                                </div>
+                                <div class="card shadow-lg bg-transparent">
+                                    <div class="card-body">
+                                        <iframe class="shadow-sm"
+                                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTekasaibd%2F&tabs=timeline&width=350&height=375&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=442275712930029"
+                                                width="300" height="340" style="border:none;overflow:hidden"
+                                                allowTransparency="true"
+                                                allow="encrypted-media"></iframe>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection

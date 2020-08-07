@@ -36,7 +36,7 @@
                             <label class="col-2">Type</label>
                             <input type="text" class="form-control col-8" disabled placeholder=" সাধারণ">
                         </div>
-                        <div class="participants">
+                        <div class="participants d-none">
                             <table class="table  table-bordered  table-hover">
                                 <thead>
                                 <tr>
@@ -52,6 +52,10 @@
                                 </tbody>
 
                             </table>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success add-new-participants mb-4">Add More</button>
                         </div>
                     </div>
                 </div>

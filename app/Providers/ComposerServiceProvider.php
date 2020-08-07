@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Blog;
 use App\Book;
+use App\Contract;
 use App\Models\OnlineExam\Exam;
 use App\Models\OnlineExam\ParticipantAssessment;
 use App\Models\Quiz\Quiz;
@@ -37,6 +38,7 @@ class ComposerServiceProvider extends ServiceProvider
                 'assessment' => $assessment,
                 'news' => $joint,
                 'news_feed' => Blog::query()->take(10)->get(),
+                'contacts' => Contract::query()->first()
             ]);
         });
     }

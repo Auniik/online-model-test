@@ -29,7 +29,7 @@ class WorkController extends Controller
 
             $fileUrl = [];
             foreach ($request->file('file', []) as $file) {
-                $fileUrl[] = $file->store('/submitted_work');
+                $fileUrl[] = $file->store('/uploads/works');
             }
 
             $work = new Work();

@@ -118,11 +118,17 @@
         $(document).ready(function () {
             $('.vip-create').click(function () {
                 $('#VIPParticipantAssignModal').modal('show')
-                newParticipantRow()
+                $('.add-new-participants').click(function (e) {
+                    newParticipantRow()
+                    $('.participants').removeClass('d-none')
+                })
             })
             $('.general-create').click(function () {
                 $('#GeneralParticipantAssignModal').modal('show')
-                newParticipantRow()
+                $('.add-new-participants').click(function (e) {
+                    newParticipantRow()
+                    $('.participants').removeClass('d-none')
+                })
             })
             $(".select2-tags").select2({
                 tags: true,

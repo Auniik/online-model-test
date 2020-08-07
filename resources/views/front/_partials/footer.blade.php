@@ -46,11 +46,10 @@
                 </form>
             </div>
 
-
             <div class="col-lg-6 col-md-6 col-sm-12 animated bounceInLeft slow">
 
                 <div class="contact-form title-heading">
-                    <p class="text-muted">আপনার যে কোন পরামর্শ ও তথ্য জানতে আমাদের সাথে যোগাগোগ করুন ।</p>
+                    <p class="text-muted">{{$contacts->title}}</p>
                     <div class="contact-detail mt-3">
                         <div class="icon mt-3 float-left">
                             <i class="fas fa-envelope mr-3"></i>
@@ -58,7 +57,7 @@
                         <div class="content mt-3 overflow-hidden d-block">
                             <h6 class="mb-0">ইমেইল :</h6>
                             <a href="mailto:tekasai100@gmail.com" style="font-family: 'Changa', sans-serif;"
-                               class="text-primary">tekasai100@gmail.com</a>
+                               class="text-primary">{{$contacts->email}}</a>
                         </div>
                     </div>
 
@@ -68,7 +67,7 @@
                         </div>
                         <div class="content mt-3 overflow-hidden d-block">
                             <h6 class="mb-0">মোবাইল :</h6>
-                            <a href="tel:+152534-468-854" class="text-primary">০১৭২০৬২৮১৬৯, ০১৯২৮০৮০৬৮৮</a>
+                            <a href="#" class="text-primary">{{$contacts->phone}}</a>
                         </div>
                     </div>
 
@@ -79,7 +78,7 @@
                         </div>
                         <div class="content mt-3 overflow-hidden d-block">
                             <h6 class="mb-0">লোকেশন :</h6>
-                            <p>১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫</p>
+                            <p>{{$contacts->address}}</p>
                         </div>
                     </div>
 
@@ -147,7 +146,7 @@
                         <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">প্রাইভেসি
                                 পলিসি</a></li>
                     </ul>
-                    <p>১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫</p>
+                    <p>{{$contacts->address}}</p>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12">
