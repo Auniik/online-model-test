@@ -91,7 +91,6 @@
                                   method="POST">
                                 <div class="">
                                     @csrf
-                                    @include('front.partials.notifications')
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="row form-group mt-3">
@@ -151,11 +150,6 @@
                                   action="{{route('participants.quiz-register')}}" method="post">
                                 <div id="menu1" class="tab-pane">
                                     @csrf
-                                    @if(session()->has('warn'))
-                                        <div class="alert alert-warning">
-                                            {{session('warn')}}
-                                        </div>
-                                    @endif
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="row form-group mt-3">
@@ -175,7 +169,7 @@
                                                     <label for="number"> পাসওয়ার্ড:</label>
                                                 </div>
                                                 <div class="col-lg-10 col-sm-12">
-                                                    <input class="form-control my-2 w-100 integer" autocomplete="off"
+                                                    <input class="form-control my-2 w-100" autocomplete="off"
                                                            type="password"
                                                            placeholder="পাসওয়ার্ড লিখুন"
                                                            name="password"

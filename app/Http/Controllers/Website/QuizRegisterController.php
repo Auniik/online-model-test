@@ -39,13 +39,16 @@ class QuizRegisterController extends Controller
         auth('participant')->login($participant);
 
         $defaultQuiz = $this->getCurrentQuiz();
+        if (!$defaultQuiz) {
+            return back()->withWarning('বর্তমানে কোন কুইজ চললমান নেই');
+        }
 
         $isAttended = $participant->quizzes
             ->where('quiz_id', $defaultQuiz->id)
             ->where('is_attended', 1);
 
         if ($isAttended->isNotEmpty()) {
-            return back()->withWarning('You already played this quiz');
+            return back()->withWarning('আপনি কুইজটি একবার খেলেছেন ।');
         }
 
         session([
