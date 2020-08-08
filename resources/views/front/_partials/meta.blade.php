@@ -7,7 +7,7 @@
     <meta name="keywords" content="টেকসই বিডি, tekasaibd.com, @if (isset($keywords)) {{$keywords}} @endif">
     <meta name="author" content="মোঃ নুরউদ্দিন রোকসার">
 
-    <meta property="og:url"           content="{{request()->fullUrl()}}" />
+    <meta property="og:url"           content="{!! request()->fullUrl() !!}" />
     <meta property="og:title"         content="@if ( $meta->title) {{ $meta->title}} @else  টেকসইবিডি - Tekasaibd @endif" />
     <meta property="og:description"   content="@if ($meta->description) {{$meta->description}} @else {{$default_description}} @endif" />
     <meta property="og:image"         content="{{url($meta->image)}}" />
@@ -18,11 +18,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@nurroksar" />
     <meta name="twitter:creator" content="@nurroksar" />
-    <meta name="twitter:url" content="{{request()->fullUrl()}}" />
+    <meta name="twitter:url" content="{!! request()->fullUrl() !!}" />
     <meta name="twitter:title" content="@if ( $meta->title) {{ $meta->title}} @else  টেকসইবিডি @endif" />
     <meta name="twitter:description" content="@if ($meta->description) {{$meta->description}} @else {{$default_description}} @endif" />
     <meta name="twitter:image" content="{{url($meta->image)}}" />
 
     <!--canonical link-->
-    <link rel="canonical" href="{{request()->fullUrl()}}">
-    <link rel="amphtml" href="{{request()->fullUrl()}}">
+    <link rel="canonical" href="{!! request()->fullUrl() !!}">
+    <link rel="amphtml" href="{!! request()->fullUrl() !!}">
