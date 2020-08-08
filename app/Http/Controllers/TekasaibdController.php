@@ -81,9 +81,7 @@ class TekasaibdController extends Controller
                 ->latest()
                 ->paginate(6),
             'contract' => Contract::all(),
-            'publications' => Publication::query()
-                ->latest()
-                ->paginate(6 ,'*', 'publication'),
+
             'youtubes'     => Youtube::query()
                 ->latest()
                 ->paginate(4),
@@ -135,7 +133,9 @@ class TekasaibdController extends Controller
         $abouts = About::all();
         return view('front.about.amaderkotha', [
             'abouts'       => $abouts,
-
+            'publications' => Publication::query()
+                ->latest()
+                ->paginate(6 ,'*', 'publication'),
             'director' => EventMessage::query()->where('is_team_member', 0)->first(),
             'team_members' => EventMessage::query()->where('is_team_member', 1)->take(4)->get(),
         ]);

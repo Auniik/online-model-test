@@ -57,38 +57,7 @@
         </div><!--end container-->
     </section>
     <!-- About Start -->
-    <div class="shadow-lg my-4 py-4 mx-5">
-        <div class="amaderkotha-heading bg-transparent text-center">
-            <h4 class="my-3 display-4" > প্রকাশনা </h4>
-        </div>
-        <section class="section pt-0 pb-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12 col-md-12 mt-4 pt-0 mt-sm-0 pt-sm-0">
-                        <div class="position-relative">
-                            <div class="row m-0">
-                                <div class="row d-flex justify-content-between">
-                                    @foreach($publications as $publication)
-                                        <div class="col-md-3 mb-2 mt-2">
-                                            <div class="card shadow-lg">
-                                                <a href="{{route('publication-details',['id'=>$publication->id])}}"
-                                                   target="_blank"><img class="card-img-top"
-                                                                        src="{{asset($publication->image)}}"
-                                                                        alt="Card image cap" width="100%" height="300"></a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    <div class="col-sm-12 col-sm-offset-6">
-                                        {{ $publications->links() }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section>
-    </div>
+
 
     <section class="section shadow-lg my-4 py-4 mx-5">
         <div class="container">

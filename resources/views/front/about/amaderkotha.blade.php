@@ -96,6 +96,110 @@
     </section>
 
 
+    <section id="preferred-category" class="choice_category">
+        <div class="overlay">
+            <div class="container-fulied">
+                <div class="text_center">
+                    <h1>আমাদের পরিসেবা</h1>
+                </div>
+                <div class="row online-left">
+
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-briefcase"></i>
+                                <h1><span class="counter">চাকুরী</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-balance-scale"></i>
+                                <h1><span class="counter">টেন্ডার</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-desktop"></i>
+                                <h1><span class="counter">আউটসোর্সিং</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-mail-bulk"></i>
+                                <h1><span class="counter">ই-মার্কেট</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-user-graduate"></i>
+                                <h1><span class="counter">পড়াশোনা</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+                    <div class="padding_none col-lg col-md-12 col-sm-6">
+                        <a href="javascript:void(0)">
+                        </a><div class="count"><a href="javascript:void(0)"> <i class="fast_icon fas fa-blog"></i>
+                                <h1><span class="counter">ব্লগ</span></h1>
+                            </a>
+                            @include('front._partials.share', ['url' => request()->root()])
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="amaderkotha-heading bg-transparent text-center">
+        <div class="container-fulied mt-4">
+            <div class="text_center">
+                <h1> প্রকাশনা </h1>
+            </div>
+        </div>
+    </div>
+    <section class="section pt-0 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12 mt-4 pt-0 mt-sm-0 pt-sm-0">
+                    <div class="position-relative">
+                        <div class="row m-0">
+                            <div class="row d-flex justify-content-between">
+                                @foreach($publications as $publication)
+                                    <div class="col-md-3 mb-2 mt-2">
+                                        <div class="card shadow-lg">
+                                            <a href="{{route('publication-details',['id'=>$publication->id])}}"
+                                               target="_blank"><img class="card-img-top" style="height: 300px"
+                                                                    src="{{asset($publication->image)}}"
+                                                                    alt="Card image cap" width="100%" height="300"></a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="col-sm-12 col-sm-offset-6">
+                                    {{ $publications->links() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section>
+
 
 
 
