@@ -140,7 +140,7 @@ class MetaGenerator
             if ($img = $book->img)
                 $image = $img->image;
             $description = $book->shortDescription;
-            $title = $book->name;
+            $title = $book->title;
         }
 
         return (object)[
