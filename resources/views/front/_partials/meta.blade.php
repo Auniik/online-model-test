@@ -7,8 +7,8 @@
     <meta name="keywords" content="টেকসই বিডি, tekasaibd.com, @if (isset($keywords)) {{$keywords}} @endif">
     <meta name="author" content="মোঃ নুরউদ্দিন রোকসার">
 
-    <meta property="og:url"           content="909731212771520" />
-    <meta property="fb:app_id"        content="{!! request()->fullUrl() !!}" />
+    <meta property="og:url"           content="{!! request()->fullUrl() !!}" />
+    <meta property="fb:app_id"        content="909731212771520" />
     <meta property="og:title"         content="@if ( $meta->title) {{ $meta->title}} @else  টেকসইবিডি - Tekasaibd @endif" />
     <meta property="og:description"   content="@if ($meta->description) {{$meta->description}} @else {{$default_description}} @endif" />
     <meta property="og:image"         content="{{url($meta->image)}}" />
