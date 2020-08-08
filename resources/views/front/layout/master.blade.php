@@ -207,8 +207,12 @@
         }
         $('.copy-btn').html('Copy')
         $.ajax({
-            url: `/get-social-links?url=${url}`,
-            type: 'GET',
+            url: `/get-social-links`,
+            data: {
+                url,
+                '_token': "{{csrf_token()}}"
+            },
+            type: 'POST',
             dataType:'HTML',
         }).done(function (data) {
             if(url) {

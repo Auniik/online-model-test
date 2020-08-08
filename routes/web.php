@@ -160,4 +160,4 @@ Route::post('/new-work','WorkController@newWork')->name('new-work');
 Auth::routes();
 
 
-Route::get('/get-social-links', 'Website\SocialShareController@show');
+Route::post('/get-social-links', 'Website\SocialShareController@show');
