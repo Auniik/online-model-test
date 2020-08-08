@@ -26,10 +26,11 @@
                             <a class="dropdown-item custom-menu" href="{{asset('amaderkotha')}}">আমাদের সম্পর্কে</a>
                             <a class="dropdown-item custom-menu" href="{{asset('tekasaibd')}}">লক্ষ্য-ও-উদ্দেশ্য</a>
                             <a class="dropdown-item custom-menu" href="{{route('bangabandhu')}}">বঙ্গবন্ধু</a>
-                            <a class="dropdown-item custom-menu" href="{{route('contact')}}">যোগাযোগ</a>
                         </div>
                     </li>
-                    <a href="{{url('blog')}}"  class="btn btn-outline-success my-2 my-sm-0" type="submit"> বার্তা </a>
+                    <a href="{{url('blog')}}"  class="btn btn-outline-success my-2 my-sm-0"> বার্তা </a>
+                    <a href="{{ route('contact')}}"  class="btn btn-outline-success my-2 my-sm-0">
+                        যোগাযোগ </a>
                     @if (!auth('participant')->check())
                         <a href="/participants/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">সাইন ইন</a>
                     @else
@@ -47,7 +48,7 @@
 
 
             </div>
-            <a class="navbar-brand mujib-logo-img" href="#"><img src="/front-end/images/Mujib_100_Logo.png"
+            <a class="navbar-brand mujib-logo-img" href="/bangabandhu"><img src="/front-end/images/Mujib_100_Logo.png"
                                                                  alt="logo"></a>
         </div>
     </nav>

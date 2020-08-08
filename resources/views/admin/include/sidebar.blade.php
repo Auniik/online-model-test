@@ -26,7 +26,7 @@
                         <li><a href="{{route('exams.create')}}"> নতুন পরীক্ষা</a></li>
                         <li><a href="{{route('exams.index')}}"> সকল পরীক্ষাসমূহ</a></li>
                         <li><a href="{{route('assessments.index')}}">নীরিক্ষণ</a></li>
-                        <li><a href="{{route('subjects.index')}}"> বিষয়  সেটিংস</a></li>
+                        <li><a href="{{route('subjects.index')}}"> বিষয় সেটিংস</a></li>
                     </ul>
                 </li>
                 <li><a href="{{route('participants.index')}}" class="waves-effect"><i class="mdi mdi-account"></i>
@@ -37,8 +37,8 @@
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{asset('add-book')}}">All Books</a></li>
-                        <li><a href="{{route('create-book')}}">Create Books</a></li>
+                        <li><a href="{{asset('add-book')}}">সকল বইসমূহ</a></li>
+                        <li><a href="{{route('create-book')}}"> নতুন বই</a></li>
                         <li><a href="{{route('admin.book.question')}}"> Book Questions</a></li>
                         <li><a href="{{route('admin.book.question.create')}}"> Create Questions</a></li>
                     </ul>
@@ -51,13 +51,13 @@
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-blogger"></i> <span> Blogging
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('add-blog')}}">All Blogs</a></li>
-                        <li><a href="{{route('create-blog')}}">Add Blog</a></li>
+                        <li><a href="{{route('add-blog')}}"> সকল বার্তাসমূহ</a></li>
+                        <li><a href="{{route('create-blog')}}"> বার্তা তৈরী করুন</a></li>
                     </ul>
                 </li>
 
                 <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> Manage News</span></a></li>
+                        <span> </span></a></li>
                 <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> Messages</span></a></li>
 

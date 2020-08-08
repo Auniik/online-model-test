@@ -139,12 +139,12 @@
             <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="f_text text-center mt-2">
                     <ul class="list-unstyled text-sm-center mb-0">
-                        <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">মিশন ভিশন
-                                । </a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">টার্মস ও কন্ডিশন
-                                । </a></li>
-                        <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">প্রাইভেসি
-                                পলিসি</a></li>
+                        <li class="list-inline-item"><a href="{{route('contact')}}" target="_blank">Contact</a></li>
+                        <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">Mission
+                                Vision</a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">Terms & Conditions</a></li>
+                        <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">Privacy
+                                Policy</a></li>
                     </ul>
                     <p>{{$contacts->address}}</p>
                 </div>

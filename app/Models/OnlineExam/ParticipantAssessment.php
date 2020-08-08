@@ -27,7 +27,7 @@ class ParticipantAssessment extends Model
 
     public function participant()
     {
-        return $this->belongsTo(Participant::class);
+        return $this->belongsTo(Participant::class, 'participant_id');
     }
     public function exam()
     {

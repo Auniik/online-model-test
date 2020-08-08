@@ -20,7 +20,6 @@ class ParticipantAssessmentController extends Controller
             ->withCount('answers');
 
 
-
         if ($request->filled('exam_id')) {
             $assessments->where('exam_id', $request->exam_id);
         }
@@ -54,7 +53,7 @@ class ParticipantAssessmentController extends Controller
     {
         $assigned = $exam->assignedParticipants->pluck('participant_id');
         return view('admin.online-exam.exam.participants.index', [
-            'exam' => $exam->load('assignedParticipants')->loadCount('questions'),
+            'exam' => $exam->load('assignedParticipants.participant')->loadCount('questions'),
             'participants' => Participant::query()
                 ->whereNotIn('id', $assigned)
                 ->pluck('name', 'id')

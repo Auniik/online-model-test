@@ -7,15 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>টেকসই বিডি</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।">
-    <meta name="keywords" content="টেকসই বিডি,tekasaibd.com">
-    <meta name="author" content="Md Hafizul Islam">
-    <meta property="og:url"           content="{{request()->fullUrl()}}" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content=" টেকসইবিডি " />
-    <meta property="og:description"   content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।" />
-    <meta property="og:image"         content="/front-end/images/logo-1.png" />
 
+
+    @stack('meta')
 
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('/front-end/images/logo-1.png')}}">
 
