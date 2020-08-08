@@ -114,9 +114,6 @@
         margin-bottom: 12px;
     }
 
-    .banner-text-1 {
-        padding: 150px 0px 55px 0px;
-    }
 
     #banner .banner-1 .banner-text-1 .btn {
         font-size: 14px;
@@ -296,7 +293,7 @@
     }
 
     #about_bg {
-        margin-top: 82px;
+        /*margin-top: 82px;*/
     }
 
     #about_bg .text_center h1 {
@@ -328,7 +325,7 @@
     }
 
     #bongobondhu_bg {
-        margin-top: 81px;
+        /*margin-top: 81px;*/
     }
 
     .bongobondhu h5 {
@@ -503,10 +500,6 @@
         padding-bottom: 40px;
     }
 
-    .banner-text-1 {
-        padding-top: 210px;
-        padding-bottom: 80px;
-    }
 
     .banner-text-1 h2 {
         font-size: 50px;
@@ -902,8 +895,8 @@
     }
 
     .banner-text-1 {
-        padding-top: 210px;
-        padding-bottom: 80px;
+        /*padding-top: 210px;*/
+        /*padding-bottom: 80px;*/
     }
 
     .banner-text-1 h2 {
@@ -1047,7 +1040,7 @@
 */
 
     #about_bg {
-        margin-top: 140px
+        /*margin-top: 140px*/
     }
 
     #about_bg .text_center h1 {
@@ -1069,7 +1062,7 @@
     }
 
     #bongobondhu_bg {
-        margin-top: 139px;
+        /*margin-top: 139px;*/
     }
 
 
@@ -1531,3 +1524,11 @@
     Author Email: hafizul6280@gmail.com
     ----------------
 */
+
+
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}

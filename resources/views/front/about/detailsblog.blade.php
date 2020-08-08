@@ -22,7 +22,8 @@
                                             <h3 class=" text-center text-justify mt-2">{{$blogs->title }} </h3>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <img class="rounded" style="padding: 20px" src="{{asset($blogs->image)}}"
+                                            <img class="rounded" style="padding: 20px; object-fit: contain;"
+                                                 src="{{asset($blogs->image)}}"
                                                  alt="image"
                                                  height="500" width="100%">
                                         </div>
