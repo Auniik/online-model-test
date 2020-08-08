@@ -27,11 +27,13 @@
                                         <div class="card-body justify-content-between">
                                             <h5 class="card-text d-flex justify-content-between">
                                                 {{ Str::limit($blog->short_description, 50) }}
-                                                <a href="{{route('blog-details',['id'=>$blog->id])}}"
+                                                <a href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}"
                                                    class="btn btn-link pull-right">বিস্তারিত</a>
                                             </h5>
                                             <div class="text-center">
-                                                @include('front._partials.share', ['url' => route('blog-details', $blog)])
+                                                @include('front._partials.share', [
+                                                    'url' => url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")
+                                                ])
                                             </div>
 
                                         </div>

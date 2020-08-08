@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Participant;
+use App\Services\MetaGenerator;
 use App\Services\Participant\ParticipantAuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -50,8 +51,8 @@ class ParticipantLoginController extends Controller
         }
         auth('participant')->loginUsingId($participant->id);
 
-        if ($request->filled('to')) {
-            return redirect($request->to);
+        if ($request->filled('next')) {
+            return redirect("/$request->next");
         }
 
         return redirect()->route('participants.profile');

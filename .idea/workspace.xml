@@ -11,9 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/_partials/meta.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/anik.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/MetaGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantLoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/meta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/meta.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/bangabandhu/bangabandhu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +277,7 @@
       <workItem from="1596467299770" duration="620000" />
       <workItem from="1596553361038" duration="18655000" />
       <workItem from="1596642691277" duration="14854000" />
-      <workItem from="1596728928090" duration="34475000" />
+      <workItem from="1596728928090" duration="46295000" />
     </task>
     <servers />
   </component>
@@ -289,10 +309,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="416" y="132" width="524" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.22.1366.746@0.22.1366.746" timestamp="1596754059933" />
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596752379114">
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596883944929">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1596752379114" />
+    <state x="416" y="140" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.22.1366.746@0.22.1366.746" timestamp="1596883944929" />
     <state x="466" y="140" width="424" height="480" key="FileChooserDialogImpl" timestamp="1594617037274">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -345,10 +365,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state width="1366" height="270" key="GridCell.Tab.2.right/0.22.1366.746@0.22.1366.746" timestamp="1593669429443" />
-    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog" timestamp="1596764551410">
+    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog" timestamp="1596879271291">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1596764551410" />
+    <state x="197" y="150" width="844" height="534" key="NewPhpClassDialog/0.22.1366.746@0.22.1366.746" timestamp="1596879271291" />
     <state x="501" y="308" width="314" height="143" key="NewPhpFileDialog" timestamp="1594617694126">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -389,9 +409,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1596752870800" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596863340192">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596886572940">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596863340192" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596886572940" />
   </component>
 </project>

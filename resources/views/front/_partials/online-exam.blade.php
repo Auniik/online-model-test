@@ -52,7 +52,9 @@
                                             <h4>{{$exam->class}}</h4>
                                         </a>
                                         <div class="mt-5">
-                                            @include('front._partials.share', ['url' => url("/exams/{$exam->id}/start")])
+                                            @include('front._partials.share',
+                                                ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
+                                            ])
                                         </div>
                                     </div>
                                         <p class="text-center pb-0">Available to: {{$exam->end_at->format('d-m-Y')}}</p>
@@ -136,6 +138,7 @@
                                                             type="button"
                                                             class="btn btn-primary shadow-sm p-3 mr-3 ml-auto
                                                             share-button"
+                                                            data-url="{{request()->url()}}?ref=quiz"
                                                         >
                                                             <i class="fas fa-share text-white"></i> Share
                                                         </button>
@@ -187,6 +190,7 @@
                                                             type="button"
                                                             class="btn btn-primary shadow-sm p-3 mr-3 ml-auto
                                                             share-button"
+                                                            data-url="{{request()->url()}}?ref=quiz"
                                                         >
                                                             <i class="fas fa-share  text-white"></i> Share
                                                         </button>

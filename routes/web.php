@@ -21,7 +21,7 @@ include __DIR__.'/admin/exam.php';
 include __DIR__.'/admin/quiz.php';
 include __DIR__.'/participant.php';
 
-Route::get('/', 'Website\WebsiteController@home');
+Route::get('/', 'Website\WebsiteController@home')->name('welcome');
 
 Route::group(['middleware' => ['auth']], function () {
 

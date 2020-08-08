@@ -21,8 +21,8 @@ class ParticipantRegisterController extends Controller
         if (!auth('participant')->check()) {
             return view('front.participant.register');
         }
-        if ($request->get('to')) {
-            return redirect("/$request->to");
+        if ($request->get('next')) {
+            return redirect("/$request->next");
         }
         return redirect('/participants/profile');
     }
@@ -42,6 +42,13 @@ class ParticipantRegisterController extends Controller
             auth('participant')->loginUsingId($participant->id);
         });
         $check = auth('participant')->check();
-        return redirect()->route($check ? 'participants.profile' : 'welcome');
+
+        if (!$check) {
+            return redirect('/');
+        }
+        if ($request->next) {
+            return redirect("/" . $request->next);
+        }
+        return route('participants.profile');
     }
 }

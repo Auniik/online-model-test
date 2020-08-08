@@ -25,10 +25,11 @@
                         <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item custom-menu" href="{{asset('amaderkotha')}}">আমাদের সম্পর্কে</a>
                             <a class="dropdown-item custom-menu" href="{{asset('tekasaibd')}}">লক্ষ্য-ও-উদ্দেশ্য</a>
-                            <a class="dropdown-item custom-menu" href="{{route('bangabandhu')}}">বঙ্গবন্ধু</a>
+                            <a class="dropdown-item custom-menu" href="{{route('bangabandhu', ['ref' => 'bb'])
+                            }}">বঙ্গবন্ধু</a>
                         </div>
                     </li>
-                    <a href="{{url('blog')}}"  class="btn btn-outline-success my-2 my-sm-0"> বার্তা </a>
+                    <a href="{{url('blog?ref=blog')}}"  class="btn btn-outline-success my-2 my-sm-0"> বার্তা </a>
                     <a href="{{ route('contact')}}"  class="btn btn-outline-success my-2 my-sm-0">
                         যোগাযোগ </a>
                     @if (!auth('participant')->check())
@@ -48,8 +49,9 @@
 
 
             </div>
-            <a class="navbar-brand mujib-logo-img" href="/bangabandhu"><img src="/front-end/images/Mujib_100_Logo.png"
-                                                                 alt="logo"></a>
+            <a class="navbar-brand mujib-logo-img"
+               href="/bangabandhu?ref=bb"><img src="/front-end/images/Mujib_100_Logo.png"
+               alt="logo"></a>
         </div>
     </nav>
 </section>

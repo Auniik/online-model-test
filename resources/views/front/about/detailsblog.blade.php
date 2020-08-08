@@ -28,7 +28,9 @@
                                         </div>
                                         <div class="col-md-9 offset-md-1 text-justify">
                                            <div class="text-right mb-5">
-                                               @include('front._partials.share', ['url' => route('blog-details', $blogs)])
+                                               @include('front._partials.share', [
+                                                    'url' => url("/blog-details/{$blogs->id}?ref=blog&id={$blogs->id}")
+                                               ])
                                            </div>
                                             <strong>
                                                 <p style="font-size:20px" class="text-justify pl-5 pr-5">{{

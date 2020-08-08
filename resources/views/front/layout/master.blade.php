@@ -8,11 +8,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    @stack('meta')
-
-
-
+    @include('front._partials.meta')
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/front-end/css/fontawesome.min.css">

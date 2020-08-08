@@ -14,12 +14,12 @@
                                     1500ms; animation-delay: 0ms; animation-name: fadeInRight; font-family: shorif-shishir">টেকসই
                                     <span>বাংলা</span></h2>
                                 <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
-                                <a href="{{url('/submit-work')}}">
+                                <a href="{{url('/submit-work?ref=creativity')}}">
                                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> সৃজনশীলতা জমা
                                         দিন</button></a>
                                 @if (!auth('participant')->check())
                                     <a href="{{route('participants.register.index')}}"><button class="btn btn-outline-success my-2 my-sm-0"
-                                                        type="submit">রেজিস্ট্রেশন</button></a>
+                                                type="submit">রেজিস্ট্রেশন</button></a>
                                 @endif
 
                             </div>
@@ -62,9 +62,11 @@
                                     {{$blog->created_at->format('M d, Y h:i A')}}
                                 </span>
                                 <div class="mt-3 d-flex justify-content-between">
-                                    @include('front._partials.share', ['url' => route('blog-details', $blog)])
-                                    <a href="{{route('blog-details',['id'=>$blog->id])}}" class="btn
-                                    btn-link">বিস্তারিত</a>
+                                    @include('front._partials.share', [
+                                        'url' => url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")
+                                    ])
+                                    <a href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}"
+                                       class="btn btn-link">বিস্তারিত</a>
                                 </div>
                             </div>
                         </div>

@@ -86,11 +86,11 @@
                             <h4 class="widget-title">তথ্য</h4>
                             {!! $question->question ?? '' !!}
                             <hr>
-                            <p><a class="btn btn-info" href="{{asset('submit-work')}}">জমা দিন</a></p>
+                            <p><a class="btn btn-info" href="{{url('submit-work?ref=creativity')}}">জমা দিন</a></p>
                         @else
                             @if(!auth('participant')->check())
                             <p class="text-center">তথ্য জমা দিতে<a
-                                        href="{{route('participants.login')}}?to={{request()->path()}}"> লগিন করুন
+                                        href="{{route('participants.login')}}?next={{request()->path()}}"> লগিন করুন
                                 </a></p>
                             @endif
                         @endif
@@ -112,28 +112,18 @@
                         </div>
                         <!-- SEARCH -->
 
-                        <!-- CATAGORIES -->
-
-                        <!-- CATAGORIES -->
-
-                        <!-- RECENT POST -->
-
-                        <!-- RECENT POST -->
-
-                        <!-- TAG CLOUDS -->
-
-                        <!-- TAG CLOUDS -->
-
                         <!-- SOCIAL -->
                         @if(!auth('participant')->check())
                             <div class="widget">
-                                <a href="{{route('participants.login')}}?to={{request()->path()}}"
+                                <a href="{{route('participants.login')}}?next={{request()->path()}}"
                                    class="btn btn-primary btn-block">Login</a>
                             </div>
                     @endif
                     <!-- SOCIAL -->
                          <div class="widget mt-2">
-                            @include('front._partials.share', ['url' => route('book.details',$book->id)])
+                            @include('front._partials.share', [
+                                'url' => url("/book/details/{$book->id}?ref=book&id={$book->id}")
+                            ])
                         </div>
                     </div>
                 </div><!--end col-->

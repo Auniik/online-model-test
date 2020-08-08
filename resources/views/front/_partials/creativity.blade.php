@@ -16,14 +16,16 @@
                             <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
                         @endif
                         <div class="img-overlay text-center">
-                            <a href="{{route('book.details',$book->id)}}" target="_blank">
+                            <a href="{{url("/book/details/{$book->id}?ref=book&id={$book->id}")}}" target="_blank">
                                 <div class="text-part">
                                     <p>{{$book->title}}</p>
                                 </div>
                             </a>
                         </div>
                         <div class="p-2" style="z-index: 2; margin: 0 auto">
-                            @include('front._partials.share', ['url' => route('book.details',$book->id)])
+                            @include('front._partials.share', [
+                                'url' => url("/book/details/{$book->id}?ref=book&id={$book->id}")
+                            ])
                         </div>
                     </div>
                 </div>

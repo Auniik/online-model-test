@@ -15,7 +15,7 @@ class ExamFormController extends Controller
     public function index(Request $request, Exam $exam)
     {
         if (!auth('participant')->check()) {
-            return redirect("/participants/login?to=exams/$exam->id/start");
+            return redirect("/participants/login?ref=exam&id={$exam->id}");
         }
 
         $attributes = [

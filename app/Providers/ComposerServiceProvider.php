@@ -9,6 +9,7 @@ use App\Models\OnlineExam\Exam;
 use App\Models\OnlineExam\ParticipantAssessment;
 use App\Models\Quiz\Quiz;
 use App\News;
+use App\Services\MetaGenerator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,9 +42,16 @@ class ComposerServiceProvider extends ServiceProvider
                     'assessment' => $assessment,
                     'news' => $joint,
                     'news_feed' => Blog::query()->latest()->take(10)->get(),
-                    'contacts' => Contract::query()->first()
+                    'contacts' => Contract::query()->first(),
                 ]);
-            });
+
+        });
+
+             View::composer('*', function($view) {
+                 return $view->with([
+                     'meta' => resolve(MetaGenerator::class)->build()
+                 ]);
+             });
         }
 
     }

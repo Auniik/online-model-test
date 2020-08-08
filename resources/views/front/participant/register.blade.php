@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="to" value="{{request('to')}}">
+                                    <input type="hidden" name="next" value="{{request('next')}}">
                                     <div class="col-sm-4 offset-md-4 mt-4 text-center">
                                         <button class="btn btn-lg btn-block btn-outline-primary"> রেজিস্টার করুন</button>
                                     </div>

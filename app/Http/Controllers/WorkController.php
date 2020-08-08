@@ -13,7 +13,7 @@ class WorkController extends Controller
     public function addWork()
     {
         if (!auth('participant')->check()) {
-            return redirect('/participants/login?to=submit-work');
+            return redirect('/participants/login?next=submit-work');
         }
         return view('front.work.submit-work');
     }
@@ -60,6 +60,6 @@ class WorkController extends Controller
                 Storage::delete($file);
             }
 
-        return redirect('/admin/submitted-work')->with('message', 'Data Successfully Delete' );
+        return redirect('/admin/submitted-work')->withSuccess(' সৃজনশীল কাজ মুছে ফেলা হয়েছে');
     }
 }
