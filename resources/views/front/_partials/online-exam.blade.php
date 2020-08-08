@@ -34,15 +34,13 @@
                         </div>
                     @else
                         @foreach($exams ?? [] as $exam)
-                            <div class="col-lg-4 col-md-6 col-sm-6 mb-4 mt-4">
+                            <div class="col-lg-4 col-md-4 col-sm-6 mb-4 mt-4">
                                 <div class="card shadow-lg bg-transparent">
                                     @if ($exam->image)
-                                        <img src="{{url($exam->image)}}" class="card-img-top exam-cover" height="200"
-                                             alt="hero2
-                                        .jpg">
+                                        <img src="{{url($exam->image)}}" class="card-img-top exam-cover"
+                                             alt="hero2.jpg">
                                     @else
                                         <img src="/front-end/images/book1.png" class="card-img-top exam-cover"
-                                             height="200"
                                              alt="hero2.jpg">
                                     @endif
                                     <div class="card-img-overlay text-center">
@@ -50,11 +48,12 @@
                                             <h5>বিষয়</h5>
                                             <h6>{{$exam->subject->name}}</h6>
                                             <h4>{{$exam->class}}</h4>
+                                            <p class="text-center text-white">Available to: <br>
+                                                {{$exam->end_at->format('d-m-Y')}}</p>
                                         </a>
                                     </div>
-                                    <div class="card-footer text-center p-2">
+                                    <div class="card-footer text-center p-2" style="z-index: 1111">
 
-                                        <p class="text-center py-0">Available to: {{$exam->end_at->format('d-m-Y')}}</p>
                                         @include('front._partials.share',
                                            ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
                                        ])

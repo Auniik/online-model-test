@@ -22,7 +22,8 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="p-2" style="z-index: 2; margin: 0 auto">
+                        <div class="py-2 w-100 text-center d-flex" style="z-index: 2; justify-content: space-around">
+                           <span class="text-white">{{$book->created_at->format('M d, Y h:i A')}}</span>
                             @include('front._partials.share', [
                                 'url' => url("/book/details/{$book->id}?ref=book&id={$book->id}")
                             ])

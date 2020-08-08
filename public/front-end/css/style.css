@@ -2092,6 +2092,9 @@ label {
 
 .exam-cover{
     filter: brightness(40%);
+    height: auto !important;
+    min-height: 193px;
+    max-height: 192px;
 }
 
 .quiz_time {
