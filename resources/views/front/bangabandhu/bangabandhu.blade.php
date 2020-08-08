@@ -1,15 +1,9 @@
 @extends('front.layout.master')
 @push('meta')
-    <title> বঙ্গবন্ধু </title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{url($bangabandhu->image)}}">
-    <meta name="description" content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।">
-    <meta name="keywords" content="টেকসই বিডি, tekasaibd.com">
-    <meta name="author" content="মোঃ নুরউদ্দিন রোকসার">
-    <meta property="og:type"          content="website" />
-    <meta property="og:url"           content="{{request()->fullUrl()}}" />
-    <meta property="og:title"         content="বঙ্গবন্ধু" />
-    <meta property="og:description"   content="বঙ্গবন্ধুর জন্ম শতবার্ষিকী উপলক্ষে তার আদর্শ ও চেতনার প্রতি বিনম্রচিত্ত্বে সম্মান রেখে tekasaibd.com টেকসই লক্ষ্যমাত্রা নির্ধারণ করে মুজিব বর্ষব্যাপী বিভিন্ন সামাজিক ও মানবিক সমস্যার স্থায়ী সমাধান কার্যক্রম হাতে নিয়েছে।" />
-    <meta property="og:image"         content="{{url($bangabandhu->image)}}" />
+    @include('front._partials.meta', [
+        'image' => '/front-end/images/Mujib_100_Logo.png',
+        'title' => 'বঙ্গবন্ধু'
+    ])
 @endpush
 @section('content')
 
