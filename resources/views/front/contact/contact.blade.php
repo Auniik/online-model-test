@@ -1,5 +1,6 @@
 @extends('front.layout.master')
 @section('content')
+
     <section id="about_bg">
         <div class="overlay">
             <div class="container-fulied">

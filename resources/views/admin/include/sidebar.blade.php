@@ -48,7 +48,7 @@
 
 
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-blogger"></i> <span> Blogging
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-blogger"></i> <span>  বার্তা
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('add-blog')}}"> সকল বার্তাসমূহ</a></li>
@@ -57,39 +57,43 @@
                 </li>
 
                 <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> </span></a></li>
-                <li><a href="{{url('/messages')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span> Messages</span></a></li>
+                        <span> নিউজ আপডেট</span></a></li>
+                <li><a href="{{url('/add-publication')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span> পাবলিকেশনস</span></a></li>
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Page </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> যোগাযোগ
+                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
+                        <li><a href="{{url('edit-contact')}}"> যোগাযোগ</a></li>
+                        <li><a href="{{url('/messages')}}"> Messages</a></li>
+                    </ul>
+                </li>
+
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> পেজ
+                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
                          <li><a href="{{asset('edit-bangabandhu-info')}}"> বঙ্গবন্ধু</a></li>
                         <li><a href="{{route('add-event-message')}}"> আমাদের সম্পর্কে</a></li>
-                        <li><a href="{{asset('add-publication')}}">Manage Publication</a></li>
-                        <li><a href="{{asset('edit-contact')}}"> Contacts</a></li>
                     </ul>
                 </li>
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Gallery
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> গ্যালারী
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('add-gallery')}}">Image Gallery</a></li>
-                        <li><a href="{{route('add-video')}}">Video Gallery</a></li>
+                        <li><a href="{{route('add-gallery')}}"> ছবির গ্যালারী</a></li>
+                        <li><a href="{{route('add-video')}}"> ভিডিওচিত্র গ্যালারী</a></li>
                     </ul>
                 </li>
-                <!--<li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span>Video</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>-->
-                <!--    <ul class="list-unstyled">-->
-                <!--        <li><a href="{{route('add-video')}}">Manage Video</a></li>-->
-                <!--    </ul>-->
-                <!--</li>-->
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i>
-                        <span>Settings</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <span> সেটিংস</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{asset('add-slider')}}">Manage Slider</a></li>
-                        <li><a href="{{route('add-event-video')}}">Manage Event Video</a></li>
-                        <li><a href="{{asset('add-about')}}">Manage Image</a></li>
+                        <li><a href="{{asset('add-slider')}}"> স্লাইডার</a></li>
+                        <li><a href="{{route('add-event-video')}}"> ইভেন্ট ভিডিও</a></li>
+                        <li><a href="{{asset('add-about')}}"> ছবি  ম্যানেজ করুন</a></li>
                     </ul>
                 </li>
             </ul>

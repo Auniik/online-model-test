@@ -34,7 +34,7 @@
                         </div>
                     @else
                         @foreach($exams ?? [] as $exam)
-                            <div class="col-md-4 mb-4 mt-4">
+                            <div class="col-lg-4 col-md-6 col-sm-6 mb-4 mt-4">
                                 <div class="card shadow-lg bg-transparent">
                                     @if ($exam->image)
                                         <img src="{{url($exam->image)}}" class="card-img-top exam-cover" height="200"
@@ -51,13 +51,15 @@
                                             <h6>{{$exam->subject->name}}</h6>
                                             <h4>{{$exam->class}}</h4>
                                         </a>
-                                        <div class="mt-5">
-                                            @include('front._partials.share',
-                                                ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
-                                            ])
-                                        </div>
                                     </div>
-                                        <p class="text-center pb-0">Available to: {{$exam->end_at->format('d-m-Y')}}</p>
+                                    <div class="card-footer text-center p-2">
+
+                                        <p class="text-center py-0">Available to: {{$exam->end_at->format('d-m-Y')}}</p>
+                                        @include('front._partials.share',
+                                           ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
+                                       ])
+                                    </div>
+
 
                                 </div>
                             </div>

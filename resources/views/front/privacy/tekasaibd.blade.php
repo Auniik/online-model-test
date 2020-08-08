@@ -6,7 +6,7 @@
                 <div class="col-lg-10 offset-md-1 col-md-12 mt-sm-0 pt-5"
                     style="font-size: 18px"
                 >
-                    <div class="card shadow-lg p-5">
+                    <div class="card shadow-lg p-lg-5 p-sm-0 p-md-2 bg-transparent">
                         <div class="card-body">
                             <h3 class="goal text-center">লক্ষ্য-ও-উদ্দেশ্য</h3><br/>
                             <p class="text-justify">

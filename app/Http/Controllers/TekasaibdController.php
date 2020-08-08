@@ -11,14 +11,12 @@ use App\Contract;
 use App\EventMessage;
 use App\EventVideo;
 use App\Gallery;
-use App\Mail\ContactUsMail;
 use App\Models\Message;
 use App\News;
 use App\Publication;
 use App\Slider;
 use App\Youtube;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class TekasaibdController extends Controller
 {
@@ -83,6 +81,17 @@ class TekasaibdController extends Controller
                 ->latest()
                 ->paginate(6),
             'contract' => Contract::all(),
+            'publications' => Publication::query()
+                ->latest()
+                ->paginate(6 ,'*', 'publication'),
+            'youtubes'     => Youtube::query()
+                ->latest()
+                ->paginate(4),
+            'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')
+                ->take(1)
+                ->get(),
+            'galleris'    => Gallery::query()->latest()
+                ->paginate(12),
         ]);
     }
 
@@ -96,6 +105,7 @@ class TekasaibdController extends Controller
             'eventmessages' => EventMessage::orderBy('id', 'desc')->paginate(2),
             'youtubes'      => Youtube::orderBy('id', 'desc')->paginate(8),
             'eventvideos'   => EventVideo::orderBy('id', 'desc')->take(1)->get(),
+
         ]);
     }
 
@@ -106,15 +116,7 @@ class TekasaibdController extends Controller
 
     public function tekasaibd()
     {
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        return view('front.privacy.tekasaibd', [
-            'news' => $news,
-            'news'     => $joint,
-        ]);
+        return view('front.privacy.tekasaibd');
     }
 
     public function bookDetails($id)
@@ -132,11 +134,8 @@ class TekasaibdController extends Controller
     {
         $abouts = About::all();
         return view('front.about.amaderkotha', [
-            'publications' => Publication::query()->orderBy('id', 'desc')->paginate(6),
-            'youtubes'     => Youtube::query()->orderBy('id', 'desc')->paginate(4),
-            'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')->take(1)->get(),
             'abouts'       => $abouts,
-            'galleris'     => Gallery::query()->orderBy('id', 'desc')->paginate(12),
+
             'director' => EventMessage::query()->where('is_team_member', 0)->first(),
             'team_members' => EventMessage::query()->where('is_team_member', 1)->take(4)->get(),
         ]);
@@ -155,8 +154,7 @@ class TekasaibdController extends Controller
     {
         return view('front.about.detailsblog', [
             'blogs'    => Blog::query()->find($id),
-            'news'     => News::orderBy('id', 'desc')->take(10)->get(),
-            'contract' => Contract::all(),
+
         ]);
     }
     public function sendEmail(Request $request){

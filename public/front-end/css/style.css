@@ -691,14 +691,14 @@ ol {
 .banner-text-1 p {
     color: #000;
     font-size: 50px;
-    line-height: 25px;
+    /*line-height: 25px;*/
     padding: 25px 0px 50px 0px;
     margin-bottom: 0px;
     line-height: 45px;
     font-weight: 400;
     /*    font-family: 'Atma', cursive;*/
     /*    font-family: 'Galada', cursive;*/
-    font-family: 'Mina', sans-serif;
+    /*font-family: 'Mina', sans-serif;*/
 }
 
 .banner-text-1 .p-2 {

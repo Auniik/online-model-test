@@ -12,16 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/MetaGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/MetaGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/front-end/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front-end/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/about/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/about.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/detailsblog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layout/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/contact/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/privacy/tekasaibd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/privacy/tekasaibd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +265,7 @@
       <workItem from="1596467299770" duration="620000" />
       <workItem from="1596553361038" duration="18655000" />
       <workItem from="1596642691277" duration="14854000" />
-      <workItem from="1596728928090" duration="56026000" />
+      <workItem from="1596728928090" duration="58308000" />
     </task>
     <servers />
   </component>
@@ -361,10 +361,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="501" y="308" width="314" height="143" key="NewPhpFileDialog/0.22.1366.746@0.22.1366.746" timestamp="1594617694126" />
-    <state x="100" y="95" width="1166" height="572" key="VCS.FileHistoryDialog" timestamp="1595659516156">
+    <state x="100" y="95" width="1166" height="572" key="VCS.FileHistoryDialog" timestamp="1596906096405">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="100" y="95" width="1166" height="572" key="VCS.FileHistoryDialog/0.22.1366.746@0.22.1366.746" timestamp="1595659516156" />
+    <state x="100" y="95" width="1166" height="572" key="VCS.FileHistoryDialog/0.22.1366.746@0.22.1366.746" timestamp="1596906096405" />
     <state x="100" y="96" width="1166" height="572" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1596756520929">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -397,9 +397,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1596752870800" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596905479514">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1596907476535">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596905479514" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1596907476535" />
   </component>
 </project>

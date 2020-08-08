@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-publication/{id}', 'PublicationController@editPublication')->name('edit-publication');
     Route::post('/update-publication', 'PublicationController@updatePublication')->name('update-publication');
     Route::get('/delete-publication/{id}', 'PublicationController@deletePublication')->name('delete-publication');
-    Route::get('/publication-details/{id}', 'PublicationController@detailsPublication')->name('publication-details');
+
 
 
 
@@ -136,6 +136,7 @@ Route::group(['middleware' => ['auth']], function () {
 /*End admin*/
 
 /*Font End*/
+Route::get('/publication-details/{id}', 'PublicationController@detailsPublication')->name('publication-details');
 Route::get('add-front','TekasaibdController@front')->name('add-front');
 Route::get('about','TekasaibdController@about')->name('about');
 Route::get('contact','TekasaibdController@contact')->name('contact');

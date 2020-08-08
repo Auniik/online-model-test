@@ -2,9 +2,12 @@
 
 <section id="communication-part">
     <div class="container-fulied contact-form">
-        <div class="text_center">
-            <h1>যোগাযোগ</h1>
-        </div>
+        @if (request()->path() != 'contact')
+            <div class="text_center">
+                <h1>যোগাযোগ</h1>
+            </div>
+        @endif
+
         <div class="row shadow-lg m-lg-5 m-md-4">
             <div class="col-lg-4 col-md-12 col-sm-12 animated bounceInLeft slow">
 
