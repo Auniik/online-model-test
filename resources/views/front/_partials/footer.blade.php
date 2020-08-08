@@ -5,50 +5,10 @@
         <div class="text_center">
             <h1>যোগাযোগ</h1>
         </div>
-        <div class="row online-left">
+        <div class="row shadow-lg m-lg-5 m-md-4">
+            <div class="col-lg-4 col-md-12 col-sm-12 animated bounceInLeft slow">
 
-            <div class="col-lg-6 col-md-6 col-sm-12 contact_right animated bounceInRight slow">
-                @if(Session::has('sent'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Success!</strong> {{session('sent')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-                <form class="contact-form" action="{{route('send-email')}}" method="post">
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <label>নাম:</label>
-                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100"
-                                   class="form-control" name="name" placeholder="সম্পূর্ণ নাম দিন" id="name" required=""
-                                   autocomplete="off">
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label>ইমেইল:</label>
-                            <input type="email" value="" data-msg-email="Please enter a valid email address"
-                                   maxlength="100" placeholder="ইমেইল দিন" class="form-control" name="email" id="email">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group last-form col">
-                            <label style="margin-top: 18px;">মতামত:</label>
-                            <textarea maxlength="1000" data-msg-required="Please enter your message." rows="7"
-                                      class="form-control" name="comment" placeholder="মতামত দিন"
-                                      required=""></textarea>
-                        </div>
-                    </div>
-                    <div class="button">
-                        <input type="submit" id="text" value="Send Message">
-                        <label class="submit_btn" for="text">সাবমিট</label>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 animated bounceInLeft slow">
-
-                <div class="contact-form title-heading">
+                <div class="contact-form title-heading p-4 p-lg-4 p-md-5 p-sm-5 ">
                     <p class="text-muted">{{$contacts->title}}</p>
                     <div class="contact-detail mt-3">
                         <div class="icon mt-3 float-left">
@@ -85,10 +45,11 @@
                     <div class="contact-detail">
                         <div class="d-flex">
                             <a href="https://www.facebook.com/Tekasaibd/" class="social-icon mt-0" target="blank">
-                            <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
+                                <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
                             </a>
 
-                            <a href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0" class="social-icon mt-0"
+                            <a href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
+                               class="social-icon mt-0"
                                target="blank">
                                 <i class="fab fa-youtube icon-alias" style="color: #f21d1d"></i>
                             </a>
@@ -101,8 +62,64 @@
                 </div>
 
             </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 contact_right animated bounceInRight slow">
+
+                <form class="contact-form p-4 p-lg-4 p-md-5 p-sm-5" action="{{route('send-email')}}" method="post">
+                    @if(Session::has('sent'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success!</strong> {{session('sent')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group col-lg-12 col-md-12 mb-2">
+                            <label>নাম:</label>
+                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100"
+                                   class="form-control" name="name" placeholder="সম্পূর্ণ নাম দিন" id="name" required=""
+                                   autocomplete="off">
+                        </div>
+                        <div class="form-group col-lg-12 col-md-12">
+                            <label>ইমেইল:</label>
+                            <input type="email" value="" data-msg-email="Please enter a valid email address"
+                                   maxlength="100" placeholder="ইমেইল দিন" class="form-control" name="email" id="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group last-form col">
+                            <label style="margin-top: 18px;">মতামত:</label>
+                            <textarea maxlength="1000" data-msg-required="Please enter your message." rows="7"
+                                      class="form-control" name="comment" placeholder="মতামত দিন"
+                                      required=""></textarea>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" id="text" value="Send Message">
+                        <label class="submit_btn" for="text">সাবমিট</label>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-lg-4 col-md-12 col-sm-12 animated bounceInLeft slow">
+
+                <div class="amaderkotha-heading bg-primary text-center">
+                    <h4 class="p-2" style="padding-left:10px; color:#fff;">ফেসবুকে আমাদের সাথে থাকুন</h4>
+
+                </div>
+                <div class="text-center">
+                    <div class="fb-page" data-href="https://www.facebook.com/Tekasaibd/" data-tabs="timeline"
+                         data-width="390" data-height="390" data-small-header="false" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/Tekasaibd/" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/Tekasaibd/">টেকসই বিডি</a></blockquote>
+                    </div>
+
+                </div>
+            </div>
         </div>
-    </div>
 
 </section>
 
@@ -142,7 +159,8 @@
                         <li class="list-inline-item"><a href="{{route('contact')}}" target="_blank">Contact</a></li>
                         <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">Mission
                                 Vision</a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">Terms & Conditions</a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">Terms & Conditions</a>
+                        </li>
                         <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">Privacy
                                 Policy</a></li>
                     </ul>

@@ -43,6 +43,9 @@
 
 <body class="content" id="body">
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/bn_IN/sdk.js#xfbml=1&version=v8.0&appId=909731212771520&autoLogAppEvents=1" nonce="cjB6ryb4"></script>
+
 @include('front._partials.header')
 <!---------------------------- স্ক্রল বাটন শুরু --------------->
 <!-- Load Facebook SDK for JavaScript -->

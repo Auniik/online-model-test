@@ -190,31 +190,4 @@
         </div><!--end container-->
     </section>
 
-    <section class="section pt-0 pb-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-md-12">
-                    <div class="position-relative">
-                        <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <div class="amaderkotha-heading bg-primary text-center">
-                                    <h4 class="p-2" style="padding-left:10px; color:#fff;">ফেসবুকে আমাদের সাথে থাকুন</h4>
-                                </div>
-                                <div class="card shadow-lg bg-transparent">
-                                    <div class="card-body">
-                                        <iframe class="shadow-sm"
-                                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTekasaibd%2F&tabs=timeline&width=350&height=375&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=442275712930029"
-                                                width="300" height="340" style="border:none;overflow:hidden"
-                                                allowTransparency="true"
-                                                allow="encrypted-media"></iframe>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

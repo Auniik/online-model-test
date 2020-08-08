@@ -52,21 +52,25 @@
                     <div class="blog-{{$blog->id}}">
 
                         <div class="card shadow-lg">
-                            <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
-                                 height="200">
-                            <div class="card-body">
-                                <h6 class="card-text d-flex justify-content-between">
-                                    {{ Str::limit($blog->short_description, 50) }}
-                                </h6>
-                                <span>
+                            <a class="text-secondary" href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
+                                <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
+                                     >
+                                <div class="card-body p-2" style="height: 99px;">
+                                    <h6 class="card-text d-flex justify-content-between">
+                                        {{ Str::limit($blog->short_description, 50) }}
+                                    </h6>
+                                    <span>
                                     {{$blog->created_at->format('M d, Y h:i A')}}
                                 </span>
-                                <div class="mt-3 d-flex justify-content-between">
+                                </div>
+                            </a>
+
+
+                            <div class="card-footer ">
+                                <div class="d-flex justify-content-center">
                                     @include('front._partials.share', [
                                         'url' => url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")
                                     ])
-                                    <a href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}"
-                                       class="btn btn-link">বিস্তারিত</a>
                                 </div>
                             </div>
                         </div>

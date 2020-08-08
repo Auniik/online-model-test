@@ -24,8 +24,7 @@
                                         <div class="col-md-12 ">
                                             <img class="rounded" style="padding: 20px; object-fit: contain;"
                                                  src="{{asset($blogs->image)}}"
-                                                 alt="image"
-                                                 height="500" width="100%">
+                                                 alt="image" width="100%">
                                         </div>
                                         <div class="col-md-9 offset-md-1 text-justify">
                                            <div class="text-right mb-5">
