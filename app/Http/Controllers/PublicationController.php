@@ -12,7 +12,7 @@ class PublicationController extends Controller
 {
     public function addPublication()
     {
-        $publications = Publication::all();
+        $publications = Publication::query()->latest()->paginate(15);
         return view('admin.publication.add-publication',[
             'publications' => $publications,
         ]);
@@ -20,31 +20,26 @@ class PublicationController extends Controller
 
     public function newPublication(Request $request)
     {
-//        $publicationImage = $request->file('image');
-//        $directory = "publication-image/";
-//        $imageName = $publicationImage->getClientOriginalName();
-//        $imageUrl = $directory.$imageName;
-//        Image::make($publicationImage)->resize(300, 300)->save($imageUrl);
+        $request->validate([
+            'file' => 'required|mimes:pdf|max:2048',
+            'image' => 'required|image|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'status' => 'required'
+        ]);
 
-
-        if ($request->has('image')) {
-            $publicationImage = $request->file('image');
-            $directory = "publication-image/";
-            $imageName = Str::random(40) . '.' . $publicationImage->getClientOriginalExtension();
-            $publicationImage->move($directory,$imageName);
-            $imageUrl = $directory.$imageName;
-        }
-
-
+        $fileUrl = $request->file->store('uploads/publications');
+        $image = $request->image->store('uploads/publications');
 
         $publication = new Publication();
         $publication->title = $request->title;
         $publication->description = $request->description;
-        $publication->image = $imageUrl;
+        $publication->file = $fileUrl;
+        $publication->image = $image;
         $publication->status = $request->status;
         $publication->save();
 
-        return redirect('add-publication')->with('message', 'Publication Save Successfully');
+        return redirect('add-publication')->withSuccess('Publication added Successfully');
     }
 
     public function editPublication($id)
@@ -57,30 +52,46 @@ class PublicationController extends Controller
 
     public function updatePublication(Request $request)
     {
+        $request->validate([
+            'file' => 'mimes:pdf|max:2048',
+            'image' => 'image|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'status' => 'required'
+        ]);
         $publication = Publication::query()->find($request->id);
+        if ($request->has('file')) {
+            $fileUrl = $request->file->store('uploads/publications');
+           Storage::delete($publication->file);
+        } else {
+            $fileUrl = $publication->file;
+        }
+
         if ($request->has('image')) {
-            $publicationImage = $request->file('image');
-            $directory = "publication-image/";
-            $imageName = Str::random(40) . '.' . $publicationImage->getClientOriginalExtension();
-            $imageUrl = $directory.$imageName;
+            $image = $request->image->store('uploads/publications');
            Storage::delete($publication->image);
         } else {
-            $imageUrl = $publication->image;
+            $image = $publication->image;
         }
+
 
 
         $publication->title = $request->title;
         $publication->description = $request->description;
-        $publication->image = $imageUrl;
+        $publication->file = $fileUrl;
+        $publication->image = $image;
         $publication->status = $request->status;
         $publication->save();
-        return redirect('/add-publication');
+        return redirect('/add-publication')->withSuccess(' পাবলিকেশন হালনাগাদ করা হয়েছে');
     }
-    public function deletePublication($id){
-        $publication = Publication::query()->find($id);
+    public function destroy(Publication $publication)
+    {
+        Storage::delete($publication->file);
         Storage::delete($publication->image);
         $publication->delete();
-        return redirect('/add-publication');
+        return response([
+            'check' => true
+        ]);
     }
 
 

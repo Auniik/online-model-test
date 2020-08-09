@@ -177,21 +177,22 @@
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 mt-4 pt-0 mt-sm-0 pt-sm-0">
                     <div class="position-relative">
-                        <div class="row m-0">
-                            <div class="row d-flex justify-content-between">
-                                @foreach($publications as $publication)
-                                    <div class="col-md-3 mb-2 mt-2">
-                                        <div class="card shadow-lg">
-                                            <a href="{{route('publication-details',['id'=>$publication->id])}}"
-                                               target="_blank"><img class="card-img-top" style="height: 300px"
-                                                                    src="{{asset($publication->image)}}"
-                                                                    alt="Card image cap" width="100%" height="300"></a>
-                                        </div>
+                        <div class="row m-0 d-flex justify-content-center">
+                            @foreach($publications as $publication)
+                                <div class="col-md-3 mb-2 mt-2">
+                                    <div class="card shadow-lg">
+                                        <a href="{{route('publication-details',['id' => $publication->id])}}"
+                                           target="_blank">
+                                            <img class="card-img-top" style="height: 300px"
+                                                src="{{asset($publication->image)}}"
+                                                alt="{{$publication->title}}"
+                                            />
+                                        </a>
                                     </div>
-                                @endforeach
-                                <div class="col-sm-12 col-sm-offset-6">
-                                    {{ $publications->links() }}
                                 </div>
+                            @endforeach
+                            <div class="col-sm-12 text-center mt-4">
+                                {{ $publications->links() }}
                             </div>
                         </div>
                     </div>

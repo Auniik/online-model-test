@@ -102,7 +102,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/new-publication', 'PublicationController@newPublication')->name('new-publication');
     Route::get('/edit-publication/{id}', 'PublicationController@editPublication')->name('edit-publication');
     Route::post('/update-publication', 'PublicationController@updatePublication')->name('update-publication');
-    Route::get('/delete-publication/{id}', 'PublicationController@deletePublication')->name('delete-publication');
+    Route::DELETE('/publications/{publication}', 'PublicationController@destroy')
+        ->name('publications.destroy');
 
 
 

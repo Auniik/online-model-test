@@ -23,7 +23,9 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 my-4">
                                     <div class="card shadow-lg ">
                                         <a class="text-secondary" href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
-                                            <img class="card-img-top h-auto" src="{{asset($blog->image)}}" alt="Card
+                                            <img class="card-img-top" style="min-height: 250px" src="{{asset
+                                            ($blog->image)}}"
+                                                 alt="Card
                                             image"
                                             >
                                             <div class="card-body p-2" style="height: 99px;">

@@ -15,7 +15,7 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('image');
+            $table->text('file');
             $table->text('title');
             $table->text('description');
             $table->tinyInteger('status');

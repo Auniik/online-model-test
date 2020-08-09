@@ -63,6 +63,10 @@
                                 </div>
                             </div>
                         @endforeach
+
+                        <div class="col-lg-12 col-md-12 text-center">
+                            {{$exams->links()}}
+                        </div>
                     @endif
                 </div>
             </div>

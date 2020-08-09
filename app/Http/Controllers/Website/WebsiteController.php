@@ -18,7 +18,7 @@ class WebsiteController extends Controller
         $exams = Exam::query()
             ->whereDate('start_at', '<=', $date)
             ->whereDate('end_at', '>=', $date)
-            ->latest()
+            ->oldest('end_at')
             ->where('in_homepage', 1);
 
         if ($participant = auth('participant')->user()) {
@@ -28,8 +28,7 @@ class WebsiteController extends Controller
 
         return view('front.index.index', [
             'exams' => $exams->whereHas('questions')
-                ->take(6)
-                ->get(),
+                ->paginate(6, '*', 'exams'),
             'current_quiz' => Quiz::query()
                 ->whereHas('questions')
                 ->where('is_default', 1)

@@ -1,6 +1,5 @@
 @extends('front.layout.master')
 @section('content')
-    <!-- About Start -->
     <section class="section mt-4 pt-0 pb-5">
         <div class="container">
             <div class="row align-items-center">
@@ -10,16 +9,23 @@
                             <div class="position-relative ">
                                 <div class="row">
                                     <div class="col-md-12 mb-1">
-
                                         <div class="row">
-                                            <div class="col-md-12 pl-5 pr-5 text-justify pt-5">
-                                                <h5 class="text-center">{{ $publications->title	}}</h5>
+                                            <div class="col-md-12 px-lg-5 px-sm-1 px-md-5 text-justify pt-2">
+                                                <h4 class="text-center">{{ $publications->title	}}</h4>
                                                 <p class="text-justify p-1">{!! $publications->description	 !!}  </p>
+                                                @if ($publications->file)
+                                                    <iframe
+                                                        class="my-4 my-sm-1 "
+                                                        src="/{{$publications->file}}"
+                                                        frameBorder="0"
+                                                        scrolling="auto"
+                                                        height="700px"
+                                                        width="100%"
+                                                    ></iframe>
+                                                @endif
                                             </div>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -28,6 +34,4 @@
             </div><!--end row-->
         </div><!--end container-->
     </section>
-
-
-    @endsection
+@endsection
