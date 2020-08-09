@@ -28,7 +28,9 @@
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" placeholder="Choose a image File" name="image"
                                        accept="image/*" required>
-                                <small>Please make sure you entered the image file</small><br>
+                                <small>Please make sure you entered the image file, Preferable resolution should be
+                                    in 480x600 (px)
+                                </small><br>
 
                                 <img class="" src="/{{$publication->image}}" height="200px"
                                      alt="{{$publication->title}}">
