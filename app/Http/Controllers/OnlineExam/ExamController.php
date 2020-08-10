@@ -138,6 +138,7 @@ class ExamController extends Controller
     public function destroy(Exam $exam)
     {
         Storage::delete($exam->image);
+        $exam->questions()->delete();
         $exam->delete();
         return \response([
             'check' => true

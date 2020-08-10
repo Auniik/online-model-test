@@ -97,9 +97,11 @@
                                        href="{{route('subjects.show',  $subject->id)}}">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </a>
-                                    <a class="deletable" href="{{route('subjects.destroy', $subject->id)}}" >
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
+                                    @if (!$subject->exams_count)
+                                        <a class="deletable" href="{{route('subjects.destroy', $subject->id)}}" >
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    @endif
                                 </td>
 
                             </tr>

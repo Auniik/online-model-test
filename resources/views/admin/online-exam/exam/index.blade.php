@@ -100,11 +100,14 @@
                                                href="{{route('exams.edit',  $exam->id)}}">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </a>
-                                            <a class="dropdown-item deletable"
-                                               title="Delete"
-                                               href="{{route('exams.destroy',  $exam->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
-                                            </a>
+                                            @if (!$exam->assigned_participants_count)
+                                                <a class="dropdown-item deletable"
+                                                   title="Delete"
+                                                   href="{{route('exams.destroy',  $exam->id)}}">
+                                                    <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                                </a>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </td>

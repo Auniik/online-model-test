@@ -46,7 +46,6 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-
                                     @foreach($exam->questions as $k => $question)
                                         <tr>
                                             <td>{{++$k}}</td>

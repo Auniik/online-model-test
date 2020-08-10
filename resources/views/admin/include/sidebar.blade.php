@@ -34,7 +34,7 @@
 
                 <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
                         <span> Submitted Works</span></a></li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-note"></i> <span> Manage Books
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-book-multiple-variant"></i> <span> Manage Books
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{asset('add-book')}}">সকল বইসমূহ</a></li>
@@ -56,13 +56,13 @@
                     </ul>
                 </li>
 
-                <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                <li><a href="{{url('add-news')}}" class="waves-effect"><i class="mdi mdi-comment"></i>
                         <span> নিউজ আপডেট</span></a></li>
                 <li><a href="{{url('/add-publication')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> পাবলিকেশনস</span></a></li>
 
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> যোগাযোগ
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-contact-mail"></i> <span> যোগাযোগ
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
@@ -71,7 +71,7 @@
                     </ul>
                 </li>
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> পেজ
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-book-open-page-variant"></i> <span> পেজ
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
@@ -80,7 +80,7 @@
                     </ul>
                 </li>
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i> <span> গ্যালারী
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-folder-image"></i> <span> গ্যালারী
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('add-gallery')}}"> ছবির গ্যালারী</a></li>
@@ -88,7 +88,7 @@
                     </ul>
                 </li>
 
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-layers"></i>
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-settings"></i>
                         <span> সেটিংস</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{asset('add-slider')}}"> স্লাইডার</a></li>

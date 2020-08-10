@@ -11,7 +11,7 @@ class SubjectController extends Controller
 
     public function index()
     {
-        $subjects = Subject::all();
+        $subjects = Subject::query()->withCount('exams')->get();
         return view('admin.online-exam.subject.index', ['subjects' => $subjects]);
     }
 
@@ -34,7 +34,7 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         Subject::create($request->only('name', 'code', 'class', 'status'));
-        return back_with_success('subject');
+        return back_with_success('বিষয়');
     }
 
     public function show($id)
@@ -52,7 +52,7 @@ class SubjectController extends Controller
     public function update(Request $request, Subject $subject)
     {
         $subject->update($request->all());
-        return updated_response('subject');
+        return updated_response('বিষয়');
     }
 
     public function destroy(Subject $subject)
