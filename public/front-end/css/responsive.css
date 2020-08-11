@@ -33,6 +33,7 @@
 
     .logo-img {
         margin-right: 16px;
+        margin-left: 16px;
     }
 
     .logo-img img {
@@ -41,6 +42,7 @@
 
     .mujib-logo-img {
         margin-left: 0px;
+        margin-right: 10px;
     }
 
     .mujib-logo-img img {

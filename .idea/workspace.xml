@@ -12,8 +12,30 @@
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamMemberController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/TeamMember.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025142_create_books_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025320_create_book_images_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025800_create_book_questions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_031247_create_bangabandhus_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_095647_create_team_members_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/8af95Z2JkEOSzHbvsUuwOuqEeBR53dwmAMHM2nLI.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/9JGm3x7ULrTqwCJ1lwCG1iVnmjXQHDwkwO2jfSJU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/KO2cYVHILezxHaM8YhWmgJTvyFt4MbDVB5kcCNk1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/RF5s2qhgntZV51vYcSM0EoKYSfcRWDTaBQXEyHhv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/Z6HLHMSsb987IdsH5beN7qc7S11Mm2kp6efm4r3C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/f0BrdFOoEB8XDETgZNalh0GyB70pqeuluHPfq2De.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/ln9kaZfgcFd2dBYI3UdNB2PcgZsF7xew2IqCof7A.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/books/yYdECZPp4TeLx0VdVPHJCTupKlTD8u1pcnty8isx.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/uploads/quizzes/questions/PqUL3NVQbMv5mATS8fqDTiGD8VO5BwHdk6jCW1qP.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/uploads/quizzes/questions/X5s4mnUBqfohjjZunOVCwCoPH4xMrICUQjNzQM0o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/VFehBFHe9WG7dEKzHr3zAnn1X4d8aQ52lCIXmGkO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/bLcaAyLFqbyTEiKuXvYdDAwQp4ailrvuNuD9UFw6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/teams/3t9j73Z7sAh37dahyRCdj0Ky0roWMGQxvl5omLRf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/teams/7NS3BSA2For1ykGdKz2BYN6d66Sp2qAWP4pSiCro.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/teams/VinZB9kmGH0Sjb7gJsf0iisu2XJMc27n6l1BydV8.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/teams/acuvH1OOjzNKglFPqa9Z3ew5ya1l1xcouaxa6Np8.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/slider/create.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterDir="false" />
@@ -336,7 +358,7 @@
       <workItem from="1596642691277" duration="14854000" />
       <workItem from="1596728928090" duration="63011000" />
       <workItem from="1596986195816" duration="10414000" />
-      <workItem from="1597077150584" duration="53247000" />
+      <workItem from="1597077150584" duration="53765000" />
     </task>
     <servers />
   </component>
