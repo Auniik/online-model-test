@@ -18,6 +18,10 @@ class CreateEventMessagesTable extends Migration
             $table->text('name');
             $table->text('image');
             $table->text('message');
+            $table->string('designation');
+            $table->string('facebook_link');
+            $table->string('twitter_link');
+            $table->string('instagram_link');
             $table->boolean('is_team_member')->default(1);
             $table->timestamps();
         });

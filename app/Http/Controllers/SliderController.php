@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
+use Illuminate\Support\Facades\Storage;
 use Image;
 use Illuminate\Http\Request;
 
@@ -14,23 +15,33 @@ class SliderController extends Controller
             'sliders' => $sliders,
         ]);
     }
-    public function newSlider(Request $request){
 
-        $sliderImage = $request->file('image');
-        $directory = "slider-image/";
-        $imageName = $sliderImage->getClientOriginalName();
-        $sliderImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-
-        $slider = new Slider();
-        $slider->image = $imageUrl;
-        $slider->title = $request->title;
-        $slider->short_description = $request->short_description;
-        $slider->link = $request->link;
-        $slider->status = $request->status;
-        $slider->save();
-        return redirect('add-slider')->with('message','Slider Save Successfully');
+    public function create()
+    {
+        return view('admin.slider.create');
     }
+
+    public function newSlider(Request $request)
+    {
+        $attributes = $request->validate([
+            'title' => 'required',
+            'short_description' => 'required',
+            'link_1' => 'required_with:link_1_text',
+            'link_2' => 'required_with:link_2_text',
+            'link_1_text' => 'required_with:link_1',
+            'link_2_text' => 'required_with:link_2',
+            'image' => 'image|required|max:5000',
+            'status' => 'required'
+        ]);
+
+        $attributes['image'] = $request->image->store('uploads/slider');
+
+        Slider::query()->create($attributes);
+
+        return redirect('add-slider')
+            ->withSuccess('Slider image saved Successfully!');
+    }
+
     public function editSlider($id){
 
         $slider = Slider::find($id);
@@ -38,35 +49,37 @@ class SliderController extends Controller
             'slider' => $slider,
         ]);
     }
-    public function updateSlider(Request $request){
+    public function updateSlider(Request $request, Slider $slider){
 
-        $slider = Slider::find($request->id);
-        if($sliderImage = $request->file('image'))
-        {
-            if(file_exists($slider->image)){
-                unlink($slider->image);
-            }
-            $directory = "slider-image/";
-            $imageName = $sliderImage->getClientOriginalName();
-            $imageUrl = $directory.$imageName;
-            Image::make($sliderImage)->resize(2000, 1333)->save($imageUrl);
-        }
-        else{
-            $imageUrl = $slider->image;
+        $attributes = $request->validate([
+            'title' => 'required',
+            'short_description' => 'required',
+            'link_1' => 'required_with:link_1_text',
+            'link_2' => 'required_with:link_2_text',
+            'link_1_text' => 'required_with:link_1',
+            'link_2_text' => 'required_with:link_2',
+            'image' => 'image|max:5000',
+            'status' => 'required'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $attributes['image'] = $request->image->store('uploads/slider');
+            Storage::delete($slider->image);
         }
 
-        $slider->image = $imageUrl;
-        $slider->title = $request->title;
-        $slider->short_description = $request->short_description;
-        $slider->link = $request->link;
-        $slider->status = $request->status;
-        $slider->save();
-        return redirect('add-slider')->with('message','Slider Update Successfully');
+        $slider->update($attributes);
+
+        return redirect('add-slider')->withSuccess(' স্লাইডার ছবি হালনাগাদ করা হয়েছে !');
     }
     public function deleteSlider($id){
-        $slider = Slider::find($id);
+
+        $slider = Slider::query()->find($id);
+        Storage::delete($slider->image);
         $slider->delete();
-        return redirect('add-slider')->with('message','Slider Delete Successfully');
+
+        return response([
+            'check' => true
+        ]);
 
     }
 }

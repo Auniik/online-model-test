@@ -52,35 +52,18 @@
                     <h2 class="my-4">{{$book->title}}</h2>
                     <div class="mr-lg-2">
                         <div class="row">
-
                             @foreach($book->images as $image)
-
                                 <div class="col-lg-4 mb-4 pb-2">
-
                                     <a data-magnify="gallery" data-caption="Rémi Bizouard triple champion du monde by malainxx24"
                                        href="{{asset($image->image)}}">
-                                        <img src="{{asset($image->image)}}" class="img-fluid" alt="">
+                                        <img src="{{asset($image->image)}}" class="img-fluid shadow" alt="">
                                     </a>
-{{--                                    <a data-magnify="gallery"--}}
-{{--                                       data-src=""--}}
-{{--                                       data-caption="Tekasaibd"--}}
-{{--                                       data-group="a"--}}
-{{--                                       href="{{asset($image->image)}}">--}}
-{{--                                        <img src="{{asset($image->image)}}" alt="erwe" class="img-fluid">--}}
-{{--                                    </a>--}}
-                                    {{--<img src="{{asset($image->image)}}" class="gallery-items img-fluid" alt="" data-high-res-src="{{asset($image->image)}}" alt="">--}}
-{{--                                    <div class="overlay rounded-top bg-dark"></div>--}}
-
                                 </div><!--end col-->
-
                             @endforeach
                         </div>
                     </div>
-
                     <hr>
-
                     <p>{!! $book->description !!}</p>
-
                     <div class="sidebar p-4 rounded">
                         @if(auth('participant')->check())
                             <h4 class="widget-title">তথ্য</h4>
@@ -89,7 +72,7 @@
                             <p><a class="btn btn-info" href="{{url('submit-work?ref=creativity')}}">জমা দিন</a></p>
                         @else
                             @if(!auth('participant')->check())
-                            <p class="text-center">তথ্য জমা দিতে<a
+                            <p class="text-center">তথ্য জমা দিতে <a class="btn btn-sm btn-primary"
                                         href="{{route('participants.login')}}?next={{request()->path()}}"> লগিন করুন
                                 </a></p>
                             @endif
@@ -108,17 +91,13 @@
 
                                 <p>{{$book->reward}}</p>
 
+                                <img class="w-100 shadow" src="/{{$book->reward_image}}" alt="{{$book->title}}">
                             </div>
                         </div>
                         <!-- SEARCH -->
 
                         <!-- SOCIAL -->
-                        @if(!auth('participant')->check())
-                            <div class="widget">
-                                <a href="{{route('participants.login')}}?next={{request()->path()}}"
-                                   class="btn btn-primary btn-block">Login</a>
-                            </div>
-                    @endif
+
                     <!-- SOCIAL -->
                          <div class="widget mt-2">
                             @include('front._partials.share', [

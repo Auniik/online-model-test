@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Publication;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Image;
 use Illuminate\Http\Request;
 

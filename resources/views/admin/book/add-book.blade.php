@@ -4,17 +4,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Manage About</h4>
+                    <h4 class="mt-0"> সকল বইসমূহ দেখুন</h4>
                 </div>
                 <div class="card-body">
-                    <p class="text-muted mb-4 font-14"></p>
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Title</th>
-                            <th>Images</th>
-                            <th>Action</th>
+                            <th width="1%">#</th>
+                            <th> শিরোনাম</th>
+                            <th> প্রশ্নশমূহ</th>
+                            <th> কভার ছবি</th>
+                            <th>Reward  ছবি</th>
+                            <th width="1%">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -23,11 +24,18 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$book->title}}</td>
+                                <td align="center">
+                                    <a class="btn btn-info" href="{{route('book-questions.index', $book)}}">
+                                        {{$book->questions_count}}
+                                    </a>
+                                </td>
                                 <td>
-                                    @foreach($book->images as $img)
-                                        <img src="{{asset($img->image)}}"
-                                             style="display: inline-block;width: 50px;margin: 0 10px" alt="">
-                                    @endforeach
+                                    <img src="{{asset($book->cover_image)}}"
+                                         style="display: inline-block;width: 50px;margin: 0 10px" alt="">
+                                </td>
+                                <td>
+                                    <img src="{{asset($book->reward_image)}}"
+                                         style="display: inline-block;width: 50px;margin: 0 10px" alt="">
                                 </td>
                                 <td>
                                     {{--<a href="/edit-book/{{$book->id}}{{route('edit-book')}}" class=""><i class="fa fa-edit"></i></a>--}}

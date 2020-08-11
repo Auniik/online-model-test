@@ -7,6 +7,7 @@ namespace App\Http\Controllers\OnlineExam;
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Participant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ParticipantController extends Controller
 {
@@ -44,6 +45,29 @@ class ParticipantController extends Controller
 
     public function destroy(Participant $participant)
     {
+        foreach ($participant->assessments ?? [] as $assessment) {
+            foreach ($assessment->answers ?? [] as $answer) {
+                foreach ($answer->attachments ?? [] as $attachment) {
+                    Storage::delete($attachment->path);
+                }
+                $answer->attachments()->delete();
+                $answer->delete();
+            }
+        }
+        $participant->assessments()->delete();
+
+        foreach ($participant->quizzes as $assessment) {
+            $assessment->answers()->delete();
+        }
+
+        foreach ($participant->submittedWorks as $work) {
+            foreach ($work->file as $file) {
+                Storage::delete($file);
+            }
+        }
+        $participant->submittedWorks()->delete();
+
+        $participant->quizzes()->delete();
         $participant->delete();
         return response([
             'check' => true

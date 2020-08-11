@@ -17,7 +17,7 @@ class CreateContractsTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->text('description');
-            $table->text('Address');
+            $table->text('address');
             $table->string('phone');
             $table->text('email');
             $table->text('image');

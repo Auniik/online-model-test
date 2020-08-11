@@ -42,7 +42,7 @@
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30" value="{{old('duration')}}" name="duration"
-                                       class="form-control">
+                                       class="form-control" pattern="^(0[0-9]|1[0-9]|2[0-9]):[0-5][0-9]$">
                             </div>
 
                         </div>
@@ -58,7 +58,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.description')
                             }}</label>
                             <div class="col-sm-10">
-                                <textarea name="description"  class="form-control">{{old('description')
+                                <textarea name="description"  class="form-control" id="editor">{{old('description')
                                 }}</textarea>
                             </div>
                         </div>

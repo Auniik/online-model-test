@@ -12,6 +12,7 @@ use App\EventMessage;
 use App\EventVideo;
 use App\Gallery;
 use App\Models\Message;
+use App\Models\TeamMember;
 use App\News;
 use App\Publication;
 use App\Slider;
@@ -131,13 +132,14 @@ class TekasaibdController extends Controller
     public function amaderkotha()
     {
         $abouts = About::all();
+        $team_members = TeamMember::query()->get();
         return view('front.about.amaderkotha', [
             'abouts'       => $abouts,
             'publications' => Publication::query()
                 ->latest()
                 ->paginate(6 ,'*', 'publication'),
-            'director' => EventMessage::query()->where('is_team_member', 0)->first(),
-            'team_members' => EventMessage::query()->where('is_team_member', 1)->take(4)->get(),
+            'team_members' => $team_members->whereNotIn('is_highlighted', 1),
+            'director' => $team_members->firstWhere('is_highlighted', 1)
         ]);
     }
     public function detailsEvents($id){

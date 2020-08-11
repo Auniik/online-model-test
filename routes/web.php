@@ -25,6 +25,12 @@ Route::get('/', 'Website\WebsiteController@home')->name('welcome');
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('/messages', 'Admin\MessageController@index');
+    Route::get('/dashboard', 'HomeController@index')->name('home');
+
+    Route::get('team-members/{team_member}/highlight', 'Admin\TeamMemberController@highlight')->name('team-members.highlight');
+    Route::resource('team-members', 'Admin\TeamMemberController')->except('show');
+
     Route::get('book/question','Admin\BookQuestionController@index')->name('admin.book.question');
     Route::get('book/question/create','Admin\BookQuestionController@create')->name('admin.book.question.create');
     Route::post('book/question/create','Admin\BookQuestionController@store')->name('admin.book.question.store');
@@ -35,22 +41,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::get('/add-slider', 'SliderController@addSlider')->name('add-slider');
-    Route::get('/new-slider', 'SliderController@newSlider')->name('new-slider');
+    Route::get('/sliders/create', 'SliderController@create')->name('sliders.create');
+    Route::post('/new-slider', 'SliderController@newSlider')->name('new-slider');
     Route::get('/edit-slider/{id}', 'SliderController@editSlider')->name('edit-slider');
-    Route::get('/update-slider', 'SliderController@updateSlider')->name('update-slider');
-    Route::get('/delete-slider/{id}', 'SliderController@deleteSlider')->name('delete-slider');
+    Route::patch('/update-slider/{slider}', 'SliderController@updateSlider')->name('update-slider');
+    Route::delete('/delete-slider/{id}', 'SliderController@deleteSlider')->name('delete-slider');
 
 
-    Route::get('/add-event-video', 'EventVideoController@addEventViedo')->name('add-event-video');
-    Route::get('/new-event-video', 'EventVideoController@newEventVideo')->name('new-event-video');
-    Route::get('/edit-event-video/{id}', 'EventVideoController@editEventVideo')->name('edit-event-video');
-    Route::get('/update-event-video/{id}', 'EventVideoController@updateEventVideo')->name('update-event-video');
 
-
-    Route::get('/add-about', 'AboutController@addAbout')->name('add-about');
-    Route::get('/new-about', 'AboutController@newAbout')->name('new-about');
-    Route::get('/edit-about/{id}', 'AboutController@editAbout')->name('edit-about');
-    Route::get('/update-about', 'AboutController@updateAbout')->name('update-about');
 
 
     Route::get('/add-gallery', 'GalleryController@addGallery')->name('add-gallery');
@@ -62,11 +60,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/add-book', 'BookController@addBook')->name('add-book');
     Route::get('/create-book', 'BookController@create')->name('create-book');
-    Route::get('/new-book', 'BookController@newBook')->name('new-book');
+    Route::post('/new-book', 'BookController@newBook')->name('new-book');
     Route::get('/edit-book/{id}', 'BookController@editBook')->name('edit-book');
-    Route::get('/update-book/{id}', 'BookController@updateBook')->name('update-book');
+    Route::patch('/update-book/{id}', 'BookController@updateBook')->name('update-book');
     Route::get('/delete-book', 'BookController@deleteBook')->name('delete-book');
-
+    Route::post('/delete-book-image/{id}', 'BookController@deleteBookImage')->name('delete-book-image');
+    Route::get('books/{book}/questions','Admin\BookQuestionController@index')->name('book-questions.index');
 
     Route::get('/add-news', 'NewsController@addNews')->name('add-news');
     Route::post('/new-news', 'NewsController@newNews')->name('new-news');
@@ -126,8 +125,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/submitted-work','AdminController@submittedWork')->name('admin.submitted.work');
 
 
-    Route::get('/messages', 'Admin\MessageController@index');
-    Route::get('/dashboard', 'HomeController@index')->name('home');
+
+
+    Route::get('/add-about', 'AboutController@addAbout')->name('add-about');
+    Route::get('/new-about', 'AboutController@newAbout')->name('new-about');
+    Route::get('/edit-about/{id}', 'AboutController@editAbout')->name('edit-about');
+    Route::get('/update-about', 'AboutController@updateAbout')->name('update-about');
+
+    Route::get('/add-event-video', 'EventVideoController@addEventViedo')->name('add-event-video');
+    Route::get('/new-event-video', 'EventVideoController@newEventVideo')->name('new-event-video');
+    Route::get('/edit-event-video/{id}', 'EventVideoController@editEventVideo')->name('edit-event-video');
+    Route::get('/update-event-video/{id}', 'EventVideoController@updateEventVideo')->name('update-event-video');
 });
 
 
@@ -154,6 +162,9 @@ Route::post('/send-email', 'TekasaibdController@sendEmail')->name('send-email');
 Route::get('/book/details/{id}', 'TekasaibdController@bookDetails')->name('book.details');
 Route::get('/submit-work', 'WorkController@addWork')->name('submit-work');
 Route::post('/new-work','WorkController@newWork')->name('new-work');
+Route::get('/team-member/{member}/show','Admin\TeamMemberController@show')->name('team-members.show');
+
+Route::view('under-construction','front.dump.construction');
 
 
 

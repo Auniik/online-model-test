@@ -388,6 +388,10 @@
     #our-message .blog-1 {
         height: 550x;
     }
+    #about_part .online-left {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
 }
 
@@ -420,6 +424,10 @@
         background: #f0eeee;
         height: 550px;
     }
+    #about_part .online-left {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
 }
 
@@ -428,6 +436,7 @@
 
 
 @media (min-width: 576px) and (max-width: 767px) {
+
 
     #navbar .navbar-toggler .navbar-toggler-icon i {
         font-size: 25px;
@@ -743,8 +752,8 @@
     }
 
     #about_part .about_content {
-        padding: 40px;
-        margin-bottom: 20px;
+        padding: 40px !important;
+        margin-bottom: 20px !important;
     }
 
     #team_member .left_side .imag_side {

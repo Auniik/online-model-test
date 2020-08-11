@@ -88,12 +88,12 @@
                                             <a title="Set Participants"
                                                class="dropdown-item"
                                                href="{{route('quiz-participants.create',  $quiz->id)}}">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>  পরীক্ষার্থী যোগ করুন
                                             </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
                                                href="{{route('quiz-questions.index',  $quiz->id)}}">
-                                                <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
+                                                <i class="fa fa-quora" aria-hidden="true"></i>  প্রশ্নসমূহ যোগ করুন
                                             </a>
                                             <a title="Edit"
                                                class="dropdown-item"
@@ -108,7 +108,6 @@
                                         </div>
                                     </div>
                                 </td>
-
                             </tr>
                         @endforeach
                         </tbody>
@@ -128,24 +127,3 @@
         <!-- end col -->
     </div>
 @endsection
-
-@push('script')
-    <script>
-
-        // $(document).ready(function () {
-        //     $('.exam-block').html('')
-        //     $('.view-exam').click(function () {
-        //         const exam = $(this).data('exam');
-        //         $.ajax({
-        //             url: `/exams/${exam.id}`,
-        //             type:'GET',
-        //             dataType:'HTML',
-        //         }).done(function (data) {
-        //             $('.exam-block').html(data)
-        //             $('#ExamModal').modal('show')
-        //         });
-        //     })
-        // })
-
-    </script>
-@endpush

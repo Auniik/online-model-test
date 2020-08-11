@@ -7,11 +7,11 @@
         </div>
 
         <div class="row online-left">
-            @foreach($books as $book)
+            @foreach($books ?? [] as $book)
                 <div class="col-lg col-md-6 col-sm-6">
-                    <div class="row book-img">
+                    <div class="row book-img shadow">
                         @if ($book->img)
-                            <img src="{{asset($book->img->image)}}" alt="raiting1.jpg">
+                            <img src="{{asset($book->cover_image)}}" alt="{{$book->title}}">
                         @else
                             <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
                         @endif

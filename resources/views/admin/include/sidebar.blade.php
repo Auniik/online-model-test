@@ -39,7 +39,6 @@
                     <ul class="list-unstyled">
                         <li><a href="{{asset('add-book')}}">সকল বইসমূহ</a></li>
                         <li><a href="{{route('create-book')}}"> নতুন বই</a></li>
-                        <li><a href="{{route('admin.book.question')}}"> Book Questions</a></li>
                         <li><a href="{{route('admin.book.question.create')}}"> Create Questions</a></li>
                     </ul>
                 </li>
@@ -60,6 +59,9 @@
                         <span> নিউজ আপডেট</span></a></li>
                 <li><a href="{{url('/add-publication')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> পাবলিকেশনস</span></a></li>
+
+                <li><a href="{{url('/team-members')}}" class="waves-effect"><i class="mdi mdi-note"></i>
+                        <span>  টিম মেম্বারস</span></a></li>
 
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-contact-mail"></i> <span> যোগাযোগ
@@ -92,8 +94,8 @@
                         <span> সেটিংস</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{asset('add-slider')}}"> স্লাইডার</a></li>
-                        <li><a href="{{route('add-event-video')}}"> ইভেন্ট ভিডিও</a></li>
-                        <li><a href="{{asset('add-about')}}"> ছবি  ম্যানেজ করুন</a></li>
+{{--                        <li><a href="{{route('add-event-video')}}"> ইভেন্ট ভিডিও</a></li>--}}
+{{--                        <li><a href="{{asset('add-about')}}"> ছবি  ম্যানেজ করুন</a></li>--}}
                     </ul>
                 </li>
             </ul>

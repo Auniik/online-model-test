@@ -20,7 +20,10 @@ class CreateCqQuestionMetasTable extends Migration
             $table->enum('level', ['level_1', 'level_2', 'level_3', 'level_4']);
             $table->unsignedBigInteger('exam_question_id');
             $table->timestamps();
-            $table->foreign('exam_question_id')->references('id')->on('exam_questions');
+            $table->foreign('exam_question_id')
+                ->references('id')
+                ->on('exam_questions')
+                ->onDelete('cascade');
         });
     }
 

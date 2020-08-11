@@ -22,8 +22,14 @@ class CreateParticipantAssessmentsTable extends Migration
             $table->integer('score')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
-            $table->foreign('exam_id')->references('id')->on('exams');
-            $table->foreign('participant_id')->references('id')->on('participants');
+            $table->foreign('exam_id')
+                ->references('id')
+                ->on('exams')
+                ->onDelete('cascade');
+            $table->foreign('participant_id')
+                ->references('id')
+                ->on('participants')
+                ->onDelete('cascade');
         });
     }
 

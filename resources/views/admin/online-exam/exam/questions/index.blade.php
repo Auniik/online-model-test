@@ -182,7 +182,7 @@
                         name="name[]"></textarea>
                     </div>
                     <div class="col-2">
-                        <input type="number" min="1" max="4" class="form-control" placeholder="Remarks"
+                        <input type="number" min="1" max="4" class="form-control integer" placeholder="Remarks"
                         value="${questionCount}"
                         required
                         name="max_remarks[]">

@@ -4,34 +4,59 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('update-slider')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('update-slider', $slider)}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 class="mt-0">Add Slider</h4>
-                        <h3>{{Session::get('message')}}</h3>
+                        @method('patch')
+                        <h4 class="mt-0"> স্লাইডার ছবি হালনাগাদ করুন</h4>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> ছবি</label>
                             <div class="col-sm-10">
-                                <img src="{{asset($slider->image)}}" width="150" height="150">
-                                <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*">
-                                <input type="hidden"  name="id" class="form-control" value="{{$slider->id}}">
+                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
+                                <small>Slider image size should be: 1280x850</small><br>
+                                <img src="{{asset($slider->image)}}" class="my-2 shadow w-100" height="400">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শিরোনাম</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{$slider->title}}" name="title">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> বিবরণ</label>
                             <div class="col-sm-10">
                                 <textarea name="short_description" class="form-control" id="editor">{{$slider->short_description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-url-input" class="col-sm-2 col-form-label">YouTube URL</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" name="link" type="url" value="{{$slider->link}}" id="example-url-input">
+                            <label for="example-text-input" class="col-lg-2 col-form-label text-lg-right">LINK 1</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" value="{{$slider->link_1}}"
+                                       placeholder="https://something.com"
+                                       autocomplete="off"
+                                       name="link_1">
+                            </div>
+                            <label for="example-text-input" class="col-lg-2 col-form-label text-lg-right">LINK text</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" value="{{$slider->link_1_text}}"
+                                       placeholder="Something"
+                                       autocomplete="off"
+                                       name="link_1_text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-lg-2 col-form-label text-lg-right">LINK 2</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" value="{{$slider->link_2}}"
+                                       placeholder="https://something.com" autocomplete="off"
+                                       name="link_2">
+                            </div>
+                            <label for="example-text-input" class="col-lg-2 col-form-label text-lg-right">LINK text</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" value="{{$slider->link_2_text}}"
+                                       placeholder="Something"
+                                       autocomplete="off"
+                                       name="link_2_text">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -39,14 +64,16 @@
                             <div class="col-sm-10">
                                 <div class="form-check form-check-radio">
                                     <label>
-                                        <input name="status" type="radio" checked value="1" />
-                                        <span>Publish</span>
+                                        <input name="status" {{$slider->status ? 'checked' : ''}} type="radio" checked
+                                               value="1"/>
+                                        <span> পাবলিশ</span>
                                     </label>
                                 </div>
                                 <div class="form-check form-check-radio">
                                     <label>
-                                        <input name="status" type="radio"   value="0"/>
-                                        <span>Unpublish</span>
+                                        <input name="status" {{!$slider->status ? 'checked' : ''}} type="radio"
+                                               value="0"/>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>

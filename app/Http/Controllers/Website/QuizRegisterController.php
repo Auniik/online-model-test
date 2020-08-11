@@ -43,18 +43,18 @@ class QuizRegisterController extends Controller
             return back()->withWarning('বর্তমানে কোন কুইজ চললমান নেই');
         }
 
-        $isAttended = $participant->quizzes
+        $assessment = $participant->quizzes()
             ->where('quiz_id', $defaultQuiz->id)
-            ->where('is_attended', 1);
+            ->first();
 
-        if ($isAttended->isNotEmpty()) {
+        if ($assessment && $assessment->is_attended) {
             return back()->withWarning('আপনি কুইজটি একবার খেলেছেন ।');
         }
 
         session([
             'participant_id' => $participant->id,
             'quiz' => $defaultQuiz,
-            'type' => $request->player_type ?? 'general'
+            'type' => $request->player_type ? $request->player_type : $assessment->participant_type
         ]);
         return redirect()->route('quiz-assessment.create');
     }

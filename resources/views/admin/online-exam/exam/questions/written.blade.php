@@ -42,8 +42,9 @@
                         <div class="form-group row remarks">
                             <label class="col-2"> মার্ক *</label>
                             <input
-                                type="text"
-                                class="form-control col-9"
+                                type="number"
+                                min="0"
+                                class="form-control col-9 integer"
                                 name="remarks"
                                 required
                             />

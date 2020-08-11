@@ -65,12 +65,12 @@
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30:00" value="{{old('duration')}}" name="duration"
-                                       class="form-control">
+                                       class="form-control" pattern="(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)">
                             </div>
                             <label for="example-text-input" class="col-sm-2 col-form-label text-right"> পাশ
                                 মার্ক</label>
                             <div class="col-sm-4">
-                                <input type="number" min="0" class="form-control" placeholder="Pass mark"
+                                <input type="number" min="0" class="form-control integer" placeholder="Pass mark"
                                        name="competency_score">
                             </div>
                         </div>

@@ -34,16 +34,16 @@
                         <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Name</th>
-                            <th>Subject</th>
-                            <th>Class</th>
-                            <th>Date</th>
+                            <th> নাম</th>
+                            <th> বিষয়</th>
+                            <th> শ্রেণী</th>
+                            <th> তারিখ</th>
                             <th>Duration</th>
-                            <th>Pass</th>
-                            <th>Participants</th>
-                            <th>Questions</th>
-                            <th>Shown</th>
-                            <th>Published</th>
+                            <th> পাশমার্ক</th>
+                            <th> পরীক্ষার্থী</th>
+                            <th> প্রশ্নসমূহ</th>
+                            <th> হোমে দেখান</th>
+                            <th> পাবলিশড</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -88,25 +88,23 @@
                                             <a title="Set Participants"
                                                class="dropdown-item"
                                                href="{{route('exam-participants.create',  $exam->id)}}">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>  পরীক্ষার্থী যোগ করুন
                                             </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
                                                href="{{route('exam-questions.index',  $exam->id)}}">
-                                                <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
+                                                <i class="fa fa-quora" aria-hidden="true"></i>  প্রশ্ন যোগ করুন
                                             </a>
                                             <a title="Edit"
                                                class="dropdown-item"
                                                href="{{route('exams.edit',  $exam->id)}}">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </a>
-                                            @if (!$exam->assigned_participants_count)
-                                                <a class="dropdown-item deletable"
-                                                   title="Delete"
-                                                   href="{{route('exams.destroy',  $exam->id)}}">
-                                                    <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
-                                                </a>
-                                            @endif
+                                            <a class="dropdown-item deletable"
+                                               title="Delete"
+                                               href="{{route('exams.destroy',  $exam->id)}}">
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                            </a>
 
                                         </div>
                                     </div>

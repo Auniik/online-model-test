@@ -59,9 +59,9 @@ class ExamController extends Controller
         $attributes = $request->validate([
             'subject_id' => 'required|exists:subjects,id',
             'name' => 'required|min:3',
-            'duration' => 'required',
+            'duration' => ['required', 'regex:/(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)/'],
             'status' => 'required|in:active,inactive',
-            'competency_score' => 'required|min:0',
+            'competency_score' => 'required|min:0|numeric',
             'start_at' => 'required|date',
             'end_at' => 'required|date|after_or_equal:start_at'
         ]);
@@ -107,8 +107,9 @@ class ExamController extends Controller
         $attributes = $request->validate([
             'subject_id' => 'required|exists:subjects,id',
             'name' => 'required|min:3',
-            'duration' => 'required',
+            'duration' => ['required', 'regex:/(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)/'],
             'status' => 'required|in:active,inactive',
+            'competency_score' => 'required|min:0|numeric',
             'start_at' => 'required|date',
             'end_at' => 'required|date|after_or_equal:start_at'
         ]);
@@ -138,7 +139,23 @@ class ExamController extends Controller
     public function destroy(Exam $exam)
     {
         Storage::delete($exam->image);
+        foreach ($exam->questions as $question) {
+            $question->CQs()->delete();
+            $question->MCQs()->delete();
+            Storage::delete($question->file);
+        }
         $exam->questions()->delete();
+        $exam->assignedParticipants()->delete();
+
+        foreach ($exam->assessments ?? [] as $assessment) {
+            foreach ($assessment->answers ?? [] as $answer) {
+                foreach ($answer->attachments ?? [] as $attachment) {
+                    Storage::delete($attachment->path);
+                }
+                $answer->attachments()->delete();
+            }
+            $assessment->answers()->delete();
+        }
         $exam->delete();
         return \response([
             'check' => true

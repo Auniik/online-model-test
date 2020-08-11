@@ -14,17 +14,17 @@ class BookQuestionController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Book $book)
     {
         return view('admin.book.question.index')->with([
-            'questions'=> BookQuestion::query()->paginate(15)
+            'questions'=> $book->questions()->paginate(15)
         ]);
     }
 
     public function create()
     {
         return view('admin.book.question.create', [
-            'books'=> Book::query()->latest()->pluck('title', 'id'),
+            'books'=> Book::query()->whereDoesntHave('questions')->latest()->pluck('title', 'id'),
         ]);
     }
 
@@ -37,13 +37,13 @@ class BookQuestionController extends Controller
         if(empty($exists)){
             BookQuestion::query()->create($request->except('_token'));
 
-            return redirect()->back()->with([
-                'success'=>'New Question created'
+            return redirect('add-book')->with([
+                'success' => 'New Question created'
             ]);
         }
 
         return redirect()->back()->with([
-            'error'=>'Question already exists'
+            'warning' => 'Question already exists'
         ]);
 
     }

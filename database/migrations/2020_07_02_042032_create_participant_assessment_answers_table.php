@@ -20,8 +20,14 @@ class CreateParticipantAssessmentAnswersTable extends Migration
             $table->longText('answer')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
-            $table->foreign('participant_assessment_id')->references('id')->on('participant_assessments');
-            $table->foreign('exam_question_id')->references('id')->on('exam_questions');
+            $table->foreign('participant_assessment_id')
+                ->references('id')
+                ->on('participant_assessments')
+                ->onDelete('cascade');
+            $table->foreign('exam_question_id')
+                ->references('id')
+                ->on('exam_questions')
+                ->onDelete('cascade');
         });
     }
 

@@ -13,7 +13,7 @@
                             <div class="card-body">
                                 <div class="offset-lg-2 col-8 mt-5">
                                     @if ($assessment->exam->image)
-                                        <img src="{{url($assessment->exam->image)}}" class="img img-fluid mt-4" alt="">
+                                        <img src="{{url($assessment->exam->image)}}" class="img img-fluid mt-4" alt="{{$assessment->exam->name}}">
                                     @endif
 
                                     <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
@@ -36,12 +36,12 @@
                         @foreach($exams ?? [] as $exam)
                             <div class="col-lg-4 col-md-4 col-sm-6 mb-4 mt-4">
                                 <div class="card shadow-lg bg-transparent">
-                                    @if ($exam->image)
+                                    @if (\Illuminate\Support\Facades\Storage::exists($exam->image))
                                         <img src="{{url($exam->image)}}" class="card-img-top exam-cover"
-                                             alt="hero2.jpg">
+                                             alt="{{$exam->name}}">
                                     @else
                                         <img src="/front-end/images/book1.png" class="card-img-top exam-cover"
-                                             alt="hero2.jpg">
+                                             alt="{{$exam->name}}">
                                     @endif
                                     <div class="card-img-overlay text-center">
                                         <a class="text-part" href="/exams/{{$exam->id}}/start">
@@ -239,16 +239,19 @@
                                     @if ($assessment->image)
                                         <img src="/{{$assessment->image}}" class="img img-fluid" alt="">
                                     @endif
-                                    <h5 class="my-4"> কুইজের নামঃ <b>{{$assessment->quiz->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->quiz->duration}} মিনিট</b></h5>
+                                    <h5 class="my-4"> কুইজের নাম: <b>{{$assessment->quiz->name}}</b></h5>
+                                    <h5 class="my-4"> সময়: <b>{{$assessment->quiz->duration}} মিনিট</b></h5>
                                     @if ($assessment->quiz->questions)
-                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যাঃ <b>{{$assessment->quiz->questions->count()}} টি</b></h5>
+                                        <h5 class="my-4"> মোট প্রশ্নসংখ্যা: <b>{{$assessment->quiz->questions->count
+                                        ()}} টি</b></h5>
                                     @endif
 
                                     @if($assessment->quiz->is_published)
-                                        <h5 class="my-4"> সঠিক হয়েছেঃ <b>{{$assessment->correctCount()}} টি</b></h5>
-                                        <h5 class="my-4"> ভুল হয়েছেঃ <b>{{$assessment->wrongCount()}} টি</b></h5>
-                                        <h5 class="my-4"> সময় লেগেছে <b>{{$assessment->consumedTime()}}</b></h5>
+                                        <h5 class="my-4"> সঠিক হয়েছে: <b
+                                                class="text-success">{{$assessment->correctCount()}} টি </b></h5>
+                                        <h5 class="my-4"> ভুল হয়েছে: <b class="text-danger">{{$assessment->wrongCount()}} টি</b></h5>
+                                        <h5 class="my-4"> সময় লেগেছে: <b
+                                                class="text-success">{{$assessment->consumedTime()}}</b></h5>
                                     @else
                                         <h2>  উত্তর এখনও পাবলিশ করা হয়নি!</h2>
                                     @endif

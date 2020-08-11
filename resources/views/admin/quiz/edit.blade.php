@@ -41,16 +41,16 @@
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30" value="{{$quiz->duration}}" name="duration"
-                                       class="form-control">
+                                       class="form-control" pattern="^(0[0-9]|1[0-9]|2[0-9]):[0-5][0-9]$">
                             </div>
-
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.cover_image')
                             }}</label>
                             <div class="col-sm-2">
                                 <img src="/{{$quiz->image}}" class="img img-fluid" style="height: 70px"
-                                     alt="{{$quiz->name}}">
+                                     alt="{{$quiz->name}}"
+                                >
                             </div>
                             <div class="col-sm-8">
                                 @if ($quiz->image)

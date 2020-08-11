@@ -54,6 +54,13 @@ class ExamFormController extends Controller
 
     public function store(Request $request, ParticipantAssessment $assessment)
     {
+        $request->validate([
+            'school_name' => 'required',
+            'class' => 'required|numeric',
+            'roll' => 'required|numeric',
+            'sub_district' => 'required',
+            'district' => 'required',
+        ]);
         $assessment->participant()->update(
             $request->only('name', 'school_name', 'class', 'roll', 'sub_district', 'district')
         );

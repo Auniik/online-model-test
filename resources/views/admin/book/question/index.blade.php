@@ -3,11 +3,13 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4 >Book Question List</h4>
+                <div class="card-header d-flex justify-content-between">
+                    <h4 >Book Question</h4>
+                    @php($book = request('book'))
+                    <a href="/book/question/create?id={{$book?$book->id:''}}" style="height: 35px; " class="btn
+                    btn-primary col-1">Add new</a>
                 </div>
                 <div class="card-body">
-                    <p class="text-muted mb-4 font-14"></p>
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>

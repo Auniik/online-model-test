@@ -47,8 +47,6 @@
                     <h4 class="mt-0">Manage Bangabandhu INFO</h4>
                 </div>
                 <div class="card-body">
-
-                    <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>

@@ -26,20 +26,23 @@
                         </div>
 
                         <div class="col-lg-3 col-md-3 col-sm-12 my-3">
-                            <input type="text"
+                            <input type="number"
                                    value="{{$assessment->participant->class}}"
                                    name="class"
                                    required
-                                   class="form-control"
+                                   min="1"
+                                   max="12"
+                                   class="form-control integer"
                                    placeholder="শ্রেণীঃ"
                                    autocomplete="off">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 my-3">
-                            <input type="text"
+                            <input type="number"
+                                   min="1"
                                    value="{{$assessment->participant->roll}}"
                                    name="roll"
                                    required
-                                   class="form-control"
+                                   class="form-control integer"
                                    autocomplete="off"
                                    placeholder="ক্লাস রোলঃ">
                         </div>

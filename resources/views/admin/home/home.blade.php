@@ -103,8 +103,6 @@
                         <h4 class="mt-0">Dynamic Report</h4>
                     </div>
                     <div class="card-body">
-
-                        <p class="text-muted mb-4 font-14"></p>
                         <div id="morris-bar-stacked" class="morris-chart"></div>
                     </div>
                     <!--end card-body-->

@@ -2,32 +2,79 @@
 @section('content')
     <!---------------------------- ব্যানার অংশ শুরু --------------->
     <section id="banner">
-        <div class="banner-1">
-            <div class="overlay">
-                <div class="container main_banner">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="banner-text-1">
-                                <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>
-                                <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms"
-                                    data-wow-duration="1500ms" style="visibility: visible; animation-duration:
+        @if (!$slider_images)
+            <div class="banner-1">
+                <div class="overlay">
+                    <div class="container main_banner">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="banner-text-1">
+                                    <p class="fadeInLeft animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">শিক্ষা তথ্য ও সৃজনশীল অনলাইন প্লাটফর্ম</p>
+                                    <h2 class="inner-box wow fadeInRight animated" data-wow-delay="0ms"
+                                        data-wow-duration="1500ms" style="visibility: visible; animation-duration:
                                     1500ms; animation-delay: 0ms; animation-name: fadeInRight; font-family: shorif-shishir">টেকসই
-                                    <span>বাংলা</span></h2>
-                                <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
-                                <a href="{{url('/submit-work?ref=creativity')}}">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> সৃজনশীলতা জমা
-                                        দিন</button></a>
-                                @if (!auth('participant')->check())
-                                    <a href="{{route('participants.register.index')}}"><button class="btn btn-outline-success my-2 my-sm-0"
-                                                type="submit">রেজিস্ট্রেশন</button></a>
-                                @endif
-
+                                        <span>বাংলা</span>
+                                    </h2>
+                                    <p class="fadeInLeft animated p-2" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">সবকিছু একসাথে এখানেই</p>
+                                    <a href="{{url('/submit-work?ref=creativity')}}">
+                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                            সৃজনশীলতা জমা দিন
+                                        </button>
+                                    </a>
+                                    @if (!auth('participant')->check())
+                                        <a href="{{route('participants.register.index')}}">
+                                            <button class="btn btn-outline-success my-2 my-sm-0"
+                                                    type="submit"> রেজিস্ট্রেশন
+                                            </button>
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            @foreach($slider_images as $k => $image)
+            <div class="banner"
+                 style='background: url("{{asset($image->image)}}") no-repeat center; background-size: cover;'>
+                <div class="overlay">
+                    <div class="container main_banner">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="banner-text-1 d-flex flex-column justify-content-around">
+                                    <div class="text-center">
+                                        {!! $image->short_description !!}
+                                    </div>
+
+                                    <div class="text-center mt-2">
+                                        @if ($image->link_1)
+                                            <a href="{{$image->link_1}}">
+                                                <button class="btn btn-lg btn-primary my-2 my-sm-0" type="submit">
+                                                    {{$image->link_1_text}}
+                                                </button>
+                                            </a>
+                                        @endif
+                                        @if ($image->link_2)
+                                            <a href="{{$image->link_2}}">
+                                                <button class="btn btn-lg btn-primary my-2 my-sm-0" type="submit">
+                                                    {{$image->link_2_text}}
+                                                </button>
+                                            </a>
+                                        @endif
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @endforeach
+
+        @endif
+
     </section>
 
     <!---------------------------- ব্যানার অংশ শেষ --------------->

@@ -8,23 +8,23 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2">Exam Name</label>
+                    <label for="example-text-input" class="col-sm-2"> পরীক্ষার নাম</label>
                     <div class="col-sm-10">
                         {{$exam->name}}
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2  ">Class</label>
+                    <label for="example-text-input" class="col-sm-2  "> শ্রেণী</label>
                     <div class="col-sm-4">
                         {{$exam->class}}
                     </div>
-                    <label for="example-text-input" class="col-sm-2  text-right">Subject</label>
+                    <label for="example-text-input" class="col-sm-2  text-right">বিষয়</label>
                     <div class="col-sm-4">
                         {{$exam->subject->name}}
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2">Start at</label>
+                    <label for="example-text-input" class="col-sm-2"> পরীক্ষা শুরু হবে</label>
                     <div class="col-sm-4">
                         {{$exam->start_at->format('d/m/Y h:m A')}}
                     </div>
@@ -35,14 +35,14 @@
 
                 </div>
                 <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2">Cover Image</label>
+                    <label for="example-text-input" class="col-sm-2"> কভার  ছবি</label>
                     <div class="col-sm-2">
                         <img src="/{{$exam->image}}" class="img img-fluid" style="height: 70px"
                              alt="{{$exam->name}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-text-input" class="col-sm-2">Description</label>
+                    <label for="example-text-input" class="col-sm-2"> বিবরণ</label>
                     <div class="col-sm-10">
                         {!! $exam->description !!}
                     </div>

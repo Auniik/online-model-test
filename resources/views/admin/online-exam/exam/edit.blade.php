@@ -8,27 +8,27 @@
                 @method('patch')
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-primary float-right" href="{{route('exams.index')}}">All Exams</a>
-                        <h4><span id="header-title">Edit</span> Exam</h4>
+                        <a class="btn btn-primary float-right" href="{{route('exams.index')}}"> সকল পরীক্ষাসমূহ</a>
+                        <h4><span id="header-title"> পরীক্ষা হালনাগাদ করুন</span></h4>
                     </div>
                     <div class="card-body">
                         @include('front.partials.notifications')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Exam Name *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> পরীক্ষার নাম *</label>
                             <div class="col-sm-10">
                                 <input
                                     class="form-control"
                                     type="text"
                                     value="{{$exam->name}}"
-                                    placeholder="Exam name"
+                                    placeholder=" পরীক্ষার নাম"
                                     name="name"
                                     autocomplete="off"
                                 >
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Class *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শ্রেণী *</label>
                             <div class="col-sm-4">
                                 <select class="form-control class" name="class">
                                     <option value="">Select One</option>
@@ -37,7 +37,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <label for="example-text-input" class="col-sm-2 col-form-label text-right">Subject</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label text-right"> বিষয়</label>
                             <div class="col-sm-4">
                                 <select class="form-control subject" name="subject_id" id="">
                                 </select>
@@ -63,17 +63,21 @@
                                 <input type="text" placeholder="02:30:00" autocomplete="off"
                                        value="{{$exam->duration}}"
                                        name="duration"
-                                       class="form-control">
+                                       class="form-control"
+                                       pattern="(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)"
+                                >
                             </div>
                             <label for="example-text-input" class="col-sm-2 col-form-label text-right"> পাশ মার্ক</label>
                             <div class="col-sm-4">
-                                <input type="number" min="0" value="{{$exam->competency_score}}" class="form-control"
-                                       placeholder="Pass mark"
-                                       name="competency_score">
+                                <input type="number" min="0" value="{{$exam->competency_score}}"
+                                       class="form-control integer"
+                                       placeholder=" পাশ  মার্ক"
+                                       name="competency_score"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Cover Image</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> কভার ছবি</label>
                             <div class="col-sm-2">
                                 <img src="/{{$exam->image}}" class="img img-fluid" style="height: 70px"
                                      alt="{{$exam->name}}">
@@ -87,7 +91,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> বিবরণ</label>
                             <div class="col-sm-10">
                                 <textarea name="description"  id="editor" class="form-control">{{$exam->description
                                 }}</textarea>
@@ -100,7 +104,7 @@
                             <div class="col-sm-4">
                                 <input type="checkbox" id="in_homepage" value="1" {{$exam->in_homepage ? 'checked': ''}}
                                 name="in_homepage">
-                                <label for="in_homepage">Show in homepage</label>
+                                <label for="in_homepage"> হোমে দেখান</label>
                             </div>
                             <div class="col-sm-4">
                                 <input type="checkbox" id="is_published" value="1" {{$exam->is_published ? 'checked' : ''}}  name="is_published">
