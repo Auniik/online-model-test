@@ -11,107 +11,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamMemberController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/TeamMember.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025142_create_books_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025320_create_book_images_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025800_create_book_questions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_031247_create_bangabandhus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_095647_create_team_members_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/8af95Z2JkEOSzHbvsUuwOuqEeBR53dwmAMHM2nLI.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/9JGm3x7ULrTqwCJ1lwCG1iVnmjXQHDwkwO2jfSJU.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/KO2cYVHILezxHaM8YhWmgJTvyFt4MbDVB5kcCNk1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/RF5s2qhgntZV51vYcSM0EoKYSfcRWDTaBQXEyHhv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/Z6HLHMSsb987IdsH5beN7qc7S11Mm2kp6efm4r3C.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/f0BrdFOoEB8XDETgZNalh0GyB70pqeuluHPfq2De.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/ln9kaZfgcFd2dBYI3UdNB2PcgZsF7xew2IqCof7A.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/books/yYdECZPp4TeLx0VdVPHJCTupKlTD8u1pcnty8isx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/quizzes/questions/PqUL3NVQbMv5mATS8fqDTiGD8VO5BwHdk6jCW1qP.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/quizzes/questions/X5s4mnUBqfohjjZunOVCwCoPH4xMrICUQjNzQM0o.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/slider/VFehBFHe9WG7dEKzHr3zAnn1X4d8aQ52lCIXmGkO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/slider/bLcaAyLFqbyTEiKuXvYdDAwQp4ailrvuNuD9UFw6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/teams/3t9j73Z7sAh37dahyRCdj0Ky0roWMGQxvl5omLRf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/teams/7NS3BSA2For1ykGdKz2BYN6d66Sp2qAWP4pSiCro.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/teams/VinZB9kmGH0Sjb7gJsf0iisu2XJMc27n6l1BydV8.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/teams/acuvH1OOjzNKglFPqa9Z3ew5ya1l1xcouaxa6Np8.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/slider/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/teams/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/dump/construction.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/team-member/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/BookQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/BookQuestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BookQuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Bangabandhu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Bangabandhu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ExamController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OnlineExam/ParticipantController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PublicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PublicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ExamFormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/WebsiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Slider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_183646_create_contracts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_14_183646_create_contracts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_185405_create_event_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_14_185405_create_event_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_14_190020_create_sliders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_14_190020_create_sliders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_26_080338_create_publications_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_26_080338_create_publications_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_040324_create_exam_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_040324_create_exam_questions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_040359_create_cq_question_metas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_040359_create_cq_question_metas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_040438_create_mcq_question_options_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_040438_create_mcq_question_options_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_041909_create_participant_assessments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_041909_create_participant_assessments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_042032_create_participant_assessment_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_042032_create_participant_assessment_answers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_02_042057_create_participant_assessment_attachments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_02_042057_create_participant_assessment_attachments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_045541_create_quiz_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_045541_create_quiz_questions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_045601_create_quiz_question_options_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_045601_create_quiz_question_options_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_045622_create_quiz_assessments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_045622_create_quiz_assessments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_045639_create_quiz_assessment_answers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_045639_create_quiz_assessment_answers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front-end/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front-end/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/publication-image/002.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/about/add-about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/about/add-about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/bangabandhu/add-bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bangabandhu/add-bangabandhu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/add-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/add-blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_11_025320_create_book_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_025320_create_book_images_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ContactTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/001-page-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/001-page-012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/001-page-013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/001-page-014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/001-page-015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/karagare_rojnamca-page-010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-016.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-018.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-019.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-020.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-022.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-023.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book-images/oshomapto_attojiboni-page-024.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/bangabandhu/edit-bangabandhu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/bangabandhu/edit-bangabandhu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/book/add-book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/book/add-book.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/book/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/book/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/book/edit-book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/book/edit-book.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/book/question/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/book/question/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/book/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/book/question/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/contact/add-contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contact/add-contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/eventvideo/add-event-video.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/eventvideo/add-event-video.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/add-gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/add-gallery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/message/add-event-message.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/message/edit-event-message.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/written.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/questions/written.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/show-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/exam/show-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/online-exam/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/online-exam/subject/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/publication/add-publication.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/publication/add-publication.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/quiz/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/quiz/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/slider/add-slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/slider/add-slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/slider/edit-slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/slider/edit-slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/video/add-video.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/video/add-video.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/creativity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/online-exam.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/sitemap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/sitemap.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/amaderkotha.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/online-exam/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/online-exam/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -358,7 +298,8 @@
       <workItem from="1596642691277" duration="14854000" />
       <workItem from="1596728928090" duration="63011000" />
       <workItem from="1596986195816" duration="10414000" />
-      <workItem from="1597077150584" duration="53765000" />
+      <workItem from="1597077150584" duration="53905000" />
+      <workItem from="1597247432313" duration="2198000" />
     </task>
     <servers />
   </component>
@@ -490,9 +431,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1596752870800" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597162648094">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597298937527">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597162648094" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597298937527" />
   </component>
 </project>

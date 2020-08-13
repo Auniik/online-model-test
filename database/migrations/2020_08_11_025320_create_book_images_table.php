@@ -18,6 +18,8 @@ class CreateBookImagesTable extends Migration
             $table->unsignedBigInteger('book_id');
             $table->text('image');
             $table->timestamps();
+
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 

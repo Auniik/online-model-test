@@ -60,10 +60,6 @@
                 <li><a href="{{url('/add-publication')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> পাবলিকেশনস</span></a></li>
 
-                <li><a href="{{url('/team-members')}}" class="waves-effect"><i class="mdi mdi-note"></i>
-                        <span>  টিম মেম্বারস</span></a></li>
-
-
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-contact-mail"></i> <span> যোগাযোগ
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
@@ -78,7 +74,7 @@
                     <ul class="list-unstyled">
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
                          <li><a href="{{asset('edit-bangabandhu-info')}}"> বঙ্গবন্ধু</a></li>
-                        <li><a href="{{route('add-event-message')}}"> আমাদের সম্পর্কে</a></li>
+                        <li><a href="{{url('/team-members')}}"> আমাদের সম্পর্কে</a></li>
                     </ul>
                 </li>
 

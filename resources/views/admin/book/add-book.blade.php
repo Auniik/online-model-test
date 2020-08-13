@@ -40,7 +40,7 @@
                                 <td>
                                     {{--<a href="/edit-book/{{$book->id}}{{route('edit-book')}}" class=""><i class="fa fa-edit"></i></a>--}}
                                     <a href="{{route('edit-book',['id'=>$book->id])}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-book',['id'=>$book->id])}}" class="" onclick="alert('Are You Delete This ')"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('delete-book',$book)}}" class="deletable"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

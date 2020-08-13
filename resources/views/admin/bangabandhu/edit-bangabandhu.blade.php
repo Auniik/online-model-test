@@ -27,7 +27,7 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*">
+                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group row">

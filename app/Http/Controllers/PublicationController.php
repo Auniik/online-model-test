@@ -20,7 +20,7 @@ class PublicationController extends Controller
     public function newPublication(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf|max:2048',
+            'file' => 'required|mimes:pdf|max:20000',
             'image' => 'required|image|max:2048',
             'title' => 'required',
             'description' => 'required',

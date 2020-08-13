@@ -3,11 +3,13 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0"> স্লাইডার ছবি হালনাগাদ করুন</h4>
+                </div>
                 <div class="card-body">
                     <form action="{{route('update-slider', $slider)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
-                        <h4 class="mt-0"> স্লাইডার ছবি হালনাগাদ করুন</h4>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> ছবি</label>
                             <div class="col-sm-10">

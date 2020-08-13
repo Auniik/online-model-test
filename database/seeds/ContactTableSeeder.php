@@ -14,7 +14,7 @@ class ContactTableSeeder extends Seeder
         \App\Contract::query()->truncate();
         \App\Contract::query()->create([
             'title' => 'আপনার যে কোন পরামর্শ ও তথ্য জানতে আমাদের সাথে যোগাগোগ করুন ।',
-            'description' => 'asdfas',
+            'description' => 'q ',
             'address' => '১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫',
             'phone' => '০১৭২০৬২৮১৬৯, ০১৯২৪০৮০৬৮৮',
             'email' => 'tekasai100@gmail.com',

@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/new-book', 'BookController@newBook')->name('new-book');
     Route::get('/edit-book/{id}', 'BookController@editBook')->name('edit-book');
     Route::patch('/update-book/{id}', 'BookController@updateBook')->name('update-book');
-    Route::get('/delete-book', 'BookController@deleteBook')->name('delete-book');
+    Route::delete('/delete-book/{book}', 'BookController@deleteBook')->name('delete-book');
     Route::post('/delete-book-image/{id}', 'BookController@deleteBookImage')->name('delete-book-image');
     Route::get('books/{book}/questions','Admin\BookQuestionController@index')->name('book-questions.index');
 

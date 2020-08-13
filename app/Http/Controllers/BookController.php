@@ -103,10 +103,18 @@ class BookController extends Controller
 
         return redirect('/add-book')->withSuccess(' বই হালনাগাদ করা হয়েছে !');
     }
-    public function deleteBook($id){
-        $book = Book::find($id);
+    public function deleteBook(Book $book){
+        Storage::delete($book->reward_image);
+        Storage::delete($book->cover_image);
+        $book->questions()->delete();
+        foreach ($book->images as $image) {
+            Storage::delete($image->image);
+        }
+        $book->images()->delete();
         $book->delete();
-        return redirect('/add-book');
+        return response([
+            'check' => true
+        ]);
     }
 
     public function deleteBookImage($id){
