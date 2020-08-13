@@ -16,7 +16,7 @@ class BookController extends Controller
         $this->middleware('auth');
     }
 
-    public function addBook()
+    public function index()
     {
         $books = Book::query()->withCount('questions')->latest()->paginate(15);
         return view('admin.book.add-book', [
@@ -29,7 +29,7 @@ class BookController extends Controller
         return view('admin.book.create');
     }
 
-    public function newBook(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
@@ -56,10 +56,10 @@ class BookController extends Controller
             }
         });
 
-        return redirect('add-book')->withSuccess('বই তৈরী করা হয়েছে !');
+        return back()->withSuccess('বই তৈরী করা হয়েছে !');
     }
 
-    public function editBook($id)
+    public function edit($id)
     {
         $book = Book::query()->find($id);
         return view('admin.book.edit-book', [
@@ -67,7 +67,7 @@ class BookController extends Controller
         ]);
     }
 
-    public function updateBook(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'title' => 'required',
@@ -101,9 +101,9 @@ class BookController extends Controller
             }
         });
 
-        return redirect('/add-book')->withSuccess(' বই হালনাগাদ করা হয়েছে !');
+        return back()->withSuccess(' বই হালনাগাদ করা হয়েছে !');
     }
-    public function deleteBook(Book $book){
+    public function destroy(Book $book){
         Storage::delete($book->reward_image);
         Storage::delete($book->cover_image);
         $book->questions()->delete();

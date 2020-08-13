@@ -9,6 +9,7 @@ $('#banner').slick({
     speed: 1200,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 1500,

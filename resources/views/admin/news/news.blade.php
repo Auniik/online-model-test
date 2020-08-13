@@ -7,8 +7,6 @@
                     <h4 class="mt-0">Manage News Updates</h4>
                 </div>
                 <div class="card-body">
-                    @include('front.partials.notifications')
-                    <p class="text-muted  font-14"></p>
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
@@ -20,23 +18,24 @@
                         </thead>
                         <tbody>
                         @php($i = 1)
-                        @foreach($news as $new)
+                        @foreach($newses as $news)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$new->title}}</td>
+                                <td>{{$news->title}}</td>
                                 <td>
-                                    <a class="text-primary" target="_blank" href="{{$new->link}}">{{$new->link}}</a>
+                                    <a class="text-primary" target="_blank" href="{{$news->link}}">{{$news->link}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('edit-news',['id'=>$new->id])}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-news',['id'=>$new->id])}}" class=""><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('news.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('news.destroy', $news)}}" class="deletable"><i class="fa
+                                    fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <div style="float: right">
-                        {{$news->render()}}
+                        {{$newses->render()}}
                     </div>
                 </div>
             </div>
@@ -51,7 +50,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('new-news')}}" method="POST" >
+                    <form action="{{route('news.store')}}" method="POST" >
                     @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-1 col-form-label text-right">Title</label>

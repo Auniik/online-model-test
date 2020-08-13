@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Publication;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Image;
-use Illuminate\Http\Request;
 
 class PublicationController extends Controller
 {
-    public function addPublication()
+    public function index()
     {
         $publications = Publication::query()->latest()->paginate(15);
-        return view('admin.publication.add-publication',[
+        return view('admin.publication.add-publication', [
             'publications' => $publications,
         ]);
     }
 
-    public function newPublication(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'file' => 'required|mimes:pdf|max:20000',
@@ -38,18 +38,17 @@ class PublicationController extends Controller
         $publication->status = $request->status;
         $publication->save();
 
-        return redirect('add-publication')->withSuccess('Publication added Successfully');
+        return back()->withSuccess('Publication added Successfully');
     }
 
-    public function editPublication($id)
+    public function edit(Publication $publication)
     {
-        $publication = Publication::find($id);
         return view('admin.publication.edit-publication', [
             'publication' => $publication,
         ]);
     }
 
-    public function updatePublication(Request $request)
+    public function update(Request $request, Publication $publication)
     {
         $request->validate([
             'file' => 'mimes:pdf|max:20000',
@@ -58,21 +57,20 @@ class PublicationController extends Controller
             'description' => 'required',
             'status' => 'required'
         ]);
-        $publication = Publication::query()->find($request->id);
+
         if ($request->has('file')) {
             $fileUrl = $request->file->store('uploads/publications');
-           Storage::delete($publication->file);
+            Storage::delete($publication->file);
         } else {
             $fileUrl = $publication->file;
         }
 
         if ($request->has('image')) {
             $image = $request->image->store('uploads/publications');
-           Storage::delete($publication->image);
+            Storage::delete($publication->image);
         } else {
             $image = $publication->image;
         }
-
 
 
         $publication->title = $request->title;
@@ -81,8 +79,9 @@ class PublicationController extends Controller
         $publication->image = $image;
         $publication->status = $request->status;
         $publication->save();
-        return redirect('/add-publication')->withSuccess(' পাবলিকেশন হালনাগাদ করা হয়েছে');
+        return back()->withSuccess(' পাবলিকেশন হালনাগাদ করা হয়েছে');
     }
+
     public function destroy(Publication $publication)
     {
         Storage::delete($publication->file);
@@ -94,11 +93,10 @@ class PublicationController extends Controller
     }
 
 
-    public function detailsPublication($id){
-
-        $publications = Publication::query()->find($id);
-        return view('front.about.publication-details',[
-            'publications' => $publications,
+    public function show(Publication $publication)
+    {
+        return view('front.about.publication-details', [
+            'publication' => $publication,
         ]);
     }
 }

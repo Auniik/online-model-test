@@ -52,12 +52,6 @@
             </div><!--end row-->
         </div><!--end container-->
     </section>
-    <section class="section about">
-        <div class="container">
-            <div class="row align-items-center">
 
-            </div><!--end row-->
-        </div><!--end container-->
-    </section>
     @endforeach
 @endsection

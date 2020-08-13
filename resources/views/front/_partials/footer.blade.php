@@ -162,7 +162,7 @@
                         <li class="list-inline-item"><a href="{{route('contact')}}" target="_blank">Contact</a></li>
                         <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">Mission
                                 Vision</a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">Terms & Conditions</a>
+                        <li class="list-inline-item"><a href="/terms-and-conditions" target="_blank">Terms & Conditions</a>
                         </li>
                         <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">Privacy
                                 Policy</a></li>

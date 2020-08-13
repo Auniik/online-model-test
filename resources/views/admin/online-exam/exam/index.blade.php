@@ -85,11 +85,6 @@
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a title="Set Participants"
-                                               class="dropdown-item"
-                                               href="{{route('exam-participants.create',  $exam->id)}}">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i>  পরীক্ষার্থী যোগ করুন
-                                            </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
                                                href="{{route('exam-questions.index',  $exam->id)}}">
@@ -100,9 +95,8 @@
                                                href="{{route('exams.edit',  $exam->id)}}">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </a>
-                                            <a class="dropdown-item deletable"
-                                               title="Delete"
-                                               href="{{route('exams.destroy',  $exam->id)}}">
+                                            <a class="dropdown-item deletable" title="Delete"
+                                               href="{{route('exams.destroy', $exam->id)}}">
                                                 <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
                                             </a>
 

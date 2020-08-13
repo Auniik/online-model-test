@@ -7,15 +7,13 @@
                     <h4 class="mt-0">Manage Contact</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('update-contact')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('contacts.update', $contract)}}" method="POST" enctype="multipart/form-data">
                         @csrf
-
-                        <h3>{{Session::get('message')}}</h3>
+                        @method('patch')
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{$contract->title}}" name="title">
-                                <input class="form-control" type="hidden" value="{{$contract->id}}" name="id">
                             </div>
                         </div>
                         <div class="form-group row">

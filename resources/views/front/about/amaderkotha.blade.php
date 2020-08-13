@@ -191,7 +191,7 @@
                             @foreach($publications as $publication)
                                 <div class="col-md-3 mb-2 mt-2">
                                     <div class="card shadow-lg">
-                                        <a href="{{route('publication-details',['id' => $publication->id])}}"
+                                        <a href="{{route('publication-details',$publication)}}"
                                            target="_blank">
                                             <img class="card-img-top" style="height: 300px"
                                                 src="{{asset($publication->image)}}"

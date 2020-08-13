@@ -11,12 +11,12 @@
                                     <div class="col-md-12 mb-1">
                                         <div class="row">
                                             <div class="col-md-12 px-lg-5 px-sm-1 px-md-5 text-justify pt-2">
-                                                <h4 class="text-center">{{ $publications->title	}}</h4>
-                                                <p class="text-justify p-1">{!! $publications->description	 !!}  </p>
-                                                @if ($publications->file)
+                                                <h4 class="text-center">{{ $publication->title	}}</h4>
+                                                <p class="text-justify p-1">{!! $publication->description	 !!}  </p>
+                                                @if ($publication->file)
                                                     <iframe
                                                         class="my-4 my-sm-1 "
-                                                        src="/{{$publications->file}}"
+                                                        src="/{{$publication->file}}"
                                                         frameBorder="0"
                                                         scrolling="auto"
                                                         height="700px"

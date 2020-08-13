@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Image;
-use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-    public function addSlider(){
-        $sliders = Slider::all();
-        return view('admin.slider.add-slider',[
-            'sliders' => $sliders,
+    public function index()
+    {
+        return view('admin.slider.add-slider', [
+            'sliders' => Slider::query()->paginate(15),
         ]);
     }
 
@@ -21,7 +21,7 @@ class SliderController extends Controller
         return view('admin.slider.create');
     }
 
-    public function newSlider(Request $request)
+    public function store(Request $request)
     {
         $attributes = $request->validate([
             'title' => 'required',
@@ -38,19 +38,18 @@ class SliderController extends Controller
 
         Slider::query()->create($attributes);
 
-        return redirect('add-slider')
-            ->withSuccess('Slider image saved Successfully!');
+        return back()->withSuccess('Slider image saved Successfully!');
     }
 
-    public function editSlider($id){
-
-        $slider = Slider::find($id);
-        return view('admin.slider.edit-slider',[
+    public function edit(Slider $slider)
+    {
+        return view('admin.slider.edit-slider', [
             'slider' => $slider,
         ]);
     }
-    public function updateSlider(Request $request, Slider $slider){
 
+    public function update(Request $request, Slider $slider)
+    {
         $attributes = $request->validate([
             'title' => 'required',
             'short_description' => 'required',
@@ -69,11 +68,11 @@ class SliderController extends Controller
 
         $slider->update($attributes);
 
-        return redirect('add-slider')->withSuccess(' স্লাইডার ছবি হালনাগাদ করা হয়েছে !');
+        return back()->withSuccess('স্লাইডার ছবি হালনাগাদ করা হয়েছে !');
     }
-    public function deleteSlider($id){
 
-        $slider = Slider::query()->find($id);
+    public function destroy(Slider $slider)
+    {
         Storage::delete($slider->image);
         $slider->delete();
 

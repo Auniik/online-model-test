@@ -3,49 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class ContractController extends Controller
 {
-    public function __construct()
+    public function edit()
     {
-        $this->middleware('auth');
-    }
-
-
-    public function editContract(){
-        $contract = Contract::query()->first();
-        return view('admin.contact.edit-contact',[
-            'contract' => $contract,
+        return view('admin.contact.edit-contact', [
+            'contract' => Contract::query()->first(),
         ]);
     }
 
-    public function updateContract(Request $request){
-        $contract = Contract::query()->first();
-        if ($request->has('image'))
-        {
-            $contactImage = $request->file('image');
-            $directory = "about-image/";
-            $imageName = Str::random(40) ."." . $contactImage->getClientOriginalExtension();
-            //$aboutImage->move($directory,$imageName);
-            $imageUrl = $directory.$imageName;
-            Image::make($contactImage)->resize(1500, 400)->save($imageUrl);
-            Storage::delete($contract->image);
+    public function update(Request $request, Contract $contact)
+    {
+        $request->validate([
+            'image' => 'image|max:2048',
+            'title' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
+        ]);
+        if ($request->has('image')) {
+            $imageUrl = $request->image->store('uploads/contact');
+            Storage::delete($contact->image);
         } else {
-            $imageUrl = $contract->image;
+            $imageUrl = $contact->image;
         }
 
-        $contract->title                = $request->title;
-        $contract->description          = $request->description;
-        $contract->address              = $request->address;
-        $contract->phone                = $request->phone;
-        $contract->email                = $request->email;
-        $contract->image                = $imageUrl;
-        $contract->save();
-        return redirect('/edit-contact');
+        $contact->title = $request->title;
+        $contact->description = $request->description;
+        $contact->address = $request->address;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->image = $imageUrl;
+        $contact->save();
+        return back()->withSuccess('Contact updated successfully!');
     }
 }

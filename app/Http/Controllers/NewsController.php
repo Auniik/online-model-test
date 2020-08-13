@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function addNews()
+    public function index()
     {
         return view('admin.news.news', [
-            'news' => News::query()->latest()->paginate(15),
+            'newses' => News::query()->latest()->paginate(15),
         ]);
     }
 
 
-    public function newNews(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required'
@@ -24,20 +24,18 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
-        return redirect('add-news')->withSuccess('News update saved successfully');
+        return back()->withSuccess('News update saved successfully');
     }
 
-    public function editNews($id)
+    public function edit(News $news)
     {
-        $news = News::query()->find($id);
         return view('admin.news.edit-news', [
             'news' => $news,
         ]);
     }
 
-    public function updateNews(Request $request)
+    public function update(Request $request, News $news)
     {
-        $news = News::query()->find($request->id);
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
@@ -45,10 +43,11 @@ class NewsController extends Controller
 
     }
 
-    public function deleteNews($id)
+    public function destroy(News $news)
     {
-        $news = News::query()->find($id);
         $news->delete();
-        return redirect('add-news')->withSuccess('News Update Deleted');
+        return response([
+            'check' => true
+        ]);
     }
 }

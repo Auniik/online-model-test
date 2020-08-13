@@ -7,7 +7,7 @@
                     <h4 class="mt-0  "> স্লাইডারে ছবি যোগ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('new-slider')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('sliders.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> ছবি</label>

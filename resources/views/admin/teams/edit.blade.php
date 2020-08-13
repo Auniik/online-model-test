@@ -37,14 +37,23 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> শর্ট ম্যাসেজ</label>
                             <div class="col-sm-10">
-                                <textarea name="short_message" class="form-control" id="editor" >{{$team_member->short_message}}</textarea>
+                                <textarea name="short_message" class="form-control" id="editor3" >{{$team_member->short_message}}</textarea>
                             </div>
+                            <script type="text/javascript">
+                                CKEDITOR.replace( 'editor3' );
+                                CKEDITOR.add
+                            </script>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> ম্যাসেজ</label>
                             <div class="col-sm-10">
-                                <textarea name="message" class="form-control" id="editor" required>{{$team_member->message}}</textarea>
+                                <textarea name="message" class="form-control" id="editor1"
+                                          required>{{$team_member->message}}</textarea>
                             </div>
+                            <script type="text/javascript">
+                                CKEDITOR.replace( 'editor1' );
+                                CKEDITOR.add
+                            </script>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> Facebook Link</label>

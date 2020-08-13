@@ -7,8 +7,10 @@
                     <h4 class="mt-0">পাবলিকেশন হালনাগাদ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('update-publication')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('publications.update', $publication)}}" method="POST"
+                          enctype="multipart/form-data">
                         @csrf
+                        @method('patch')
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> শিরোনাম</label>
                             <div class="col-sm-10">
@@ -27,7 +29,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">  কভার ছবি</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" placeholder="Choose a image File" name="image"
-                                       accept="image/*" required>
+                                       accept="image/*">
                                 <small>Please make sure you entered the image file, Preferable resolution should be
                                     in 480x600 (px)
                                 </small><br>

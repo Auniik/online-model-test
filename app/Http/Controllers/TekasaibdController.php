@@ -21,37 +21,6 @@ use Illuminate\Http\Request;
 
 class TekasaibdController extends Controller
 {
-    public function index()
-    {
-        $sliders = Slider::all();
-        $contract = Contract::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        //dd(Book::with('images')->orderBy('id', 'desc')->paginate(6));
-        $books = Book::orderBy('id', 'desc')->paginate(6);
-        foreach ($books as $book) {
-            //dd($book->images);
-            if (isset($book->images[0])) {
-                $book->img = $book->images[0]->image;
-            } else {
-                $book->img = 'https://placeimg.com/184/134/nature';
-            }
-        }
-//        dd($books);
-        return view('front.home.home', [
-            'news'          => $joint,
-            // 'news'          => $news,
-            'books'         => $books,
-            'contract'      => $contract,
-            'sliders'       => $sliders,
-            'eventmessages' => EventMessage::orderBy('id', 'desc')->paginate(2),
-            'youtubes'      => Youtube::orderBy('id', 'desc')->paginate(8),
-            'eventvideos'   => EventVideo::orderBy('id', 'desc')->take(1)->get(),
-        ]);
-    }
 
     public function about()
     {
@@ -83,28 +52,8 @@ class TekasaibdController extends Controller
                 ->paginate(6),
             'contract' => Contract::all(),
 
-            'youtubes'     => Youtube::query()
-                ->latest()
-                ->paginate(4),
-            'eventvideos'  => EventVideo::query()->orderBy('id', 'desc')
-                ->take(1)
-                ->get(),
             'galleris'    => Gallery::query()->latest()
                 ->paginate(12),
-        ]);
-    }
-
-    public function other()
-    {
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $sliders = Slider::all();
-        return view('front.other.other', [
-            'news'          => $news,
-            'sliders'       => $sliders,
-            'eventmessages' => EventMessage::orderBy('id', 'desc')->paginate(2),
-            'youtubes'      => Youtube::orderBy('id', 'desc')->paginate(8),
-            'eventvideos'   => EventVideo::orderBy('id', 'desc')->take(1)->get(),
-
         ]);
     }
 
@@ -115,14 +64,14 @@ class TekasaibdController extends Controller
 
     public function tekasaibd()
     {
-        return view('front.privacy.tekasaibd');
+        return view('front.privacy.tekasaibd', [
+            'about' => About::query()->first()
+        ]);
     }
 
-    public function bookDetails($id)
+    public function bookDetails(Book $book)
     {
-        $book = Book::find($id);
-
-        $question = BookQuestion::where('book_id', $id)->first();
+        $question = BookQuestion::query()->where('book_id', $book->id)->first();
         return view('front.book.details')->with([
             'book'     => $book,
             'question' => $question,
@@ -142,20 +91,12 @@ class TekasaibdController extends Controller
             'director' => $team_members->firstWhere('is_highlighted', 1)
         ]);
     }
-    public function detailsEvents($id){
-        $contract = Contract::all();
-        $eventmessages = EventMessage::query()->find($id);
 
-        return view('front.about.details-events-message',[
-            'eventmessages' => $eventmessages,
-            'contract'     => $contract,
-        ]);
-    }
 
-    public function detailsBlog($id)
+    public function detailsBlog(Blog $blog)
     {
         return view('front.about.detailsblog', [
-            'blogs'    => Blog::query()->find($id),
+            'blogs'    => $blog,
 
         ]);
     }

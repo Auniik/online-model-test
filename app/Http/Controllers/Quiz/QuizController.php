@@ -98,7 +98,7 @@ class QuizController extends Controller
         $quiz->questions()->delete();
 
         foreach ($quiz->assignedParticipants as $assessment) {
-            $assessment->answer()->delete();
+            $assessment->answers()->delete();
         }
 
         $quiz->assignedParticipants()->delete();

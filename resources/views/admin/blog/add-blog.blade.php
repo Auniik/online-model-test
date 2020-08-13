@@ -4,16 +4,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Manage Blog</h4>
+                    <h4 class="mt-0"> বার্তাসমূহ </h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
+                            <th>#</th>
+                            <th> শিরোনাম</th>
+                            <th> বিবরণ</th>
+                            <th> ছবি</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -24,10 +24,12 @@
                                 <td>{{$i++}}</td>
                                 <td>{{$blog->title}}</td>
                                 <td>{{$blog->short_description}}</td>
-                                <td><img src="{{asset($blog->image)}}" width="50" height="30"></td>
+                                <td><img src="{{asset($blog->image)}}"  height="30"></td>
                                 <td>
-                                    <a href="{{route('edit-blog',['id'=>$blog->id])}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-blog',['id'=>$blog->id])}}" class="" onclick="alert('Are You Delete This')"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('blogs.edit', $blog)}}" class=""><i class="fa
+                                    fa-edit"></i></a>
+                                    <a href="{{route('blogs.destroy', $blog)}}" class="deletable"><i class="fa
+                                    fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

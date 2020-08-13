@@ -7,27 +7,28 @@
                     <h4 class="mt-0"> বঙ্গবন্ধু পেজের ইনফরমেশন হালনাগাদ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('update-bangabandhu')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('bangabandhu.update')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-
-                        <h3>{{Session::get('message')}}</h3>
+                        @method('patch')
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{$bangabandhu->title}}"  name="title">
-                                <input class="form-control" name="id" type="hidden" value="{{$bangabandhu->id}}">
+                                <input class="form-control" type="text" value="{{$bangabandhu->title}}" required
+                                       name="title">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
                             <div class="col-sm-10">
-                                <textarea name="description" class="form-control" id="editor">{{$bangabandhu->description}}</textarea>
+                                <textarea name="description" class="form-control" required
+                                          id="editor">{{$bangabandhu->description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
+                                <img src="{{url($bangabandhu->image)}}" height="100px" alt="">
                             </div>
                         </div>
                         <div class="form-group row">

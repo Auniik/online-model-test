@@ -13,7 +13,7 @@
                     <table  class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
+                            <th>#</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>Link 1</th>
@@ -37,8 +37,8 @@
                                 </td>
                                 <td>{{get_status($slider->status)}}</td>
                                 <td>
-                                    <a href="{{route('edit-slider',['id'=>$slider->id])}}"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-slider',['id'=>$slider->id])}}"
+                                    <a href="{{route('sliders.edit', $slider)}}"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('sliders.destroy', $slider)}}"
                                        class="deletable"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>

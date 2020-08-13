@@ -7,7 +7,7 @@
                     <h4 class="mt-0"> পাবলিকেশন যোগ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('new-publication')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('publications.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> শিরোনাম</label>
@@ -104,7 +104,8 @@
                                         দেখুন</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('edit-publication',['id'=>$publication->id])}}" class=""><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('publications.edit',$publication)}}" class=""><i class="fa
+                                    fa-edit"></i></a>
                                     <a title="Delete"
                                        class="deletable"
                                        href="{{route('publications.destroy', $publication)}}">

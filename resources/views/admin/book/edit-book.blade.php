@@ -36,7 +36,7 @@
                     <h4 class="mt-0"> বই হালনাগাদ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('update-book',['id'=>$book->id])}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('books.update', $book)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <div class="form-group row">

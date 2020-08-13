@@ -3,8 +3,9 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     <h4 class="mt-0"> সকল বইসমূহ দেখুন</h4>
+                    <a href="{{route('books.create')}}" class="btn btn-primary"> নতুন বই তৈরী করুন</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered w-100">
@@ -39,8 +40,8 @@
                                 </td>
                                 <td>
                                     {{--<a href="/edit-book/{{$book->id}}{{route('edit-book')}}" class=""><i class="fa fa-edit"></i></a>--}}
-                                    <a href="{{route('edit-book',['id'=>$book->id])}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-book',$book)}}" class="deletable"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('books.edit',$book)}}" ><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('books.destroy',$book)}}" class="deletable"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
