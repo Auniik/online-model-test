@@ -33,7 +33,7 @@ class GalleryPhotoController extends Controller
 
         $gallery->photos()->create($attributes);
 
-        return back()->withSuccess(' গ্যালারী যোগ করা হয়েছে !');
+        return back()->withSuccess("$gallery->title  এ ছবি যোগ করা হয়েছে !");
     }
 
 

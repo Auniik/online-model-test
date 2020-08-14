@@ -11,15 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryPhotoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/gallery/photos.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/gallery/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/gallery/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gallery.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_14_130612_create_gallery_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_14_130612_create_gallery_files_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GalleryPhotoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryPhotoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/front-end/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/responsive.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/front-end/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/photos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/photos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +271,7 @@
       <workItem from="1597077150584" duration="53905000" />
       <workItem from="1597247432313" duration="2285000" />
       <workItem from="1597333199969" duration="16811000" />
-      <workItem from="1597391168925" duration="18453000" />
+      <workItem from="1597391168925" duration="24804000" />
     </task>
     <servers />
   </component>
@@ -404,9 +407,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1597346684433" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597410929659">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597426197355">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597410929659" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597426197355" />
   </component>
 </project>

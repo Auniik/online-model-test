@@ -47,11 +47,12 @@
                                             </span>
                                     <div class="card shadow">
                                         <div class="card-header py-0 my-0" style="padding-left: 2px">
-                                            <h6 class="mx-0" style="font-size: 10px;">{{$photo->name}} &nbsp;</h6>
+                                            <h6 class="mx-0" style="font-size: 10px;">{{$photo->name}}  &nbsp; &nbsp;
+                                                &nbsp;</h6>
 
                                         </div>
-                                        <div class="card-body">
-                                            <img src="{{asset($photo->path)}}" height="150px" class="m-2 " >
+                                        <div class="card-body p-0 m-0">
+                                            <img src="{{asset($photo->path)}}" height="150px" class="m-0 " >
                                         </div>
                                     </div>
 
@@ -65,12 +66,12 @@
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label"> নাম</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">  শিরোনাম</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value=" " name="name">
+                                <input class="form-control" type="text" value="" autocomplete="off" name="name">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row d-none">
                             <label for="example-text-input" class="col-sm-2 col-form-label">বিবরণ</label>
                             <div class="col-sm-10">
                                 <textarea name="description" class="form-control"
@@ -79,7 +80,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">ছবিসমূহ</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label">ছবি </label>
                             <div class="col-sm-10 ">
                                 <input type="file" class="form-control" name="photo" accept="image/*"/><br>
                             </div>

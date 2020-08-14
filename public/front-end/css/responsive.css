@@ -116,6 +116,13 @@
         top: 140%;
     }
 
+    .gallery-top {
+        height: 400% !important;
+    }
+    .gallery-images {
+        margin-bottom: 150px;
+    }
+
     .banner-text-1 .p-2 {
         font-size: 18px;
         margin-bottom: 12px;
@@ -406,6 +413,7 @@
 
 @media (min-width: 365px) and (max-width: 575px) {
 
+
     .book-img .img-overlay .text-part .share-btn {
         padding: 5px 15px;
     }
@@ -444,7 +452,12 @@
 
 @media (min-width: 576px) and (max-width: 767px) {
 
-
+    .gallery-top {
+        height: 600% !important;
+    }
+    .gallery-images {
+        margin-bottom: 250px;
+    }
     #navbar .navbar-toggler .navbar-toggler-icon i {
         font-size: 25px;
     }
@@ -834,6 +847,13 @@
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+
+    .gallery-top {
+        height: 700% !important;
+    }
+    .gallery-images {
+        margin-bottom: 300px;
+    }
 
     #navbar .navbar-toggler .navbar-toggler-icon i {
         font-size: 25px;

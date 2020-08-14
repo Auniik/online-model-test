@@ -24,44 +24,36 @@
         }
 
 
-        .swiper-container {
+        swiper-container {
             width: 100%;
-            height: 100%;
-            background: #000;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .swiper-slide {
-            font-size: 18px;
-            color: #fff;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 40px 60px;
-        }
-
-        .parallax-bg {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 130%;
-            height: 100%;
-            -webkit-background-size: cover;
             background-size: cover;
             background-position: center;
         }
 
-        .swiper-slide .title {
-            font-size: 41px;
-            font-weight: 300;
+        .gallery-top {
+            height: 80%;
+            width: 100%;
         }
 
-        .swiper-slide .subtitle {
-            font-size: 21px;
+        .gallery-thumbs {
+            height: 20%;
+            box-sizing: border-box;
+            padding: 10px 0;
         }
 
-        .swiper-slide .text {
-            font-size: 14px;
-            max-width: 400px;
-            line-height: 1.3;
+        .gallery-thumbs .swiper-slide {
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
         }
     </style>
 @endpush
@@ -84,7 +76,7 @@
                         <div class="row m-0">
                             @foreach($blogs as $blog)
                                 <div class="col-lg-4 col-md-6 col-sm-12 my-4">
-                                    <div class="card shadow-lg ">
+                                    <div class="card shadow ">
                                         <a class="text-secondary"
                                            href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
                                             <img class="card-img-top" style="min-height: 250px" src="{{asset
@@ -121,82 +113,78 @@
     </section>
     <!-- About Start -->
 
-{{--    <section class="section pt-0 pb-5">--}}
-{{--        <div class="container-fluid bg-dark" style="padding-bottom: 40px;">--}}
-{{--            <div class="row  text-white">--}}
-{{--                <div class="col-lg-7 py-5 ml-lg-5">--}}
-{{--                    <h3 class="gallery-content-head"> ছবি</h3>--}}
-{{--                    <div class="swiper-container">--}}
-{{--                        <div class="parallax-bg" style="background-image:url(./images/nature-1.jpg)"--}}
-{{--                             data-swiper-parallax="-23%"></div>--}}
-{{--                        <div class="swiper-wrapper">--}}
-{{--                            <div class="swiper-slide">--}}
-{{--                                <div class="title" data-swiper-parallax="-300">Slide 1</div>--}}
-{{--                                <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>--}}
-{{--                                <div class="text" data-swiper-parallax="-100">--}}
-{{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis--}}
-{{--                                        velit, sit amet faucibus--}}
-{{--                                        felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in--}}
-{{--                                        sem justo. Integer laoreet--}}
-{{--                                        magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at--}}
-{{--                                        elit facilisis rutrum. Ut at--}}
-{{--                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut--}}
-{{--                                        libero. Aenean feugiat non eros--}}
-{{--                                        quis feugiat.</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <!-- Add Navigation -->--}}
-{{--                        <div class="swiper-button-prev swiper-button-white"></div>--}}
-{{--                        <div class="swiper-button-next swiper-button-white"></div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 pt-5 ml-lg-0" style="height: 502px;">--}}
-{{--                    <h3 class="gallery-content-head"> ভিডিও</h3>--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-lg-12">--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+    <section class="section pt-0 pb-5">
+        <div class="container-fluid bg-dark" style="padding-bottom: 40px;">
+            <div class="row  text-white">
+                <div class="col-lg-7 py-5 ml-lg-5 gallery-images">
+                    <a href="{{route('gallery.list')}}">
+                        <h3 class="gallery-content-head"> ছবি</h3>
+                    </a>
 
-{{--    </section>--}}
+                    <div class="swiper-container gallery-top">
+                        <div class="swiper-wrapper">
+                            @foreach($slider->photos as $photo)
+                                <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
+                            @endforeach
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next swiper-button-white"></div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            @foreach($slider->photos as $photo)
+                                <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 pt-5 ml-lg-0" style="height: 502px;">
+                    <h3 class="gallery-content-head"> ভিডিও</h3>
+                    <div class="row">
+                        <div class="col-lg-12">
+{{--                            <div class="image d-flex">--}}
+{{--                                <img--}}
+{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+{{--                                    style="display: block;">--}}
+{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="image d-flex">--}}
+{{--                                <img--}}
+{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+{{--                                    style="display: block;">--}}
+{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="image d-flex">--}}
+{{--                                <img--}}
+{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+{{--                                    style="display: block;">--}}
+{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="image d-flex">--}}
+{{--                                <img--}}
+{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+{{--                                    style="display: block;">--}}
+{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="image d-flex">--}}
+{{--                                <img--}}
+{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+{{--                                    style="display: block;">--}}
+{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+{{--                            </div>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 {{--sdss--}}
     {{--    <section class="section shadow-lg my-4 py-4 mx-5">--}}
     {{--        <div class="container">--}}
@@ -271,16 +259,38 @@
 @push('script')
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            speed: 600,
-            parallax: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
+        // var swiper = new Swiper('.swiper-container', {
+        //     speed: 600,
+        //     parallax: true,
+        //     pagination: {
+        //         el: '.swiper-pagination',
+        //         clickable: true,
+        //     },
+        //     navigation: {
+        //         nextEl: '.swiper-button-next',
+        //         prevEl: '.swiper-button-prev',
+        //     },
+        // });
+
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            loop: true,
+            freeMode: true,
+            loopedSlides: 5, //looped slides should be the same
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+        });
+        var galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+            loop: true,
+            loopedSlides: 5, //looped slides should be the same
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
+            },
+            thumbs: {
+                swiper: galleryThumbs,
             },
         });
     </script>

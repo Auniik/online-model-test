@@ -43,17 +43,26 @@ class TekasaibdController extends Controller
         ]);
     }
 
+    public function gallery()
+    {
+        return view('front.gallery.index', [
+            'galleries' => Gallery::query()->with('photos')->paginate(12)
+        ]);
+    }
+
     public function blog()
     {
-
+        $slider = Gallery::query()->where('is_slider', 1)->first();
+        if (!$slider) {
+            $slider = Gallery::query()->latest()->first();
+        }
         return view('front.about.blog', [
             'blogs'    => Blog::query()
                 ->latest()
                 ->paginate(6),
             'contract' => Contract::all(),
 
-            'galleris'    => Gallery::query()->latest()
-                ->paginate(12),
+            'slider'    => $slider,
         ]);
     }
 

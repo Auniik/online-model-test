@@ -48,7 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-    Route::resource('galleries', 'GalleryController');
+    Route::resource('galleries', 'GalleryController')->except('show');
+    Route::post('galleries/{gallery}/slider', 'GalleryController@setSlider')->name('galleries.slider');
     Route::get('galleries/{gallery}/photos', 'GalleryPhotoController@index')->name('gallery-photos.index');
     Route::post('galleries/{gallery}/photos', 'GalleryPhotoController@store')->name('gallery-photos.store');
     Route::delete('galleries-photos/{photo}', 'GalleryPhotoController@destroy')->name('gallery-photos.delete');
@@ -103,6 +104,8 @@ Route::get('/book/details/{book}', 'TekasaibdController@bookDetails')->name('boo
 Route::get('/submit-work', 'WorkController@addWork')->name('submit-work');
 Route::post('/new-work','WorkController@newWork')->name('new-work');
 Route::get('/team-member/{member}/show','Admin\TeamMemberController@show')->name('team-members.show');
+Route::get('/gallery','TekasaibdController@gallery')->name('gallery.list');
+Route::get('/gallery/{gallery}','GalleryController@show')->name('galleries.show');
 
 Route::view('under-construction','front.dump.construction');
 Route::view('terms-and-conditions','front.dump.terms-and-conditions');
