@@ -11,6 +11,11 @@
 
 @media (min-width: 320px) and (max-width: 575px) {
 
+    .banner-text-1 {
+        padding: 30px 0 0px;
+        text-align: center;
+        height: 350px;
+    }
     /*
     .logo-img img {
         width: 40px;

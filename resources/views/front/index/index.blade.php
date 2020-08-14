@@ -42,7 +42,7 @@
                     <div class="container main_banner">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="banner-text-1 d-flex flex-column justify-content-around">
+                                <div class="banner-text-1">
                                     <div class="text-center">
                                         {!! $image->short_description !!}
                                     </div>
