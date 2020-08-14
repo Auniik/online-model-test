@@ -113,78 +113,81 @@
     </section>
     <!-- About Start -->
 
-    <section class="section pt-0 pb-5">
-        <div class="container-fluid bg-dark" style="padding-bottom: 40px;">
-            <div class="row  text-white">
-                <div class="col-lg-7 py-5 ml-lg-5 gallery-images">
-                    <a href="{{route('gallery.list')}}">
-                        <h3 class="gallery-content-head"> ছবি</h3>
-                    </a>
+    @if ($slider)
+        <section class="section pt-0 pb-5">
+            <div class="container-fluid bg-dark" style="padding-bottom: 40px;">
+                <div class="row  text-white">
+                    <div class="col-lg-7 py-5 ml-lg-5 gallery-images">
+                        <a href="{{route('gallery.list')}}">
+                            <h3 class="gallery-content-head"> ছবি</h3>
+                        </a>
 
-                    <div class="swiper-container gallery-top">
-                        <div class="swiper-wrapper">
-                            @foreach($slider->photos as $photo)
-                                <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
-                            @endforeach
+                        <div class="swiper-container gallery-top">
+                            <div class="swiper-wrapper">
+                                @foreach($slider->photos as $photo)
+                                    <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
+                                @endforeach
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next swiper-button-white"></div>
+                            <div class="swiper-button-prev swiper-button-white"></div>
                         </div>
-                        <!-- Add Arrows -->
-                        <div class="swiper-button-next swiper-button-white"></div>
-                        <div class="swiper-button-prev swiper-button-white"></div>
-                    </div>
-                    <div class="swiper-container gallery-thumbs">
-                        <div class="swiper-wrapper">
-                            @foreach($slider->photos as $photo)
-                                <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
-                            @endforeach
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                @foreach($slider->photos as $photo)
+                                    <div class="swiper-slide" style="background-image:url({{$photo->path}})"></div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 pt-5 ml-lg-0" style="height: 502px;">
-                    <h3 class="gallery-content-head"> ভিডিও</h3>
-                    <div class="row">
-                        <div class="col-lg-12">
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
-{{--                            <div class="image d-flex">--}}
-{{--                                <img--}}
-{{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
-{{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
-{{--                                    style="display: block;">--}}
-{{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
-{{--                            </div>--}}
+                    <div class="col-lg-4 pt-5 ml-lg-0" style="height: 502px;">
+                        <h3 class="gallery-content-head"> ভিডিও</h3>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{--                            <div class="image d-flex">--}}
+                                {{--                                <img--}}
+                                {{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+                                {{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+                                {{--                                    style="display: block;">--}}
+                                {{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+                                {{--                            </div>--}}
+                                {{--                            <div class="image d-flex">--}}
+                                {{--                                <img--}}
+                                {{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+                                {{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+                                {{--                                    style="display: block;">--}}
+                                {{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+                                {{--                            </div>--}}
+                                {{--                            <div class="image d-flex">--}}
+                                {{--                                <img--}}
+                                {{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+                                {{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+                                {{--                                    style="display: block;">--}}
+                                {{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+                                {{--                            </div>--}}
+                                {{--                            <div class="image d-flex">--}}
+                                {{--                                <img--}}
+                                {{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+                                {{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+                                {{--                                    style="display: block;">--}}
+                                {{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+                                {{--                            </div>--}}
+                                {{--                            <div class="image d-flex">--}}
+                                {{--                                <img--}}
+                                {{--                                    alt="এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০"--}}
+                                {{--                                    src="//paloimages.prothom-alo.com/contents/cache/images/120x68x1/uploads/media/2020/08/13/106cb8a9c89b5791bfb15a21b0efc90c-5f357f83c15bb.jpg?jadewits_media_id=1553904"--}}
+                                {{--                                    style="display: block;">--}}
+                                {{--                                <h6 class="pl-2">এক নজরে করোনা পরিস্থিতি । বৃহস্পতিবার ১৩ আগস্ট ২০২০</h6>--}}
+                                {{--                            </div>--}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
+    @endif
+
 {{--sdss--}}
     {{--    <section class="section shadow-lg my-4 py-4 mx-5">--}}
     {{--        <div class="container">--}}
