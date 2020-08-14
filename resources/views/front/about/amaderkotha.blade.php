@@ -184,30 +184,26 @@
     </div>
     <section class="section pt-0 pb-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-md-12 mt-4 pt-0 mt-sm-0 pt-sm-0">
-                    <div class="position-relative">
-                        <div class="row m-0 d-flex justify-content-center">
-                            @foreach($publications as $publication)
-                                <div class="col-md-3 mb-2 mt-2">
-                                    <div class="card shadow-lg">
-                                        <a href="{{route('publication-details',$publication)}}"
-                                           target="_blank">
-                                            <img class="card-img-top" style="height: 300px"
-                                                src="{{asset($publication->image)}}"
-                                                alt="{{$publication->title}}"
-                                            />
-                                        </a>
+            <div class="row online-left">
+                @foreach($publications ?? [] as $publication)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="row book-img shadow">
+                            @if ($publication->image)
+                                <img src="{{asset($publication->image)}}" alt="{{$publication->title}}">
+                            @else
+                                <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
+                            @endif
+                            <div class="img-overlay text-center">
+                                <a href="{{route('publication-details',$publication)}}" target="_blank">
+                                    <div class="text-part">
+                                        <p>{{$publication->title}}</p>
                                     </div>
-                                </div>
-                            @endforeach
-                            <div class="col-sm-12 text-center mt-4">
-                                {{ $publications->links() }}
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div><!--end col-->
-            </div><!--end row-->
+                @endforeach
+            </div>
         </div><!--end container-->
     </section>
 

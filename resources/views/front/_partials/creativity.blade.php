@@ -8,7 +8,7 @@
 
         <div class="row online-left">
             @foreach($books ?? [] as $book)
-                <div class="col-lg col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="row book-img shadow">
                         @if ($book->img)
                             <img src="{{asset($book->cover_image)}}" alt="{{$book->title}}">
@@ -31,7 +31,6 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
     </div>
 </section>

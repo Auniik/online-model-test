@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateYoutubesTable extends Migration
+class CreateGalleryFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateYoutubesTable extends Migration
      */
     public function up()
     {
-        Schema::create('youtubes', function (Blueprint $table) {
+        Schema::create('gallery_files', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('link');
+            $table->string('name')->nullable();
+            $table->text('path');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateYoutubesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('youtubes');
+        Schema::dropIfExists('gallery_files');
     }
 }
