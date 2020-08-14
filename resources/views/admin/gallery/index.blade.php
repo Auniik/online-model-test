@@ -14,6 +14,7 @@
                             <th>Sl</th>
                             <th>Title</th>
                             <th>Image</th>
+                            <th> ছবিসমূহ</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -25,9 +26,13 @@
                                 <td>{{$gallery->title}}</td>
                                 <td><img src="{{asset($gallery->image)}}" width="50" height="30"></td>
                                 <td>
+                                    <a class="btn btn-success" href="{{route('gallery-photos.index', $gallery)}}">
+                                        ছবিসমূহ</a>
+                                </td>
+                                <td>
                                     <a href="{{route('galleries.edit', $gallery)}}" class=""><i class="fa
                                     fa-edit"></i></a>
-                                    <a href="{{route('galleries.destroy', $gallery)}}" class=""><i class="fa
+                                    <a href="{{route('galleries.destroy', $gallery)}}" class="deletable"><i class="fa
                                     fa-trash"></i></a>
                                 </td>
                             </tr>

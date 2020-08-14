@@ -15,9 +15,12 @@ class CreateGalleryFilesTable extends Migration
     {
         Schema::create('gallery_files', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('gallery_id');
             $table->string('name')->nullable();
             $table->text('path');
             $table->text('description')->nullable();
+            $table->foreign('gallery_id')->references('id')->on('galleries')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

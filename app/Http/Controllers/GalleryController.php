@@ -47,27 +47,25 @@ class GalleryController extends Controller
 
     public function update(Request $request, Gallery $gallery)
     {
-
+        $attributes = $request->validate([
+            'image' => 'image|max:2048',
+            'title' => 'required',
+            'short_descriptions' => 'required',
+            'date' => 'required',
+            'status' => 'required'
+        ]);
         if ($request->hasFile('image')) {
-            $imageUrl = $request->image->store('uploads/gallery');
+            $attributes['image'] = $request->image->store('uploads/gallery');
             Storage::delete($gallery->image);
-        } else {
-            $imageUrl = $gallery->image;
         }
-
-        $gallery->title = $request->title;
-        $gallery->image = $imageUrl;
-        $gallery->date = $request->date;
-        $gallery->is_slider = $request->is_slider;
-        $gallery->short_descriptions = $request->short_descriptions;
-        $gallery->status = $request->status;
-        $gallery->save();
+        $gallery->update($attributes);
         return back()->withSuccess(' গ্যালারী  হালনাগাদ করা হয়েছে !');
     }
 
     public function delete(Gallery $gallery)
     {
         $gallery->delete();
+
         return response([
             'check' => true
         ]);

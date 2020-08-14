@@ -11,8 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryPhotoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/gallery/photos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GalleryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_14_130612_create_gallery_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_14_130612_create_gallery_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,24 +151,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/teams" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/admin/teams" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/quiz" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Website" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/quiz/participant" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/quiz/assessment" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/default" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
       <recent name="$PROJECT_DIR$/resources/views/front/online-exam/partial" />
       <recent name="$PROJECT_DIR$/resources/views/front" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/teams" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/quiz" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Website" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/quiz/participant" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.2020_07_02_040324_create_exam_questions_table.php">
@@ -260,7 +268,7 @@
       <workItem from="1597077150584" duration="53905000" />
       <workItem from="1597247432313" duration="2285000" />
       <workItem from="1597333199969" duration="16811000" />
-      <workItem from="1597391168925" duration="14513000" />
+      <workItem from="1597391168925" duration="18453000" />
     </task>
     <servers />
   </component>
@@ -396,9 +404,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1597346684433" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597407321293">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597410929659">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597407321293" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597410929659" />
   </component>
 </project>

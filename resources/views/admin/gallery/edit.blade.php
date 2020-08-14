@@ -20,8 +20,7 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-lg-2 col-form-label"> কভার ছবি</label>
                             <div class="col-lg-4">
-                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*"
-                                       required>
+                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
                                 <img src="{{url($gallery->image)}}" alt="">
                             </div>
                             <label for="example-text-input" class="col-lg-2 col-form-label text-lg-right">  তারিখ</label>
@@ -35,7 +34,7 @@
                             <label for="example-text-input" class="col-lg-2 col-form-label">Short Description</label>
                             <div class="col-lg-10">
                                 <textarea class="form-control"
-                                          name="short_descriptions">{{$gallery->short_description}}</textarea>
+                                          name="short_descriptions">{{$gallery->short_descriptions}}</textarea>
                             </div>
                         </div>
 

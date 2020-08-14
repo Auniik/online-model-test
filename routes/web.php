@@ -49,6 +49,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::resource('galleries', 'GalleryController');
+    Route::get('galleries/{gallery}/photos', 'GalleryPhotoController@index')->name('gallery-photos.index');
+    Route::post('galleries/{gallery}/photos', 'GalleryPhotoController@store')->name('gallery-photos.store');
+    Route::delete('galleries-photos/{photo}', 'GalleryPhotoController@destroy')->name('gallery-photos.delete');
 
 
 //    Route::get('/add-gallery', 'GalleryController@addGallery')->name('add-gallery');
