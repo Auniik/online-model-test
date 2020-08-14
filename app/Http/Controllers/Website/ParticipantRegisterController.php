@@ -24,7 +24,7 @@ class ParticipantRegisterController extends Controller
         if ($request->get('next')) {
             return redirect("/$request->next");
         }
-        return redirect('/participants/profile');
+        return redirect()->route('participants.profile');
     }
 
 
