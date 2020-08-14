@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +260,7 @@
       <workItem from="1597077150584" duration="53905000" />
       <workItem from="1597247432313" duration="2285000" />
       <workItem from="1597333199969" duration="16811000" />
-      <workItem from="1597391168925" duration="14137000" />
+      <workItem from="1597391168925" duration="14513000" />
     </task>
     <servers />
   </component>
