@@ -18,7 +18,7 @@ class CreateTeamMembersTable extends Migration
             $table->text('name');
             $table->text('image');
             $table->text('short_message')->nullable();
-            $table->text('message')->nullable();
+            $table->longText('message')->nullable();
             $table->string('designation')->nullable();
             $table->string('facebook_link');
             $table->string('twitter_link')->nullable();

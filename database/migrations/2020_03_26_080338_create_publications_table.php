@@ -18,7 +18,7 @@ class CreatePublicationsTable extends Migration
             $table->text('file')->nullable();
             $table->text('image')->nullable();
             $table->text('title');
-            $table->text('description');
+            $table->longText('description');
             $table->tinyInteger('status');
             $table->timestamps();
         });

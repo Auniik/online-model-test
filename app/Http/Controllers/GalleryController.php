@@ -3,60 +3,73 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
-use Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class GalleryController extends Controller
 {
-    public function addGallery(){
-        $galleries = Gallery::all();
-        return view('admin.gallery.add-gallery',[
-            'galleries' => $galleries,
+    public function index()
+    {
+        return view('admin.gallery.index', [
+            'galleries' => Gallery::query()->paginate(15),
         ]);
 
     }
-    public function newGallery(Request $request){
 
-        $galleryImage = $request->file('image');
-        $directory = "gallery-image/";
-        $imageName = $galleryImage->getClientOriginalName();
-        $galleryImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-
-        $gallery = new Gallery();
-        $gallery->title               = $request->title;
-        $gallery->image               = $imageUrl;
-        $gallery->short_descriptions   = $request->short_descriptions;
-        $gallery->status              = $request->status;
-        $gallery->save();
-        return redirect('add-gallery')->with('message','gallery Save Successfully');
+    public function create()
+    {
+        return view('admin.gallery.create');
     }
-    public function editGallery($id){
-        $gallery = Gallery::find($id);
-        return view('admin.gallery.edit-gallery',[
+
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
+            'image' => 'required|image|max:2048',
+            'title' => 'required',
+            'short_descriptions' => 'required',
+            'date' => 'required',
+            'status' => 'required'
+        ]);
+        $attributes['image'] = $request->image->store('uploads/gallery');
+
+        Gallery::query()->create($attributes);
+
+        return back()->withSuccess(' গ্যালারী যোগ করা হয়েছে !');
+    }
+
+    public function edit(Gallery $gallery)
+    {
+        return view('admin.gallery.edit', [
             'gallery' => $gallery,
         ]);
     }
-    public function updateGallery(Request $request){
 
-        $galleryImage = $request->file('image');
-        $directory = "gallery-image/";
-        $imageName = $galleryImage->getClientOriginalName();
-        //$aboutImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-        Image::make($galleryImage)->resize(1500, 400)->save($imageUrl);
+    public function update(Request $request, Gallery $gallery)
+    {
 
-        $gallery = Gallery::find($request->id);
-        $gallery->title               = $request->title;
-        $gallery->image               = $imageUrl;
-        $gallery->short_descriptions   = $request->short_descriptions;
-        $gallery->status              = $request->status;
+        if ($request->hasFile('image')) {
+            $imageUrl = $request->image->store('uploads/gallery');
+            Storage::delete($gallery->image);
+        } else {
+            $imageUrl = $gallery->image;
+        }
+
+        $gallery->title = $request->title;
+        $gallery->image = $imageUrl;
+        $gallery->date = $request->date;
+        $gallery->is_slider = $request->is_slider;
+        $gallery->short_descriptions = $request->short_descriptions;
+        $gallery->status = $request->status;
         $gallery->save();
-        return redirect('add-gallery')->with('message','gallery Save Successfully');
+        return back()->withSuccess(' গ্যালারী  হালনাগাদ করা হয়েছে !');
     }
-    public function deleteGallery($id){
-        $gallery = Gallery::find($id);
+
+    public function delete(Gallery $gallery)
+    {
         $gallery->delete();
-        return redirect('add-gallery')->with('message','gallery Successfully Delete');
+        return response([
+            'check' => true
+        ]);
     }
 }

@@ -17,7 +17,7 @@ class CreateWorksTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->string('work_type');
-            $table->text('description');
+            $table->longText('description');
             $table->text('file');
             $table->text('link');
             $table->unsignedBigInteger('participant_id');

@@ -96,31 +96,30 @@
 
             <div class="row blog_slide online-left">
                 @foreach($news_feed as $blog)
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col">
                     <div class="blog-">
+                    <div class="card shadow-lg">
+                        <a class="text-secondary" href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
+                            <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
+                            >
+                            <div class="card-body p-2" style="height: 99px;">
+                                <h6 class="card-text d-flex justify-content-between">
+                                    <h5>{{$blog->title}}</h5>
+                                    {{ Str::limit($blog->short_description, 50) }}
+                                </h6>
+                            </div>
+                        </a>
 
-                        <div class="card shadow-lg">
-                            <a class="text-secondary" href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
-                                <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
-                                     >
-                                <div class="card-body p-2" style="height: 99px;">
-                                    <h6 class="card-text d-flex justify-content-between">
-                                        <h5>{{$blog->title}}</h5>
-                                        {{ Str::limit($blog->short_description, 50) }}
-                                    </h6>
-                                </div>
-                            </a>
 
-
-                            <div class="card-footer ">
-                                <div class="d-flex justify-content-between">
-                                    {{$blog->created_at->format('M d, Y h:i A')}}
-                                    @include('front._partials.share', [
-                                        'url' => url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")
-                                    ])
-                                </div>
+                        <div class="card-footer ">
+                            <div class="d-flex justify-content-between">
+                                {{$blog->created_at->format('M d, Y h:i A')}}
+                                @include('front._partials.share', [
+                                    'url' => url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")
+                                ])
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 @endforeach
@@ -145,40 +144,6 @@
     }
 
 </script>
-<script>
-    $('.blog_slide').slick({
-        dots: false,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: "{{$news_feed->count()}}",
-        arrows: false,
-        autoplay: true,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: false
-                }
-            }
-            , {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            }
-            , {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-</script>
+
 @stop
+

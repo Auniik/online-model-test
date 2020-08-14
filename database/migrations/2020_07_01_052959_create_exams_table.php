@@ -18,7 +18,7 @@ class CreateExamsTable extends Migration
             $table->unsignedBigInteger('subject_id');
             $table->integer('class_id');
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable();
             $table->integer('competency_score');
             $table->text('image')->nullable();
             $table->timestamp('start_at')->nullable();

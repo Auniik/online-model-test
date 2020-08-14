@@ -33,7 +33,7 @@
                                                ])
                                            </div>
                                             <strong>
-                                                <p style="font-size:20px" class="text-justify pl-5 pr-5">{{
+                                                <p style="font-size:20px" class="text-justify px-lg-5 px-sm-0">{{
                                             $blogs->short_description }} </p>
                                             </strong>
                                         </div>

@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+    Route::resource('galleries', 'GalleryController');
 
 
 //    Route::get('/add-gallery', 'GalleryController@addGallery')->name('add-gallery');

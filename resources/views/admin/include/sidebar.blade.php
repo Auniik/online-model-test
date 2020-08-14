@@ -74,13 +74,13 @@
                     </ul>
                 </li>
 
-{{--                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-folder-image"></i> <span> গ্যালারী--}}
-{{--                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>--}}
-{{--                    <ul class="list-unstyled">--}}
-{{--                        <li><a href="{{route('add-gallery')}}"> ছবির গ্যালারী</a></li>--}}
-{{--                        <li><a href="{{route('add-video')}}"> ভিডিওচিত্র গ্যালারী</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-folder-image"></i> <span> গ্যালারী
+                        </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('galleries.index')}}"> ছবির গ্যালারী</a></li>
+                        <li><a href="#"> ভিডিওচিত্র গ্যালারী</a></li>
+                    </ul>
+                </li>
 
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-settings"></i>
                         <span> সেটিংস</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>

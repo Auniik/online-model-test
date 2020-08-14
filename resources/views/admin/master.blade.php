@@ -141,6 +141,9 @@
             dateFormat: "yy-mm-dd",
             minDate: 0
         });
+        $( ".datepicker-2" ).datepicker({
+            dateFormat: "yy-mm-dd",
+        });
     } );
 
 </script>

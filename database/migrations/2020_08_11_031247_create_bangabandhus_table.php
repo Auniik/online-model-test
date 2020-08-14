@@ -16,7 +16,7 @@ class CreateBangabandhusTable extends Migration
         Schema::create('bangabandhus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
+            $table->longText('description');
             $table->text('image');
             $table->timestamps();
         });
