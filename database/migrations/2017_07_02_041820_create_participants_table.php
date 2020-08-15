@@ -27,7 +27,7 @@ class CreateParticipantsTable extends Migration
             $table->string('division')->nullable();
             $table->string('mobile_number')->unique()->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

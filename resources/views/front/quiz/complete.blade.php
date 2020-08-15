@@ -1,22 +1,22 @@
 @extends('front.layout.master')
 @section('content')
-    <section class="main-slider">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-12 px-0">
-                    <img src="{{asset('/')}}front/images/coworking/cta.jpg" class="align-items-center rounded-0" style="height: 250px" width="100%px"alt="">
+    <section id="about_bg" style="height: 138px;">
+        <div class="overlay">
+            <div class="container-fulied">
+                <div class="text_center animated zoomIn">
+                    <h1> Thank You! </h1>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="section-two bg-light pt-4" id="question-one">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    @include('front.partials.notifications')
+                <div class="col-lg-12 text-center">
                     <div class="alert alert-success">Thank you for your participation. Soon we will let you know the result</div>
                     <br>
-                    <a href="{{url('/')}}" class="btn btn-lg btn-outline-success">Homepage</a>
+                    Go back to <a href="{{url('/')}}" class="btn btn-lg btn-outline-success">HOME</a>
                 </div>
             </div>
         </div>

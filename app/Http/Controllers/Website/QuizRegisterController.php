@@ -38,11 +38,10 @@ class QuizRegisterController extends Controller
 
         $participant = $this->getParticipant($request, $quiz);
 
+
         if (!$participant) {
             return back()->withWarning('You are not yet assigned to current quiz.');
         }
-
-        auth('participant')->login($participant);
 
 
         $assessment = $participant->quizzes()
@@ -53,6 +52,8 @@ class QuizRegisterController extends Controller
             return back()->withWarning('আপনি কুইজটি একবার খেলেছেন ।');
         }
 
+        auth('participant')->login($participant);
+        
         $type = 'general';
         if ($request->has('player_type')) {
             $type = $request->player_type;
@@ -134,13 +135,12 @@ class QuizRegisterController extends Controller
         $participant = $participant->first();
 
         if (!$participant) {
-            return Participant::query()
-                ->create([
-                    'name' => $request->name,
-                    'mobile_number' => $request->phone,
-                    'email' => $request->email,
-                    'password' => bcrypt(12345678)
-                ]);
+            return Participant::query()->create([
+                'name' => $request->name,
+                'mobile_number' => $request->phone,
+                'email' => $request->email,
+                'password' => null
+            ]);
         }
 
         return $participant;

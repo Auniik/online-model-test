@@ -37,7 +37,7 @@ class VideoController extends Controller
         if ($matches) {
             $attributes['link'] = $matches[1];
             Video::query()->create($attributes);
-            return back()->withMessage('ভিডিও যোগ করা হয়েছে');
+            return back()->withSuccess('ভিডিও যোগ করা হয়েছে');
         }
         return back()->withError(' ভিডিও লিংক ভ্যালিড নয় !');
     }
@@ -51,9 +51,24 @@ class VideoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Video $video)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required',
+            'link' => ['required', 'regex:/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&"\'>]+)/'],
+        ]);
+
+        preg_match(
+            "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
+            $attributes['link'],
+            $matches
+        );
+        if ($matches) {
+            $attributes['link'] = $matches[1];
+            $video->update($attributes);
+            return back()->withSuccess('ভিডিও  হালনাগাদ করা হয়েছে');
+        }
+        return back()->withError(' ভিডিও লিংক ভ্যালিড নয় !');
     }
 
 

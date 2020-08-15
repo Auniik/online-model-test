@@ -10,7 +10,7 @@ class Video extends Model
 
     public function getUrlAttribute()
     {
-        return "https://youtu.be/" . $this->link;
+        return "https://www.youtube.com/watch?v=" . $this->link;
     }
 
     public function getThumbnailAttribute()

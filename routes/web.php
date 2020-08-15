@@ -108,6 +108,7 @@ Route::post('/new-work','WorkController@newWork')->name('new-work');
 Route::get('/team-member/{member}/show','Admin\TeamMemberController@show')->name('team-members.show');
 Route::get('/gallery','TekasaibdController@gallery')->name('gallery.list');
 Route::get('/gallery/{gallery}','GalleryController@show')->name('galleries.show');
+Route::get('/gallery/{videos}','VideoPreviewController@show')->name('gallery-videos.show');
 
 Route::view('under-construction','front.dump.construction');
 Route::view('terms-and-conditions','front.dump.terms-and-conditions');

@@ -7,57 +7,67 @@
             <div class="row ml-1 mb-5 mt-5">
                 <div class="col-lg-12">
                     <div
-                        class="public-profile position-relative p-4 bg-white overflow-hidden rounded shadow bg-transparent"
+                        class="public-profile position-relative p-4 bg-white overflow-hidden rounded shadow-sm
+                        bg-transparent"
                         style="z-index: 1;">
                         <div class="row align-items-center">
                             <div class="col-lg-2 col-md-3 text-md-left text-center">
-                                <img src="{{asset('/')}}front/images/client/student.png"
-                                     class="img-fluid avatar avatar-medium rounded-pill" width="150"
+                                <img src="/{{$participant->thumbnail ?: 'default/default_participant.png'}}"
+                                     class="img-fluid avatar avatar-medium " width="150"
                                      height="150" alt="Profile Picture">
-                                <img src="images/client/man.svg"
-                                     class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt="">
+
                             </div><!--end col-->
 
                             <div class="col-lg-10 col-md-9">
                                 <div class="row justify-content-between">
-                                    <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
+                                    <div class="col-lg-12 d-flex justify-content-between">
                                         <h3 class="title mb-0">{{$participant->name}}</h3>
-                                        <p class="mb-0">Email: <span
+                                        <a class="btn btn-secondary btn-sm" href="{{route('participant-profile.edit')
+                                        }}">
+                                            <i class="fas fa-cogs text-white"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
+                                        <p class="mb-0"> ইমেইল: <span
                                                 class="text-muted">{{$participant->email}}</span></p>
-                                        <p class="mb-0">Mobile No.: <span
+                                        <p class="mb-0"> মোবাইল: <span
                                                 class="text-muted">{{$participant->mobile_number}}</span></p>
+
+                                        <p class="mb-0"> পেশা:
+                                            <span class="text-muted">
+                                                {{$participant->occupation == 'student' ? 'ছাত্র': ' চাকুরিজীবী'}}
+                                            </span>
+                                        </p>
+                                        @if ($participant->occupation == 'student')
+                                            @if ($participant->class)
+                                                <p class="mb-0 text-muted"> শ্রেণী: {{$participant->class}} </p>
+                                            @endif
+                                            @if ($participant->roll)
+                                                <p class="mb-0 text-muted"> রোল নং: {{$participant->roll}}</p>
+                                            @endif
+                                            @if ($participant->school_name)
+                                                <p class="text-secondary mb-0"> বিদ্যালয় :</p>
+                                                <p>{{$participant->school_name}}</p>
+                                            @endif
+                                        @endif
 
                                     </div><!--end col-->
 
                                     <div class="test">
-                                        @if ($participant->school_name)
-                                            <h6 class="text-primary mb-0">School Name :</h6>
-                                            <p>{{$participant->school_name}}</p>
-                                        @endif
-                                        @if ($participant->class)
-                                            <h6 class="text-primary mb-0">Class : <span class="text-dark"
-                                                >{{$participant->class}}</span></h6>
-                                        @endif
-                                        @if ($participant->roll)
-                                            <h6 class="text-primary mb-0">Roll : <span class="text-dark"
-                                                >{{$participant->roll}}</span></h6>
-
-                                        @endif
                                         @if ($participant->sub_district)
-                                            <h6 class="text-primary mb-0">Sub District : <span class="text-dark"
-                                                >{{$participant->sub_district}}</span></h6>
+                                            <p class="text-primary mb-0"> উপজেলা : <span class="text-dark"
+                                                >{{$participant->sub_district}}</span></p>
 
                                         @endif
                                         @if ($participant->district)
-                                            <h6 class="text-primary mb-0">District : <span class="text-dark"
-                                                >{{$participant->district}}</span></h6>
+                                            <p class="text-primary mb-0"> জেলা : <span class="text-dark"
+                                                >{{$participant->district}}</span></p>
 
                                         @endif
                                         @if ($participant->division)
-                                            <h6 class="text-primary mb-0">Division : <span class="text-dark"
+                                            <p class="text-primary mb-0"> বিভাগ : <span class="text-dark"
                                                 >{{$participant->division}}</span>
-                                            </h6>
-
+                                            </p>
                                         @endif
                                     </div>
                                 </div><!--end row-->
@@ -77,7 +87,7 @@
 
                     <div class="col-lg-12 col-md-12 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <div class="ml-lg-3">
-                            <div class="card shadow-lg bg-transparent mb-5">
+                            <div class="card shadow-sm bg-transparent mb-5">
                                 <div class="card-header">
                                     <h5 class="text-center">Submitted Works ({{$submitted_works->count()}})</h5>
                                 </div>
@@ -147,7 +157,7 @@
                             <div class="row">
 
                                     <div class="col-lg-6 pb-4">
-                                        <div class="card shadow-lg bg-transparent">
+                                        <div class="card shadow-sm bg-transparent">
                                             <div class="card-header">
                                                 <h5 class="text-center">Participated Quizzes
                                                     ({{$quizzes->count()}})</h5>
@@ -213,7 +223,7 @@
 
 
                                     <div class="col-lg-6">
-                                        <div class="card shadow-lg bg-transparent">
+                                        <div class="card shadow-sm bg-transparent">
                                             <div class="card-header">
                                                 <h5 class="text-center ">Participated Online Exams
                                                     ({{$exams->count()}})</h5>
@@ -291,9 +301,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div><!--end col-->
-
                             </div><!--end row-->
                         </div>
                     </div>

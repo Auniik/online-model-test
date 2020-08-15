@@ -113,8 +113,8 @@ class MetaGenerator
     private function blogMetas()
     {
         $image = '/front-end/images/default-blogs.png';
-        $description = 'টেকসইবিডি বার্তা সমূহ';
-        $title = 'টেকসইবিডি বার্তা সমূহ';
+        $description = 'টেকসইবিডি - বার্তা সমূহ';
+        $title = 'টেকসইবিডি - বার্তা সমূহ';
         if (request()->filled('id')) {
             $blog = Blog::query()->find(request('id'));
             if ($blog->image)

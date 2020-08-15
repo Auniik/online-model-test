@@ -12,8 +12,8 @@
                         <thead>
                         <tr>
                             <th width="1%">#</th>
+                            <th>  কভার ছবি</th>
                             <th>নাম</th>
-                            <th> ছবি</th>
                             <th> link </th>
                             <th width="10%">Action</th>
                         </tr>
@@ -23,11 +23,11 @@
                         @foreach($videos as $video)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$video->title}}</td>
                                 <td>
                                     <img src="{{$video->thumbnail}}" height="150px" alt="{{$video->title}}">
                                 </td>
-                                <td>{{$video->link}}</td>
+                                <td>{{$video->name}}</td>
+                                <td><a target="_blank" href="{{$video->url}}">{{$video->url}}</a></td>
                                 <td>
                                     <a href="{{route('videos.edit', $video)}}" class=""><i class="fa fa-edit"></i></a>
                                     <a href="{{route('videos.destroy', $video)}}" class="deletable"><i class="fa

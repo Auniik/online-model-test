@@ -11,7 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/front/_partials/sitemap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/_partials/sitemap.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoPreviewController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Rules/OldPasswordRule.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/default/default_participant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/participant/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TekasaibdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/ParticipantRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Website/QuizRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OnlineExam/Participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/MetaGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/MetaGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Participant/ParticipantAuthService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Video.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Video.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_07_02_041820_create_participants_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/video/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/video/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/video/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/video/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/about/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/quiz/complete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quiz/complete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +281,7 @@
       <workItem from="1597077150584" duration="53905000" />
       <workItem from="1597247432313" duration="2285000" />
       <workItem from="1597333199969" duration="16811000" />
-      <workItem from="1597391168925" duration="39472000" />
+      <workItem from="1597391168925" duration="56199000" />
     </task>
     <servers />
   </component>
@@ -287,10 +309,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="436" y="54" width="484" height="652" key="#api.php/0.22.1366.746@0.22.1366.746" timestamp="1597347782606" />
-    <state x="430" y="187" width="631" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597404607494">
+    <state x="430" y="187" width="857" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597506508399">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="430" y="187" width="631" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1597404607494" />
+    <state x="430" y="187" width="857" height="382" key="#com.intellij.fileTypes.FileTypeChooser/0.22.1366.746@0.22.1366.746" timestamp="1597506508399" />
     <state x="416" y="132" width="524" height="496" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596754059933">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -367,10 +389,10 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="100" y="96" width="1166" height="572" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.22.1366.746@0.22.1366.746" timestamp="1596756520929" />
-    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595966590936">
+    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597508049309">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.22.1366.746@0.22.1366.746" timestamp="1595966590936" />
+    <state x="293" y="22" width="770" height="742" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.22.1366.746@0.22.1366.746" timestamp="1597508049309" />
     <state x="100" y="96" width="1166" height="572" key="dock-window-1" timestamp="1596754348358">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -395,9 +417,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1597346684433" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597483075681">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597511576086">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597483075681" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597511576086" />
   </component>
 </project>

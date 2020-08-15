@@ -16,6 +16,7 @@ use App\Models\TeamMember;
 use App\News;
 use App\Publication;
 use App\Slider;
+use App\Video;
 use App\Youtube;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,7 @@ class TekasaibdController extends Controller
             'contract' => Contract::all(),
 
             'slider'    => $slider,
+            'videos' => Video::query()->latest()->take(6)->get()
         ]);
     }
 

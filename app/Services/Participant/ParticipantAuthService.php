@@ -23,7 +23,7 @@ class ParticipantAuthService
             $message = ['email' => 'It seems problem with your Email Address.'];
         } else {
             $attributes['mobile_number'] = $request->id;
-            $rules['mobile_number'] = 'exists:participants,mobile_number|min:11|required';
+            $rules['mobile_number'] = ['exists:participants,mobile_number', 'min:11', 'required', 'regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'];
             $message = ['mobile_number' => 'It seems problem with your phone number.'];
         }
 

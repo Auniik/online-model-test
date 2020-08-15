@@ -9,6 +9,7 @@
                 <div class="card-body">
                     <form action="{{route('videos.update', $video)}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('patch')
                         <div class="form-group row">
                             <label for="name" class="col-sm-1 col-form-label"> শিরোনাম</label>
                             <div class="col-sm-10">

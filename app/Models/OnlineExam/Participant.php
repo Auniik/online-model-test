@@ -64,8 +64,7 @@ class Participant extends User
     {
         return $this->hasOne(QuizAssessment::class)
             ->whereHas('quiz', function ($quiz) {
-                $quiz->where('is_default', 1)
-                ;
+                $quiz->where('is_default', 1);
             })->first();
     }
 
