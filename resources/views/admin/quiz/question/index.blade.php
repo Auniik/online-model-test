@@ -261,7 +261,7 @@
 
     </script>
 
-   
+
     <script src="/front-end/magnify/jquery.magnify.js"></script>
     <script>
         $('[data-magnify]').magnify({
