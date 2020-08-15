@@ -9,7 +9,7 @@
             <div class="row online-left">
 
                 <div class="padding_none col-lg col-md-12 col-sm-6">
-                    <a href="/under-construction)">
+                    <a href="/under-construction">
                         <div class="count"> <i class="fast_icon fas fa-briefcase"></i>
                             <h1><span class="counter">চাকুরী</span></h1>
                             @include('front._partials.share', ['url' => request()->url()])
