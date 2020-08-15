@@ -59,7 +59,7 @@ class QuizAssessment extends Model
         return $this->answers->filter(function ($q) {
             return $q->quiz_option_id;
         })->sum(function ($answer) {
-            return $answer->option->is_correct;
+            return !$answer->option->is_correct;
         });
     }
     public function skippedCount()

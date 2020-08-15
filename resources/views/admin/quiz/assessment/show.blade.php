@@ -15,9 +15,7 @@
                          মোট প্রশ্ন: {{$assessment->quiz->questions->count()}},
                          সঠিক উত্তর: {{$assessment->correctCount()}},
                          ভুল উত্তর: {{$assessment->wrongCount()}}
-                         উত্তর দেয়নি: {{$assessment->quiz->questions->count() - ($assessment->correctCount() +
-                         $assessment->wrongCount())}}
-                          স্কিপ করেছে: {{$assessment->skippedCount()}}
+                         স্কিপ করেছে: {{$assessment->skippedCount()}}
                     </p>
 
                     <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
