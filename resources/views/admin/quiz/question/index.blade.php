@@ -19,6 +19,46 @@
             overflow-y: auto;
         }
     </style>
+    <link href="/front-end/magnify/jquery.magnify.css" rel="stylesheet">
+    <style>
+        .magnify-modal {
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .magnify-header .magnify-toolbar {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .magnify-stage {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-width: 0;
+        }
+
+        .magnify-footer {
+            bottom: 10px;
+        }
+
+        .magnify-footer .magnify-toolbar {
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 5px;
+        }
+
+        .magnify-loader {
+            background-color: transparent;
+        }
+
+        .magnify-header,
+        .magnify-footer {
+            pointer-events: none;
+        }
+
+        .magnify-button {
+            pointer-events: auto;
+        }
+    </style>
 @endpush
 @section('body')
     <div class="row m-t-15">
@@ -59,7 +99,16 @@
                                     @foreach($quiz->questions as $k => $question)
                                         <tr>
                                             <td>{{++$k}}</td>
-                                            <td>{{$question->title}}</td>
+                                            <td>
+                                                @if ($question->meta)
+                                                    <a data-magnify="gallery" data-caption="{{$question->title}}"
+                                                       href="{{asset($question->meta)}}">
+                                                        {{$question->title}}
+                                                    </a>
+                                                @else
+                                                    {{$question->title}}
+                                                @endif
+                                            </td>
                                             @foreach($question->options as $option)
                                                 <td class="{{$option->is_correct ? 'text-success' : 'text-danger'}}">
                                                     {{$option->value}}
@@ -126,10 +175,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 @endsection
 
@@ -213,6 +258,19 @@
                 </tr>
             `)
         }
+
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/front-end/magnify/jquery.magnify.js"></script>
+    <script>
+        $('[data-magnify]').magnify({
+            speed: 200,
+            initMaximized: false
+        });
 
     </script>
 
