@@ -17,7 +17,7 @@ class CreateQuizAssessmentAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('quiz_question_id');
             $table->unsignedBigInteger('quiz_assessment_id');
-            $table->unsignedBigInteger('quiz_option_id');
+            $table->unsignedBigInteger('quiz_option_id')->nullable();
             $table->timestamps();
             $table->foreign('quiz_question_id')
                 ->references('id')

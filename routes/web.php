@@ -49,6 +49,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::resource('galleries', 'GalleryController')->except('show');
+    Route::resource('videos', 'VideoController')->except('show');
+
     Route::post('galleries/{gallery}/slider', 'GalleryController@setSlider')->name('galleries.slider');
     Route::get('galleries/{gallery}/photos', 'GalleryPhotoController@index')->name('gallery-photos.index');
     Route::post('galleries/{gallery}/photos', 'GalleryPhotoController@store')->name('gallery-photos.store');

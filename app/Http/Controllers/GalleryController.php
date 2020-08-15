@@ -69,8 +69,12 @@ class GalleryController extends Controller
         return back()->withSuccess(' গ্যালারী  হালনাগাদ করা হয়েছে !');
     }
 
-    public function delete(Gallery $gallery)
+    public function destroy(Gallery $gallery)
     {
+        foreach ($gallery->photos as $photo) {
+            Storage::delete($photo->path);
+        }
+        $gallery->photos()->delete();
         $gallery->delete();
 
         return response([

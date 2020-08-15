@@ -17,6 +17,7 @@
                          ভুল উত্তর: {{$assessment->wrongCount()}}
                          উত্তর দেয়নি: {{$assessment->quiz->questions->count() - ($assessment->correctCount() +
                          $assessment->wrongCount())}}
+                          স্কিপ করেছে: {{$assessment->skippedCount()}}
                     </p>
 
                     <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
@@ -48,13 +49,15 @@
                                         <td>{{$question->title}}</td>
                                         @foreach($question->options as $option)
                                             <?php
-                                              $answer = $assessment->answers->firstWhere('quiz_option_id', $option->id)
+
+                                              $answer = $assessment->answers->firstWhere('quiz_option_id', $option->id);
+                                              if ($answer) {
+
+                                                  $answerRow = optional($answer->option)->is_correct;
+                                              }
                                             ?>
                                             <td class="{{$option->is_correct ? 'text-success' : 'text-danger'}}">
                                                 @if ($answer)
-                                                    @php
-                                                        $answerRow = $answer->option->is_correct
-                                                    @endphp
                                                     {!!
                                                         $answerRow
                                                         ? '<i class="fa fa-check" aria-hidden="true"></i>'

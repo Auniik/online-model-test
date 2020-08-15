@@ -47,8 +47,11 @@
                         <div class="col-lg-12 text-center">
                             <hr>
                             <div class="form-group">
+                                <input type="button" id="skipButton" class="btn
+                            btn-primary" value=" স্কিপ করুন"/>
                                 <input type="button" id="nextButton" disabled class="btn
                             btn-primary w-25" value="পরবর্তী"/>
+
                             </div>
                         </div>
                     </div>
@@ -79,7 +82,7 @@
         }
 
 
-        body.oncontextmenu = handler;
+        // body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -138,6 +141,33 @@
             });
         })
 
+        $(document).on('click', '#skipButton', function () {
+
+            let data = {
+                quiz_question_id: $("input[name=quiz_question_id]").val(),
+                quiz_assessment_id: $("input[name=quiz_assessment_id]").val(),
+                quiz_option_id: null,
+                _token: "{{csrf_token()}}"
+            }
+            $.ajax({
+                url: `/save-answer`,
+                data,
+                type: 'POST',
+                dataType: 'HTML',
+            }).done(function (data) {
+                if(data === 'COMPLETED') {
+                    completedAction()
+                }
+                else {
+                    $('#nextButton').attr('disabled', true)
+                    $('.questions-row').html(data)
+                    if ("{{$participant_type}}" !== 'general') {
+                        document.getElementById('timer').innerHTML = "{{$duration}}"
+                    }
+                }
+            });
+        })
+
         $(document).on('click', '.custom-control-label, .custom-control-input', () => {
             $('#nextButton').attr('disabled', false)
         })
@@ -145,6 +175,7 @@
 
         function completedAction() {
             $('#nextButton').hide()
+            $('#skipButton').hide()
             $('#timer').hide()
             location.href = `complete-quiz/{{$assessment_id}}`
         }
@@ -152,12 +183,12 @@
     </script>
 
     <script>
-        window.onbeforeunload = function() {
-            window.setTimeout(function () {
-                window.location = `/complete-quiz/${assessment.id}`;
-             }, 0);
-            window.onbeforeunload = null;
-        }
+        // window.onbeforeunload = function() {
+        //     window.setTimeout(function () {
+        //         window.location = `/complete-quiz/${assessment.id}`;
+        //      }, 0);
+        //     window.onbeforeunload = null;
+        // }
     </script>
 
 {{--Timer--}}

@@ -78,7 +78,7 @@
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('galleries.index')}}"> ছবির গ্যালারী</a></li>
-                        <li><a href="#"> ভিডিওচিত্র গ্যালারী</a></li>
+                        <li><a href="{{route('videos.index')}}"> ভিডিওচিত্র গ্যালারী</a></li>
                     </ul>
                 </li>
 
