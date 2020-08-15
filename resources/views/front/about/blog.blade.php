@@ -82,16 +82,16 @@
                                             <img class="card-img-top" style="min-height: 250px" src="{{asset
                                             ($blog->image)}}"
                                                  alt="Blog image" >
-                                            <div class="card-body p-2" style="height: 99px;">
+                                            <div class="card-body p-2">
                                                 <h6 class="card-text d-flex justify-content-between">
-                                                    <h5>{{$blog->title}}</h5>
-                                                    {{ Str::limit($blog->short_description, 50) }}
+                                                    <h6> <strong>{!! $blog->title !!}</strong></h6>
+                                                    {{ Str::limit($blog->short_description, 110) }}
                                                 </h6>
                                             </div>
                                         </a>
 
 
-                                        <div class="card-footer ">
+                                        <div class="card-footer p-2">
                                             <div class="d-flex justify-content-between">
                                                 {{$blog->created_at->format('M d, Y h:i A')}}
                                                 @include('front._partials.share', [

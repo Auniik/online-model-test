@@ -98,20 +98,20 @@
                 @foreach($news_feed as $blog)
                 <div class="col">
                     <div class="blog-">
-                    <div class="card shadow-lg">
+                    <div class="card shadow">
                         <a class="text-secondary" href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
                             <img class="card-img-top" src="{{asset($blog->image)}}" alt="Card image"
                             >
-                            <div class="card-body p-2" style="height: 99px;">
+                            <div class="card-body p-2" style="min-height: 99px;">
                                 <h6 class="card-text d-flex justify-content-between">
-                                    <h5>{{$blog->title}}</h5>
-                                    {{ Str::limit($blog->short_description, 50) }}
+                                    <h6> <strong>{!! $blog->title !!}</strong></h6>
+                                    {{ Str::limit($blog->short_description, 110) }}
                                 </h6>
                             </div>
                         </a>
 
 
-                        <div class="card-footer ">
+                        <div class="card-footer p-1">
                             <div class="d-flex justify-content-between">
                                 {{$blog->created_at->format('M d, Y h:i A')}}
                                 @include('front._partials.share', [
