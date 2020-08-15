@@ -69,7 +69,8 @@
                             <h4 class="widget-title">তথ্য</h4>
                             {!! $question->question ?? '' !!}
                             <hr>
-                            <p><a class="btn btn-info" href="{{url('submit-work?ref=creativity')}}">জমা দিন</a></p>
+                            <p><a class="btn btn-info" href="{{url("submit-work?ref=creativity&category_id=$book->id")
+                            }}">জমা দিন</a></p>
                         @else
                             @if(!auth('participant')->check())
                             <p class="text-center">তথ্য জমা দিতে <a class="btn btn-sm btn-primary"

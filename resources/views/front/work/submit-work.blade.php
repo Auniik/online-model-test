@@ -24,7 +24,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group position-relative">
                                         <label>Select Category <span class="text-danger">*</span></label>
-                                        <select name="work_type" class="form-control">
+                                        <select name="work_type" class="form-control category">
                                             <option value="">Select One</option>
                                             @foreach($categories as $id => $name)
                                                 <option value="{{$id}}">{{$name}}</option>
@@ -99,3 +99,12 @@
     </section><!--end section-->
 
 @endsection
+
+@push('script')
+
+    <script>
+        @if($id = request('category_id'))
+            $('.category').val("{{$id}}");
+        @endif
+    </script>
+@endpush
