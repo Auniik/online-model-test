@@ -26,4 +26,9 @@ class Work extends Model
 
         return end($arr);
     }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'work_type');
+    }
 }

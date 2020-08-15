@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->title}}</td>
-                                <td>{{$row->work_type}}</td>
+                                <td>{{$row->book->title}}</td>
                                 <td><a href="{{$row->link}}" target="_blank">{{$row->link}}</a></td>
                                 <td>
                                     <buttton data-files="{{json_encode($row->file)}}"  class="btn btn-success btn-sm

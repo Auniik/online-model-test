@@ -25,13 +25,10 @@
                                     <div class="form-group position-relative">
                                         <label>Select Category <span class="text-danger">*</span></label>
                                         <select name="work_type" class="form-control">
-                                            <option value="0">Select One</option>
-                                            <option value="অসমাপ্ত আত্মজীবনী">অসমাপ্ত আত্মজীবনী</option>
-                                            <option value="কারাগারের রোজনামচা">কারাগারের রোজনামচা</option>
-                                            <option value="সংগ্রামের ইতিহাস">সংগ্রামের ইতিহাস</option>
-                                            <option value="ইউটিউব ভিডিও কনটেন্ট">ইউটিউব ভিডিও কনটেন্ট</option>
-                                            <option value="স্কিপ রাইটিং">স্কিপ রাইটিং</option>
-                                            <option value="স্কক্যানভাসে বঙ্গবন্ধু">স্কক্যানভাসে বঙ্গবন্ধু</option>
+                                            <option value="">Select One</option>
+                                            @foreach($categories as $id => $name)
+                                                <option value="{{$id}}">{{$name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div><!--end col-->

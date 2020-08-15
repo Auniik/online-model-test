@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Work;
 use App\News;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class WorkController extends Controller
         if (!auth('participant')->check()) {
             return redirect('/participants/login?next=submit-work');
         }
-        return view('front.work.submit-work');
+        return view('front.work.submit-work', [
+            'categories' => Book::query()->pluck('title', 'id')
+        ]);
     }
 
     public function newWork(Request $request)
@@ -25,6 +28,7 @@ class WorkController extends Controller
                 'title' => 'required|min:3',
                 'work_type' => 'required',
                 'file.*' => 'required|max:20480|mimes:jpeg,bmp,png,mp4,jpg,gif,zip,pdf',
+                'link' => 'nullable'
             ]);
 
             $fileUrl = [];
