@@ -187,17 +187,15 @@
             <div class="row online-left">
                 @foreach($publications ?? [] as $publication)
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="row book-img shadow">
+                        <div class="row book-img shadow" style="    outline: 10px solid #383838;">
                             @if ($publication->image)
-                                <img src="{{asset($publication->image)}}" alt="{{$publication->title}}">
+                                <img src="{{asset($publication->image)}}" style="object-fit: contain;" alt="{{$publication->title}}">
                             @else
                                 <img src="/front-end/images/raiting1.jpg" alt="raiting1.jpg">
                             @endif
                             <div class="img-overlay text-center">
                                 <a href="{{route('publication-details',$publication)}}" target="_blank">
-                                    <div class="text-part">
-                                        <p>{{$publication->title}}</p>
-                                    </div>
+                                    <p style="margin-top: 195px;">{{$publication->title}}</p>
                                 </a>
                             </div>
                         </div>
