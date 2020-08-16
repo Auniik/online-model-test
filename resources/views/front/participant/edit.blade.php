@@ -206,6 +206,9 @@
             @if($value = $participant->occupation)
                 $('select[name=occupation]').val("{{$value}}").change()
             @endif
+            @if(!$participant->password)
+            toastr.warning(" নতুন পাসওয়ার্ড যুক্ত করুন !")
+            @endif
 
         })
 

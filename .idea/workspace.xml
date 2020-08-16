@@ -12,8 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7f98a487-0ace-413c-8c03-8798d8f80776" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/book/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/work/submit-work.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/work/submit-work.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/participant/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/participant/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/question.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/question.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/renderQ.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/renderQ.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/quizzes/start.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +263,9 @@
       <workItem from="1597077150584" duration="53905000" />
       <workItem from="1597247432313" duration="2285000" />
       <workItem from="1597333199969" duration="16811000" />
-      <workItem from="1597391168925" duration="57506000" />
+      <workItem from="1597391168925" duration="57647000" />
+      <workItem from="1597551994740" duration="1417000" />
+      <workItem from="1597594857735" duration="2677000" />
     </task>
     <servers />
   </component>
@@ -397,9 +401,9 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="347" y="169" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1597346684433" />
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597513181064">
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup" timestamp="1597596653226">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597513181064" />
+    <state x="347" y="30" width="672" height="559" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1597596653226" />
   </component>
 </project>

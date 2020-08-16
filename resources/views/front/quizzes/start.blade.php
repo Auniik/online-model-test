@@ -1,11 +1,11 @@
 @extends('front.layout.master')
 @section('content')
-    <section class="section-two mt-100 pt-0 pb-0 mb-5" id="question-one">
+    <section class="section-two mt-100 pt-0 pb-0 mb-3" id="question-one">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12 text-justify">
-                    <img src="{{asset($quiz->image)}}" class="align-items-center rounded-0" style="height: 250px"
-                         width="100%px" alt="">
+                <div class="col-lg-10 text-justify">
+                    <img src="{{asset($quiz->image)}}" class="align-items-center rounded-0"
+                         width="100%" alt="">
                 </div>
             </div>
         </div>

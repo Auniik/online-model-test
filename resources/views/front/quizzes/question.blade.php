@@ -48,9 +48,9 @@
                             <hr>
                             <div class="form-group">
                                 <input type="button" id="skipButton" class="btn
-                            btn-primary" value=" স্কিপ করুন"/>
+                            btn-primary" style="width: 130px;" value=" স্কিপ করুন"/>
                                 <input type="button" id="nextButton" disabled class="btn
-                            btn-primary w-25" value="পরবর্তী"/>
+                            btn-primary" style="width: 130px;" value="পরবর্তী"/>
 
                             </div>
                         </div>
@@ -82,7 +82,7 @@
         }
 
 
-        body.oncontextmenu = handler;
+        // body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -183,12 +183,12 @@
     </script>
 
     <script>
-        window.onbeforeunload = function() {
-            window.setTimeout(function () {
-                window.location = `/complete-quiz/${assessment.id}`;
-             }, 0);
-            window.onbeforeunload = null;
-        }
+        // window.onbeforeunload = function() {
+        //     window.setTimeout(function () {
+        //         window.location = `/complete-quiz/${assessment.id}`;
+        //      }, 0);
+        //     window.onbeforeunload = null;
+        // }
     </script>
 
 {{--Timer--}}
