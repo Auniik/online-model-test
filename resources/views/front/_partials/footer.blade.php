@@ -160,8 +160,7 @@
                 <div class="f_text text-center mt-2">
                     <ul class="list-unstyled text-sm-center mb-0">
                         <li class="list-inline-item"><a href="{{route('contact')}}" target="_blank">Contact</a></li>
-                        <li class="list-inline-item"><a href="{{url('/about')}}" target="_blank">Mission
-                                Vision</a></li>
+                        <li class="list-inline-item"><a href="{{url('/about-us')}}" target="_blank">About us</a></li>
                         <li class="list-inline-item"><a href="/terms-and-conditions" target="_blank">Terms & Conditions</a>
                         </li>
                         <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">Privacy

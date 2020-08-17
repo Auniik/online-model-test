@@ -92,7 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
 /*Font End*/
 Route::get('/publication-details/{publication}', 'PublicationController@show')->name('publication-details');
 Route::get('add-front','TekasaibdController@front')->name('add-front');
-Route::get('about','TekasaibdController@about')->name('about');
+Route::get('about-us','TekasaibdController@about')->name('about');
 Route::get('contact','TekasaibdController@contact')->name('contact');
 Route::get('privacy','TekasaibdController@privacy')->name('privacy');
 Route::get('tekasaibd','TekasaibdController@tekasaibd')->name('tekasaibd');
