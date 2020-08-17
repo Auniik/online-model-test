@@ -39,6 +39,7 @@
         }
     </style>
     @stack('style')
+    <script data-ad-client="ca-pub-8792021099877651" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body class="content" id="body">
