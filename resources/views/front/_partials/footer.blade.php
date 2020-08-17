@@ -56,7 +56,7 @@
                                target="blank">
                                 <i class="fab fa-youtube icon-alias" style="color: #f21d1d"></i>
                             </a>
-                            <a href="https://twitter.com/" class="social-icon mt-0" target="blank">
+                            <a href="https://twitter.com/tekasaibd" class="social-icon mt-0" target="blank">
                                 <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
                             </a>
                         </div>
@@ -181,7 +181,7 @@
                        href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
                        target="_blank"><i class="fab fa-youtube" style="background: red;"></i></a>
 
-                    <a class="from-control btn-sm" href="javascript:void(0)" target="_blank"><i
+                    <a class="from-control btn-sm" href="https://twitter.com/tekasaibd" target="_blank"><i
                             class="fab fa-twitter"></i></a>
                 </div>
             </div>

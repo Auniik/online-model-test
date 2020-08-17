@@ -65,7 +65,6 @@
 {{--<button id="myBtn">Open Modal</button>--}}
 
 <div id="myModal" class="share-modal">
-
     <!-- Modal content -->
     <div class="share-modal-content">
         <div class="share-modal-content text-center">
@@ -135,7 +134,6 @@
 </script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
-<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('/')}}viewer/js/jquery.magnify.js"></script>
 <script src="/front-end/js/custom.js"></script>
