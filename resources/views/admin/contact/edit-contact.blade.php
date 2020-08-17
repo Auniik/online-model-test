@@ -4,45 +4,45 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Manage Contact</h4>
+                    <h4 class="mt-0"> যোগাযোগ </h4>
                 </div>
                 <div class="card-body">
                     <form action="{{route('contacts.update', $contract)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শিরোনাম</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{$contract->title}}" name="title">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> ইমেইল</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="email" value="{{$contract->email}}" name="email">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Phone</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> মোবাইল</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" value="{{$contract->phone}}"
                                        name="phone">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> বর্ণণা</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="description">{{$contract->description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Address</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> ঠিকানা</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" name="address">{{$contract->address}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row d-none">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> ছবি</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-file" placeholder="Image" name="image" accept="image/*" >
                                 <img src="{{asset($contract->image)}}" class="img-fluid my-3">
@@ -54,13 +54,13 @@
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio" checked value="1" />
-                                        <span>Publish</span>
+                                        <span>  পাবলিশ</span>
                                     </label>
                                 </div>
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio"   value="0"/>
-                                        <span>Unpublish</span>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>

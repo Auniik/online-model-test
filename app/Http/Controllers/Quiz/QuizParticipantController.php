@@ -54,16 +54,12 @@ class QuizParticipantController extends Controller
             ]);
 
             foreach ($request->get('name', []) as $key => $name) {
-                $password = '12345678';
 
-                if (optional($request->password)[$key]) {
-                    $password = $request->password[$key];
-                }
                 $participant = Participant::query()->create([
                     'name' => $name,
                     'email' => $request->email[$key],
                     'mobile_number' => $request->mobile_number[$key],
-                    'password' => bcrypt($password)
+                    'password' => $request->password[$key]
                 ]);
 
                 $assess =  QuizAssessment::query()
@@ -75,7 +71,7 @@ class QuizParticipantController extends Controller
             }
         });
 
-        return back_with_success('participant');
+        return back_with_success(' পরীক্ষার্থী');
     }
 
     public function destroy(QuizAssessment $id)

@@ -73,7 +73,7 @@ class ParticipantAssessmentController extends Controller
                 $exam->assignedParticipants()->create([ 'participant_id' => $participant->id ]);
             }
         }
-        return back_with_success('participant');
+        return back_with_success(' পরীক্ষার্থী');
     }
 
     public function destroy(ParticipantAssessment $id)

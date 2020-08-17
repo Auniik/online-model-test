@@ -24,7 +24,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
-        return back()->withSuccess('News update saved successfully');
+        return back()->withSuccess(' নিউজ আপডেট যুক্ত করা হয়েছে');
     }
 
     public function edit(News $news)
@@ -39,7 +39,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
-        return redirect('add-news')->withSuccess('News Update updated.');
+        return redirect('add-news')->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
 
     }
 

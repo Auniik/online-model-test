@@ -10,7 +10,7 @@
         <div id="sidebar-menu">
             <ul>
                 <li><a href="{{asset('/dashboard')}}" class="waves-effect"><i class="mdi mdi-airplay"></i>
-                        <span>Dashboard</span></a></li>
+                        <span> ড্যাশবোর্ড</span></a></li>
                 <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-clock"></i> <span> কুইজ টেস্ট
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
@@ -33,8 +33,9 @@
                         <span> সকল পরীক্ষার্থী</span></a></li>
 
                 <li><a href="{{route('admin.submitted.work')}}" class="waves-effect"><i class="mdi mdi-worker"></i>
-                        <span> Submitted Works</span></a></li>
-                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-book-multiple-variant"></i> <span> Manage Books
+                        <span>  জমাকৃত সৃজনশীলতা</span></a></li>
+                <li class="has_sub"><a href="" class="waves-effect"><i class="mdi mdi-book-multiple-variant"></i>
+                  <span> বইসমূহ
                         </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('books.index')}}">সকল বইসমূহ</a></li>
@@ -60,7 +61,7 @@
                     <ul class="list-unstyled">
                         {{--<li><a href="{{asset('add-about')}}">Manage About</a></li>--}}
                         <li><a href="{{route('contacts.edit')}}"> যোগাযোগ</a></li>
-                        <li><a href="{{url('/messages')}}"> Messages</a></li>
+                        <li><a href="{{url('/messages')}}">  ম্যাসেজসমূহ</a></li>
                     </ul>
                 </li>
 

@@ -4,15 +4,15 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Manage News Updates</h4>
+                    <h4 class="mt-0"> নিউজ আপডেট সমূহ দেখুন</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
                             <th class="1%">#</th>
-                            <th>Title</th>
-                            <th>Redirect to</th>
+                            <th> শিরোনাম</th>
+                            <th> লিঙ্ক</th>
                             <th class="1%">Action</th>
                         </tr>
                         </thead>

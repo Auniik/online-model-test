@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('contacts/edit', 'ContractController@edit')->name('contacts.edit');
     Route::post('contacts/{contact}', 'ContractController@update')->name('contacts.update');
 
-    Route::get('/delete-work/{id}', 'WorkController@deleteSubmitWork')->name('delete-work');
+    Route::DELETE('/delete-work/{work}', 'WorkController@deleteSubmitWork')->name('delete-work');
     Route::get('/admin/submitted-work','AdminController@submittedWork')->name('admin.submitted.work');
 
     Route::get('/about/edit', 'AboutController@edit')->name('about.edit');

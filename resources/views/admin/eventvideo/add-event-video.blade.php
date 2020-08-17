@@ -47,7 +47,7 @@
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio"   value="0"/>
-                                        <span>Unpublish</span>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             <th>Sl</th>
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Short Description</th>
+                            <th> ভূমিকা</th>
                             <th>Link</th>
                             <th>Status</th>
                             <th>Action</th>

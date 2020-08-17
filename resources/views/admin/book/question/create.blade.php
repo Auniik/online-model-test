@@ -10,10 +10,10 @@
                     <form action="{{route('admin.book.question.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Book</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> বই</label>
                             <div class="col-sm-10">
                                 <select name="book_id" class="form-control book_id" id="" required>
-                                    <option value="">Select Book</option>
+                                    <option value=""> বই সিলেক্ট করুন</option>
                                     @foreach($books as $id => $title)
                                         <option value="{{$id}}">{{$title}}</option>
                                     @endforeach
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Question</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> প্রশ্ন</label>
                             <div class="col-sm-10">
                                 <textarea name="question" class="form-control" id="editor"></textarea>
                             </div>
@@ -32,13 +32,13 @@
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio" checked value="1"/>
-                                        <span>Active</span>
+                                        <span> পাবলিশ</span>
                                     </label>
                                 </div>
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio" value="0"/>
-                                        <span>Inactive</span>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>
@@ -46,8 +46,9 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">Cancel</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
+                                <button type="reset" class="btn btn-secondary waves-effect m-l-5"> বাদ দিন</button>
                             </div>
                         </div>
                     </form>

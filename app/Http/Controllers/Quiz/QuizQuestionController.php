@@ -47,14 +47,10 @@ class QuizQuestionController extends Controller
             }
         });
 
-        return back_with_success('quiz');
+        return back_with_success(' কুইজ');
 
     }
 
-    public function show()
-    {
-
-    }
 
     public function destroy(QuizQuestion $question)
     {

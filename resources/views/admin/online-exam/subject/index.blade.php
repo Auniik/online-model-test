@@ -10,10 +10,10 @@
                     @include('admin._partials.success-alert')
                     <form id="refForm" action="{{route('subjects.store')}}" method="POST" >
                         @csrf
-                        <h4 class="mt-0"><span id="header-title">Add New</span> Subject</h4>
+                        <h4 class="mt-0"> বিষয় <span id="header-title"> যুক্ত করুন</span></h4>
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Subject Name *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> নাম *</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" autocomplete="off" value=""
                                        placeholder="Subject name"
@@ -21,14 +21,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Subject Code</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> বিষয় কোড</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" autocomplete="off" placeholder="Subject code"
                                        name="code" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Class *</label>
+                            <label for="example-text-input" class="col-sm-2 col-form-label"> শ্রেণী *</label>
                             <div class="col-sm-10">
 
                                 <select class="form-control" name="class" id="">
@@ -50,9 +50,10 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
                                 <button type="reset" class="btn btn-secondary waves-effect m-l-5"
-                                        onclick="location.reload()">Cancel</button>
+                                        onclick="location.reload()"> বাদ দিন</button>
                             </div>
                         </div>
                     </form>
@@ -65,16 +66,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Manage Subjects</h4>
+                    <h4 class="mt-0"> সকল বিষয়সমূহ</h4>
                 </div>
                 <div class="card-body">
-                    <table id="datatable-buttons" class="table table-striped table-bordered w-100">
+                    <table   class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Subject name</th>
-                            <th>Subject Code</th>
-                            <th>Class</th>
+                            <th>#</th>
+                            <th> নাম</th>
+                            <th> কোড</th>
+                            <th> শ্রেণী</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

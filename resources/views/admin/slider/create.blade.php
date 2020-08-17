@@ -77,8 +77,9 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">Cancel</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
+                                <button type="reset" class="btn btn-secondary waves-effect m-l-5"> বাদ দিন</button>
                             </div>
                         </div>
                     </form>

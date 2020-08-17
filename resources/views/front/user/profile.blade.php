@@ -113,7 +113,7 @@ padding: 10px;">
                                                     <span class="text-primary mb-0">Title :</span> {{$work->title}} <br>
                                                     <span class="text-primary mb-0">Work Type :</span> {{$work->work_type}}
                                                     <br>
-                                                    <span class="text-primary mb-0">Description :</span> {!! $work->description !!}
+                                                    <span class="text-primary mb-0"> বর্ণনা  :</span> {!! $work->description !!}
                                                     <br>
                                                     <span class="text-primary mb-0">File :</span> <a
                                                             href="/{{$work->file}}" target="_blank">View File</a>

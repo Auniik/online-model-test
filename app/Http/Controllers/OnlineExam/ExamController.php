@@ -72,7 +72,7 @@ class ExamController extends Controller
         }
 
         Exam::query()->create(array_merge($attributes, $data));
-        return back_with_success('Exam');
+        return back_with_success(' অনলাইন পরীক্ষা');
     }
 
     public function show(Exam $exam)
@@ -127,7 +127,7 @@ class ExamController extends Controller
 
         $exam->update(array_merge($attributes, $data));
 
-        return updated_response('Exam');
+        return updated_response(' অনলাইন  পরীক্ষা');
     }
 
     /**

@@ -6,7 +6,7 @@
             <div class="card-header d-flex justify-content-between">
                 <h4 class="mt-0"> টীম ম্যানেজ করুন</h4>
                 <a href="{{route('team-members.create')}}" style="height: 35px; " class="btn
-                    btn-primary col-1">Add new</a>
+                    btn-primary col-1"> নতুন যুক্ত করুন</a>
             </div>
             <div class="card-body">
                 <table   class="table table-striped table-bordered w-100">
@@ -14,7 +14,7 @@
                     <tr>
                         <th width="1%">#</th>
                         <th>নাম</th>
-                        <th>Designation</th>
+                        <th> পদবী</th>
                         <th>ছবি</th>
                         <th>Is Highlighted</th>
                         <th width="5%">Action</th>
@@ -31,11 +31,11 @@
                             <td>
                                 @if ($member->is_highlighted)
                                     <a class="btn btn-success btn-circle" href="#">
-                                        Yes
+                                        হ্যাঁ
                                     </a>
                                 @else
                                     <a class="btn btn-secondary btn-circle" href="{{route('team-members.highlight', $member)}}">
-                                        No
+                                         না
                                     </a>
                                 @endif
                             </td>

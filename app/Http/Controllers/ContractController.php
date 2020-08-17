@@ -39,6 +39,6 @@ class ContractController extends Controller
         $contact->email = $request->email;
         $contact->image = $imageUrl;
         $contact->save();
-        return back()->withSuccess('Contact updated successfully!');
+        return back()->withSuccess(' যোগাযোগ হালনাগাদ করা হয়েছে !');
     }
 }

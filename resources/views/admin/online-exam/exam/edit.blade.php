@@ -31,7 +31,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label"> শ্রেণী *</label>
                             <div class="col-sm-4">
                                 <select class="form-control class" name="class">
-                                    <option value="">Select One</option>
+                                    <option value=""> বাছাই করুন</option>
                                     @foreach(config('exam.classes') as $key => $name)
                                         <option value="{{$key}}">{{trans('default')[$name]}}</option>
                                     @endforeach
@@ -84,7 +84,7 @@
                             </div>
                             <div class="col-sm-8">
                                 @if ($exam->image)
-                                    <p class="text-warning">Want to replace this image ? Then Choose a new one.</p>
+                                    <p class="text-warning"> এই ছবিটা বাদ দিতে চান ? তবে নতুন ছবি বাছাই করুন</p>
                                 @endif
                                 <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*">
 
@@ -124,10 +124,9 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Save
-                                    Changes</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন</button>
                                 <button type="reset" class="btn btn-secondary waves-effect m-l-5"
-                                        onclick="location.reload()">Cancel
+                                        onclick="location.reload()"> বাদ দিন
                                 </button>
                             </div>
                         </div>

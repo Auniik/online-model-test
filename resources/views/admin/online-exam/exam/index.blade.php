@@ -8,13 +8,13 @@
                         <div class="row">
                             <h4 class="col-6"><span id="header-title"> সকল পরীক্ষাসমূহ </span></h4>
                             <select name="exam_id" class="form-control col-2 exam_id select2">
-                                <option value="">Select One</option>
+                                <option value=""> বাছাই করুন</option>
                                 @foreach($selectableExams as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
                             <select name="subject_id" class="form-control col-2 subject_id select2">
-                                <option value="">Select One</option>
+                                <option value=""> বাছাই করুন</option>
                                 @foreach($subjects as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
@@ -24,7 +24,7 @@
                             <a class="btn btn-secondary" href="{{route('exams.index')}}" style="height: 35px; "><i
                                     class="fa fa-refresh"></i></a>
                             <a href="{{route('exams.create')}}" style="height: 35px; " class="btn btn-primary
-                            col-1">Add new</a>
+                            col-1"> নতুন  পরীক্ষা বানান</a>
                         </div>
                     </form>
                 </div>
@@ -33,12 +33,12 @@
                     <table class="table table-striped table-sm table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
+                            <th>#</th>
                             <th> নাম</th>
                             <th> বিষয়</th>
                             <th> শ্রেণী</th>
                             <th> তারিখ</th>
-                            <th>Duration</th>
+                            <th> সময়সীমা</th>
                             <th> পাশমার্ক</th>
                             <th> পরীক্ষার্থী</th>
                             <th> প্রশ্নসমূহ</th>
@@ -93,11 +93,11 @@
                                             <a title="Edit"
                                                class="dropdown-item"
                                                href="{{route('exams.edit',  $exam->id)}}">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  হালনাগাদ করুন
                                             </a>
                                             <a class="dropdown-item deletable" title="Delete"
                                                href="{{route('exams.destroy', $exam->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i>  মুছে ফেলুন
                                             </a>
 
                                         </div>

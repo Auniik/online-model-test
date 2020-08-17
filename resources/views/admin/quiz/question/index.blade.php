@@ -72,9 +72,11 @@
                         <div class=" row">
                             <h4 class="col-11"><span id="header-title">{{$quiz->name}}- এর প্রশ্নসমূহ সেট করুন
                                     </span><br>
-                                <small>Total Questions: {{$quiz->questions->count()}}</small>
+                                <small> মোট প্রশ্ন: {{$quiz->questions->count()}}</small>
                             </h4>
-                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">Add new</button>
+                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">
+                                নতুন  প্রশ্ন যুক্ত করুন
+                            </button>
                         </div>
 
                     </div>
@@ -86,11 +88,11 @@
                                     <thead>
                                     <tr>
                                         <th width="1%">#</th>
-                                        <th>Title</th>
-                                        <th>Option 1</th>
-                                        <th>Option 2</th>
-                                        <th>Option 3</th>
-                                        <th>Option 4</th>
+                                        <th> শিরোনাম</th>
+                                        <th> অপশন  ১</th>
+                                        <th> অপশন  ২</th>
+                                        <th> অপশন  ৩</th>
+                                        <th> অপশন  ৪</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                     </thead>
@@ -167,8 +169,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"> বাদ দিন</button>
+                                <button type="submit" class="btn btn-primary"> সেভ করুন</button>
                             </div>
                         </form>
                     </div>
@@ -223,23 +225,21 @@
                         <textarea type="text" name="options[${count}][]" autocomplete="off" class="form-control"
                         required></textarea>
                         <label for="option0-${count}">
-                            <input type="radio" name="is_correct[${count}]" value="0" id="option0-${count}" required> is correct
+                            <input type="radio" name="is_correct[${count}]" value="0" id="option0-${count}" required> সঠিক উত্তর
                         </label>
                     </th>
                     <th>
                         <textarea type="text" name="options[${count}][]" autocomplete="off" class="form-control"
                         required></textarea>
                         <label for="option1-${count}">
-                            <input type="radio" name="is_correct[${count}]"  value="1" id="option1-${count}" required> is
-                            correct
+                            <input type="radio" name="is_correct[${count}]"  value="1" id="option1-${count}" required>  সঠিক উত্তর
                         </label>
                     </th>
                     <th>
                         <textarea type="text" name="options[${count}][]" autocomplete="off" class="form-control"
                         required></textarea>
                         <label for="option2-${count}">
-                            <input type="radio" name="is_correct[${count}]"  value="2" id="option2-${count}" required> is
-                            correct
+                            <input type="radio" name="is_correct[${count}]"  value="2" id="option2-${count}" required>  সঠিক উত্তর
                         </label>
                     </th>
                     <th>
@@ -247,8 +247,7 @@
                         required></textarea>
                         <label for="option3-${count}">
                             <input type="radio" name="is_correct[${count}]"  value="3" id="option3-${count}" required>
-                             is
-                            correct
+                              সঠিক উত্তর
                         </label>
                     </th>
                     <th>

@@ -4,12 +4,13 @@
 namespace App\Http\Controllers\Quiz;
 
 
+use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Participant;
 use App\Models\Quiz\Quiz;
 use App\Models\Quiz\QuizAssessment;
 use Illuminate\Http\Request;
 
-class QuizResultsController extends \App\Http\Controllers\Controller
+class QuizResultsController extends Controller
 {
     public function index(Request $request)
     {
@@ -36,8 +37,4 @@ class QuizResultsController extends \App\Http\Controllers\Controller
         ]);
     }
 
-    public function show()
-    {
-
-    }
 }

@@ -23,7 +23,7 @@
                     <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
                     ('print-this')"
                             style="height: 35px; "><i
-                            class="fa fa-print"></i> Print</button>
+                            class="fa fa-print"></i>  প্রিন্ট করুন</button>
                 </div>
                 <div class="card-body">
                     @include('admin._partials.success-alert')

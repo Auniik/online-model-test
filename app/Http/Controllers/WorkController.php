@@ -51,12 +51,9 @@ class WorkController extends Controller
 
 
     }
-    public function deleteSubmitWork($id){
-       $work  = Work::query()->find($id);
+    public function deleteSubmitWork(Work $work){
 
         $files = $work->file;
-
-
         $work->delete();
 
         foreach ($files as $file)
@@ -64,6 +61,8 @@ class WorkController extends Controller
                 Storage::delete($file);
             }
 
-        return redirect('/admin/submitted-work')->withSuccess(' সৃজনশীল কাজ মুছে ফেলা হয়েছে');
+        return response([
+            'check' => true
+        ]);
     }
 }

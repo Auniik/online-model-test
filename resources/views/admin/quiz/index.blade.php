@@ -60,22 +60,22 @@
                                 <td>
                                     @if ($quiz->is_default)
                                         <a class="btn btn-success btn-circle" href="#">
-                                            Yes
+                                             হ্যাঁ
                                         </a>
                                     @else
                                         <a class="btn btn-secondary btn-circle" href="{{route('quizzes.current',  $quiz)}}">
-                                            No
+                                             না
                                         </a>
                                     @endif
                                 </td>
                                 <td>
                                     @if ($quiz->is_published)
                                         <a class="btn btn-success btn-circle" href="#">
-                                            Yes
+                                             হ্যা
                                         </a>
                                     @else
                                         <a class="btn btn-secondary btn-circle" href="{{route('quizzes.publish',  $quiz)}}">
-                                            No
+                                             না
                                         </a>
                                     @endif
                                 </td>
@@ -98,12 +98,12 @@
                                             <a title="Edit"
                                                class="dropdown-item"
                                                href="{{route('quizzes.edit',  $quiz->id)}}">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  হালনাগাদ করুন
                                             </a>
                                             <a class="dropdown-item deletable"
                                                title="Delete"
                                                href="{{route('quizzes.destroy',  $quiz->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i>  মুছে ফেলুন
                                             </a>
                                         </div>
                                     </div>

@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-lg-2 col-form-label">Short Description</label>
+                            <label for="example-text-input" class="col-lg-2 col-form-label"> ভূমিকা</label>
                             <div class="col-lg-10">
                                 <textarea class="form-control" name="short_descriptions"></textarea>
                             </div>
@@ -44,7 +44,7 @@
                                     </label>&nbsp; &nbsp; &nbsp;
                                     <label>
                                         <input name="status" type="radio"   value="0"/>
-                                        <span>Unpublish</span>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>

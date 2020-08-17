@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 >Book Question</h4>
+                    <h4 > সৃজনশীলতা প্রশ্নসমূহ</h4>
                     @php($book = request('book'))
                     <a href="/book/question/create?id={{$book?$book->id:''}}" style="height: 35px; " class="btn
                     btn-primary col-1">Add new</a>
@@ -13,9 +13,9 @@
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
+                            <th> #</th>
                             <th>Book ID</th>
-                            <th>Book</th>
+                            <th> বই</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

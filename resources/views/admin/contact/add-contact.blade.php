@@ -56,7 +56,7 @@
                                 {{--<div class="form-check form-check-radio">--}}
                                     {{--<label>--}}
                                         {{--<input name="status" type="radio"   value="0"/>--}}
-                                        {{--<span>Unpublish</span>--}}
+                                        {{--<span> আনপাবলিশ</span>--}}
                                     {{--</label>--}}
                                 {{--</div>--}}
                             {{--</div>--}}

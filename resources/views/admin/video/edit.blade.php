@@ -33,7 +33,8 @@
                         <div class="form-group row">
                             <label for="example-url-input" class="col-sm-1 col-form-label"> &nbsp;</label>
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
                             </div>
                         </div>
                     </form>

@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="col-7"><span id="header-title">Messages </span></h4>
+                            <h4 class="col-7"><span id="header-title">  ম্যাসেজ </span></h4>
                         </div>
                     </form>
                 </div>
@@ -16,9 +16,9 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Comments</th>
+                                    <th> নাম</th>
+                                    <th> ইমেইল</th>
+                                    <th> বার্তা</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -49,7 +49,7 @@
                 <div class="modal-content">
                     <div class="card shadow-lg">
                         <div class="card-header">
-                            <h4>Comment</h4>
+                            <h4>  বার্তা</h4>
                         </div>
                         <div class="card-body">
                             <div class="comment-block"> </div>

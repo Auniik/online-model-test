@@ -71,6 +71,6 @@ $('.editable').on('click', function(e)  {
             $(e).val(item[name]);
         }
     })
-    $('#header-title').html('Edit')
+    $('#header-title').html(' হালনাগাদ করুন')
     $('#refForm').attr('action', url).append(` <input type="hidden" name="_method" value="patch"> `)
 });

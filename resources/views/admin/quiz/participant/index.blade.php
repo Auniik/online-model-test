@@ -4,7 +4,6 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-
                     <div class="row">
                         <div class="col-4">
 {{--                    <button type="button" id="add-new" class="btn float-right btn-primary"> অতিথি যোগ করুন</button>--}}
@@ -162,23 +161,23 @@
         <tr class="participant-row">
             <th>
                 <input name="name[]" style="height: 36px; margin-bottom: 8px" required autocomplete="off"
-                          placeholder="Please enter name for the participant"
+                          placeholder=" পরীক্ষার্থীর নাম লিখুন"
                           class="form-control" />
             </th>
             <th>
                 <input type="tel" name="mobile_number[]" pattern="(^(\\+88|0088)?(01){1}[3456789]{1}(\\d){8})$" autocomplete="off"
-                   class="form-control"
+                   class="form-control" placeholder="মোবাইল নং লিখুন"
                           required />
             </th>
             <th>
                 <input type="email" name="email[]" autocomplete="off"
-                   class="form-control"
+                   class="form-control" placeholder=" ইমেইল লিখুন"
                           required>
             </th>
             <th>
                 <input type="text" name="password[]" autocomplete="off"
                        class="form-control"
-                       required
+
                 >
             </th>
             <th>

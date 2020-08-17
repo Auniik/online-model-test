@@ -105,7 +105,7 @@
                                                                 class="text-primary mb-0">Work Type :</span> {{$work->work_type}}
                                                             <br>
                                                             <span
-                                                                class="text-primary mb-0">Description :</span> {!! $work->description !!}
+                                                                class="text-primary mb-0"> বর্ণনা  :</span> {!! $work->description !!}
                                                             <br>
                                                             <div class="text-primary mb-0">File(s) :</div>
                                                             @foreach($work->file ?? [] as $k => $file)
@@ -194,7 +194,7 @@
                                                                 {{$assessment->consumedTime()}}
                                                                 <br>
                                                             @else
-                                                                Result: Not Published yet
+                                                                Result: Not   পাবলিশed yet
                                                             @endif
                                                         </li>
                                                         @if (!$loop->last)

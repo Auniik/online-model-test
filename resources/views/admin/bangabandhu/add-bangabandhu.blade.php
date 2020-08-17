@@ -15,7 +15,7 @@
                             {{--</div>--}}
                         {{--</div>--}}
                         {{--<div class="form-group row">--}}
-                            {{--<label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>--}}
+                            {{--<label for="example-text-input" class="col-sm-2 col-form-label"> বর্ণনা </label>--}}
                             {{--<div class="col-sm-10">--}}
                                 {{--<textarea name="description" class="form-control" id="editor"></textarea>--}}
                             {{--</div>--}}

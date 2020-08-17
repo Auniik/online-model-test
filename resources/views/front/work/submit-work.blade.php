@@ -35,7 +35,7 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group position-relative">
-                                        <label>Description</label>
+                                        <label> বর্ণনা </label>
                                         <textarea required class="form-control" name="description">{{old('description')}}</textarea>
                                     </div>
                                 </div><!--end col-->

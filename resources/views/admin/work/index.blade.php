@@ -5,20 +5,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Submitted Works</h4>
+                    <h4> জমাকৃত  সৃজনশীলতা</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Title</th>
-                            <th>Work Type</th>
+                            <th>#</th>
+                            <th> শিরোনাম</th>
+                            <th> ধরণ</th>
                             <th>URL Link</th>
-                            <th>File</th>
-                            <th>User</th>
-                            <th>Contact</th>
-                            <th>Submitted At</th>
+                            <th> ফাইল</th>
+                            <th> জমাদানকারী</th>
+                            <th> পাঠানোর সময়</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -35,12 +34,10 @@
                                         <i class="fa fa-eye"></i>
                                     </buttton>
                                 </td>
-                                <td>{{$row->user_name}}</td>
-                                <td>{{$row->mobile_no}}</td>
+                                <td>{{$row->participant->name}}</td>
                                 <td>{{$row->updated_at->format('M d, Y h:i A')}}</td>
                                 <td>
-                                    <a href="{{route('delete-work',['id'=>$row->id])}}" class="btn btn-danger"
-                                       onclick="return confirm('Are You ' + 'Delete This ')">
+                                    <a href="{{route('delete-work',$row)}}" class="btn btn-danger deletable"
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
@@ -63,7 +60,7 @@
             <div class="modal-content">
                 <div class="questions-block">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Submitted Files</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"> সৃজনশীলতা</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -73,7 +70,7 @@
                                 <table class="table  table-bordered  table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="text-center">Files</th>
+                                        <th class="text-center"> ফাইলসমূহ</th>
                                     </tr>
                                     </thead>
                                     <tbody class="works-group">
@@ -84,7 +81,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"> বাদ দিন</button>
                         </div>
                 </div>
             </div>
@@ -101,15 +98,6 @@
         $(document).ready(function () {
             $('.files-button').on('click', function () {
                 let files = $(this).data('files');
-                if(typeof files == "string") {
-                    $('.works-group').html(`
-                        <tr class="works-row">
-                            <td>
-                                <a target="_blank" class="btn btn-link" href="${url}/${files}">${fileName(files)}</a>
-                            </td>
-                        </tr>
-                    `)
-                }
 
                 if(typeof files == "object") {
                     $('.works-group').html(

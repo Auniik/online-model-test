@@ -43,6 +43,6 @@ class AboutController extends Controller
         $about->image = $imageUrl;
         $about->status = $request->status;
         $about->save();
-        return redirect('/add-about');
+        return back()->withSuccess(' হালনাগাদ করা হয়েছে !');
     }
 }

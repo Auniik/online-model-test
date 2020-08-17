@@ -14,8 +14,8 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
-                            <th>Title</th>
+                            <th> ছবি</th>
+                            <th> শিরোনাম</th>
                             <th>Link 1</th>
                             <th>Link 2</th>
                             <th>Status</th>

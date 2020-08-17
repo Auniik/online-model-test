@@ -4,7 +4,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <button type="button" id="add-new" class="btn float-right btn-primary">Add new</button>
+                    <button type="button" id="add-new" class="btn float-right btn-primary"> নতুন পরীক্ষার্থী যোগ করুন
+                    </button>
                     <h4><span id="header-title">{{$exam->name}} -এর পরীক্ষার্থীসমূহ</span></h4>
                     <p class="mb-0"> বিষয়: {{$exam->subject->name}}, শ্রেণী: {{$exam->class}},  পাশ মার্ক:
                         {{$exam->competency_score}}</p>

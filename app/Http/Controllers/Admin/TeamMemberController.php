@@ -4,11 +4,12 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class TeamMemberController extends \App\Http\Controllers\Controller
+class TeamMemberController extends Controller
 {
 
     public function index()
