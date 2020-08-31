@@ -8,6 +8,7 @@ use App\Book;
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Exam;
 use App\Models\Quiz\Quiz;
+use App\Models\Setting;
 use App\Slider;
 
 class WebsiteController extends Controller
@@ -35,7 +36,8 @@ class WebsiteController extends Controller
                 ->where('is_default', 1)
                 ->first(),
             'books' => Book::with('img')->latest()->take(6)->get(),
-            'slider_images' => Slider::query()->get()
+            'slider_images' => Slider::query()->get(),
+            'switch' => Setting::query()->where('context', 'switch')->pluck('value','key')
         ]);
     }
 

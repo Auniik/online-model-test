@@ -3,79 +3,83 @@
 <section id="online-exam">
     <div class="container-fulied">
         <div class="row online-left">
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <div class="text_center">
-                    <h1> অনলাইন পরীক্ষা</h1>
-                </div>
-                <div class="row">
-                    @if ($assessment)
-                        <div class="card shadow-lg w-100 exam-preview-card justify-content-around">
-                            <div class="card-body">
-                                <div class="offset-lg-2 col-8 mt-5">
-                                    @if ($assessment->exam->image)
-                                        <img src="{{url($assessment->exam->image)}}" class="img img-fluid mt-4" alt="{{$assessment->exam->name}}">
-                                    @endif
+            <div class="col-lg-6 @if (!$switch['online_quiz']) offset-lg-3 @endif col-md-12 col-sm-12">
+                @if ($switch['online_exam'])
+                    <div class="text_center">
+                        <h1> অনলাইন পরীক্ষা</h1>
+                    </div>
+                    <div class="row">
+                        @if ($assessment)
+                            <div class="card shadow-lg w-100 exam-preview-card justify-content-around">
+                                <div class="card-body">
+                                    <div class="offset-lg-2 col-8 mt-5">
+                                        @if ($assessment->exam->image)
+                                            <img src="{{url($assessment->exam->image)}}" class="img img-fluid mt-4" alt="{{$assessment->exam->name}}">
+                                        @endif
 
-                                    <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
-                                    <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}} মিনিট</b></h5>
-                                    <h5 class="my-4"> শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
-                                        </b></h5>
-                                    <a href="{{url('/exam-hall')}}" class="btn btn-success p-3 shadow-lg w-100"> পরীক্ষা
-                                        বজায় রাখুন
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @elseif ($exams->isEmpty())
-                        <div class="card shadow-lg w-100 exam-preview-card">
-                            <div class="card-body d-flex justify-content-center align-items-center">
-                                <h2> আজ আপনার জন্য আর কোন পরীক্ষা নেই!</h2>
-                            </div>
-                        </div>
-                    @else
-                        @foreach($exams ?? [] as $exam)
-                            <div class="col-lg-4 col-md-4 col-sm-6 mb-4 mt-4">
-                                <div class="card shadow-lg bg-transparent">
-                                    @if (\Illuminate\Support\Facades\Storage::exists($exam->image))
-                                        <img src="{{url($exam->image)}}" class="card-img-top exam-cover"
-                                             alt="{{$exam->name}}">
-                                    @else
-                                        <img src="/front-end/images/book1.png" class="card-img-top exam-cover"
-                                             alt="{{$exam->name}}">
-                                    @endif
-                                    <div class="card-img-overlay text-center">
-                                        <a class="text-part" href="/exams/{{$exam->id}}/start">
-                                            <h5>বিষয়</h5>
-                                            <h6>{{$exam->subject->name}}</h6>
-                                            <h4>{{$exam->class}}</h4>
-                                            <p class="text-center text-white">Available to: <br>
-                                                {{$exam->end_at->format('d-m-Y')}}</p>
+                                        <h5 class="my-4"> পরীক্ষার নামঃ <b>{{$assessment->exam->name}}</b></h5>
+                                        <h5 class="my-4"> সময়ঃ <b>{{$assessment->exam->duration}} মিনিট</b></h5>
+                                        <h5 class="my-4"> শুরু হয়েছে: <b>{{$assessment->exam->start_at->format('h:m A')}}
+                                            </b></h5>
+                                        <a href="{{url('/exam-hall')}}" class="btn btn-success p-3 shadow-lg w-100"> পরীক্ষা
+                                            বজায় রাখুন
                                         </a>
                                     </div>
-                                    <div class="card-footer text-center p-2" style="z-index: 1111">
-
-                                        @include('front._partials.share',
-                                           ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
-                                       ])
-                                    </div>
-
-
                                 </div>
                             </div>
-                        @endforeach
+                        @elseif ($exams->isEmpty())
+                            <div class="card shadow-lg w-100 exam-preview-card">
+                                <div class="card-body d-flex justify-content-center align-items-center">
+                                    <h2> আজ আপনার জন্য আর কোন পরীক্ষা নেই!</h2>
+                                </div>
+                            </div>
+                        @else
+                            @foreach($exams ?? [] as $exam)
+                                <div class="col-lg-4 col-md-4 col-sm-6 mb-4 mt-4">
+                                    <div class="card shadow-lg bg-transparent">
+                                        @if (\Illuminate\Support\Facades\Storage::exists($exam->image))
+                                            <img src="{{url($exam->image)}}" class="card-img-top exam-cover"
+                                                 alt="{{$exam->name}}">
+                                        @else
+                                            <img src="/front-end/images/book1.png" class="card-img-top exam-cover"
+                                                 alt="{{$exam->name}}">
+                                        @endif
+                                        <div class="card-img-overlay text-center">
+                                            <a class="text-part" href="/exams/{{$exam->id}}/start">
+                                                <h5>বিষয়</h5>
+                                                <h6>{{$exam->subject->name}}</h6>
+                                                <h4>{{$exam->class}}</h4>
+                                                <p class="text-center text-white">Available to: <br>
+                                                    {{$exam->end_at->format('d-m-Y')}}</p>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer text-center p-2" style="z-index: 1111">
 
-                        <div class="col-lg-12 col-md-12 text-center">
-                            {{$exams->links()}}
-                        </div>
-                    @endif
-                </div>
+                                            @include('front._partials.share',
+                                               ['url' => url("/exams/{$exam->id}/start?ref=exam&id={$exam->id}")
+                                           ])
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <div class="col-lg-12 col-md-12 text-center">
+                                {{$exams->links()}}
+                            </div>
+                        @endif
+                    </div>
+                @endif
+
             </div>
 
             <!---------------------------- অনলাইন পরীক্ষা part end --------------->
 
 
             <!---------------------------- অনলাইন কুইজ part start --------------->
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col-lg-6 @if (!$switch['online_exam']) offset-lg-3 @endif col-md-12 col-sm-12">
+                @if ($switch['online_quiz'])
                 <div class="text_center">
                     <h1>অনলাইন কুইজ</h1>
                 </div>
@@ -260,6 +264,7 @@
                         @endif
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

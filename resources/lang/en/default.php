@@ -60,4 +60,8 @@ return [
     'quiz_name' => ' কুইজের নাম',
     'is_published' => '  পাবলিশ  করুন',
     'is_default' => ' ডিফল্ট  রাখুন',
+
+    'settings_online_exam' => 'অনলাইন এক্সাম',
+    'settings_online_quiz' => 'অনলাইন কুইজ',
+    'settings_site_map' => 'সাইটম্যাপ',
 ];

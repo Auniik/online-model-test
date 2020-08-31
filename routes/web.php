@@ -26,6 +26,8 @@ Route::get('/', 'Website\WebsiteController@home')->name('welcome');
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/messages', 'Admin\MessageController@index');
+    Route::get('/settings', 'Admin\SettingController@index')->name('settings.index');
+    Route::post('/settings/{setting}', 'Admin\SettingController@update')->name('settings.update');
     Route::get('/dashboard', 'HomeController@index')->name('home');
 
     Route::resource('team-members', 'Admin\TeamMemberController')->except('show');

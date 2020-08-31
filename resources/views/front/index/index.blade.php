@@ -80,8 +80,9 @@
     <!---------------------------- ব্যানার অংশ শেষ --------------->
 
     @include('front._partials.online-exam', ['exams' => $exams])
-
-    @include('front._partials.sitemap')
+    @if ($switch['site_map'])
+        @include('front._partials.sitemap')
+    @endif
 
     @include('front._partials.creativity')
 

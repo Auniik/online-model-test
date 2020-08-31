@@ -87,6 +87,7 @@
                         <span> সেটিংস</span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('sliders.index')}}"> স্লাইডার</a></li>
+                        <li><a href="{{route('settings.index')}}">  সেটিংস</a></li>
 {{--                        <li><a href="{{route('add-event-video')}}"> ইভেন্ট ভিডিও</a></li>--}}
 {{--                        <li><a href="{{asset('add-about')}}"> ছবি  ম্যানেজ করুন</a></li>--}}
                     </ul>
