@@ -38,11 +38,29 @@
     <link href="{{asset('/')}}admin/assets/swal/sweetalert2.min.css" rel="stylesheet">
     <link href="{{asset('/')}}admin/assets/plugins/select2/select2.min.css" rel="stylesheet">
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
+    <link rel="stylesheet" href="/css/toastr.min.css">
     <style>
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        }
+        span.select2-selection.select2-selection--single {
+            height: 36px;
+        }
+        @media print
+        {
+            .no-print, .no-print *
+            {
+                display: none !important;
+            }
+        }
+        @media screen
+        {
+            .no-screen, .no-screen *
+            {
+                display: none !important;
+            }
         }
     </style>
 
@@ -63,7 +81,6 @@
     <div class="content-page">
         <!-- Start content -->
         <div class="content">
-
             <!-- Top Bar Start -->
            @include('admin.include.header')
             <!-- Top Bar End -->
@@ -72,7 +89,6 @@
         </div>
         <!-- content -->
         @include('admin.include.footer')
-
     </div>
     <!-- End Right content here -->
 </div>
@@ -91,7 +107,6 @@
 <script src="{{asset('/')}}admin/assets/js/jquery.blockUI.js"></script>
 <script src="{{asset('/')}}admin/assets/js/waves.js"></script>
 <script src="{{asset('/')}}admin/assets/js/jquery.nicescroll.js"></script>
-
 <!-- Required datatable js -->
 <script src="{{asset('/')}}admin/assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('/')}}admin/assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
@@ -118,20 +133,51 @@
 {{--<script src="{{asset('/')}}admin/assets/plugins/morris/morris.min.js"></script>--}}
 {{--<script src="{{asset('/')}}admin/assets/pages/dashborad.js"></script>--}}
 <script src="{{asset('/')}}admin/assets/plugins/select2/select2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 0
+        });
+        $( ".datepicker-2" ).datepicker({
+            dateFormat: "yy-mm-dd",
+        });
+    } );
 
 </script>
 
 
 <script>
     $(document).ready(function() {
-
         initSample();
         $('.select2').select2();
         $('#datatable2').DataTable();
+
     });
+    $("input.integer").bind("change keyup input", function () {
+        var position = this.selectionStart - 1;
+        //remove all but number and .
+        var fixed = this.value.replace(/[^0-9]/g, '');
+
+        if (this.value !== fixed) {
+            this.value = fixed;
+            this.selectionStart = position;
+            this.selectionEnd = position;
+        }
+    });
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
 </script>
 
 <!--Date-->
@@ -154,127 +200,30 @@
     if($('.timepicker').length) {
         $('.timepicker').wickedpicker();
     }
+
+
 </script>
-<script>
-    //initSample();
-</script>
-<!--End Pdf-->
-<!-- App js -->
 <script src="{{asset('/')}}admin/assets/js/app.js"></script>
 <script src="{{asset('/')}}admin/assets/swal/sweetalert2.all.min.js"></script>
 <script src="{{asset('/')}}admin/assets/js/custom.js"></script>
+<script src="/js/toastr.min.js"></script>
 <script>
 
-    var index = 1;
-    var slNo = 2;
-    $(document).on('click', '.add-question-btn', function () {
-        var tr = '';
-        tr += '<tr>';
-        tr += '<td>'+slNo+'</td>';
-        tr += '<td><textarea          name="question['+index+'][title]" class="form-control"></textarea></td>';
-        tr += '<td><input type="text" name="question['+index+'][write_answer]" class="form-control"/></td>';
-        tr += '<td><input type="text" name="question['+index+'][wrong_answer_one]" class="form-control"/></td>';
-        tr += '<td><input type="text" name="question['+index+'][wrong_answer_two]" class="form-control"/></td>';
-        tr += '<td><input type="text" name="question['+index+'][wrong_answer_three]" class="form-control"/></td>';
-        tr += '<td>';
-        tr += '<button type="button" class="btn btn-success add-question-btn">+</button>';
-        tr += '<button type="button" class="btn btn-danger remove-question-btn">-</button>';
-        tr += '</td>';
-        tr += '</tr>';
-        $('#questionRes').append(tr);
-        index++;
-        slNo++;
-    });
-
-    $(document).on('click', '.remove-question-btn', function () {
-        $(this).closest('tr').remove();
-    });
-
+    @if($errors->any())
+        @foreach ($errors->all() as $error)
+            toastr.error("{{$error}}")
+        @endforeach
+    @endif
+    @if(session()->has('success'))
+        toastr.success("{{session('success')}}")
+    @endif
+    @if(session()->has('danger'))
+        toastr.error("{{session('danger')}}")
+    @endif
+    @if(session()->has('warning'))
+        toastr.warning("{{session('warning')}}")
+    @endif
 </script>
-<script>
-    var slNo = 1;
-    function  getEventByQuestionId(questionID) {
-        $.ajax({
-            url        : "get-event-by-question-id/"+questionID,
-            method     : 'GET',
-            dataType   : 'JSON',
-            success: function (response) {
-                console.log(response);
-                var eventSearchRes = $('#eventSearchRes');
-                eventSearchRes.empty();
-                var tbody = '';
-                var tr = '';
-                var div = '';
-
-                div +='<select class="form-control" name="event_id" onchange="getEventByQuestionId(this.value)">';
-                div += '</select>';
-                $.each(response, function (key, value) {
-                    tbody+='<tbody>';
-                    tr+='<tr>';
-                    tr += '<td>'+slNo+'</td>';
-                    tr += '<td>'+value.title+'</td>';
-                    tr += '<td>'+value.write_answer+'</td>';
-                    tr += '<td>'+value.wrong_answer_one+'</td>';
-                    tr += '<td>'+value.wrong_answer_two+'</td>';
-                    tr += '<td>'+value.wrong_answer_three+'</td>';
-                    tr += '<td><a href="/edit-question/'+value.id+'">Edit</a><br/><a href="/delete-question/'+value.id+'">Delete</a></td>';
-                    tr += '</tr>';
-                    tbody += '</tbody>';
-                });
-                $('#slNo').text(slNo);
-                slNo++;
-                eventSearchRes.append(tr);
-            }
-        });
-    }
-</script>
-
-
-<script>
-    function getFilteredResult(ID){
-        location.href = "/results?event_id="+ID;
-    }
-
-
-    var slNo = 1;
-    function  getEventByResultId(resultID) {
-        $.ajax({
-            url        : "get-event-by-result-id/"+resultID,
-            method     : 'GET',
-            dataType   : 'JSON',
-            success: function (response) {
-                console.log(response);
-                var resultSearchRes = $('#resultSearchRes');
-                resultSearchRes.empty();
-                var tbody = '';
-                var tr = '';
-                var div = '';
-
-                div +='<select class="form-control" name="result_id" onchange="getEventByResultId(this.value)">';
-                div += '</select>';
-                $.each(response, function (key, value) {
-                    tbody+='<tbody>';
-                    tr+='<tr>';
-                    tr += '<td>'+slNo+'</td>';
-                    tr += '<td>'+value.iteration+'</td>';
-                    tr += '<td>'+value.title+'</td>';
-                    tr += '<td>'+value.name+'<br/>'+value.phone+'</td>';
-                    tr += '<td>'+value.total_question+'</td>';
-                    tr += '<td>'+value.incorrect+'</td>';
-                    tr += '<td>'+value.points+'</td>';
-                    tr += '<td>'+value.total_time+'</td>';
-                    tr += '<td>'+value.updated_at+'</td>';
-                    tr += '</tr>';
-                    tbody += '</tbody>';
-                })
-                $('#slNo').text(slNo);
-                slNo++;
-                resultSearchRes.append(tr);
-            }
-        });
-    }
-</script>
-
 @stack('script')
 
 </body>

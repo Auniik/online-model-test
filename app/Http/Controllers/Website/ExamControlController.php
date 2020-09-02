@@ -6,11 +6,9 @@ namespace App\Http\Controllers\Website;
 
 use App\Helpers\Helpers;
 use App\Http\Controllers\Controller;
+use App\Models\OnlineExam\ExamQuestion;
 use App\Models\OnlineExam\ParticipantAssessment;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
 
 class ExamControlController extends Controller
 {
@@ -21,26 +19,28 @@ class ExamControlController extends Controller
         $key = "participant-" . auth('participant')->id();
         $session = session($key);
 
-
         if (blank($session)) {
-            return redirect('/master');
+            return redirect('/')->withWarning('Session finished already');
         }
 
-        if ($session['assessment']->participant_id != auth('participant')->id()) {
+        $assessment = ParticipantAssessment::query()
+            ->with('answers', 'exam')
+            ->where('id', $session['assessment_id'])
+            ->first();
 
-            return redirect('/master');
+        if ($assessment->participant_id != auth('participant')->id()) {
+            return redirect('/')->withWarning('Something seems wrong');
         }
 
-        $questions = $session['questions'];
+        $questions = ExamQuestion::with(['CQs', 'MCQs', 'answer' => function($query) use($assessment) {
+                $query->where('participant_assessment_id', $assessment->id);
+            }])
+            ->where('exam_id', $assessment->exam_id)
+            ->paginate(3);
 
-        $questions = $this->paginate($questions,
-            3,
-            $request->get('page', 1),
-            $request->url()
-        );
         return view('front.online-exam.playground', [
             'questions' => $questions,
-            'assessment' => $session['assessment'],
+            'assessment' => $assessment,
         ]);
     }
 
@@ -49,16 +49,16 @@ class ExamControlController extends Controller
     public function finish(Request $request)
     {
         $id = auth('participant')->id();
-        $assessment = ParticipantAssessment::query()
-            ->where('participant_id', $id)
-            ->first();
 
-        $assessment->update(['end_at', now()]);
+        ParticipantAssessment::query()
+            ->where('id', $request->assessment_id)
+            ->where('participant_id', $id)
+            ->update(['end_at' => now()]);
 
         session()->forget([
             "participant-$id"
         ]);
 
-        return redirect('/master');
+        return redirect('/')->withSuccess('Exam Finished successfully.');
     }
 }

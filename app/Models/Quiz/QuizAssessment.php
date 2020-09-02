@@ -27,7 +27,7 @@ class QuizAssessment extends Model
         return $this->hasMany(QuizAssessmentAnswer::class);
     }
 
-    public function getParticipantTypeAttribute()
+    public function getTranslatedParticipantTypeAttribute()
     {
         return [
             'vip' => ' অতিথী',
@@ -38,7 +38,7 @@ class QuizAssessment extends Model
     public function correctCount()
     {
         return $this->answers->sum(function ($answer) {
-            return $answer->option->is_correct;
+            return optional($answer->option)->is_correct;
         });
     }
 
@@ -56,9 +56,17 @@ class QuizAssessment extends Model
 
     public function wrongCount()
     {
-        return $this->answers->sum(function ($answer) {
+        return $this->answers->filter(function ($q) {
+            return $q->quiz_option_id;
+        })->sum(function ($answer) {
             return !$answer->option->is_correct;
         });
+    }
+    public function skippedCount()
+    {
+        return  $this->answers->filter(function ($q) {
+            return !$q->quiz_option_id;
+        })->count();
     }
 
 }

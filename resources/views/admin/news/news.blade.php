@@ -1,17 +1,70 @@
 @extends('admin.master')
 @section('body')
     <div class="row m-t-15">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0"> নিউজ আপডেট সমূহ দেখুন</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered w-100">
+                        <thead>
+                        <tr>
+                            <th class="1%">#</th>
+                            <th> শিরোনাম</th>
+                            <th> লিঙ্ক</th>
+                            <th class="1%">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @php($i = 1)
+                        @foreach($newses as $news)
+                            <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{$news->title}}</td>
+                                <td>
+                                    <a class="text-primary" target="_blank" href="{{$news->link}}">{{$news->link}}</a>
+                                </td>
+                                <td>
+                                    <a href="{{route('news.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('news.destroy', $news)}}" class="deletable"><i class="fa
+                                    fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div style="float: right">
+                        {{$newses->render()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+    <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Add News Update</h4>
+                </div>
                 <div class="card-body">
-                    <form action="{{route('new-news')}}" method="POST" enctype="multipart/form-data">
+
+                    <form action="{{route('news.store')}}" method="POST" >
                     @csrf
-                        <h4 class="mt-0 header-title">Add Update News</h4>
-                        <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" value="" name="title">
+                            <label for="example-text-input" class="col-sm-1 col-form-label text-right">Title</label>
+                            <div class="col-sm-11">
+                                <input class="form-control" autocomplete="off" type="text" value="" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-1 col-form-label text-right">Redirect
+                                URL</label>
+                            <div class="col-sm-11">
+                                <input class="form-control" autocomplete="off" type="text"
+                                       placeholder="https://your-url.com"
+                                       name="link">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -26,38 +79,5 @@
             </div>
         </div>
     <!-- end col -->
-    </div>
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage About</h4>
-                    <p class="text-muted mb-4 font-14"></p>
-                    <table id="datatable-buttons" class="table table-striped table-bordered w-100">
-                        <thead>
-                        <tr>
-                            <th>Sl</th>
-                            <th>Title</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @php($i = 1)
-                        @foreach($news as $new)
-                            <tr>
-                                <td>{{$i++}}</td>
-                                <td>{{$new->title}}</td>
-                                <td>
-                                    <a href="{{route('edit-news',['id'=>$new->id])}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('delete-news',['id'=>$new->id])}}" class=""><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
     </div>
 @endsection

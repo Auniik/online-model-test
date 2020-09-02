@@ -2,12 +2,28 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="header-title"><span id="header-title">Examine {{$assessment->participant->name}} of
-                            {{$assessment->exam->name}}</span></h4>
-                    <p class="mb-0">Subject: {{$assessment->exam->subject->name}}, Class: {{$assessment->exam->class}},
-                        Pass Mark: {{$assessment->exam->competency_score}}</p>
+            <div class="card" id="print-this">
+                <div class="card-header d-flex flex-column align-items-center">
+                    <h4>
+                        <span id="header-title">
+                            <a class="text-info" href="{{route('participants.show', $assessment->participant_id)}}">
+                                {{$assessment->participant->name}} </a> -এর {{$assessment->exam->name}} পরীক্ষার
+                            ফলাফল
+                        </span>
+                    </h4>
+                    <p class="mb-0">
+                        বিষয়: {{$assessment->exam->subject->name}},  শ্রেণী: {{$assessment->exam->class}},
+                        মোট সংগ্রীহিত মার্ক: <strong>{{$assessment->totalRemarks()}}</strong>,
+                        মোট মার্ক: <strong>{{$assessment->exam->totalRemarks()}}</strong>,
+                            পাশ মার্ক: <strong>{{$assessment->exam->competency_score}}</strong>,
+                        ফলাফল: {!! $assessment->totalRemarks()  >= $assessment->exam->competency_score
+                                ? '<strong class="text-success">উত্তীর্ণ</strong>'
+                                :'<strong class="text-danger">অনুর্ত্তীর্ণ</strong>' !!}
+                    </p>
+                    <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
+                    ('print-this')"
+                            style="height: 35px; "><i
+                            class="fa fa-print"></i>  প্রিন্ট করুন</button>
                 </div>
                 <div class="card-body">
                     @include('admin._partials.success-alert')
@@ -16,35 +32,69 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Questions</th>
-                                    <th>Answers</th>
-                                    <th width="20%">Remarks</th>
+                                    <th>প্রশ্নের ধরন</th>
+                                    <th>প্রশ্ন</th>
+                                    <th class="text-center no-print">নিরীক্ষণ করা হয়েছে?</th>
+                                    <th class="text-center no-print">উত্তর</th>
+                                    <th width="13%">Remarks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($assessment->exam->questions as $question)
+                                    @foreach($questions as $question)
+                                        @php
+                                            $answer = $question->answer;
+                                        @endphp
                                         <tr>
+                                            <th>{{$question->translatedType}}</th>
                                             <th>{{$question->title}}</th>
-                                            <th>
-                                                <?php
-                                                    $answer = $assessment->getAnswer($question)
-                                                ?>
+                                            <th class="text-center no-print">
+                                                @if($answer)
+                                                    @if ($answer->remarks !== null)
+                                                         হ্যাঁ
+                                                    @else
+                                                        না
+                                                    @endif
+                                                @endif
+                                            </th>
+                                            <th class="text-center no-print">
+
                                                 @if ($answer)
-                                                    <button type="button"
-                                                            data-answer="{{$answer}}"
-                                                            data-question="{{$question->load('CQs', 'MCQs')}}"
-                                                            class="btn btn-success show-answer">Show</button>
+                                                    @if ($answer->remarks === null)
+                                                        <button type="button"
+                                                                data-answer="{{$answer}}"
+                                                                data-question="{{$question->load('CQs', 'MCQs')}}"
+                                                                class="btn btn-warning show-answer">
+                                                             নিরীক্ষণ করুন
+                                                        </button>
+                                                    @else
+                                                        <button type="button"
+                                                                data-answer="{{$answer}}"
+                                                                data-question="{{$question->load('CQs', 'MCQs')}}"
+                                                                class="btn btn-success show-answer">
+                                                            পুনঃরায় নিরীক্ষণ করুন
+                                                        </button>
+                                                    @endif
+
                                                 @else
-                                                    Not answered
+                                                     --
                                                 @endif
                                             </th>
                                             <th>
+                                                @if ($answer)
                                                 <input type="number"
                                                        max="{{$question->remark}}"
+                                                       min="0"
                                                        class="form-control"
-                                                       placeholder="Remarks"
-                                                       @if (!$answer) disabled @endif
+                                                       placeholder="Mark out of {{$question->remark}}"
+                                                       disabled
+                                                       value="{{$answer->remarks}}"
+                                                       @if ($answer->remarks)
+                                                       style="font-size: x-large; border: none"
+                                                       @endif
                                                 />
+                                                @else
+                                                    উত্তর দেয়নি
+                                                @endif
                                             </th>
                                         </tr>
                                     @endforeach

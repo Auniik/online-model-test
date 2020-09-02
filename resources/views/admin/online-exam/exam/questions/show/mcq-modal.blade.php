@@ -1,8 +1,8 @@
-<form action="{{route('exam-questions.update', $question)}}" method="post">
+<form action="{{route('exam-questions.update', $question)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit MCQ Question</h5>
+        <h5 class="modal-title" id="exampleModalLabel">বহুনির্বাচনী প্রশ্ন  হালনাগাদ করুন</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -11,44 +11,47 @@
         <div class="mcq-question-details">
             <input type="hidden" name="type" value="mcq">
             <div class="form-group row">
-                <label class="col-2">Title</label>
+                <label class="col-2">প্রশ্নের টাইটেল</label>
                 <input
                     type="text"
                     class="form-control col-9"
-                    placeholder="Title"
+                    placeholder=" প্রশ্নের টাইটেল"
                     name="title"
                     value="{{$question->title}}"
                 />
             </div>
             <div class="form-group row">
-                <label class="col-2">Description</label>
+                <label class="col-2"> বিবরণ</label>
                 <textarea
                     name="description"
-                    placeholder="Description"
+                    placeholder=" বিবরণ"
                     class="form-control col-9">{{$question->description}}</textarea>
             </div>
             <div class="form-group row">
-                <label class="col-2">File</label>
+                <label class="col-2"> ছবি</label>
                 <input type="file" class="form-control col-9" name="file">
+                @if ($question->file)
+                    <img src="{{url($question->file)}}" class="col-9 offset-2 mt-4" alt=" ছবি">
+                @endif
             </div>
             <div class="row">
                 <div class="col-6 text-center">
-                    <h4 >Options</h4>
+                    <h4 > অপশনসমূহ</h4>
                     @foreach($options as $key =>  $option)
                         <div class="row text-right my-3">
                         <div class="col-8 offset-lg-1">
                             <textarea
                                 class="form-control"
-                                style="height:35px"
-                                placeholder="Option {{$key + 1}}"
+                                style="height:35px" required
+                                placeholder=" অপশন {{$key + 1}}"
                                 name="value[]">{{$option->value}}</textarea>
                         </div>
                         <div class="col-3 text-left">
                             <label class="control-label">
                                 <input type="radio" value="{{$key}}" @if ($option->is_correct)
-                                    checked
+                                    checked required
                                 @endif name="is_correct">
-                                is Correct
+                                 সঠিক উত্তর
                             </label>
                         </div>
                     </div>

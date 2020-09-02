@@ -3,89 +3,100 @@
 namespace App\Http\Controllers;
 
 use App\Publication;
-use Image;
-use App\Contract;
-use App\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class PublicationController extends Controller
 {
-    public function addPublication()
+    public function index()
     {
-        $publications = Publication::all();
-        return view('admin.publication.add-publication',[
+        $publications = Publication::query()->latest()->paginate(15);
+        return view('admin.publication.add-publication', [
             'publications' => $publications,
         ]);
     }
 
-    public function newPublication(Request $request)
+    public function store(Request $request)
     {
-//        $publicationImage = $request->file('image');
-//        $directory = "publication-image/";
-//        $imageName = $publicationImage->getClientOriginalName();
-//        $imageUrl = $directory.$imageName;
-//        Image::make($publicationImage)->resize(300, 300)->save($imageUrl);
+        $request->validate([
+            'file' => 'required|mimes:pdf|max:20000',
+            'image' => 'required|image|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'status' => 'required'
+        ]);
 
-
-        $publicationImage = $request->file('image');
-        $directory = "publication-image/";
-        $imageName = $publicationImage->getClientOriginalName();
-        $publicationImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-
+        $fileUrl = $request->file->store('uploads/publications');
+        $image = $request->image->store('uploads/publications');
 
         $publication = new Publication();
         $publication->title = $request->title;
         $publication->description = $request->description;
-        $publication->image = $imageUrl;
+        $publication->file = $fileUrl;
+        $publication->image = $image;
         $publication->status = $request->status;
         $publication->save();
 
-        return redirect('add-publication')->with('message', 'Publication Save Successfully');
+        return back()->withSuccess('Publication added Successfully');
     }
 
-    public function editPublication($id)
+    public function edit(Publication $publication)
     {
-        $publication = Publication::find($id);
         return view('admin.publication.edit-publication', [
             'publication' => $publication,
         ]);
     }
 
-    public function updatePublication(Request $request)
+    public function update(Request $request, Publication $publication)
     {
+        $request->validate([
+            'file' => 'mimes:pdf|max:20000',
+            'image' => 'image|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'status' => 'required'
+        ]);
 
-        $publicationImage = $request->file('image');
-        $directory = "publication-image/";
-        $imageName = $publicationImage->getClientOriginalName();
-        $imageUrl = $directory.$imageName;
-        Image::make($publicationImage)->resize(300, 300)->save($imageUrl);
+        if ($request->has('file')) {
+            $fileUrl = $request->file->store('uploads/publications');
+            Storage::delete($publication->file);
+        } else {
+            $fileUrl = $publication->file;
+        }
 
-        $publication = Publication::find($request->id);
+        if ($request->has('image')) {
+            $image = $request->image->store('uploads/publications');
+            Storage::delete($publication->image);
+        } else {
+            $image = $publication->image;
+        }
+
+
         $publication->title = $request->title;
         $publication->description = $request->description;
-        $publication->image = $imageUrl;
+        $publication->file = $fileUrl;
+        $publication->image = $image;
         $publication->status = $request->status;
         $publication->save();
-        return redirect('/add-publication');
+        return back()->withSuccess(' পাবলিকেশন হালনাগাদ করা হয়েছে');
     }
-    public function deletePublication($id){
-        $publication = Publication::find($id);
+
+    public function destroy(Publication $publication)
+    {
+        Storage::delete($publication->file);
+        Storage::delete($publication->image);
         $publication->delete();
-        return redirect('/add-publication');
+        return response([
+            'check' => true
+        ]);
     }
-    public function detailsPublication($id){
-        $contract = Contract::all();
-        $news = News::orderBy('id', 'desc')->take(10)->get();
-        $joint = '';
-        foreach ($news as $key => $item){
-            $joint .= ($key+1).'. '.$item->title.' &nbsp;&nbsp;&nbsp;&nbsp;';
-        }
-        $publications = Publication::find($id);
-        return view('front.about.publication-details',[
-            'publications' => $publications,
-            'news' =>$joint,
-            'contract'=>$contract,
+
+
+    public function show(Publication $publication)
+    {
+        return view('front.about.publication-details', [
+            'publication' => $publication,
         ]);
     }
 }

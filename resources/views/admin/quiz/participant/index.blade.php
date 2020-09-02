@@ -4,15 +4,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
 {{--                    <button type="button" id="add-new" class="btn float-right btn-primary"> অতিথি যোগ করুন</button>--}}
                             <h4 class="header-title"><span id="header-title"> {{$quiz->name}} - এর সকল পরীক্ষার্থী সমূহ
                                 </span></h4>
-                            <p class="mb-0">Duration: {{$quiz->duration}}</p>
+                            <p class="mb-0">সময়সীমা: {{$quiz->duration}}</p>
                         </div>
-                        <div class="col-3 offset-3">
+                        <div class="col-3 offset-2">
                             <form action="">
                                 <select name="participant_type" onchange="this.form.submit()" class="form-control participant_type" >
                                     <option value=""> সব দেখুন</option>
@@ -85,11 +84,14 @@
                                                     <i class="fa fa fa-eye" aria-hidden="true"></i>
                                                 </a>
                                             @endif
-                                            <a class="deletable"
-                                               title="Delete"
-                                               href="{{route('quiz-participants.destroy',  $assignedParticipant->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i>
-                                            </a>
+                                                @if (!$assignedParticipant->start_at)
+                                                    <a class="deletable"
+                                                       title="Delete"
+                                                       href="{{route('quiz-participants.destroy',  $assignedParticipant->id)}}">
+                                                        <i class="fa fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -115,11 +117,17 @@
         $(document).ready(function () {
             $('.vip-create').click(function () {
                 $('#VIPParticipantAssignModal').modal('show')
-                newParticipantRow()
+                $('.add-new-participants').click(function (e) {
+                    newParticipantRow()
+                    $('.participants').removeClass('d-none')
+                })
             })
             $('.general-create').click(function () {
                 $('#GeneralParticipantAssignModal').modal('show')
-                newParticipantRow()
+                $('.add-new-participants').click(function (e) {
+                    newParticipantRow()
+                    $('.participants').removeClass('d-none')
+                })
             })
             $(".select2-tags").select2({
                 tags: true,
@@ -152,24 +160,24 @@
         const participantRow = `
         <tr class="participant-row">
             <th>
-                <input name="name[]" style="height: 36px; margin-bottom: 8px" required
-                          placeholder="Please enter name for the participant"
+                <input name="name[]" style="height: 36px; margin-bottom: 8px" required autocomplete="off"
+                          placeholder=" পরীক্ষার্থীর নাম লিখুন"
                           class="form-control" />
             </th>
             <th>
-                <input type="tel" name="mobile_number[]" autocomplete="off"
-                   class="form-control"
+                <input type="tel" name="mobile_number[]" pattern="(^(\\+88|0088)?(01){1}[3456789]{1}(\\d){8})$" autocomplete="off"
+                   class="form-control" placeholder="মোবাইল নং লিখুন"
                           required />
             </th>
             <th>
                 <input type="email" name="email[]" autocomplete="off"
-                   class="form-control"
+                   class="form-control" placeholder=" ইমেইল লিখুন"
                           required>
             </th>
             <th>
                 <input type="text" name="password[]" autocomplete="off"
                        class="form-control"
-                       required
+
                 >
             </th>
             <th>

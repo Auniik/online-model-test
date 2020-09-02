@@ -7,34 +7,47 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function addNews(){
-        $news = News::all();
-        return view('admin.news.news',[
-            'news' => $news,
+    public function index()
+    {
+        return view('admin.news.news', [
+            'newses' => News::query()->latest()->paginate(15),
         ]);
     }
-    public function newNews(Request $request){
+
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required'
+        ]);
         $news = new News();
         $news->title = $request->title;
+        $news->link = $request->link;
         $news->save();
-        return redirect('add-news')->with('message','Data save');
+        return back()->withSuccess(' নিউজ আপডেট যুক্ত করা হয়েছে');
     }
-    public function editNews($id){
-        $news = News::find($id);
-        return view('admin.news.edit-news',[
+
+    public function edit(News $news)
+    {
+        return view('admin.news.edit-news', [
             'news' => $news,
         ]);
     }
-    public function updateNews(Request $request){
-        $news = News::find($request->id);
+
+    public function update(Request $request, News $news)
+    {
         $news->title = $request->title;
+        $news->link = $request->link;
         $news->save();
-        return redirect('add-news')->with('message','Data Update save');
+        return redirect('add-news')->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
 
     }
-    public function deleteNews($id){
-        $news = News::find($id);
+
+    public function destroy(News $news)
+    {
         $news->delete();
-        return redirect('add-news')->with('message','Data Delete');
+        return response([
+            'check' => true
+        ]);
     }
 }

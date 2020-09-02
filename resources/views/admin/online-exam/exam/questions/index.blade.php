@@ -8,10 +8,12 @@
                 <div class="card">
                     <div class="card-header">
                         <div class=" row">
-                            <h4 class="header-title col-7"><span id="header-title">Set Questions for
-                                    {{$exam->name}}</span>
-                                <small>(Subject: {{$exam->subject->name}}, Class: {{$exam->class}}, Pass Mark:
-                                    {{$exam->competency_score}})</small>
+                            <h4 class="col-7"><span id="header-title"><span class="text-info">{{$exam->name}}</span>-এর
+                                     সকল  প্রশ্নসমূহ</span>
+                                <br>
+                                <small>বিষয়: <strong>{{$exam->subject->name}}</strong>  শ্রেণী:
+                                    <strong>{{$exam->class}}</strong>; পাশ মার্ক:
+                                    <strong>{{$exam->competency_score}}</strong></small>
                             </h4>
 
 
@@ -26,25 +28,31 @@
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')
+                        @if ($exam->questions->sum('remark') < $exam->competency_score)
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                 আরও প্রশ্ন তৈরী করুন
+                            </div>
+                        @endif
                         <div class="question-block">
                             <div class="table-responsive-sm">
                                 <table class="table table-sm">
                                     <thead>
                                     <tr>
-                                        <th width="20">Type</th>
-                                        <th>Title</th>
-                                        <th  width="20">Remarks</th>
+                                        <th width="1%">#</th>
+                                        <th width="10%"> প্রশ্নের ধরণ</th>
+                                        <th> প্রশ্নের টাইটেল</th>
+                                        <th  width="10%"> মার্ক</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
-                                    @foreach($exam->questions as $question)
+                                    @foreach($exam->questions as $k => $question)
                                         <tr>
+                                            <td>{{++$k}}</td>
                                             <td>{{$question->translatedType}}</td>
                                             <td>{{$question->title}}</td>
                                             <td>
-                                                {{$question->remark}}
+                                                <strong>{{$question->remark}}</strong>
                                             </td>
                                             <td>
                                                 <a title="View"
@@ -62,11 +70,12 @@
                                     @endforeach
                                     <tr>
                                         <td></td>
+                                        <td></td>
                                         <th class="text-right">
-                                            Total Mark:
+                                             মোট মার্ক :-
                                         </th>
                                         <th>
-                                            {{$exam->questions->sum('remark')}}
+                                            <strong>{{$exam->questions->sum('remark')}}</strong>
                                         </th>
                                         <td></td>
                                     </tr>
@@ -143,7 +152,7 @@
 
         function makeCQQuestion() {
             $('#CQQuestionModal').modal('show')
-
+            $('.cq-question-details').html('')
             for (let i = 1; i<=4; i++ )
                 addCQQuestionMeta(i);
         }
@@ -169,11 +178,13 @@
                         readonly/>
                     </div>
                     <div class="col-6">
-                        <textarea class="form-control" style="height:35px" required placeholder="Question Title"
+                        <textarea class="form-control" style="height:35px" required placeholder="প্রশ্ন"
                         name="name[]"></textarea>
                     </div>
                     <div class="col-2">
-                        <input type="type" class="form-control" placeholder="Remarks" value="${questionCount}" required
+                        <input type="number" min="1" max="4" class="form-control integer" placeholder="Remarks"
+                        value="${questionCount}"
+                        required
                         name="max_remarks[]">
                     </div>
                 </div>

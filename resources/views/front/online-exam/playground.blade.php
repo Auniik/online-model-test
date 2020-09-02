@@ -1,7 +1,7 @@
 @extends('front.layout.master')
 @section('content')
-    <section id="home_part">
-        <div class="container">
+    <div  class="col-lg-8 offset-lg-2 col-md-12 col-sm-12 col-xs-12">
+        <div class="card mx-lg-5 mx-sm-1 mx-md-1 p-lg-5 p-3 shadow-lg mt-5 bg-transparent">
             @include('front.online-exam.header' , ['assessment' => $assessment])
 
 
@@ -11,17 +11,26 @@
             <div class="questions_part">
                 @foreach ($questions as $question)
                     @php
-                        $answer = optional($assessment->answers)->firstWhere('exam_question_id',  $question->id);
+                        $answer = $question->answer ?  $question->answer->answer : null;
+                        $attachments = $question->answer ? $question->answer->attachments : [];
                     @endphp
 
 
-                    <h6>প্রশ্ন {{$sl++}}: {{$question->title}}</h6>
+                    <h6 class="d-flex justify-content-between">
+                        <span class="h3 mt-4"># {{$question->title}}</span>
+                        <span class="remark my-5">{{$question->remarks}}</span>
+                    </h6>
 
 
                     @if ($question->isMCQ())
-                        <form class="mcqForm margin_left"
+
+                        <form class="mcqForm ml-lg-5"
+
                               action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}">
                             @csrf
+                            @if ($question->file)
+                                <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                            @endif
                             @foreach($question->MCQs as $mcq)
                                 <input type="radio"
                                        class="mcq-answer"
@@ -29,7 +38,7 @@
                                        name="answer"
                                        value="{{$mcq->id}}"
                                        @if ($answer)
-                                           @if ($mcq->id == $answer->answer)
+                                           @if ($mcq->id == $answer)
                                            checked
                                         @endif
                                     @endif
@@ -42,33 +51,46 @@
 
 
 
+
                     @if ($question->isWritten())
-                        <form class="writtenForm margin_left" action="{{route('assessment-answer.store', [$assessment->id,
+                        @if ($question->description)
+                            <div style="user-select: none; line-height:1;" class="written-description ml-lg-5 text-justify">
+                                {!!
+                            $question->description !!}</div>
+                        @endif
+                        @if ($question->file)
+                            <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                        @endif
+
+                        <form class="writtenForm ml-lg-5" action="{{route('assessment-answer.store', [$assessment->id,
                         $question->id])}}">
                             @csrf
                             <textarea class="form-control written-answer" name="answer" placeholder="উত্তর  লিখুন"
-                                      rows="8">@if($answer){{$answer->answer}}@endif</textarea>
+                                      rows="8">@if($answer){{$answer}}@endif</textarea>
                             <br>
                         </form>
 
 
                         @include('front.online-exam._partial.files', [
-                            'answer' => $answer
+                            'attachments' => $attachments
                         ])
 
                         @include('front.online-exam._partial.file-attach-form', [
-                            'assessment' => $assessment,
-                            'question' => $question,
+                            'assessment_id' => $assessment->id,
+                            'question_id' => $question->id,
                         ])
                     @endif
 
 
                     @if ($question->isCQ())
 
-                        <div class="margin_left">
+                        <div class="ml-lg-5">
                             @if ($question->description)
                                 <p class="cq-description"><b>উদ্দীপকঃ</b> {{$question->description}}</p>
                             @endif
+                                @if ($question->file)
+                                    <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                                @endif
 
                             <ul class="list-group" style="margin-bottom:20px ">
                                 @foreach($question->CQs as $k => $cq)
@@ -82,11 +104,11 @@
                             </ul>
 
                             @include('front.online-exam._partial.files', [
-                                'answer' => $answer
+                                'attachments' => $attachments
                             ])
                             @include('front.online-exam._partial.file-attach-form', [
-                                'assessment' => $assessment,
-                                'question' => $question,
+                                'assessment_id' => $assessment->id,
+                                'question_id' => $question->id,
                             ])
 
 
@@ -104,56 +126,39 @@
                     <br>
                     <br>
                     <br>
-
-                    <form @if (!$flag)
-                            class="d-none"
-                        @endif
-                          id="exam-finish-form"
-                          action="{{route('exams.finish')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="assessment_id" value="{{$assessment->id}}">
-                        <button class="btn btn-block btn-success submit-assessment"> পরীক্ষা শেষ করুন</button>
-                    </form>
+                    <button type="button"
+                            class="btn btn-block mb-5 btn-success submit-assessment @if (!$flag) d-none @endif">
+                        পরীক্ষা শেষ করুন
+                    </button>
 
                 {{$questions->links()}}
 
 
             </div>
         </div>
-    </section>
+    </div>
+
 @endsection
 
 @push('script')
 
     <script>
-        const started_at = "{{$assessment->possibleEndTime()->format('M d, Y H:i:s')}}"
-        // Set the date we're counting down to
-        let countDownDate = new Date(started_at).getTime();
+        body = document.getElementById('body');
+        $('.contact-form').remove()
+        $('#location-part').remove()
 
-        // Update the count down every 1 second
-        let x = setInterval(function() {
+        function handler(event) {
+            event = event || window.event;
 
-            // Get today's date and time
-            let now = new Date().getTime();
+            if (event.stopPropagation)
+                event.stopPropagation();
 
-            // Find the distance between now and the count down date
-            let distance = countDownDate - now;
+            event.cancelBubble = true;
+            return false;
+        }
 
-            // Time calculations for days, hours, minutes and seconds
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Output the result in an element with id="demo"
-            document.getElementById("timer").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-
-            // If the count down is over, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer").innerHTML = 'END';
-                // document.getElementById("exam-finish-form").submit();
-            }
-        }, 1000);
+        body.oncontextmenu = handler;
     </script>
 
     <script>
@@ -161,6 +166,11 @@
         var writtenAnswer = '';
 
         $(document).ready(function () {
+
+            $('.submit-assessment').click(function (e) {
+                toastr.success('পরীক্ষা  জমা দেয়া হচ্ছে...')
+                $(".exam-finish-form").submit();
+            })
 
             $('.mcq-answer').click(function (e) {
                 $(e.target).parents('.mcqForm').submit()
@@ -181,6 +191,7 @@
                 $(e.target)
                     .parents('.writtenFileForm')
                     .submit()
+                toastr.info(' ফাইলসমূহ আপলোড করা হচ্ছে...')
             })
 
             $('.writtenForm').on('submit', function (e) {
@@ -210,7 +221,7 @@
                             _token: "{{csrf_token()}}"
                         }
                     }).done(function (data) {
-                        alert(data.message)
+                        toastr.success(data.message)
                         li.remove()
                     });
                 }
@@ -229,7 +240,9 @@
                     type: 'POST',
                     data
                 }).done(function (data) {
-                    alert(data.message)
+                    toastr.success(data.message)
+                }).catch(({res}) => {
+                    toastr.error(res.data.message)
                 });
             }
 

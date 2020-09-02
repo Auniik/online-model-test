@@ -1,4 +1,4 @@
-<div class="topbar">
+<div class="topbar no-print">
     <nav class="navbar-custom">
 
         <ul class="list-inline float-right mb-0">

@@ -106,7 +106,6 @@ class ExamQuestionService
 
     public function updateWritten(ExamQuestion $question)
     {
-//        dd(request()->all());
         $this->question = $question;
         $this->updateQuestion(['title', 'description', 'remarks', 'type']);
         return updated_response('question');

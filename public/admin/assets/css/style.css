@@ -3708,3 +3708,8 @@ pre[class*=language-] {
         margin-left: 0!important
     }
 }
+
+
+.btn-circle {
+    border-radius: 20px;
+}

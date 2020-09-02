@@ -20,7 +20,8 @@ class CreateParticipantAssessmentAttachmentsTable extends Migration
             $table->timestamps();
             $table->foreign('participant_assessment_answer_id', 'pa_ans_id')
                 ->references('id')
-                ->on('participant_assessment_answers');
+                ->on('participant_assessment_answers')
+                ->onDelete('cascade');
         });
     }
 

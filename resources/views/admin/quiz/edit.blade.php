@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
-                        <h4 class="header-title"><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
+                        <h4><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')
@@ -41,16 +41,16 @@
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30" value="{{$quiz->duration}}" name="duration"
-                                       class="form-control">
+                                       class="form-control" pattern="^(0[0-9]|1[0-9]|2[0-9]):[0-5][0-9]$">
                             </div>
-
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.cover_image')
                             }}</label>
                             <div class="col-sm-2">
                                 <img src="/{{$quiz->image}}" class="img img-fluid" style="height: 70px"
-                                     alt="{{$quiz->name}}">
+                                     alt="{{$quiz->name}}"
+                                >
                             </div>
                             <div class="col-sm-8">
                                 @if ($quiz->image)
@@ -87,9 +87,10 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
                                 <button type="reset" class="btn btn-secondary waves-effect m-l-5"
-                                        onclick="location.reload()">Cancel
+                                        onclick="location.reload()"> বাদ দিন
                                 </button>
                             </div>
                         </div>

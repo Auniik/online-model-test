@@ -35,6 +35,7 @@
     <!-- Image viewer -->
     <link href="https://cdn.bootcss.com/balloon-css/0.5.0/balloon.min.css" rel="stylesheet">
     <link href="{{asset('/')}}viewer/css/jquery.magnify.css" rel="stylesheet">
+    <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
 {{--<link href="{{asset('/')}}viewer/css/snack.css" rel="stylesheet">--}}
 {{--<link href="{{asset('/')}}viewer/css/snack-helper.css" rel="stylesheet">--}}
 {{--<link href="{{asset('/')}}viewer/css/docs.css" rel="stylesheet">--}}
@@ -243,6 +244,7 @@
         dragHandle: '.magnify-modal',
         progressiveLoading: true
     };
+    $('[data-magnify]').magnify(defaultOpts);
 
     var vm = new Vue({
         el: '#playground',
@@ -263,7 +265,7 @@
             }
         },
         updated: function () {
-            $('[data-magnify]').magnify(this.options);
+
         }
     });
 

@@ -5,6 +5,7 @@ namespace App\Models\OnlineExam;
 
 
 use App\Models\Quiz\QuizAssessment;
+use App\Work;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -29,7 +30,7 @@ class Participant extends User
 
     protected $fillable = [
         'name', 'username', 'email', 'password', 'mobile_number', 'school_name', 'class', 'roll', 'sub_district',
-        'district', 'division'
+        'district', 'division', 'thumbnail', 'occupation'
     ];
     protected $hidden = [
         'password', 'remember_token',
@@ -39,6 +40,16 @@ class Participant extends User
     {
         return $this->hasMany(ParticipantAssessment::class);
     }
+
+    public function participatedExams()
+    {
+        return $this->assessments()->where('start_at', '<>', null);
+    }
+    public function participatedQuizzes()
+    {
+        return $this->quizzes()->where('is_attended', 1);
+    }
+
     public function quizzes()
     {
         return $this->hasMany(QuizAssessment::class);
@@ -46,11 +57,9 @@ class Participant extends User
 
     public function performedCurrentQuiz()
     {
-        return !!$this->hasOne(QuizAssessment::class)
-            ->whereHas('quiz', function ($quiz) {
-                $quiz->where('is_default', 1);
-            })->first();
+        return !!optional($this->currentAssessment())->is_attended;
     }
+
     public function currentAssessment()
     {
         return $this->hasOne(QuizAssessment::class)
@@ -59,8 +68,8 @@ class Participant extends User
             })->first();
     }
 
-    public function makeUsername()
+    public function submittedWorks()
     {
-
+        return $this->hasMany(Work::class, 'participant_id');
     }
 }

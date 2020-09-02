@@ -15,7 +15,7 @@ class ExamFormController extends Controller
     public function index(Request $request, Exam $exam)
     {
         if (!auth('participant')->check()) {
-            return redirect("/participants/login?to=exams/$exam->id/start");
+            return redirect("/participants/login?ref=exam&id={$exam->id}");
         }
 
         $attributes = [
@@ -44,7 +44,7 @@ class ExamFormController extends Controller
                 return redirect()->route('exams.ground');
             }
 
-            return redirect('/master');
+            return redirect('/');
         }
 
         return view('front.online-exam.form', [
@@ -54,6 +54,13 @@ class ExamFormController extends Controller
 
     public function store(Request $request, ParticipantAssessment $assessment)
     {
+        $request->validate([
+            'school_name' => 'required',
+            'class' => 'required|numeric',
+            'roll' => 'required|numeric',
+            'sub_district' => 'required',
+            'district' => 'required',
+        ]);
         $assessment->participant()->update(
             $request->only('name', 'school_name', 'class', 'roll', 'sub_district', 'district')
         );
@@ -62,15 +69,12 @@ class ExamFormController extends Controller
             'start_at' => now(),
         ]);
 
-        $settingSession = [
+        $setAssessment = [
             "participant-".auth('participant')->id() => [
-                'questions' => $assessment->exam
-                    ->questions()
-                    ->with('CQs', 'MCQs')->get(),
-                'assessment' => $assessment->load('exam')
+                'assessment_id' => $assessment->id,
             ]
         ];
-        session($settingSession);
+        session($setAssessment);
 
         return redirect('/exam-hall');
     }

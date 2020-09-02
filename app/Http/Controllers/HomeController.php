@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OnlineExam\Exam;
+use App\Models\OnlineExam\Participant;
+use App\Models\Quiz\Quiz;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home.home');
+        return view('admin.home.home', [
+            'total_participants' => Participant::query()->count(),
+            'total_quizzes' => Quiz::query()->count(),
+            'total_exams' => Exam::query()->count()
+        ]);
     }
 }

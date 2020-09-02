@@ -364,18 +364,15 @@ ol {
 
 
 .form-inline .form-control {
-    padding: 10 0px;
-    display: inline-block;
-    width: 170px;
-    padding: 0px 10px;
-    margin-right: 15px;
-    background: transparent;
-    border: 1px solid #495057;
+    /*padding: 10 0px;*/
+    /*display: inline-block;*/
+    /*width: 170px;*/
+    /*padding: 0px 10px;*/
+    /*margin-right: 15px;*/
+    /*background: transparent;*/
+    /*border: 1px solid #495057;*/
 }
 
-.logo-img {
-    margin-right: 148px;
-}
 
 
 .logo-img img {
@@ -501,16 +498,17 @@ ol {
     z-index: 1;
     width: 100%;
     top: 68px;
-}
+    height: 31px;
 }
 
 
-.top-bar .update-part .update p {
+
+.update-label {
     background: #6194CE;
     color: white;
-    font-size: 18px;
-    padding: 2px 10px;
-    margin-bottom: 0px;
+    font-size: 19px;
+    padding: 2px 12px;
+    margin-bottom: 3px;
 }
 
 .top-bar .update-part .up-content p {
@@ -658,6 +656,17 @@ ol {
 .banner-text-1 {
     padding: 100px 0 100px;
     text-align: center;
+    height: 590px;
+}
+#banner .banner .banner-text-1 .btn {
+    background: #6194CE;
+    color: #fff;
+    border-color: #6194CE;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin-top: 20px;
 }
 
 
@@ -693,14 +702,14 @@ ol {
 .banner-text-1 p {
     color: #000;
     font-size: 50px;
-    line-height: 25px;
+    /*line-height: 25px;*/
     padding: 25px 0px 50px 0px;
     margin-bottom: 0px;
     line-height: 45px;
     font-weight: 400;
     /*    font-family: 'Atma', cursive;*/
     /*    font-family: 'Galada', cursive;*/
-    font-family: 'Mina', sans-serif;
+    /*font-family: 'Mina', sans-serif;*/
 }
 
 .banner-text-1 .p-2 {
@@ -730,7 +739,6 @@ ol {
 
 
 #about_bg {
-    margin-top: 101px;
     background: url(../images/bg6.jpg) no-repeat center;
     background-size: cover;
     text-align: left;
@@ -775,7 +783,8 @@ ol {
 
 
 #about_part .online-left .right_side {
-    padding-right: 2px
+    padding-right: 2px;
+    display: flex;
 }
 
 
@@ -887,7 +896,7 @@ ol {
 
 #team_member .overlay {
     background: rgba(0, 0, 0, 0.1);
-    padding: 60px 0px 60px 0px;
+    padding: 45px 0px 30px 0px;
 }
 
 
@@ -957,7 +966,7 @@ ol {
 }
 
 .choice_category .padding_none {
-    box-shadow: 0 1px 6px 0 rgba(255, 255, 255, 3), 0 6px 25px 0 #fff;
+    box-shadow: 1px 0px 20px 0px #0c0c0c;
     background: red;
 }
 
@@ -970,7 +979,6 @@ ol {
 /*============================= team_member end ==============================*/
 
 #bongobondhu_bg {
-    margin-top: 101px;
     background: url(../images/m1.jpg) no-repeat center;
     background-size: cover;
     text-align: left;
@@ -1261,7 +1269,7 @@ Author Email: hafizul6280@gmail.com
 
 .book-img img {
     width: 100%;
-    height: 100%;
+    height: 317px;
 
 }
 
@@ -1280,10 +1288,9 @@ Author Email: hafizul6280@gmail.com
     opacity: 1;
 }
 
-.book-img .img-overlay .text-part {
+.text-part {
     text-align: center;
-    color: #fff;
-    padding: 60px 10px;
+    color: #fff !important;
 }
 
 .book-img .img-overlay h5 {
@@ -1351,7 +1358,8 @@ Author Email: hafizul6280@gmail.com
 }
 
 #creativity-part .book-img {
-    margin: 0px;
+    margin: 0;
+    background: #5a5a5a;
 }
 
 
@@ -1359,7 +1367,7 @@ Author Email: hafizul6280@gmail.com
 .secound_section {
     width: 100%;
     height: 541px;
-    margin-top: 23px;
+    margin-top: -24px;
     background: rgba(105, 105, 105, 0);
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -1380,10 +1388,10 @@ Author Email: hafizul6280@gmail.com
 }
 
 .secound_section .tab-content .form-control {
-    width: 400px;
-    height: 40px;
-    margin: 20px;
-    padding: 25px 10px;
+    /*width: 400px;*/
+    /*height: 40px;*/
+    /*margin: 20px;*/
+    /*padding: 25px 10px;*/
 }
 
 .secound_section .tab-content .form-inline {
@@ -1448,10 +1456,6 @@ secound_section .tab-content .share-btn:hover {
 
 /*========================== communaction part start =====================*/
 
-#communication-part {
-    /*    background: #a8a8a8;*/
-    padding: 60px 0px 60px 0px;
-}
 
 #communication-part .online-left {
     margin-left: 180px;
@@ -1684,7 +1688,7 @@ Author Email: hafizul6280@gmail.com
 
 
 #our-message .blog-1 .blog-text span {
-    color: color: rgba(0, 0, 0, 0.14);
+    color: rgba(0, 0, 0, 0.14);
     float: right;
 }
 
@@ -1795,7 +1799,7 @@ label {
 }
 
 .contact-form {
-    padding: 40px;
+    /*padding: 40px;*/
     position: relative;
 }
 
@@ -1874,8 +1878,8 @@ label {
 
 
 #home_part {
-    padding: 10px 0px 80px 0px;
-    font-family: 'Baloo Da 2', cursive;
+    padding: 10px 0 80px 0;
+    font-family: 'AdorshoLipi', Arial, sans-serif !important;
     background: #eee;
 
 }
@@ -1969,6 +1973,7 @@ label {
     padding: 10px 0px 5px 0px;
     color: #000;
     font-weight: 600;
+    user-select: none;
 }
 
 #home_part .questions_part .my_file input {
@@ -1984,6 +1989,7 @@ label {
     font-size: 16px;
     padding-left: 8px;
     margin-bottom: 3px;
+    user-select: none;
 }
 
 #home_part .questions_part .top_content {
@@ -2054,24 +2060,175 @@ label {
 }
 .exam-preview-card {
     background: rgba(105, 105, 105, 0);
-    margin-top: 38px;
-
-    min-height: 543px;
+    margin-top: 13px;
 
 }
 
 .times {
     background: #6a82c5;
-    height: 35px;
     padding: 6px;
 }
 
+.time{
+    font-size: 21px;
+    font-weight: bolder;
+    color: #eeeeee;
+}
+.pop-up-timer {
+    position: fixed;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    width: 100px;
+    height: 100px;
+    background: #ffffffe0;
+    bottom: 58px;
+    left: 36px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 9999;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all 1.4s ease;
+    border-radius: 100%;
+    box-shadow: -1px 7px 11px 3px #4a4a4994;
+    font-weight: bolder;
+}
+
+
+.scroll-text {
+    font-size: 18px;
+}
+
+.exam-cover{
+    filter: brightness(40%);
+    height: auto !important;
+    min-height: 193px;
+    max-height: 192px;
+}
+
+.quiz_time {
+    background: #2f55d4;
+    color: #fff;
+    bottom: 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+    display: none;
+}
+
+.mission-vision {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 43px;
+    font-size: 18px;
+}
+
+.remark {
+    background: #6982c5f2;
+    color: white;
+    padding: 2px;
+    border-radius: 12px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600&family=Galada&family=Hind+Siliguri:wght@300;400;500;600&family=Mina:wght@400;700&display=swap');
 
 
 
 
 
+/* The Modal (background) */
+.share-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 11111; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
 
+/* Modal Content */
+.share-modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.share-modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.share-modal-body {padding: 2px 16px;}
+
+.share-modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.icon-alias{
+    font-size: 30px;
+    padding: 15px;
+}
+
+.social-icon {
+    display: grid;
+}
+
+.quiz-tabs {
+    margin: -20px -20px 0 -20px;
+}
 
 /*==========================  model_test_question end=====================*/

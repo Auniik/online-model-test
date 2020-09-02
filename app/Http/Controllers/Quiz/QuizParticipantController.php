@@ -14,25 +14,6 @@ use Illuminate\Support\Str;
 
 class QuizParticipantController extends Controller
 {
-    public function index(Request $request)
-    {
-//        $assessments = QuizAssessment::with('participant', 'quiz')
-//            ->withCount('answers');
-//
-//        if ($request->filled('quiz_id')) {
-//            $assessments->where('exam_id', $request->exam_id);
-//        }
-//        if ($request->filled('participant_id')) {
-//            $assessments->where('participant_id', $request->participant_id);
-//        }
-//
-//        return view('admin.quiz.assessment.index', [
-//            'assessments' => $assessments->paginate(50),
-//            'quizzes' => Quiz::query()->latest()->pluck('name', 'id'),
-//            'participants' => Participant::query()->latest()->pluck('name', 'id'),
-//        ]);
-    }
-
 
     public function create(Request $request, Quiz $quiz)
     {
@@ -68,20 +49,17 @@ class QuizParticipantController extends Controller
                 'email.*' =>
                     'required_without:mobile_number|nullable|distinct|email|unique:participants,email',
                 'mobile_number.*' =>
-                    'required_without:email|nullable|distinct|unique:participants,mobile_number'
+                    ['required_without:email', 'unique:participants,mobile_number',
+                        'regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/']
             ]);
 
             foreach ($request->get('name', []) as $key => $name) {
-                $password = '12345678';
 
-                if (optional($request->password)[$key]) {
-                    $password = $request->password[$key];
-                }
                 $participant = Participant::query()->create([
                     'name' => $name,
                     'email' => $request->email[$key],
                     'mobile_number' => $request->mobile_number[$key],
-                    'password' => bcrypt($password)
+                    'password' => $request->password[$key]
                 ]);
 
                 $assess =  QuizAssessment::query()
@@ -93,7 +71,7 @@ class QuizParticipantController extends Controller
             }
         });
 
-        return back_with_success('participant');
+        return back_with_success(' পরীক্ষার্থী');
     }
 
     public function destroy(QuizAssessment $id)

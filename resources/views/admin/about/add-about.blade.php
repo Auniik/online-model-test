@@ -27,13 +27,13 @@
                             {{--</div>--}}
                         {{--</div>--}}
                         {{--<div class="form-group row">--}}
-                            {{--<label for="example-text-input" class="col-sm-2 col-form-label">Short Description</label>--}}
+                            {{--<label for="example-text-input" class="col-sm-2 col-form-label"> ভূমিকা</label>--}}
                             {{--<div class="col-sm-10">--}}
                                 {{--<textarea class="form-control" name="short_description"></textarea>--}}
                             {{--</div>--}}
                         {{--</div>--}}
                         {{--<div class="form-group row">--}}
-                            {{--<label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>--}}
+                            {{--<label for="example-text-input" class="col-sm-2 col-form-label"> বর্ণনা </label>--}}
                             {{--<div class="col-sm-10">--}}
                                 {{--<textarea name="long_description" class="form-control" id="editor"></textarea>--}}
                             {{--</div>--}}
@@ -50,13 +50,13 @@
                                 {{--<div class="form-check form-check-radio">--}}
                                     {{--<label>--}}
                                         {{--<input name="status" type="radio" checked value="1" />--}}
-                                        {{--<span>Publish</span>--}}
+                                        {{--<span>  পাবলিশ</span>--}}
                                     {{--</label>--}}
                                 {{--</div>--}}
                                 {{--<div class="form-check form-check-radio">--}}
                                     {{--<label>--}}
                                         {{--<input name="status" type="radio"   value="0"/>--}}
-                                        {{--<span>Unpublish</span>--}}
+                                        {{--<span> আনপাবলিশ</span>--}}
                                     {{--</label>--}}
                                 {{--</div>--}}
                             {{--</div>--}}
@@ -77,9 +77,10 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Manage amader kotha Top image</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage amader kotha Top image</h4>
-                    <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>

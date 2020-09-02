@@ -9,6 +9,7 @@ $('#banner').slick({
     speed: 1200,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 1500,
@@ -40,7 +41,7 @@ var mixer = mixitup('.cont');
 //$('.navbar-nav') .on('click', 'li',function(){
 //    $('.navbar-nav li.active').removeClass('active');
 //    $(this).addClass('active');
-//    
+//
 //});
 
 // bottom to top button js start

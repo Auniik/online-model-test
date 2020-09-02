@@ -3,10 +3,13 @@
     <div class="row m-t-15">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Add Event Video</h4>
+                </div>
                 <div class="card-body">
                     <form action="{{route('new-event-video')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 class="mt-0 header-title">Add Event Video</h4>
+
                         <h3>{{Session::get('message')}}</h3>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
@@ -44,7 +47,7 @@
                                 <div class="form-check form-check-radio">
                                     <label>
                                         <input name="status" type="radio"   value="0"/>
-                                        <span>Unpublish</span>
+                                        <span> আনপাবলিশ</span>
                                     </label>
                                 </div>
                             </div>
@@ -65,16 +68,17 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Manage Event</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage Event</h4>
-                    <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>
                             <th>Sl</th>
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Short Description</th>
+                            <th> ভূমিকা</th>
                             <th>Link</th>
                             <th>Status</th>
                             <th>Action</th>

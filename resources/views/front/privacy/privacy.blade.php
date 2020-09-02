@@ -1,52 +1,48 @@
-@extends('front.master')
-@section('body')
-    <section class="news-scroll">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="onoffswitch3">
-                        <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3"
-                               checked>
-                        <label class="onoffswitch3-label" for="myonoffswitch3">
-        <span class="onoffswitch3-inner">
-            <span class="onoffswitch3-active">
-                @if($news)
-                    <marquee class="scroll-text">{!! $news !!}</marquee>
-                @endif
-                <span class="onoffswitch3-switch">আপডেট </span>
-            </span>
-            <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">SHOW BREAKING NEWS</span></span>
-        </span>
-                        </label>
+@extends('front.layout.master')
+@section('content')
+<section class="section privacy mt-0 pt-0">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-10 offset-md-1 col-md-12 mt-sm-0 pt-5"
+                 style="font-size: 18px"
+            >
+                <div class="card shadow-lg p-5">
+                    <div class="card-header">
+                        <h3 class="mt-4">Privacy policy</h3><br/>
+                    </div>
+                    <div class="card-body">
+                        <h3>Disclaimer</h3>
+                        <p>
+                            The content of this site including news, teaching information, outsourcing, marketing and other information is provided by tekasaibd.com and its third party content providers for your personal information only and is not intended for commercial use trading or investment purposes. The written content of this site is not suitable for any transaction or trade management decision. Nor does it provide any kind of advice (investment, tax, legal) like investment advice or any offer related to specific financial instruments, investments or products.
+                        </p><br>
+                        <p>
+                            <a href="{{request()->root()}}">takasaibd.com</a> and its third-party suppliers without limitation for any particular purpose accept without limitation. The applicable law all warranties express or implied to the fullest extent that information is provided by  <a href="{{request()->root()}}">takasaibd.com</a> or its third party suppliers using this site and its contents will not be liable for any kind of damage of accuracy precision and reliability in samayopayogita or otherwise. While tekasaibd.com makes reasonable efforts to obtain reliable content from third parties  <a href="{{request()->root()}}">takasaibd.com</a> does not endorse or support the views or opinions expressed by any third party content provider. This site may point you to other internet sites that may be of interest to you however  <a href="{{request()->root()}}">takasaibd.com</a> does not accept support or liability for the content of such sites.
+                        </p>
+                        <br>
+                        <p>
+                            <a href="{{request()->root()}}">takasaibd.com</a> does not guarantee that this website or any of its functionality will be uninterrupted or error free. Users assume the full cost of all necessary servicing repairs or modifications due to the use of this website.
+
+                        </p><br><br>
+
+                        <h3>Privacy</h3>
+                        <p>
+                            Personal data collected on this site especially through electronic subscription forms is for the exclusive use of tekasaibd.com to the full extent permitted by applicable law and may not be published or sold to third parties. Users of this site have the right to access, dispute and modify the information they publish. As a result tekasaibd.com may modify complete update or delete the user's personal data in need of commercial services.
+                        </p> <br>
+                        <p>
+                            <a href="{{request()->root()}}">takasaibd.com</a> makes reasonable efforts to
+                            implement
+                            technology
+                            and security features to protect
+                            users' privacy from loss unauthorized access or misuse. tekasaibd.com can store your information in its database for reference in such customer relationship databases. The information can be retained and used for a reasonable period of time by tekasaibd.com which reflects our need to answer questions or solve problems provides improved and new service delivery and the need to retain any data from the law. This means we can retain information after someone stops talking to us. tekasaibd.com does not endorse the law or sell or lease your personal data to any third party unless you specifically agree to it. In light of the privacy rights of users of the site tekasaibd.com is invited to notify them of any abuses of the site. In its capacity as teaching information, outsourcing, marketing & news agency tekasaibd.com collects information that can be classified as personal information and is used for news reporting opinion polls and related research. This privacy notice does not focus on that type of use. Like most websites tekasaibd.com also collects information through the use of "cookie" technology. Among other things a cookie can detect your browser and store information such as the date and time of your visit to the site and the pages visited.
+                        </p>
+
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-        <section class="section privacy mt-0 pt-0">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12 col-md-12 mt-sm-0 pt-sm-0">
-                        <h3 class="mt-4">Privacy policy</h3><br/>
-                        <p class="text-justify">
-                            tekasaibd.com ওয়েব সাইট কর্তৃপক্ষের শর্তাবলী অনুসরন করুন। কেবলমাত্র নীতিমালা অনুসরনশর্ত স্বাপেক্ষে সাইটটি ব্যবহারের অনুমতি রয়েছে। এই ওয়েব সাইটে অ্যাকাউন্ট খোলার মাধ্যমে আপনি এর শর্তাবলী এবং গোপনীয়নীতি মানতে সম্মত রয়েছেন মর্মে বিবেচিত হবেন। এক্ষেত্রে কর্তৃপক্ষের শর্তাবলী অনুসরননীতি পরিপন্থি কোন কাজের সংশ্লিষ্টতা পাওয়া গেলে আপনাকে সাইটটি ব্যবহার হতে বিরত রাখা হবে।
-                            <br/><strong>যে ভাবে আমরা তথ্য সংরক্ষণে রাখি</strong><br/>
-                            ইন্টারনেট বা ওয়েব ব্রাউজার ব্যাবহারের মাধ্যমে যদি আমাদের সাথে আপনার অভিজ্ঞতা, দক্ষতা শেয়ার করে এর পরিষেবা গ্রহণ করতে চান, তবে অবশ্যই আমাদের সাইটে আপনার একটি অ্যাকাউন্ট তৈরি করতে হবে। আপনার অ্যাকাউন্টটি সচল করার জন্য, আমরা আপনার সনাক্তকরণযোগ্য তথ্য চাইব, যার মধ্যে আপনার নাম, যোগাযোগের ঠিকানা, ইমেল আইডি, ব্যক্তিগত তথ্য এবং আমাদের পরিসেবার জন্য আপনার অবস্থানের তথ্যও অন্তর্ভুক্ত থাকতে পারে। এছাড়া আপনার প্রোফাইলের জন্য অতিরিক্ত তথ্য জমা দেওয়ার অনুমতি চাওয়া হতে পারে।
-                            <br/><strong>আপনার স্বকীয়তা</strong><br/>
-                            আপনার অ্যাকাউন্টটি সচল করার জন্য তথ্য সরবারহের সিদ্ধান্ত একান্তই আপনার ব্যাক্তিগত। এছাড়া আমাদের বিভিন্ন প্রতিযোগিতা বা ইভেন্টে অংশ নিতে আপনার ব্যক্তিগত তথ্য সরবরাহ করবেন কিনা তা একান্তই আপনার ইচ্ছের উপর নির্ভর করে। আপনি চাইলে যে কোনও সময় আপনার ব্যক্তিগত তথ্য আপডেট, সংশোধন বা মুছে ফেলতে পারেন। আপনার রেকর্ডটির আইনী বাধ্যবাধকতা না থাকলে আমরা আপনার অনুরোধ কার্যকর করার চেষ্টা করব। আপনার কোন মন্তব্য বা পরামর্শ থাকলে tekasai100@gmail.com এই ই-মেইলের মাধ্যমে আমাদের সাথে যোগাযোগ করুন।
-                            <br/><strong>আইনি সহায়তা</strong><br/>
-                            দেশের প্রচলিত আইন অনুযায়ী ডিজিটাল নিরাপত্তা নিশ্চিতকরণ এবং ডিজিটাল মাধ্যমে সংঘটিত অপরাধ শনাক্তকরণ, প্রতিরোধ, দমন, বিচার ও আনুষঙ্গিক বিষয়াদি সম্পর্কে বিধান প্রণয়নকল্পে প্রণীত আইন অনুযায়ী কোন সরকারি সংস্থা বা বিভাগের দাপ্তরিক কাজের স্বার্থে প্রয়োজন অনুযায়ী আমাদের প্রদেয় সংযুক্তির সাথে সংগৃহীত তথ্যও স্থানান্তর করা হতে পারে।
-                            <br/><strong>আপনার তথ্য সুরক্ষা</strong><br/>
-                            আপনি যদি আমাদের সাইটে নিবন্ধভুক্ত হয়ে থাকেন তবে অবশ্যই আপনার ব্যবহৃত আইডি, ইউজার-নেইম এবং পাসওয়ার্ডটি সুরক্ষিত রাখার জন্য অন্য কাউকে আপনার নামে সাইটের অ্যাক্সেস তথ্য দেওয়া হতে বিরত থাকুন। tekasaibd.com ওয়েব সাইট কর্তৃপক্ষ আনঅফিসিয়াল কোন ই-মেইল বা টেলিফোনের মাধ্যমে আপনার অ্যাকাউন্ট আইডি, লগইন পাসওয়ার্ড, জাতীয় পরিচয় নম্বরসহ অন্যকোন পরিচিতি জানতে চাইবে না। আমাদের ওয়েবসাইটে তথ্য সুরক্ষা সম্পর্কে আপনার কোন মতামত, প্রশ্ন থাকলে আমাদের সাথে tekasai100@gmail.com এই ই-মেইলে যোগাযোগ করতে পারেন।
-                            <br/><strong>বয়সসীমা</strong><br/>
-                            আমাদের ওয়েবসাইটে নিবন্ধন, ভিজিট এবং আমাদের পরিষেবা ব্যবহার করতে সাইবার নিরাপত্তা আইন মেনে বয়সসীমার বাধ্যবাদকতা শিথিলযোগ্য রাখা হয়েছে। কারন শিশু আইন ২০১৩ অনুসরণনীতি মেনে চলে এই ওয়েব সাইটের যাবতীয় কার্যক্রম পরিচালনা করা হয় বলে এটি সম্পূন্ন সংবেদনশীল।
-                            <br/><strong>গোপনীয়তা নীতি একটি চুক্তি</strong><br/>
-                            আপনি এই মর্মে সম্মত হবেন যে, যখনই tekasaibd.com ওয়েব সাইটে নিবন্ধন অথবা ভিজিট করার অর্থ হলো আপনি এর গোপনীয়তা নীতিতে বর্ণিত অনুশীলনগুলি গ্রহণ করছেন। আমাদের গোপনীয়তা নীতি বা অনুশীলন সম্পর্কে আপনার কোন মতামত অথবা প্রশ্ন থাকলে আমাদের সাথে tekasai100@gmail.com এই ই-মেইলের মাধ্যমে যোগাযোগ করতে পারেন।
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section>
+</section>
 
-                        </p>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section>
-        
 @endsection

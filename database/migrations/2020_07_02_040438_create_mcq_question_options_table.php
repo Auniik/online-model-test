@@ -20,7 +20,10 @@ class CreateMcqQuestionOptionsTable extends Migration
             $table->boolean('is_correct')->default(false);
             $table->unsignedBigInteger('exam_question_id');
             $table->timestamps();
-            $table->foreign('exam_question_id')->references('id')->on('exam_questions');
+            $table->foreign('exam_question_id')
+                ->references('id')
+                ->on('exam_questions')
+                ->onDelete('cascade');
         });
     }
 

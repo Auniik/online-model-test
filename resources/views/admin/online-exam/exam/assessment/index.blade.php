@@ -6,38 +6,69 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-7"><span id="header-title">Assessments </span></h4>
-                                <select name="exam_id" class="form-control col-2 exam_id">
+                            <h4 class="col-lg-2"><span id="header-title"> নীরিক্ষণ </span></h4>
+                                <select name="exam_id" class="form-control col-2 exam_id select2 mx-1">
+                                    <option value="">All Exam Wise</option>
                                     @foreach($exams as $id => $name)
                                         <option value="{{$id}}">{{$name}}</option>
                                     @endforeach
                                 </select>
-                                <select name="participant_id" class="form-control col-2 participant_id">
-                                    <option value="">Select One</option>
+                                <select name="participant_id" class="form-control col-2 participant_id select2 mx-1">
+                                    <option value="">All Participants Wise</option>
                                     @foreach($participants as $id => $name)
                                         <option value="{{$id}}">{{$name}}</option>
                                     @endforeach
                                 </select>
-                                <button type="submit" class="btn btn-secondary " style="height: 35px; "><i
+                                <select name="participated" class="participated mx-1" style="height: 36px">
+                                    <option value="" disabled>Participation wise</option>
+                                    <option value="1">অংশগ্রহন করেছে</option>
+                                    <option value="0">এখনও পরীক্ষা দেয়নি</option>
+                                </select>
+                                <select name="competent" class="competent mx-1" style="height: 36px">
+                                    <option value="" disabled>Result wise</option>
+                                    <option value="1">পাশ করেছে</option>
+                                    <option value="0">পাশ করেনি</option>
+                                </select>
+                                <select title="Per page data" name="per_page" class="per_page mx-1" style="height:
+                                36px">
+                                    <option value="15"> ১৫</option>
+                                    <option value="25"> ২৫</option>
+                                    <option value="50"> ৫০</option>
+                                    <option value="100"> ১০০</option>
+                                    <option value="200"> ২০০</option>
+                                    <option value="500"> ৫০০</option>
+                                </select>
+                                <button type="submit" class="btn btn-secondary  mx-1" style="height: 35px; "><i
                                         class="fa fa-search-plus"></i></button>
-                                <a class="btn btn-secondary" href="{{route('assessments.index')}}" style="height: 35px; "><i
+                                <a class="btn btn-secondary mx-1" href="{{route('assessments.index')}}" style="height:
+                                35px; "><i
                                         class="fa fa-refresh"></i></a>
+                                <button type="button" class="btn btn-secondary mx-1"  onclick="printDiv('print-this')"
+                                        style="height: 35px; "><i
+                                        class="fa fa-print"></i></button>
                         </div>
                     </form>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="print-this">
                     @include('admin._partials.success-alert')
                     <div class="question-block">
+
+                        <div class="text-center my-5 no-screen">
+                            <h2>সকল পরীক্ষার ফলাফল</h2>
+                        </div>
+
                         <div class="table-responsive-sm">
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Participant</th>
-                                    <th>Exam</th>
-                                    <th>Answered/Questions</th>
-                                    <th>Score</th>
-                                    <th>Comment</th>
-                                    <th width="1%">Action</th>
+                                    <th> পরীক্ষার্থী</th>
+                                    <th> পরীক্ষা</th>
+                                    <th class="text-center"> মোট উত্তর/প্রশ্নসংখ্যা</th>
+                                    <th> শুরু করেছে</th>
+                                    <th> অতিবাহিত সময়</th>
+                                    <th class="text-center"> স্কোর</th>
+                                    <th class="text-center"> ফলাফল</th>
+                                    <th class="no-print" width="1%">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -45,25 +76,60 @@
                                 @foreach($assessments as $assessment)
 
                                     <tr>
-                                        <td>{{$assessment->participant->name}}</td>
+                                        <td>
+                                            <a class="text-info"
+                                               href="{{route('participants.show', $assessment->participant_id)}}">
+                                                {{$assessment->participant->name}}
+                                            </a>
+                                        </td>
                                         <td class="text-info view-exam "
                                             data-exam="{{$assessment->exam}}">
                                             {{$assessment->exam->name}}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
+                                            @if ($assessment->start_at)
                                             {{$assessment->answers_count}} / {{$assessment->exam->questions_count}}
+                                            @endif
                                         </td>
                                         <td>
-                                            {{$assessment->score}}
+                                            @if ($assessment->start_at)
+                                                <strong>{{$assessment->start_at->format('M d, h:i A') }}</strong>
+                                            @else
+                                                এখনও পরীক্ষা দেয়নি
+                                            @endif
+                                        </td>
+                                        <td >
+                                            @if ($assessment->consumedTime())
+                                                {{$assessment->consumedTime()}}
+                                            @else
+                                                @if ($assessment->start_at)
+                                                 পরীক্ষা শেষ করেনি
+                                                @endif
+                                            @endif
+
                                         </td>
                                         <td>
-                                            {{$assessment->comment}}
+                                            @if ($assessment->start_at)
+                                                {{$assessment->totalRemarks()}}
+                                            @endif
                                         </td>
-                                        <td align="center">
-                                            <a title="Examine"
-                                               href="{{route('assessments-examine.index',  $assessment->id)}}">
-                                                <i class="fa fa fa-eye" aria-hidden="true"></i>
-                                            </a>
+                                        <td class="text-center">
+                                            @if ($assessment->totalRemarks()  >= $assessment->exam->competency_score)
+                                                <strong class="text-success">উত্তীর্ণ</strong>
+                                            @else
+                                                @if ($assessment->start_at)
+                                                <strong class="text-danger">অনুর্ত্তীর্ণ</strong>
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td align="center" class="no-print">
+                                            @if ($assessment->start_at)
+                                                <a title="Examine"
+                                                   href="{{route('assessments-examine.index',  $assessment->id)}}">
+                                                    <i class="fa fa fa-eye" aria-hidden="true"></i>
+                                                </a>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -97,6 +163,16 @@
         @endif
         @if($value = request('participant_id'))
             $('.participant_id').val("{{$value}}")
+        @endif
+        @if(request()->filled('participated'))
+            $('.participated').val("{{request('participated')}}")
+        @endif
+        @if(request()->filled('competent'))
+            $('.competent').val("{{request('competent')}}")
+        @endif
+
+        @if(request()->filled('per_page'))
+            $('.per_page').val("{{request('per_page')}}")
         @endif
 
 

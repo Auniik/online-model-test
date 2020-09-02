@@ -2,22 +2,89 @@
 
 <section id="communication-part">
     <div class="container-fulied contact-form">
-        <div class="text_center">
-            <h1>যোগাযোগ</h1>
-        </div>
-        <div class="row online-left">
+        @if (request()->path() != 'contact')
+            <div class="text_center">
+                <h1>যোগাযোগ</h1>
+            </div>
+        @endif
 
-            <div class="col-lg-6 col-md-6 col-sm-12 contact_right animated bounceInRight slow">
-                <form class="contact-form" action="{{route('send-email')}}" method="post">
+        <div class="row shadow-lg m-lg-5 m-md-4">
+            <div class="col-lg-4 col-md-12 col-sm-12 animated bounceInLeft slow">
+
+                <div class="contact-form title-heading p-4 p-lg-4 p-md-5 p-sm-5 ">
+                    <p class="text-muted">{{$contacts->title}}</p>
+                    <div class="contact-detail mt-3">
+                        <div class="icon mt-3 float-left">
+                            <i class="fas fa-envelope mr-3"></i>
+                        </div>
+                        <div class="content mt-3 overflow-hidden d-block">
+                            <h6 class="mb-0">ইমেইল :</h6>
+                            <a href="mailto:tekasai100@gmail.com" style="font-family: 'Changa', sans-serif;"
+                               class="text-primary">{{$contacts->email}}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail mt-3">
+                        <div class="icon mt-3 float-left">
+                            <i class="fas fa-phone-square-alt mr-3"></i>
+                        </div>
+                        <div class="content mt-3 overflow-hidden d-block">
+                            <h6 class="mb-0">মোবাইল :</h6>
+                            <a href="#" class="text-primary">{{$contacts->phone}}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail mt-3">
+                        <div class="icon mt-3 float-left">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <!--                                    <i class="fas fa-map-marker-alt"></i>-->
+                        </div>
+                        <div class="content mt-3 overflow-hidden d-block">
+                            <h6 class="mb-0">লোকেশন :</h6>
+                            <p>{{$contacts->address}}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="d-flex">
+                            <a href="https://www.facebook.com/Tekasaibd/" class="social-icon mt-0" target="blank">
+                                <i class="fab fa-facebook  icon-alias" style="color: #3b5998"></i>
+                            </a>
+
+                            <a href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
+                               class="social-icon mt-0"
+                               target="blank">
+                                <i class="fab fa-youtube icon-alias" style="color: #f21d1d"></i>
+                            </a>
+                            <a href="https://twitter.com/tekasaibd" class="social-icon mt-0" target="blank">
+                                <i class="fab fa-twitter icon-alias" style="color: #1DA1F2"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 contact_right animated bounceInRight slow">
+
+                <form class="contact-form p-4 p-lg-4 p-md-5 p-sm-5" action="{{route('send-email')}}" method="post">
+                    @if(Session::has('sent'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success!</strong> {{session('sent')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     @csrf
                     <div class="form-row">
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-12 col-md-12 mb-2">
                             <label>নাম:</label>
                             <input type="text" value="" data-msg-required="Please enter your name." maxlength="100"
                                    class="form-control" name="name" placeholder="সম্পূর্ণ নাম দিন" id="name" required=""
                                    autocomplete="off">
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-12 col-md-12">
                             <label>ইমেইল:</label>
                             <input type="email" value="" data-msg-email="Please enter a valid email address"
                                    maxlength="100" placeholder="ইমেইল দিন" class="form-control" name="email" id="email">
@@ -27,7 +94,7 @@
                         <div class="form-group last-form col">
                             <label style="margin-top: 18px;">মতামত:</label>
                             <textarea maxlength="1000" data-msg-required="Please enter your message." rows="7"
-                                      class="form-control" name="comments" placeholder="মতামত দিন"
+                                      class="form-control" name="comment" placeholder="মতামত দিন"
                                       required=""></textarea>
                         </div>
                     </div>
@@ -39,59 +106,23 @@
             </div>
 
 
-            <div class="col-lg-6 col-md-6 col-sm-12 animated bounceInLeft slow">
+            <div class="col-lg-4 col-md-12 col-sm-12 animated bounceInLeft slow">
 
-                <div class="contact-form title-heading">
-                    <p class="text-muted">আপনার যে কোন পরামর্শ ও তথ্য জানতে আমাদের সাথে যোগাগোগ করুন ।</p>
-                    <div class="contact-detail mt-3">
-                        <div class="icon mt-3 float-left">
-                            <i class="fas fa-envelope mr-3"></i>
-                        </div>
-                        <div class="content mt-3 overflow-hidden d-block">
-                            <h6 class="mb-0">ইমেইল :</h6>
-                            <a href="mailto:contact@example.com" style="font-family: 'Changa', sans-serif;"
-                               class="text-primary">tekasai100@gmail.com</a>
-                        </div>
-                    </div>
+                <div class="amaderkotha-heading bg-primary text-center">
+                    <h4 class="p-2" style="padding-left:10px; color:#fff;">ফেসবুকে আমাদের সাথে থাকুন</h4>
 
-                    <div class="contact-detail mt-3">
-                        <div class="icon mt-3 float-left">
-                            <i class="fas fa-phone-square-alt mr-3"></i>
-                        </div>
-                        <div class="content mt-3 overflow-hidden d-block">
-                            <h6 class="mb-0">মোবাইল :</h6>
-                            <a href="tel:+152534-468-854" class="text-primary">০১৭২০৬২৮১৬৯, ০১৯২৮০৮০৬৮৮</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail mt-3">
-                        <div class="icon mt-3 float-left">
-                            <i class="fas fa-map-marker-alt mr-3"></i>
-                            <!--                                    <i class="fas fa-map-marker-alt"></i>-->
-                        </div>
-                        <div class="content mt-3 overflow-hidden d-block">
-                            <h6 class="mb-0">লোকেশন :</h6>
-                            <p>১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail social-icon">
-
-                        <a class="from-control btn-info btn-sm" style="background: #129AF6"
-                           href="https://www.facebook.com/Tekasaibd/" target="_blank">Facebook</a>
-
-                        <a class="from-control btn-danger btn-sm"
-                           href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
-                           target="_blank">Youtube</a>
-
-                        <a class="from-control btn-info btn-sm" style="background: #129AF6" href="javascript:void(0)"
-                           target="_blank">Twitter</a>
-                    </div>
                 </div>
+                <div class="text-center">
+                    <div class="fb-page" data-href="https://www.facebook.com/Tekasaibd/" data-tabs="timeline"
+                         data-width="390" data-height="390" data-small-header="false" data-adapt-container-width="true"
+                         data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/Tekasaibd/" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/Tekasaibd/">টেকসই বিডি</a></blockquote>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
 
 </section>
 
@@ -122,20 +153,20 @@
         <div class=" row online-left">
             <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="logo_section">
-                    <a href="index.html"><img src="/front-end/images/logo-1.png" alt="logo-1.png"></a>
+                    <a href="/"><img src="/front-end/images/logo-1.png" alt="logo-1.png"></a>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="f_text text-center mt-2">
                     <ul class="list-unstyled text-sm-center mb-0">
-                        <li class="list-inline-item"><a href="http://www.tekasaibd.com/about" target="_blank">মিশন ভিশন
-                                । </a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank">টার্মস ও কন্ডিশন
-                                । </a></li>
-                        <li class="list-inline-item"><a href="http://www.tekasaibd.com/privacy" target="_blank">প্রাইভেসি
-                                পলিসি</a></li>
+                        <li class="list-inline-item"><a href="{{route('contact')}}" target="_blank">Contact</a></li>
+                        <li class="list-inline-item"><a href="{{url('/about-us')}}" target="_blank">About us</a></li>
+                        <li class="list-inline-item"><a href="/terms-and-conditions" target="_blank">Terms & Conditions</a>
+                        </li>
+                        <li class="list-inline-item"><a href="{{url('/privacy')}}" target="_blank">Privacy
+                                Policy</a></li>
                     </ul>
-                    <p>১০৮ আওলাদ হোসেন মার্কেট-২য় তলা, এয়ারপোর্ট রোড, তেজগাঁও ঢাকা-১২১৫</p>
+                    <p>{{$contacts->address}}</p>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12">
@@ -149,7 +180,7 @@
                        href="https://www.youtube.com/channel/UC9uaPHkm62ydNejCAcpnm9A?fbclid=IwAR0NE_acheRoIQcwzGBiaiaAdDsVnBmmjgPxQxTHipPa56ongyg3PQcvuq0"
                        target="_blank"><i class="fab fa-youtube" style="background: red;"></i></a>
 
-                    <a class="from-control btn-sm" href="javascript:void(0)" target="_blank"><i
+                    <a class="from-control btn-sm" href="https://twitter.com/tekasaibd" target="_blank"><i
                             class="fab fa-twitter"></i></a>
                 </div>
             </div>
@@ -163,10 +194,13 @@
 <!---------------------------- কপিরাইট অংশ শুরু --------------->
 
 <section class="copyright">
-            <span class="woww">
-                <p class="footer-company-name">Copyright © 2020 teka sai bd All Right Reserved. Developed by <a
-                        href="javascript:void(0)" target="_blank"> Md Hafizul Islam</a></p>
-            </span>
+    <span class="woww">
+        <p class="footer-company-name">Copyright © 2020 {{env('APP_NAME')}} All Right Reserved. Designed by <a
+                href="javascript:void(0)" target="_blank"> Md Hafizul Islam</a>
+            Developed by <a
+                href="https://auniik.github.io" target="_blank"> Anik Datta</a>
+        </p>
+    </span>
 </section>
 
 <!---------------------------- কপিরাইট অংশ শেষ --------------->

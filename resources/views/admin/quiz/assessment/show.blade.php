@@ -2,13 +2,26 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="header-title"><span id="header-title">Examine {{$assessment->participant->name}} of
-                            {{$assessment->quiz->name}}</span></h4>
-                    <p class="mb-0">Question Total: {{$assessment->quiz->questions->count()}},
-                        Correct Count: {{$assessment->correctCount()}},
-                        Wrong Count: {{$assessment->wrongCount()}}</p>
+            <div class="card" id="print-this">
+                <div class="card-header  d-flex flex-column align-items-center">
+                    <h4>
+                        <span id="header-title">
+                        <a class="text-info" href="{{route('participants.show', $assessment->participant_id)}}">
+                            {{$assessment->participant->name}} </a> -এর {{$assessment->quiz->name}} -এর
+                        ফলাফল
+                        </span>
+                    </h4>
+                    <p class="mb-0">
+                         মোট প্রশ্ন: {{$assessment->quiz->questions->count()}},
+                         সঠিক উত্তর: {{$assessment->correctCount()}},
+                         ভুল উত্তর: {{$assessment->wrongCount()}}
+                         স্কিপ করেছে: {{$assessment->skippedCount()}}
+                    </p>
+
+                    <button type="button" class="btn btn-secondary no-print mt-2"  onclick="printDiv
+                    ('print-this')"
+                            style="height: 35px; "><i
+                            class="fa fa-print"></i> Print</button>
                 </div>
                 <div class="card-body">
                     @include('admin._partials.success-alert')
@@ -17,11 +30,11 @@
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
-                                    <th>Questions</th>
-                                    <th>Option 1</th>
-                                    <th>Option 2</th>
-                                    <th>Option 3</th>
-                                    <th>Option 4</th>
+                                    <th> প্রশ্ন</th>
+                                    <th> অপশন  ১</th>
+                                    <th> অপশন  ২</th>
+                                    <th> অপশন  ৩</th>
+                                    <th> অপশন  ৪</th>
                                     <th width="5%" class="text-center">Remarks</th>
                                 </tr>
                                 </thead>
@@ -34,13 +47,15 @@
                                         <td>{{$question->title}}</td>
                                         @foreach($question->options as $option)
                                             <?php
-                                              $answer = $assessment->answers->firstWhere('quiz_option_id', $option->id)
+
+                                              $answer = $assessment->answers->firstWhere('quiz_option_id', $option->id);
+                                              if ($answer) {
+
+                                                  $answerRow = optional($answer->option)->is_correct;
+                                              }
                                             ?>
                                             <td class="{{$option->is_correct ? 'text-success' : 'text-danger'}}">
                                                 @if ($answer)
-                                                    @php
-                                                        $answerRow = $answer->option->is_correct
-                                                    @endphp
                                                     {!!
                                                         $answerRow
                                                         ? '<i class="fa fa-check" aria-hidden="true"></i>'

@@ -19,7 +19,10 @@ class CreateQuizQuestionOptionsTable extends Migration
             $table->string('value')->nullable();
             $table->boolean('is_correct')->default(false);
             $table->timestamps();
-            $table->foreign('quiz_question_id')->references('id')->on('quiz_questions');
+            $table->foreign('quiz_question_id')
+                ->references('id')
+                ->on('quiz_questions')
+                ->onDelete('cascade');
         });
     }
 

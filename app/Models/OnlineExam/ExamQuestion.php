@@ -50,4 +50,10 @@ class ExamQuestion extends Model
     {
         return $this->attributes['type'] == 'written';
     }
+
+    public function answer()
+    {
+        return $this->hasOne(ParticipantAssessmentAnswer::class)
+            ->with('attachments');
+    }
 }

@@ -19,7 +19,10 @@ class CreateQuizQuestionsTable extends Migration
             $table->text('meta')->nullable();
             $table->unsignedBigInteger('quiz_id');
             $table->timestamps();
-            $table->foreign('quiz_id')->references('id')->on('quizzes');
+            $table->foreign('quiz_id')
+                ->references('id')
+                ->on('quizzes')
+                ->onDelete('cascade');
         });
     }
 

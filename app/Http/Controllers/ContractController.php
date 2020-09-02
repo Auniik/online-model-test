@@ -3,61 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
-use Illuminate\Support\Facades\Mail;
-use Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class ContractController extends Controller
 {
-    public function addContact(){
-        $contacts = Contract::all();
-        return view('admin.contact.add-contact',[
-            'contacts' => $contacts,
-        ]);
-
-    }
-    public function newContract(Request $request){
-
-        $contactImage = $request->file('image');
-        $directory = "about-image/";
-        $imageName = $contactImage->getClientOriginalName();
-        $contactImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-
-        $contract = new Contract();
-        $contract->title                = $request->title;
-        $contract->description          = $request->description;
-        $contract->address              = $request->address;
-        $contract->phone                = $request->phone;
-        $contract->email                = $request->email;
-        $contract->image                = $imageUrl;
-        $contract->save();
-        return redirect('add-contact')->with('message','Contact Save Successfully');
-    }
-    public function editContract($id){
-        $contract = Contract::find($id);
-        return view('admin.contact.edit-contact',[
-            'contract' => $contract,
+    public function edit()
+    {
+        return view('admin.contact.edit-contact', [
+            'contract' => Contract::query()->first(),
         ]);
     }
-    public function updateContract(Request $request){
 
-        $contactImage = $request->file('image');
-        $directory = "about-image/";
-        $imageName = $contactImage->getClientOriginalName();
-        //$aboutImage->move($directory,$imageName);
-        $imageUrl = $directory.$imageName;
-        Image::make($contactImage)->resize(1500, 400)->save($imageUrl);
+    public function update(Request $request, Contract $contact)
+    {
+        $request->validate([
+            'image' => 'image|max:2048',
+            'title' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required'
+        ]);
+        if ($request->has('image')) {
+            $imageUrl = $request->image->store('uploads/contact');
+            Storage::delete($contact->image);
+        } else {
+            $imageUrl = $contact->image;
+        }
 
-        $contract = Contract::find($request->id);
-        $contract->title                = $request->title;
-        $contract->description          = $request->description;
-        $contract->address              = $request->address;
-        $contract->phone                = $request->phone;
-        $contract->email                = $request->email;
-        $contract->image                = $imageUrl;
-        $contract->save();
-        return redirect('/add-contact');
+        $contact->title = $request->title;
+        $contact->description = $request->description;
+        $contact->address = $request->address;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->image = $imageUrl;
+        $contact->save();
+        return back()->withSuccess(' যোগাযোগ হালনাগাদ করা হয়েছে !');
     }
 }

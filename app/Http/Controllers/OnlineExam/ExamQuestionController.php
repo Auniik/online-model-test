@@ -27,31 +27,43 @@ class ExamQuestionController extends Controller
 
     public function store(Exam $exam)
     {
-        if (\request('type') == 'mcq') {
-            return $this->service->saveMCQ($exam);
-        } elseif (\request('type') == 'cq') {
-            return $this->service->saveCQ($exam);
-        } else {
-            return $this->service->saveWritten($exam);
-        }
+        \request()->validate([
+            'file' => 'nullable|max:2048|image',
+            'title' => 'required'
+        ]);
+        $method =  [
+            'written' => 'saveWritten',
+            'cq' => 'saveCQ',
+            'mcq' => 'saveMCQ'
+        ][\request('type')];
+
+        return $this->service->$method($exam);
     }
 
     public function show(ExamQuestion $question)
     {
-        return [
-            'written' => $this->service->renderWritten($question),
-            'cq' => $this->service->renderCQ($question),
-            'mcq' => $this->service->renderMCQ($question),
+        $method =  [
+            'written' => 'renderWritten',
+            'cq' => 'renderCQ',
+            'mcq' => 'renderMCQ'
         ][$question->type];
+
+        return $this->service->$method($question);
     }
 
     public function update(ExamQuestion $question)
     {
-        return [
-            'written' => $this->service->updateWritten($question),
-            'cq' => $this->service->updateCQ($question),
-            'mcq' => $this->service->updateMCQ($question),
+        \request()->validate([
+            'file' => 'nullable|max:2048|image',
+            'title' => 'required'
+        ]);
+        $method =  [
+            'written' => 'updateWritten',
+            'cq' => 'updateCQ',
+            'mcq' => 'updateMCQ'
         ][$question->type];
+
+        return $this->service->$method($question);
     }
 
 

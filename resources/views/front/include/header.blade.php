@@ -3,7 +3,7 @@
     <div class="container">
         <!-- Logo container-->
         <div>
-            <a class="logo" href="{{route('welcome')}}"><img src="{{asset('/')}}front/images/hotel/logo.png"></a>
+            <a class="logo" href="/"><img src="{{asset('/')}}front/images/hotel/logo.png"></a>
         </div>
         {{--<div class="buy-button">--}}
             {{--@if(auth()->check())--}}

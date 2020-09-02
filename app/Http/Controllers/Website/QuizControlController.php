@@ -50,7 +50,9 @@ class QuizControlController extends Controller
         ]);
 
         return view('front.quizzes.question', [
-            'assessment' => $assessment
+            'duration' => $assessment->quiz->duration,
+            'participant_type' => $assessment->participant_type,
+            'assessment_id' => $assessment->id,
         ]);
     }
 

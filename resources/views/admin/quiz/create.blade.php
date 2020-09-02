@@ -2,16 +2,18 @@
 @section('body')
     <div class="row m-t-15">
         <div class="col-12">
+
             <form id="refForm" action="{{route('quizzes.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
+
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
                             {{__('default.all_quizzes')}}</a>
-                        <h4 class="header-title"><span id="header-title">{{__('default.add_new_quiz')}}</h4>
+                        <h4><span id="header-title">{{__('default.add_new_quiz')}}</h4>
                     </div>
                     <div class="card-body">
-                        @include('admin._partials.success-alert')
+                        @include('front.partials.notifications')
                         <input type="hidden" id="id" class="form-control" name="id">
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.quiz_name')}}
@@ -33,14 +35,14 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.date')
                             }}</label>
                             <div class="col-sm-4">
-                                <input type="text" id="dateTimeMy" value="{{old('date')}}" name="date"
-                                       class="form-control">
+                                <input type="text" value="{{old('date')}}" name="date" autocomplete="off"
+                                       class="form-control datepicker">
                             </div>
                             <label for="example-text-input" class="col-sm-2 col-form-label text-right">
                                 {{__('default.duration')}}</label>
                             <div class="col-sm-4">
                                 <input type="text" placeholder="02:30" value="{{old('duration')}}" name="duration"
-                                       class="form-control">
+                                       class="form-control" pattern="^(0[0-9]|1[0-9]|2[0-9]):[0-5][0-9]$">
                             </div>
 
                         </div>
@@ -56,7 +58,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.description')
                             }}</label>
                             <div class="col-sm-10">
-                                <textarea name="description"  class="form-control">{{old('description')
+                                <textarea name="description"  class="form-control" id="editor">{{old('description')
                                 }}</textarea>
                             </div>
                         </div>
@@ -77,9 +79,10 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10 offset-10">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light"> সেভ করুন
+                                </button>
                                 <button type="reset" class="btn btn-secondary waves-effect m-l-5"
-                                        onclick="location.reload()">Cancel
+                                        onclick="location.reload()"> বাদ দিন
                                 </button>
                             </div>
                         </div>

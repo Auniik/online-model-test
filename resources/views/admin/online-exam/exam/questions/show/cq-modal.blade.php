@@ -1,8 +1,8 @@
-<form action="{{route('exam-questions.update', $question)}}" method="post">
+<form action="{{route('exam-questions.update', $question)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit CQ Question</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> সৃজনশীল প্রশ্ন হালনাগাদ করুন</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -10,34 +10,38 @@
     <div class="modal-body">
         <div class="cq-question-details">
             <div class="form-group row">
-                <label class="col-2">Title</label>
+                <label class="col-2">টাইটেল</label>
                 <input
                     type="text"
                     class="form-control col-9"
-                    placeholder="Title"
+                    placeholder="টাইটেল"
                     name="title"
                     value="{{$question->title}}"
+                    required
                 />
             </div>
             <div class="form-group row">
-                <label class="col-2">Description</label>
+                <label class="col-2">উদ্দীপক</label>
                 <textarea
                     name="description"
                     placeholder="Description"
                     class="form-control col-9">{{$question->description}}</textarea>
             </div>
             <div class="form-group row">
-                <label class="col-2">File</label>
+                <label class="col-2">উদ্দীপকে ছবি</label>
                 <input type="file"
                        class="form-control col-9"
                        name="file"
                 />
-                {{$question->file}}
+                @if ($question->file)
+                    <img src="{{url($question->file)}}" class="col-9 offset-2 mt-4" alt=" উদ্দীপকের ছবি">
+                @endif
+
             </div>
             <input type="hidden" name="type" value="cq">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h4 >Questions</h4>
+                    <h4 >প্রশ্নসমূহ</h4>
                 </div>
                 <div class="col-12">
                     @foreach($cqs as $k => $cq)
@@ -57,7 +61,7 @@
                                   name="name[]">{{$cq->title}}</textarea>
                             </div>
                             <div class="col-2">
-                                <input type="type" class="form-control" placeholder="Remarks" value="{{$cq->max_remarks}}"
+                                <input type="number" class="form-control" placeholder="Remarks" value="{{$cq->max_remarks}}"
                                        required
                                        name="max_remarks[]">
                             </div>

@@ -15,7 +15,7 @@
             <form action="{{route('exam-participants.store', $exam)}}" method="post">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new Participant</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> পরীক্ষার্থী যোগ করুন</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -24,25 +24,18 @@
                     <div class="written-question-details">
                         <div class="form-group row">
                             <input type="hidden" name="type" value="written">
-                            <label class="col-2">Names</label>
+                            <label class="col-2"> পূর্বের পরীক্ষার্থী যোগ করুন</label>
                             <select class="select2 form-control" name="ids[]" multiple>
                                 @foreach($participants ?? [] as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group row">
-                            <input type="hidden" name="type" value="written">
-                            <label class="col-2">Add New</label>
-                            <select class="select2-tags form-control"
-                                    name="participants[]" multiple>
-                            </select>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> বাদ দিন</button>
+                    <button type="submit" class="btn btn-primary"> সেভ করুন</button>
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-7"><span id="header-title"> সকল কুইজ সমূহ </span></h4>
+                            <h4 class="col-7"><span id="header-title"> সকল কুইজ সমূহ </span></h4>
                             <select name="quiz_id" class="form-control col-2 quiz_id">
                                 <option value=""> বাছাই করুন</option>
                                 @foreach($selectableQuizzes as $id => $name)
@@ -33,7 +33,7 @@
                             <th> সময়সীমা</th>
                             <th> পরীক্ষার্থী</th>
                             <th> প্রশ্নসমূহ</th>
-                            <th>  ডিফল্ট কুইজ?</th>
+                            <th> বর্তমানে চলছে?</th>
                             <th> পাবলিশ হয়েছে?</th>
                             <th>Action</th>
                         </tr>
@@ -48,17 +48,37 @@
                                 <td>{{$quiz->date->format('d/m/Y h:m:s')}}</td>
                                 <td>{{$quiz->duration}}</td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('quiz-participants.create',  $quiz->id)}}">
+                                    <a class="btn btn-info btn-circle" href="{{route('quiz-participants.create',  $quiz->id)}}">
                                         {{$quiz->assigned_participants_count}}
                                     </a>
                                 </td>
                                 <td align="center">
-                                    <a class="btn btn-info" href="{{route('quiz-questions.index',  $quiz->id)}}">
+                                    <a class="btn btn-info btn-circle" href="{{route('quiz-questions.index',  $quiz->id)}}">
                                         {{$quiz->questions_count}}
                                     </a>
                                 </td>
-                                <td>{{$quiz->is_default ? 'Yes' : 'No'}}</td>
-                                <td>{{$quiz->is_published ? 'Yes' : 'No'}}</td>
+                                <td>
+                                    @if ($quiz->is_default)
+                                        <a class="btn btn-success btn-circle" href="#">
+                                             হ্যাঁ
+                                        </a>
+                                    @else
+                                        <a class="btn btn-secondary btn-circle" href="{{route('quizzes.current',  $quiz)}}">
+                                             না
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($quiz->is_published)
+                                        <a class="btn btn-success btn-circle" href="#">
+                                             হ্যা
+                                        </a>
+                                    @else
+                                        <a class="btn btn-secondary btn-circle" href="{{route('quizzes.publish',  $quiz)}}">
+                                             না
+                                        </a>
+                                    @endif
+                                </td>
                                 <td width="1" align="center">
                                     <div class="btn-group">
                                         <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"
@@ -68,27 +88,26 @@
                                             <a title="Set Participants"
                                                class="dropdown-item"
                                                href="{{route('quiz-participants.create',  $quiz->id)}}">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>  পরীক্ষার্থী যোগ করুন
                                             </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
                                                href="{{route('quiz-questions.index',  $quiz->id)}}">
-                                                <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
+                                                <i class="fa fa-quora" aria-hidden="true"></i>  প্রশ্নসমূহ যোগ করুন
                                             </a>
                                             <a title="Edit"
                                                class="dropdown-item"
                                                href="{{route('quizzes.edit',  $quiz->id)}}">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  হালনাগাদ করুন
                                             </a>
                                             <a class="dropdown-item deletable"
                                                title="Delete"
                                                href="{{route('quizzes.destroy',  $quiz->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i>  মুছে ফেলুন
                                             </a>
                                         </div>
                                     </div>
                                 </td>
-
                             </tr>
                         @endforeach
                         </tbody>
@@ -108,24 +127,3 @@
         <!-- end col -->
     </div>
 @endsection
-
-@push('script')
-    <script>
-
-        // $(document).ready(function () {
-        //     $('.exam-block').html('')
-        //     $('.view-exam').click(function () {
-        //         const exam = $(this).data('exam');
-        //         $.ajax({
-        //             url: `/exams/${exam.id}`,
-        //             type:'GET',
-        //             dataType:'HTML',
-        //         }).done(function (data) {
-        //             $('.exam-block').html(data)
-        //             $('#ExamModal').modal('show')
-        //         });
-        //     })
-        // })
-
-    </script>
-@endpush

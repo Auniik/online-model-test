@@ -33,6 +33,8 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::get('assessments-answers/{answer}', 'OnlineExam\AssessmentAnswerController@show')
         ->name('assessments-answers.show');
 
+    Route::post('answers/{answer}/remark', 'OnlineExam\AssessmentAnswerController@store')
+        ->name('answers-remark.store');
 
     Route::get('participants', 'OnlineExam\ParticipantController@index')
         ->name('participants.index');
@@ -41,7 +43,9 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::DELETE('participants/{participant}', 'OnlineExam\ParticipantController@destroy')
         ->name('participants.destroy');
 
-    Route::resource('exams', 'OnlineExam\ExamController');
+
 
     Route::resource('subjects', 'OnlineExam\SubjectController');
+
+    Route::resource('exams', 'OnlineExam\ExamController');
 });

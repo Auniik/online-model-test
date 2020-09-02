@@ -10,6 +10,7 @@ use App\Models\Quiz\QuizQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class QuizQuestionController extends Controller
 {
@@ -46,17 +47,15 @@ class QuizQuestionController extends Controller
             }
         });
 
-        return back_with_success('quiz');
+        return back_with_success(' কুইজ');
 
     }
 
-    public function show()
+
+    public function destroy(QuizQuestion $question)
     {
-
-    }
-
-    public function destroy()
-    {
-
+        Storage::delete($question->meta);
+        $question->delete();
+        return response(['check' => true]);
     }
 }

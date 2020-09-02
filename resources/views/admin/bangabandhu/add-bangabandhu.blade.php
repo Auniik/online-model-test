@@ -15,7 +15,7 @@
                             {{--</div>--}}
                         {{--</div>--}}
                         {{--<div class="form-group row">--}}
-                            {{--<label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>--}}
+                            {{--<label for="example-text-input" class="col-sm-2 col-form-label"> বর্ণনা </label>--}}
                             {{--<div class="col-sm-10">--}}
                                 {{--<textarea name="description" class="form-control" id="editor"></textarea>--}}
                             {{--</div>--}}
@@ -43,9 +43,10 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <h4 class="mt-0">Manage Bangabandhu INFO</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Manage Bangabandhu Text</h4>
-                    <p class="text-muted mb-4 font-14"></p>
                     <table id="datatable-buttons" class="table table-striped table-bordered w-100">
                         <thead>
                         <tr>

@@ -25,11 +25,11 @@
                     <div class="written-question-details">
                         <div class="form-group row">
                             <input type="hidden" name="participant_type" value="vip">
-                            <label class="col-2">Type</label>
+                            <label class="col-2"> <ধরণ></ধরণ></label>
                             <input type="text" class="form-control col-8" disabled placeholder="অতিথী">
                         </div>
                         <div class="form-group row">
-                            <label class="col-2">Select Existing</label>
+                            <label class="col-2"> পুরোনো পরীক্ষার্থী  বাছাই করুন</label>
                             <select class="select2 form-control" name="ids[]" multiple>
                                 @foreach($participants ?? [] as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
@@ -38,14 +38,14 @@
                         </div>
                         <hr>
 
-                        <div class="participants">
-                            <table class="table  table-bordered  table-hover">
+                        <div class="participants d-none">
+                            <table class="table table-bordered  table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Participant Name</th>
-                                    <th width="18%">Mobile Number</th>
-                                    <th width="18%">Email</th>
-                                    <th width="18%">Password</th>
+                                    <th> নাম</th>
+                                    <th width="18%"> মোবাইল নং</th>
+                                    <th width="18%"> ইমেইল</th>
+                                    <th width="18%"> পাসওয়ার্ড</th>
                                     <th width="1%">#</th>
                                 </tr>
                                 </thead>
@@ -54,14 +54,19 @@
                                 </tbody>
 
                             </table>
-                        </div>
 
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success add-new-participants mb-4"> নতুন  অতিথী
+                                পরীক্ষার্থী  যুক্ত করুন
+                            </button>
+                        </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> বাদ দিন</button>
+                    <button type="submit" class="btn btn-primary"> সেভ করুন</button>
                 </div>
             </form>
         </div>

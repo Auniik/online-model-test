@@ -2,48 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Work;
 use App\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class WorkController extends Controller
 {
     public function addWork()
     {
-        $works = Work::all();
-        $news = News::orderBy('id','desc')->take(10)->get();
-        return view('front.work.submit-work',[
-            'news'          => $news,
-            'works'         => $works,
+        if (!auth('participant')->check()) {
+            return redirect('/participants/login?next=submit-work');
+        }
+        return view('front.work.submit-work', [
+            'categories' => Book::query()->pluck('title', 'id')
         ]);
     }
 
     public function newWork(Request $request)
     {
-        $request->validate([
-            'file' => 'required|max:20480|mimes:jpeg,bmp,png,mp4,jpg,gif',
-        ]);
-        $eventImage = $request->file('file');
-        $directory = "submitted_work/";
-        $imageName = $eventImage->getClientOriginalName();
-        $eventImage->move($directory, $imageName);
-        $fileUrl = $directory . $imageName;
+        return DB::transaction(function () use ($request) {
+            $request->validate([
+                'title' => 'required|min:3',
+                'work_type' => 'required',
+                'file.*' => 'required|max:20480|mimes:jpeg,bmp,png,mp4,jpg,gif,zip,pdf',
+                'link' => 'nullable'
+            ]);
 
-        $work = new Work();
-        $work->title        = $request->title;
-        $work->work_type    = $request->work_type;
-        $work->description  = $request->description;
-        $work->file         = $fileUrl;
-        $work->link         = $request->link;
-        $work->user_name    = $request->user_name;
-        $work->mobile_no    = $request->mobile_no;
-        $work->save();
-        return redirect()->back()->with('message', 'Data Successfully Save');
+            $fileUrl = [];
+            foreach ($request->file('file', []) as $file) {
+                $fileUrl[] = $file->store('/uploads/works');
+            }
+
+            $work = new Work();
+            $work->title        = $request->title;
+            $work->work_type    = $request->work_type;
+            $work->description  = $request->description;
+            $work->file         = json_encode($fileUrl);
+            $work->link         = $request->link;
+            $work->participant_id = auth('participant')->id();
+            $work->save();
+
+
+            return redirect()->back()->withSuccess(' সৃজনশীল কাজ সফলভাবে সাবমিট করা হয়েছে');
+        });
+
 
     }
-    public function deleteSubmitWork($id){
-       $work  = Work::find($id);
-       $work->delete();
-        return redirect('/admin/submitted-work')->with('message', 'Data Successfully Delete' );
+    public function deleteSubmitWork(Work $work){
+
+        $files = $work->file;
+        $work->delete();
+
+        foreach ($files as $file)
+            if (Storage::exists($file)) {
+                Storage::delete($file);
+            }
+
+        return response([
+            'check' => true
+        ]);
     }
 }

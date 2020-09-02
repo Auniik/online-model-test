@@ -21,10 +21,8 @@ class ParticipantRegisterController extends Controller
         if (!auth('participant')->check()) {
             return view('front.participant.register');
         }
-        if ($request->filled('to')) {
-            return redirect("/$request->to");
-        }
-        return redirect('/participants/profile');
+
+        return redirect()->route('participants.profile');
     }
 
 
@@ -32,8 +30,8 @@ class ParticipantRegisterController extends Controller
     {
         $attributes = $request->validate([
             'name' => 'min:3|required',
-            'email' => 'email|unique:participants,email|required_without:mobile_number',
-            'mobile_number' => 'unique:participants,mobile_number|required_without:email',
+            'email' => 'email|unique:participants,email|required_without:mobile_number|nullable',
+            'mobile_number' => ['unique:participants,mobile_number', 'required_without:email', 'nullable', 'regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
             'password' => 'min:8|required'
         ]);
         $attributes['password'] = bcrypt($request->password);
@@ -42,6 +40,13 @@ class ParticipantRegisterController extends Controller
             auth('participant')->loginUsingId($participant->id);
         });
         $check = auth('participant')->check();
-        return redirect()->route($check ? 'participants.profile' : 'welcome');
+
+        if (!$check) {
+            return redirect('/');
+        }
+        if ($request->next) {
+            return redirect("/" . $request->next);
+        }
+        return redirect()->route('participants.profile');
     }
 }

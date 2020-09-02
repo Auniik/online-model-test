@@ -23,8 +23,14 @@ class CreateQuizAssessmentsTable extends Migration
             $table->timestamp('start_at')->nullable();
             $table->timestamp('end_at')->nullable();
             $table->timestamps();
-            $table->foreign('quiz_id')->references('id')->on('quizzes');
-            $table->foreign('participant_id')->references('id')->on('participants');
+            $table->foreign('quiz_id')
+                ->references('id')
+                ->on('quizzes')
+                ->onDelete('cascade');
+            $table->foreign('participant_id')
+                ->references('id')
+                ->on('participants')
+                ->onDelete('cascade');
         });
     }
 

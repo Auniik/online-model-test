@@ -17,30 +17,29 @@
                         @csrf
                         @include('front.partials.notifications')
                         <div class="row shadow bg-white">
-                            <div class="col-12 p-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 p-4">
                                 <div class="row">
-
-                                    <div class="col-12 my-3">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 my-3">
                                         <div class="row">
-                                            <div class="col-2 offset-lg-2 text-right">
-                                                <label for=""> নামঃ</label>
+                                            <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
+                                                <label for="">নামঃ</label>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <input type="text"
                                                        name="name"
                                                        value="{{old('name')}}"
                                                        class="form-control"
-                                                       placeholder="  নাম লিখুন"
+                                                       placeholder="নাম লিখুন"
                                                        autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12  my-3">
                                         <div class="row">
-                                            <div class="col-2 offset-lg-2 text-right">
-                                                <label for="">   মোবাইল নংঃ</label>
+                                            <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
+                                                <label for="">মোবাইল নংঃ</label>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <input type="tel"
                                                        name="mobile_number"
                                                        class="form-control"
@@ -52,10 +51,10 @@
                                     </div>
                                     <div class="col-12  my-3">
                                         <div class="row">
-                                            <div class="col-2 offset-lg-2 text-right">
+                                            <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
                                                 <label for="">  ইমেইলঃ</label>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <input type="email"
                                                        name="email"
                                                        class="form-control"
@@ -67,19 +66,19 @@
                                     </div>
                                     <div class="col-12  my-3">
                                         <div class="row">
-                                            <div class="col-2 offset-lg-2 text-right">
-                                                <label for="">   নতুন পাসওয়ার্ডঃ </label>
+                                            <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
+                                                <label for="">নতুন পাসওয়ার্ডঃ </label>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <input type="password"
                                                        name="password"
                                                        class="form-control"
-                                                       placeholder="  নতুন পাসওয়ার্ড লিখুন"
+                                                       placeholder="নতুন পাসওয়ার্ড লিখুন"
                                                        autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="to" value="{{request('to')}}">
+                                    <input type="hidden" name="next" value="{{request('next')}}">
                                     <div class="col-sm-4 offset-md-4 mt-4 text-center">
                                         <button class="btn btn-lg btn-block btn-outline-primary"> রেজিস্টার করুন</button>
                                     </div>

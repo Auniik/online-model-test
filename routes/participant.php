@@ -38,6 +38,15 @@ Route::post('participants/register', 'Website\ParticipantRegisterController@regi
 
 Route::get('participants/profile', 'Website\ParticipantProfileController@show')
         ->name('participants.profile');
+Route::get('participants/{participant}/profile', 'Website\ParticipantProfileController@show')
+        ->name('participants.show');
+
+Route::get('participant/edit', 'Website\ParticipantProfileController@edit')
+        ->name('participant-profile.edit');
+Route::patch('participant/{participant}/update', 'Website\ParticipantProfileController@update')
+        ->name('participant-profile.update');
+Route::post('participant/{participant}/password-change', 'Website\ParticipantProfileController@passwordChange')
+        ->name('participant-password.update');
 
 
 //Online Exam
@@ -60,3 +69,4 @@ Route::post('assessments/{assessment}/{question}/answer', 'Website\ExamAnswerCon
 
 Route::post('answer-attachments/{attachment}/delete', 'Website\AnswerAttachmentController@destroy')
     ->name('attachments.destroy');
+

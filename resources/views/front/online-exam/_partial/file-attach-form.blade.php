@@ -1,11 +1,11 @@
-<form class="writtenFileForm margin_left mt-4"
-      action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}"
+<form class="writtenFileForm ml-lg-5 mt-4"
+      action="{{route('assessment-answer.store', [$assessment_id, $question_id])}}"
       method="post" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="serial" value="{{$sl - 1}}">
-    <label for="file-{{$question->id}}"> ফাইল  যুক্ত  করুন</label>
+    <label for="file-{{$question_id}}"> ফাইল  যুক্ত  করুন</label>
     <input class="form-control written-attachments"
-           type="file" id="file-{{$question->id}}"
+           type="file" id="file-{{$question_id}}"
            name="attachments[]"
            multiple
     >

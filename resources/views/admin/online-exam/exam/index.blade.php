@@ -6,15 +6,15 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="header-title col-6"><span id="header-title">Manage Exams </span></h4>
-                            <select name="exam_id" class="form-control col-2 exam_id">
-                                <option value="">Select One</option>
+                            <h4 class="col-6"><span id="header-title"> সকল পরীক্ষাসমূহ </span></h4>
+                            <select name="exam_id" class="form-control col-2 exam_id select2">
+                                <option value=""> বাছাই করুন</option>
                                 @foreach($selectableExams as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
-                            <select name="subject_id" class="form-control col-2 subject_id">
-                                <option value="">Select One</option>
+                            <select name="subject_id" class="form-control col-2 subject_id select2">
+                                <option value=""> বাছাই করুন</option>
                                 @foreach($subjects as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
@@ -24,7 +24,7 @@
                             <a class="btn btn-secondary" href="{{route('exams.index')}}" style="height: 35px; "><i
                                     class="fa fa-refresh"></i></a>
                             <a href="{{route('exams.create')}}" style="height: 35px; " class="btn btn-primary
-                            col-1">Add new</a>
+                            col-1"> নতুন  পরীক্ষা বানান</a>
                         </div>
                     </form>
                 </div>
@@ -33,17 +33,17 @@
                     <table class="table table-striped table-sm table-bordered w-100">
                         <thead>
                         <tr>
-                            <th>Sl</th>
-                            <th>Name</th>
-                            <th>Subject</th>
-                            <th>Class</th>
-                            <th>Date</th>
-                            <th>Duration</th>
-                            <th>Pass</th>
-                            <th>Participants</th>
-                            <th>Questions</th>
-                            <th>Shown</th>
-                            <th>Status</th>
+                            <th>#</th>
+                            <th> নাম</th>
+                            <th> বিষয়</th>
+                            <th> শ্রেণী</th>
+                            <th> তারিখ</th>
+                            <th> সময়সীমা</th>
+                            <th> পাশমার্ক</th>
+                            <th> পরীক্ষার্থী</th>
+                            <th> প্রশ্নসমূহ</th>
+                            <th> হোমে দেখান</th>
+                            <th> পাবলিশড</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -56,7 +56,8 @@
                                 </td>
                                 <td>{{$exam->subject->name}}</td>
                                 <td> {{$exam->class}} </td>
-                                <td>{{$exam->start_at->format('d/m/Y h:m:s')}}</td>
+
+                                <td>{{$exam->start_at->format('M d, Y')}} - {{ $exam->end_at->format('M d, Y')}}</td>
                                 <td>{{$exam->duration}}</td>
                                 <td>{{$exam->competency_score}}</td>
                                 <td align="center">
@@ -72,7 +73,10 @@
                                 <td>{{$exam->in_homepage ? 'Yes' : 'No'}}</td>
 
                                 <td width="1" align="center">
-                                    {{get_status($exam->status)}}
+                                    {!!
+                                        $exam->is_published ? '<span class="badge badge-success">Yes</span>'
+                                        : '<span class="badge badge-secondary">Not yet</span>'
+                                    !!}
                                 </td>
                                 <td width="1" align="center">
 
@@ -81,26 +85,21 @@
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a title="Set Participants"
-                                               class="dropdown-item"
-                                               href="{{route('exam-participants.create',  $exam->id)}}">
-                                                <i class="fa fa-user-plus" aria-hidden="true"></i> Set Participants
-                                            </a>
                                             <a title="Set Questions"
                                                class="dropdown-item"
                                                href="{{route('exam-questions.index',  $exam->id)}}">
-                                                <i class="fa fa-quora" aria-hidden="true"></i> Set Questions
+                                                <i class="fa fa-quora" aria-hidden="true"></i>  প্রশ্ন যোগ করুন
                                             </a>
                                             <a title="Edit"
                                                class="dropdown-item"
                                                href="{{route('exams.edit',  $exam->id)}}">
-                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  হালনাগাদ করুন
                                             </a>
-                                            <a class="dropdown-item deletable"
-                                               title="Delete"
-                                               href="{{route('exams.destroy',  $exam->id)}}">
-                                                <i class="fa fa fa-trash" aria-hidden="true"></i> Delete
+                                            <a class="dropdown-item deletable" title="Delete"
+                                               href="{{route('exams.destroy', $exam->id)}}">
+                                                <i class="fa fa fa-trash" aria-hidden="true"></i>  মুছে ফেলুন
                                             </a>
+
                                         </div>
                                     </div>
                                 </td>
@@ -127,6 +126,13 @@
 
 @push('script')
     <script>
+        @if($examId = request('exam_id'))
+            $('.exam_id').val("{{$examId}}")
+        @endif
+        @if($subject_id = request('subject_id'))
+            $('.subject_id').val("{{$subject_id}}")
+        @endif
+
 
         $(document).ready(function () {
             $('.exam-block').html('')
