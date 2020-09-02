@@ -75,13 +75,13 @@
         </div>
     </section>
     <section class="section pt-0 pb-5">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 mt-4 pt-0 mt-sm-0 pt-sm-0">
                     <div class="position-relative">
                         <div class="row m-0">
                             @foreach($blogs as $blog)
-                                <div class="col-lg-4 col-md-6 col-sm-12 my-4">
+                                <div class="col-lg-3 col-md-4 col-sm-6 my-4">
                                     <div class="card shadow ">
                                         <a class="text-secondary"
                                            href="{{url("/blog-details/{$blog->id}?ref=blog&id={$blog->id}")}}">
