@@ -73,7 +73,7 @@
         }
 
 
-        // body.oncontextmenu = handler;
+        body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -90,12 +90,13 @@
         document.getElementById('timer').innerHTML = duration
 
 
-
     </script>
 
 
 {{--    definations--}}
     <script>
+        var timerStarted = false;
+
         function scrollToTop() {
             window.scroll({
                 top: 0,
@@ -118,27 +119,36 @@
                 } else {
                     scrollToTop()
                     $('.questions-row').html(data).show(500)
-                    if(type !== 'vip') {
-                        startTimer("{{$duration}}");
+
+                    if($('#stage').val() === 'qd') {
+                        document.getElementById('timer').innerHTML = '--:--'
+                        timerStarted = true;
+                    } else {
+                        startTimer(duration);
+                        timerStarted = true
                     }
                 }
             });
         }
 
-
-
         $(document).on('click', '.go-on-btn', function () {
             $('#stage').val('question');
             $('.discussion-wrapper').hide(500)
             $('#wrapper').show(500)
-
         })
+
         $(document).on('click', '#show-options-btn', function () {
             $(this).hide(300)
             $('#nextButton').show(300)
             $('.option-wrapper').show(300)
             $('#stage').val('option')
-            startTimer("{{$duration}}")
+            if(timerStarted) {
+                startTimer(duration);
+                timerStarted = false
+            } else {
+                document.getElementById('timer').innerHTML = duration
+            }
+
         })
 
         $(document).on('click', '#nextButton', function () {
@@ -152,18 +162,7 @@
                 data,
                 type: 'POST',
                 dataType: 'HTML',
-            }).done(function (data) {
-                if(data === 'COMPLETED') {
-                    completedAction()
-                } else {
-                    scrollToTop()
-                    $('#nextButton').attr('disabled', true)
-                    $('.questions-row').html(data).show(500)
-                    {{--if ("{{$participant_type}}" !== 'general') {--}}
-                    {{--    document.getElementById('timer').innerHTML = "{{$duration}}"--}}
-                    {{--}--}}
-                }
-            });
+            }).done(data => goNextStep(data));
         })
 
         $(document).on('click', '#skipButton', function () {
@@ -179,20 +178,25 @@
                 data,
                 type: 'POST',
                 dataType: 'HTML',
-            }).done(function (data) {
-                if(data === 'COMPLETED') {
-                    completedAction()
-                }
-                else {
-                    scrollToTop()
-                    $('#nextButton').attr('disabled', true)
-                    $('.questions-row').html(data).show(500)
-                    {{--if ("{{$participant_type}}" !== 'general') {--}}
-                    {{--    document.getElementById('timer').innerHTML = "{{$duration}}"--}}
-                    {{--}--}}
-                }
-            });
+            }).done(data => goNextStep(data));
         })
+
+        function goNextStep(data) {
+            if(data === 'COMPLETED') { completedAction() }
+            else {
+                scrollToTop()
+                $('#nextButton').attr('disabled', true)
+                $('.questions-row').html(data).show(500)
+                if (type === 'vip') {
+                    if(timerStarted) {
+                        startTimer(duration);
+                        timerStarted = false
+                    } else {
+                        document.getElementById('timer').innerHTML =  $('#stage').val() === 'qd' ? '--:--' : duration
+                    }
+                }
+            }
+        }
 
         $(document).on('click', '.custom-control-label, .custom-control-input', () => {
             $('#nextButton').attr('disabled', false)
@@ -209,16 +213,17 @@
     </script>
 
     <script>
-        // window.onbeforeunload = function() {
-        //     window.setTimeout(function () {
-        //         window.location = `/complete-quiz/${assessment.id}`;
-        //      }, 0);
-        //     window.onbeforeunload = null;
-        // }
+        window.onbeforeunload = function() {
+            window.setTimeout(function () {
+                window.location = `/complete-quiz/${assessment.id}`;
+             }, 0);
+            window.onbeforeunload = null;
+        }
     </script>
 
 {{--Timer--}}
     <script>
+
         function startTimer(time = null) {
             let presentTime = time || document.getElementById('timer').innerHTML;
             let timeArray = presentTime.split(/[:]+/);
@@ -227,7 +232,7 @@
             if (s === 59) m--
 
             if (m < 0) {
-                {{--location.href = `complete-quiz/{{$assessment_id}}`;--}}
+                location.href = `complete-quiz/{{$assessment_id}}`;
                 // alert('timer completed')
             } else {
 

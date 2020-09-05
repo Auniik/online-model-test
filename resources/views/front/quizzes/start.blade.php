@@ -95,7 +95,7 @@
 
 
                         </div>
-                        {{--                        <input type="text" name="consumed_time" value="0">--}}
+            {{--                        <input type="texxxxxxxc12xt" name="consumed_time" value="0">--}}
 
                     </form>
 

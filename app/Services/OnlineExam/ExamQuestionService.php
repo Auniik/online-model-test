@@ -41,7 +41,7 @@ class ExamQuestionService
     {
         $this->setModel($exam)
             ->createQuestion(['title', 'description', 'remarks', 'type']);
-        return back_with_success('question');
+        return back_with_success(' প্রশ্ন');
     }
 
     public function saveCQ(Exam $exam)
@@ -60,7 +60,7 @@ class ExamQuestionService
             }
         });
 
-        return back_with_success('question');
+        return back_with_success('প্রশ্ন');
     }
 
     public function saveMCQ(Exam $exam)
@@ -78,7 +78,7 @@ class ExamQuestionService
             }
         });
 
-        return back_with_success('question');
+        return back_with_success('প্রশ্ন');
     }
 
     public function renderWritten(ExamQuestion $question)
@@ -108,7 +108,7 @@ class ExamQuestionService
     {
         $this->question = $question;
         $this->updateQuestion(['title', 'description', 'remarks', 'type']);
-        return updated_response('question');
+        return updated_response('প্রশ্ন');
     }
 
     public function updateQuestion($keys)
@@ -131,7 +131,7 @@ class ExamQuestionService
                 'max_remarks' => request('max_remarks')[$key],
             ]);
         }
-        return updated_response('question');
+        return updated_response('প্রশ্ন');
     }
 
     public function updateMCQ(ExamQuestion $question)
@@ -145,6 +145,6 @@ class ExamQuestionService
                 'is_correct' => request('is_correct') == $key,
             ]);
         }
-        return updated_response('question');
+        return updated_response('প্রশ্ন');
     }
 }
