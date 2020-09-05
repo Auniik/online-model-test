@@ -39,21 +39,12 @@
                         <div class="col-lg-12">
                             <form id="form" class="question-form">
                                 @csrf
-                                <div class="row questions-row">
+                                <div class="row questions-row" id="question-row" style="display: none">
 
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-12 text-center">
-                            <hr>
-                            <div class="form-group">
-                                <input type="button" id="skipButton" class="btn
-                            btn-primary" style="width: 130px;" value=" স্কিপ করুন"/>
-                                <input type="button" id="nextButton" disabled class="btn
-                            btn-primary" style="width: 130px;" value="পরবর্তী"/>
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +73,7 @@
         }
 
 
-        body.oncontextmenu = handler;
+        // body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -98,11 +89,24 @@
 
         document.getElementById('timer').innerHTML = duration
 
+
+
     </script>
+
 
 {{--    definations--}}
     <script>
+        function scrollToTop() {
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
         loadQuestion();
+
+
         function loadQuestion() {
             $.ajax({
                 url: `/render-question/{{$assessment_id}}`,
@@ -112,13 +116,33 @@
                 if(data === 'COMPLETED') {
                     completedAction()
                 } else {
-                    $('.questions-row').html(data)
-                    startTimer("{{$duration}}");
+                    scrollToTop()
+                    $('.questions-row').html(data).show(500)
+                    if(type !== 'vip') {
+                        startTimer("{{$duration}}");
+                    }
                 }
             });
         }
 
+
+
+        $(document).on('click', '.go-on-btn', function () {
+            $('#stage').val('question');
+            $('.discussion-wrapper').hide(500)
+            $('#wrapper').show(500)
+
+        })
+        $(document).on('click', '#show-options-btn', function () {
+            $(this).hide(300)
+            $('#nextButton').show(300)
+            $('.option-wrapper').show(300)
+            $('#stage').val('option')
+            startTimer("{{$duration}}")
+        })
+
         $(document).on('click', '#nextButton', function () {
+            $('#question-row').hide(200);
             const data = $('#form').serializeArray().reduce((obj, item) => {
                 obj[item.name] = item.value;
                 return obj;
@@ -132,17 +156,18 @@
                 if(data === 'COMPLETED') {
                     completedAction()
                 } else {
+                    scrollToTop()
                     $('#nextButton').attr('disabled', true)
-                    $('.questions-row').html(data)
-                    if ("{{$participant_type}}" !== 'general') {
-                        document.getElementById('timer').innerHTML = "{{$duration}}"
-                    }
+                    $('.questions-row').html(data).show(500)
+                    {{--if ("{{$participant_type}}" !== 'general') {--}}
+                    {{--    document.getElementById('timer').innerHTML = "{{$duration}}"--}}
+                    {{--}--}}
                 }
             });
         })
 
         $(document).on('click', '#skipButton', function () {
-
+            $('#question-row').hide(200);
             let data = {
                 quiz_question_id: $("input[name=quiz_question_id]").val(),
                 quiz_assessment_id: $("input[name=quiz_assessment_id]").val(),
@@ -159,11 +184,12 @@
                     completedAction()
                 }
                 else {
+                    scrollToTop()
                     $('#nextButton').attr('disabled', true)
-                    $('.questions-row').html(data)
-                    if ("{{$participant_type}}" !== 'general') {
-                        document.getElementById('timer').innerHTML = "{{$duration}}"
-                    }
+                    $('.questions-row').html(data).show(500)
+                    {{--if ("{{$participant_type}}" !== 'general') {--}}
+                    {{--    document.getElementById('timer').innerHTML = "{{$duration}}"--}}
+                    {{--}--}}
                 }
             });
         })
@@ -183,12 +209,12 @@
     </script>
 
     <script>
-        window.onbeforeunload = function() {
-            window.setTimeout(function () {
-                window.location = `/complete-quiz/${assessment.id}`;
-             }, 0);
-            window.onbeforeunload = null;
-        }
+        // window.onbeforeunload = function() {
+        //     window.setTimeout(function () {
+        //         window.location = `/complete-quiz/${assessment.id}`;
+        //      }, 0);
+        //     window.onbeforeunload = null;
+        // }
     </script>
 
 {{--Timer--}}
@@ -201,7 +227,7 @@
             if (s === 59) m--
 
             if (m < 0) {
-                location.href = `complete-quiz/{{$assessment_id}}`;
+                {{--location.href = `complete-quiz/{{$assessment_id}}`;--}}
                 // alert('timer completed')
             } else {
 

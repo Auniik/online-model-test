@@ -2879,8 +2879,6 @@ body.fixed-left .side-menu.left {
 }
 
 
-}
-
 #sidebar-menu>ul>li>a:hover {
     color: #242c6d;
     text-decoration: none
@@ -2892,7 +2890,7 @@ body.fixed-left .side-menu.left {
 
 #sidebar-menu>ul>li>a span i {
     font-size: 18px;
-    line-height: 25px
+    line-height: 25px;
 }
 
 #sidebar-menu>ul>li.nav-active>a {
@@ -3565,7 +3563,6 @@ pre[class*=language-] {
 }
 
 .wrapper-page .card {
-    border: 7px double #242c6d;
     border-radius: 10px
 }
 

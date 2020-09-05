@@ -20,6 +20,11 @@ class QuizQuestion extends Model
         return $this->hasMany(QuizQuestionOption::class);
     }
 
+    public function discussion()
+    {
+        return $this->hasOne(QuizDiscussion::class, 'quiz_question_id');
+    }
+
     public function correctOption()
     {
         return $this->options()->where('is_correct', true);

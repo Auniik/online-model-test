@@ -26,8 +26,10 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-2 col-form-label"> কভার ছবি:</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" placeholder="Image" name="image" accept="image/*"
-                                       required>
+                                <input type="file"
+                                       class="form-control"
+                                       placeholder="Image" name="image" accept="image/*"
+                                       >
                                 <p class="text-primary">Image height must be in 500px, Width: 1000px</p>
                                 <img src="{{url($blog->image)}}" class="img img-fluid" alt="{{$blog->name}}">
                             </div>

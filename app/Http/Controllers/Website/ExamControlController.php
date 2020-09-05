@@ -59,6 +59,6 @@ class ExamControlController extends Controller
             "participant-$id"
         ]);
 
-        return redirect('/')->withSuccess('Exam Finished successfully.');
+        return redirect('/')->withSuccess('পরীক্ষা সফলভাবে সমাপ্ত করা হয়েছে!');
     }
 }

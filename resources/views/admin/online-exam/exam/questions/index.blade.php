@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <div class=" row">
                             <h4 class="col-7"><span id="header-title"><span class="text-info">{{$exam->name}}</span>-এর
-                                     সকল  প্রশ্নসমূহ</span>
+                                     সকল প্রশ্নসমূহ</span>
                                 <br>
                                 <small>বিষয়: <strong>{{$exam->subject->name}}</strong>  শ্রেণী:
                                     <strong>{{$exam->class}}</strong>; পাশ মার্ক:
@@ -22,7 +22,7 @@
                                     <option value="{{$type}}">{{__('default')[$type]}}</option>
                                 @endforeach
                             </select>
-                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">Add new</button>
+                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;"> যুক্ত করুন</button>
                         </div>
 
                     </div>
@@ -50,7 +50,7 @@
                                         <tr>
                                             <td>{{++$k}}</td>
                                             <td>{{$question->translatedType}}</td>
-                                            <td>{{$question->title}}</td>
+                                            <td>{!! $question->title !!}</td>
                                             <td>
                                                 <strong>{{$question->remark}}</strong>
                                             </td>
@@ -121,9 +121,9 @@
                     $('.questions-block').html(data)
                     $('#QuestionModal').modal('show')
                 });
-
-
             })
+
+
         })
     </script>
     <script>
@@ -150,7 +150,35 @@
         //     location.reload()
         // })
 
+        $(document).on('click', '.switch-math', function (e) {
+            $(this).hide(100);
+            $(this).after(`
+                <span id="tiplink">
+                    বিভিন্ন গাণিতিক সিম্বল ক্যারেক্টারসেট ব্যবহার করতে উক্ত লিংকে যান
+                    <a target="_blank" href="http://www.minimath.net/">http://www.minimath.net/</a>
+                </span>
+            `)
+            $(this)
+            $('.cq-question-details').html('')
+            for (let i = 1; i<=4; i++ ) {
+                if(i === 2) continue;
+                addCQQuestionMeta(i);
+            }
+            $('.question-count').each((i, e) => {
+                let oldValue = Number($(e).text())
+                let newValue;
+                if(oldValue === 1) newValue = 2;
+                if(oldValue === 3) newValue = 4;
+                if(oldValue === 4) newValue = 4;
+                $(e).text(newValue)
+                $(e).parents('.question-meta').find('.remark').val(newValue)
+            })
+
+        })
+
         function makeCQQuestion() {
+            $('.switch-math').show(100)
+            $('#tiplink').hide(100)
             $('#CQQuestionModal').modal('show')
             $('.cq-question-details').html('')
             for (let i = 1; i<=4; i++ )
@@ -169,7 +197,7 @@
             $('.cq-question-details').append(`
                 <div class="row question-meta text-right my-3 ">
                     <div class="col-1 text-center">
-                        <h4>${questionCount}</h4>
+                        <h4 class="question-count">${questionCount}</h4>
                     </div>
                     <div class="col-2">
                         <input type="text" class="form-control" value="${level}"
@@ -182,7 +210,7 @@
                         name="name[]"></textarea>
                     </div>
                     <div class="col-2">
-                        <input type="number" min="1" max="4" class="form-control integer" placeholder="Remarks"
+                        <input type="number" min="1" max="4" class="form-control integer remark" placeholder="Remarks"
                         value="${questionCount}"
                         required
                         name="max_remarks[]">

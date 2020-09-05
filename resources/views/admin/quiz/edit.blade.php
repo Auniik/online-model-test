@@ -8,8 +8,9 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-primary float-right" href="{{route('quizzes.index')}}">
-                            {{__('default.all_quizzes')}}</a>
-                        <h4><span id="header-title"> কুইজ টি হালনাগাদ করুন</h4>
+                            {{__('default.all_quizzes')}}
+                        </a>
+                        <h4><span id="header-title"> কুইজ টি হালনাগাদ করুন </span></h4>
                     </div>
                     <div class="card-body">
                         @include('admin._partials.success-alert')
@@ -65,7 +66,8 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">{{__('default.description')
                             }}</label>
                             <div class="col-sm-10">
-                                <textarea name="description"  class="form-control">{{$quiz->description}}</textarea>
+                                <textarea name="description" id="editor"
+                                          class="form-control">{{$quiz->description}}</textarea>
                             </div>
                         </div>
 

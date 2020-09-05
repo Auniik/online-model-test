@@ -94,6 +94,8 @@ class QuizController extends Controller
         foreach ($quiz->questions as $question) {
             Storage::delete($question->meta);
             $question->options()->delete();
+            Storage::delete(optional($question->discussion)->image);
+            $question->discussion()->delete();
         }
         $quiz->questions()->delete();
 

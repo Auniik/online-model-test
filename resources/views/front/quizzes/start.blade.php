@@ -10,7 +10,7 @@
             </div>
         </div>
     </section>
-    <section class="section-two mt-0 pt-0 pb-0 mb-2" id="question-one">
+    <section class="section-two mt-0 pt-0 pb-0 mb-2 " id="question-one">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-justify text-center">
@@ -21,14 +21,14 @@
             </div>
         </div>
     </section>
-    <section class="section-two bg-light pt-4" id="question-one">
+    <section class="section-two bg-transparent pt-4" id="question-one">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <form action="{{route('quiz-assessment.start')}}" method="post">
                         @csrf
                         @include('front.partials.notifications')
-                        <div class="row shadow bg-white">
+                        <div class="row shadow bg-transparent">
                             <div class="col-lg-12 p-4">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 my-3">

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>Zoter - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Login as Admin</title>
     <meta content="Admin Dashboard" name="description">
     <meta content="Mannatthemes" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,16 +22,25 @@
 <div class="wrapper-page">
     <div class="card">
         <div class="card-body">
-            <div class="text-center">
-                <a href="index.html" class="logo logo-admin"><img src="{{asset('/')}}front/images/hotel/logo.png" height="20" alt="logo"></a>
+            <div class="text-center ">
+                <img class="my-2" src="{{asset('/')}}front-end/images/logo-1.png"  height="110" alt="logo">
+                <h4 class="text-muted text-uppercase">Login as Admin</h4>
             </div>
-            <div class="px-3 pb-3">
+            <div class="px-3 pb-3 mt-4">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group row">
-                        <div class="col-12">
+                        <div class="col-lg-12">
                             {{--<input class="form-control" type="text" required="" placeholder="Username">--}}
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email"
+                                   type="email"
+                                   class="form-control @error('email') is-invalid @enderror"
+                                   name="email" value="{{ old('email') }}"
+                                   required
+                                   autocomplete="email"
+                                   autofocus
+                                   placeholder="Enter Email"
+                            >
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -43,7 +52,15 @@
                     <div class="form-group row">
                         <div class="col-12">
                             {{--<input class="form-control" type="password" required="" placeholder="Password">--}}
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input
+                                id="password"
+                                type="password"
+                                class="form-control  @error('password') is-invalid @enderror"
+                                name="password"
+                                required
+                                autocomplete="current-password"
+                                placeholder="Enter Password"
+                            >
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">
