@@ -30,6 +30,11 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
     Route::DELETE('quiz-questions/{question}', 'Quiz\QuizQuestionController@destroy')
         ->name('quiz-questions.destroy');
 
+    Route::get('quiz-questions/{question}/discussion', 'Quiz\QuizDiscussionController@index')
+        ->name('quiz-discussion.index');
+    Route::post('quiz-questions/{question}/discussion', 'Quiz\QuizDiscussionController@update')
+        ->name('quiz-discussion.update');
+
 
     Route::get('quizzes/{quiz}/assessments/', 'Quiz\QuizAssessmentController@index')
         ->name('quiz-assessment.index');

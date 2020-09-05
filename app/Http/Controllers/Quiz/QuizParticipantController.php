@@ -59,7 +59,7 @@ class QuizParticipantController extends Controller
                     'name' => $name,
                     'email' => $request->email[$key],
                     'mobile_number' => $request->mobile_number[$key],
-                    'password' => $request->password[$key]
+                    'password' => $request->password[$key] ? bcrypt($request->password[$key]) : null
                 ]);
 
                 $assess =  QuizAssessment::query()

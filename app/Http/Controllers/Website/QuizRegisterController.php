@@ -9,6 +9,7 @@ use App\Models\OnlineExam\Participant;
 use App\Models\Quiz\Quiz;
 use App\Models\Quiz\QuizAssessment;
 use App\Services\Participant\ParticipantAuthService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,22 +39,20 @@ class QuizRegisterController extends Controller
 
         $participant = $this->getParticipant($request, $quiz);
 
-
-        if (!$participant) {
-            return back()->withWarning('You are not yet assigned to current quiz.');
+        if ($participant instanceof RedirectResponse) {
+            return $participant;
         }
-
 
         $assessment = $participant->quizzes()
             ->where('quiz_id', $quiz->id)
             ->first();
 
         if ($assessment && $assessment->is_attended) {
-            return back()->withWarning('আপনি কুইজটি একবার খেলেছেন ।');
+            return back()->withWarning('আপনি কুইজটি ইতিমধ্যে একবার খেলেছেন ।');
         }
 
         auth('participant')->login($participant);
-        
+
         $type = 'general';
         if ($request->has('player_type')) {
             $type = $request->player_type;
@@ -82,7 +81,7 @@ class QuizRegisterController extends Controller
         if ($request->player_type == 'vip') {
             return $this->getVIPParticipant($request, $quiz);
         }
-        return false;
+        return back()->withWarning('দুঃখিত, চলমান কুইজে এখনও আপনাকে অতিথী হিসেবে যুক্ত করা হয়নি!');
     }
 
     public function getCurrentQuiz()
@@ -97,7 +96,7 @@ class QuizRegisterController extends Controller
         $participant = Participant::query()->where($attributes)->first();
 
         if (!$participant) {
-            return false;
+            return back()->withWarning('পরীক্ষার্থী খুজে পাওয়া যায়নি !');
         }
 
         $assessment = QuizAssessment::query()
@@ -107,14 +106,14 @@ class QuizRegisterController extends Controller
             ->first();
 
         if (!$assessment) {
-            return false;
+            return back()->withWarning('আপনাকে  এখনও  বর্তমান কুইজে  যুক্ত করা হয়নি !');
         }
 
         $password = $request->password;
         $checked = Hash::check($password, $participant->password);
 
         if (!$checked) {
-            return false;
+            return back()->withWarning('আপনি ভুল পাসওয়ার্ড দিয়েছেন!');
         }
         return $participant;
 

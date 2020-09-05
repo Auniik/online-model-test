@@ -34,10 +34,9 @@ class ParticipantAssessmentController extends Controller
         if ($request->filled('competent')) {
             $operator = $request->get('competent') ? '>=' : '<=';
             $assessments->join('exams', 'exams.id', '=', 'participant_assessments.exam_id')
-                ->whereHas('answers', function (Builder $builder) use ($operator) {
-                    $builder->having(DB::raw('SUM(remarks)'), $operator,
-                        DB::raw('competency_score'));
-                });
+                ->whereHas('answers',
+                    fn(Builder $builder) => $builder->having(DB::raw('SUM(remarks)'), $operator, DB::raw('competency_score'))
+                );
         }
 
 

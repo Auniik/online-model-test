@@ -26,9 +26,26 @@
     <link rel="stylesheet" href="/front-end/css/responsive.css">
     <link rel="stylesheet" href="/news/news.css">
     <link rel="stylesheet" href="/css/toastr.min.css">
+    <link rel="stylesheet" href="/css/mathml.css">
+
+    <script src="/mathml/mathml.css"></script>
+    <script src="/mathml/mathml.js"></script>
+    <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+    <script src="https://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
+    <script src="https://fred-wang.github.io/mathml-warning.js/mpadded-min.js"></script>
 
     <link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet">
     <style>
+        @namespace url('http://www.w3.org/1999/xhtml');
+        @namespace m url('http://www.w3.org/1998/Math/MathML');
+
+        body, m|mtext {
+            font-family: Latin Modern;
+        }
+        m|math {
+            font-family: Latin Modern Math;
+        }
+
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
         }

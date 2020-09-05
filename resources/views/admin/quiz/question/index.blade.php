@@ -74,7 +74,8 @@
                                     </span><br>
                                 <small> মোট প্রশ্ন: {{$quiz->questions->count()}}</small>
                             </h4>
-                            <button type="button" id="add-new" class="btn btn-secondary col-1" style="height: 35px;">
+                            <button type="button" id="add-new" class="btn btn-secondary col-2"
+                                    style="height: 35px;">
                                 নতুন  প্রশ্ন যুক্ত করুন
                             </button>
                         </div>
@@ -117,6 +118,11 @@
                                                 </td>
                                             @endforeach
                                             <td>
+                                                <a
+                                                   title="প্রশ্নপূর্বক বিবরণ যুক্ত করুন"
+                                                   href="{{route('quiz-discussion.index',  $question->id)}}">
+                                                    <i class="fa fa fa-plus-circle" aria-hidden="true"></i>
+                                                </a>
                                                 <a class="deletable"
                                                    title="Delete"
                                                    href="{{route('quiz-questions.destroy',  $question->id)}}">
@@ -265,7 +271,7 @@
     <script>
         $('[data-magnify]').magnify({
             speed: 200,
-            initMaximized: false
+            initMaximized: true
         });
 
     </script>

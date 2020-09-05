@@ -24,7 +24,7 @@ class QuizQuestionController extends Controller
     public function store(Request $request, Quiz $quiz)
     {
 
-        DB::transaction(function () use($request, $quiz){
+        DB::transaction(function () use($request, $quiz) {
             foreach ($request->get('title', []) as $key => $title) {
                 $path = null;
 

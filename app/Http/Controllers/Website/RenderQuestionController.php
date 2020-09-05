@@ -14,7 +14,9 @@ class RenderQuestionController extends Controller
 {
     public function show(QuizAssessment $assessment)
     {
-        $questions = $assessment->quiz->questions;
+        $questions = $assessment->quiz
+            ->questions
+            ->load('discussion');
         $totalQuestions = $questions->count();
         $totalAnswered = $assessment->answers->count();
 
@@ -31,7 +33,9 @@ class RenderQuestionController extends Controller
                 'question' => $question,
                 'options' => $options,
                 'count' => 1,
-                'quiz_assessment_id' => $assessment->id
+                'quiz_assessment_id' => $assessment->id,
+                'qd_check' => !!$question->discussion  && (session('type') == 'vip'),
+                'qd' => $question->discussion ?: null
             ]);
         }
 
@@ -39,11 +43,14 @@ class RenderQuestionController extends Controller
         $notAnsweredYet = $questions->whereNotIn('id', $answeredQuestionIds);
 
         $question = $notAnsweredYet->shuffle()->first();
+
         return view('front.quizzes.renderQ', [
             'question' => $question,
             'options' => $question->options->shuffle(),
             'count' => $totalQuestions + 1 - $notAnsweredYet->count(),
-            'quiz_assessment_id' => $assessment->id
+            'quiz_assessment_id' => $assessment->id,
+            'qd_check' => !!$question->discussion &&  (session('type') == 'vip'),
+            'qd' => $question->discussion ?: null
         ]);
 
     }

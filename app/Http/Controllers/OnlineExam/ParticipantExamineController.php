@@ -14,14 +14,13 @@ class ParticipantExamineController extends Controller
 
     public function index(ParticipantAssessment $assessment)
     {
-        $questions = ExamQuestion::with(['answer' => function($query) use($assessment) {
-                $query->where('participant_assessment_id', $assessment->id);
-            }])
-            ->where('exam_id', $assessment->exam_id)
-            ->get();
         return view('admin.online-exam.exam.participants.examine', [
             'assessment' => $assessment,
-            'questions' => $questions
+            'questions' => ExamQuestion::with(
+                ['answer' => fn($query) => $query->where('participant_assessment_id', $assessment->id)]
+            )
+            ->where('exam_id', $assessment->exam_id)
+            ->get()
         ]);
     }
 }

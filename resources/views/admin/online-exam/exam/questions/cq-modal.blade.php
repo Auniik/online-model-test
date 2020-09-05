@@ -39,8 +39,11 @@
                     </div>
                     <input type="hidden" name="type" value="cq">
                     <div class="row">
-                        <div class="col-12 text-center">
+                        <div class="col-lg-12 text-center">
                             <h4 > প্রশ্নসমূহ</h4>
+                            <button type="button"
+                                    class="btn btn-info switch-math my-3"
+                            >  গণিত প্রশ্নে সুইচ করুন</button>
                             <div class="cq-question-details">
                             </div>
                         </div>

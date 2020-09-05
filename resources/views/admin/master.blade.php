@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>Admin | Techshoi</title>
+    <title> এডমিন প্যানেল |  টেকসই বিডি</title>
     <meta content="Admin Dashboard" name="description">
     <meta content="Mannatthemes" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +41,24 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="/css/toastr.min.css">
+    <script src="/mathml/mathml.css"></script>
+    <script src="/mathml/mathml.js"></script>
+    <script src="http://fred-wang.github.io/mathml.css/mspace.js"></script>
+    <script src="https://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
+    <script src="https://fred-wang.github.io/mathml-warning.js/mpadded-min.js"></script>
+
+    <link rel="stylesheet" href="/css/mathml.css">
     <style>
+        @namespace url('http://www.w3.org/1999/xhtml');
+        @namespace m url('http://www.w3.org/1998/Math/MathML');
+
+        body, m|mtext {
+            font-family: Latin Modern;
+        }
+        m|math {
+            font-family: Latin Modern Math;
+        }
+
         body {
             font-family: 'AdorshoLipi', Arial, sans-serif !important;
         }

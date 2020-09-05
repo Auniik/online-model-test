@@ -17,16 +17,15 @@
 
 
                     <h6 class="d-flex justify-content-between">
-                        <span class="h3 mt-4"># {{$question->title}}</span>
-                        <span class="remark my-5">{{$question->remarks}}</span>
+                        <span class="h4 mt-4"># {!! $question->title !!}</span>
+                        <span class="remark my-3">{{$question->remark}}</span>
                     </h6>
 
 
                     @if ($question->isMCQ())
-
                         <form class="mcqForm ml-lg-5"
-
-                              action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}">
+                              action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}"
+                        >
                             @csrf
                             @if ($question->file)
                                 <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
@@ -43,30 +42,34 @@
                                         @endif
                                     @endif
                                 >
-                                <label for="{{$mcq->id}}">{{$mcq->value}}</label><br>
+                                <label for="{{$mcq->id}}">{!! $mcq->value !!}</label><br>
                             @endforeach
                         </form>
                     @endif
 
-
-
-
-
                     @if ($question->isWritten())
                         @if ($question->description)
-                            <div style="user-select: none; line-height:1;" class="written-description ml-lg-5 text-justify">
-                                {!!
-                            $question->description !!}</div>
+                            <div style="user-select: none; line-height:1;"
+                                 class="written-description ml-lg-5 text-justify">
+                                {!! $question->description !!}
+                            </div>
                         @endif
                         @if ($question->file)
-                            <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
+                            <img src="{{url($question->file)}}"
+                                 class="img img-fluid w-100 my-4"
+                                 alt=""
+                            >
                         @endif
 
-                        <form class="writtenForm ml-lg-5" action="{{route('assessment-answer.store', [$assessment->id,
-                        $question->id])}}">
+                        <form class="writtenForm ml-lg-5"
+                              action="{{route('assessment-answer.store', [$assessment->id, $question->id])}}"
+                        >
                             @csrf
-                            <textarea class="form-control written-answer" name="answer" placeholder="উত্তর  লিখুন"
-                                      rows="8">@if($answer){{$answer}}@endif</textarea>
+                            <textarea
+                                class="form-control written-answer"
+                                name="answer"
+                                placeholder="উত্তর  লিখুন"
+                                rows="8">@if($answer){{$answer}}@endif</textarea>
                             <br>
                         </form>
 
@@ -86,17 +89,20 @@
 
                         <div class="ml-lg-5">
                             @if ($question->description)
-                                <p class="cq-description"><b>উদ্দীপকঃ</b> {{$question->description}}</p>
+                                <p class="cq-description"><b>উদ্দীপকঃ</b> {!! $question->description !!}</p>
                             @endif
-                                @if ($question->file)
-                                    <img src="{{url($question->file)}}" class="img img-fluid w-100 my-4" alt="">
-                                @endif
+                            @if ($question->file)
+                                <img src="{{url($question->file)}}"
+                                     class="img img-fluid w-100 my-4"
+                                     alt=""
+                                >
+                            @endif
 
                             <ul class="list-group" style="margin-bottom:20px ">
                                 @foreach($question->CQs as $k => $cq)
                                     <li class="list-group-item d-flex justify-content-between align-items-center
                                     cq-meta">
-                                        {{++$k}}. {{$cq->title}}
+                                        {{++$k}}. {!! $cq->title !!}
                                         <span class="badge badge-secondary badge-pill">{{$cq->translatedLevel}}
                                             - {{$cq->max_remarks}}</span>
                                     </li>
@@ -118,7 +124,7 @@
                 @endforeach
 
                 @php
-                    $flag = ($questions->lastPage() == request('page'))
+                    $flag = ($questions->lastPage() == request('page', 1))
                 @endphp
 
                     <br>
@@ -168,7 +174,7 @@
         $(document).ready(function () {
 
             $('.submit-assessment').click(function (e) {
-                toastr.success('পরীক্ষা  জমা দেয়া হচ্ছে...')
+                toastr.success('পরীক্ষা জমা দেয়া হচ্ছে...')
                 $(".exam-finish-form").submit();
             })
 
