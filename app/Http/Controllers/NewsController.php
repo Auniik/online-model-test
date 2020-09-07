@@ -10,7 +10,9 @@ class NewsController extends Controller
     public function index()
     {
         return view('admin.news.news', [
-            'newses' => News::query()->latest()->paginate(15),
+            'newses' => News::query()
+                ->latest()
+                ->paginate(15),
         ]);
     }
 
@@ -24,7 +26,7 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
-        return back()->withSuccess(' নিউজ আপডেট যুক্ত করা হয়েছে');
+        return back()->withSuccess('নিউজ আপডেট যুক্ত করা হয়েছে');
     }
 
     public function edit(News $news)
@@ -39,7 +41,9 @@ class NewsController extends Controller
         $news->title = $request->title;
         $news->link = $request->link;
         $news->save();
-        return redirect('add-news')->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
+        return redirect()
+            ->route('newses.index')
+            ->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
 
     }
 

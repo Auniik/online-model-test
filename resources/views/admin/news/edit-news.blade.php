@@ -7,7 +7,7 @@
                     <h4 class="mt-0"> আপডেট হালনাগাদ করুন</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('news.update', $news)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('newses.update', $news)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                         @method('patch')
                         <div class="form-group row">

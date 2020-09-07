@@ -26,8 +26,8 @@
                                     <a class="text-primary" target="_blank" href="{{$news->link}}">{{$news->link}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('news.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('news.destroy', $news)}}" class="deletable"><i class="fa
+                                    <a href="{{route('newses.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('newses.destroy', $news)}}" class="deletable"><i class="fa
                                     fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -46,11 +46,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mt-0">Add News Update</h4>
+                    <h4 class="mt-0"> নতুন নিউজ আপডেট যুক্ত করুন</h4>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('news.store')}}" method="POST" >
+                    <form action="{{route('newses.store')}}" method="POST" >
                     @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-1 col-form-label text-right">Title</label>
