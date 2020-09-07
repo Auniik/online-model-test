@@ -19,13 +19,12 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required'
+        $attributes = $request->validate([
+            'title' => 'required',
+            'link' => ''
         ]);
-        $news = new News();
-        $news->title = $request->title;
-        $news->link = $request->link;
-        $news->save();
+        News::query()
+            ->create($attributes);
         return back()->withSuccess('নিউজ আপডেট যুক্ত করা হয়েছে');
     }
 
@@ -38,9 +37,11 @@ class NewsController extends Controller
 
     public function update(Request $request, News $news)
     {
-        $news->title = $request->title;
-        $news->link = $request->link;
-        $news->save();
+        $attributes = $request->validate([
+            'title' => 'required',
+            'link' => ''
+        ]);
+        $news->update($attributes);
         return redirect()
             ->route('newses.index')
             ->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
