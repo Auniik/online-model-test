@@ -43,7 +43,7 @@ class NewsController extends Controller
         ]);
         $news_update->update($attributes);
         return redirect()
-            ->route('newses.index')
+            ->route('news-updates.index')
             ->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
 
     }

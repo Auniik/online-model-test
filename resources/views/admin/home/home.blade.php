@@ -7,7 +7,6 @@
                 <div class="page-title-box">
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
-                            <li class="breadcrumb-item"><a href="{{asset('/')}}admin/#">Tekasaibd</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -58,7 +57,7 @@
                                         <div class="m-l-10">
                                             <h5 class="mt-0">
                                                 {{$total_quizzes}}</h5>
-                                            <p class="mb-0 text-muted"> মোট কুইজ</p>
+                                            <p class="mb-0 text-muted"><a href="/quizzes">মোট কুইজ</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,7 @@
                                         <div class="m-l-10">
                                             <h5 class="mt-0">
                                                 {{$total_exams}}</h5>
-                                            <p class="mb-0 text-muted"> মোট অনলাইন পরীক্ষা</p>
+                                            <p class="mb-0 text-muted"> <a href="/exams">মোট অনলাইন পরীক্ষা</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -97,17 +96,7 @@
                     </div>
                     <!--end col-->
                 </div>
-                <!--end row-->
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="mt-0">Dynamic Report</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="morris-bar-stacked" class="morris-chart"></div>
-                    </div>
-                    <!--end card-body-->
-                </div>
-                <!--end card-->
+
             </div>
             <!--end col-->
             <div class="col-xl-4">
