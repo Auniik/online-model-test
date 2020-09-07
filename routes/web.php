@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('team-members', 'Admin\TeamMemberController')->except('show');
     Route::resource('sliders', 'SliderController');
     Route::resource('books', 'BookController');
-    Route::resource('newses', 'NewsController');
+    Route::resource('news-updates', 'NewsController');
     Route::resource('publications', 'PublicationController');
     Route::resource('blogs', 'BlogController');
 

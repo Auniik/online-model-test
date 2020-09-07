@@ -28,29 +28,29 @@ class NewsController extends Controller
         return back()->withSuccess('নিউজ আপডেট যুক্ত করা হয়েছে');
     }
 
-    public function edit(News $news)
+    public function edit(News $news_update)
     {
         return view('admin.news.edit-news', [
-            'news' => $news,
+            'news' => $news_update,
         ]);
     }
 
-    public function update(Request $request, News $news)
+    public function update(Request $request, News $news_update)
     {
         $attributes = $request->validate([
             'title' => 'required',
             'link' => ''
         ]);
-        $news->update($attributes);
+        $news_update->update($attributes);
         return redirect()
             ->route('newses.index')
             ->withSuccess(' নিউজ আপডেট হালনাগাদ করা হয়েছে');
 
     }
 
-    public function destroy(News $news)
+    public function destroy(News $news_update)
     {
-        $news->delete();
+        $news_update->delete();
         return response([
             'check' => true
         ]);

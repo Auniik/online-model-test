@@ -51,7 +51,7 @@
                     </ul>
                 </li>
 
-                <li><a href="{{route('newses.index')}}" class="waves-effect"><i class="mdi mdi-comment"></i>
+                <li><a href="{{route('news-updates.index')}}" class="waves-effect"><i class="mdi mdi-comment"></i>
                         <span> নিউজ আপডেট</span></a></li>
                 <li><a href="{{route('publications.index')}}" class="waves-effect"><i class="mdi mdi-note"></i>
                         <span> পাবলিকেশনস</span></a></li>

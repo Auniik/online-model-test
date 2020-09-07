@@ -26,8 +26,8 @@
                                     <a class="text-primary" target="_blank" href="{{$news->link}}">{{$news->link}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('newses.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('newses.destroy', $news)}}" class="deletable"><i class="fa
+                                    <a href="{{route('news-updates.edit', $news)}}" class=""><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('news-updates.destroy', $news)}}" class="deletable"><i class="fa
                                     fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('newses.store')}}" method="POST" >
+                    <form action="{{route('news-updates.store')}}" method="POST" >
                     @csrf
                         <div class="form-group row">
                             <label for="example-text-input" class="col-sm-1 col-form-label text-right">Title</label>
