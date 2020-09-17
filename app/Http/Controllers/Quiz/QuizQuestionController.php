@@ -55,6 +55,8 @@ class QuizQuestionController extends Controller
     public function destroy(QuizQuestion $question)
     {
         Storage::delete($question->meta);
+        Storage::delete(optional($question->discussion)->meta);
+        $question->discussion()->delete();
         $question->delete();
         return response(['check' => true]);
     }

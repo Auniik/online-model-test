@@ -244,7 +244,9 @@
                                         <img src="/{{$assessment->image}}" class="img img-fluid" alt="">
                                     @endif
                                     <h5 class="my-4"> কুইজের নাম: <b>{{$assessment->quiz->name}}</b></h5>
-                                    <h5 class="my-4"> সময়: <b>{{$assessment->quiz->duration}} মিনিট</b></h5>
+                                    <h5 class="my-4"> সময়:
+                                        <b> {{$assessment->quiz->duration}} মিনিট {{$assessment->participant_type ==
+                                            'vip' ? '/ প্রশ্ন' : ''}}</b></h5>
                                     @if ($assessment->quiz->questions)
                                         <h5 class="my-4"> মোট প্রশ্নসংখ্যা: <b>{{$assessment->quiz->questions->count
                                         ()}} টি</b></h5>

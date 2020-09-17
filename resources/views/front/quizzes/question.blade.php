@@ -20,11 +20,21 @@
             -ms-user-select: none;
             user-select: none;
         }
+        .custom-new-quiz {
+            min-height: 520px;
+        }
+        @media (min-width: 992px) {
+            .question-title-margin {
+                margin-right: 3rem!important;
+                margin-left: 5.5rem!important;
+            }
+        }
+
     </style>
 
 @endpush
 @section('content')
-    <section class="section-two unselectable bg-light custom-new-quiz" id="question-one">
+    <section class="section-two unselectable  custom-new-quiz"  id="question-one">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">

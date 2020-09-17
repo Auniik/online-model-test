@@ -6,14 +6,14 @@
                 <div class="card-header">
                     <form class="form-horizontal">
                         <div class="row">
-                            <h4 class="col-6"><span id="header-title"> সকল পরীক্ষাসমূহ </span></h4>
-                            <select name="exam_id" class="form-control col-2 exam_id select2">
+                            <h4 class="col-lg-5"><span id="header-title"> সকল পরীক্ষাসমূহ </span></h4>
+                            <select name="exam_id" class="form-control col-lg-2 exam_id select2">
                                 <option value=""> বাছাই করুন</option>
                                 @foreach($selectableExams as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
-                            <select name="subject_id" class="form-control col-2 subject_id select2">
+                            <select name="subject_id" class="form-control col-lg-2 subject_id select2">
                                 <option value=""> বাছাই করুন</option>
                                 @foreach($subjects as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
@@ -24,7 +24,7 @@
                             <a class="btn btn-secondary" href="{{route('exams.index')}}" style="height: 35px; "><i
                                     class="fa fa-refresh"></i></a>
                             <a href="{{route('exams.create')}}" style="height: 35px; " class="btn btn-primary
-                            col-1"> নতুন  পরীক্ষা বানান</a>
+                            col-lg-2"> নতুন  পরীক্ষা বানান</a>
                         </div>
                     </form>
                 </div>

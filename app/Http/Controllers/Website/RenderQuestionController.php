@@ -75,7 +75,7 @@ class RenderQuestionController extends Controller
     public function complete(QuizAssessment $assessment)
     {
         $this->completeAssessment($assessment);
-        return view('front.quiz.complete');
+        return view('front.quizzes.complete');
     }
 
     public function completeAssessment($assessment)

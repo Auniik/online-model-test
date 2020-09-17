@@ -1,5 +1,5 @@
 <input type="hidden" id="stage" @if($qd_check) value="qd" @else value="general" @endif>
-<div id="wrapper" @if($qd_check) style="display:none" @endif data-qd="{{$qd_check}}">
+<div id="wrapper" class="w-100" @if($qd_check) style="display:none" @endif data-qd="{{$qd_check}}">
     <div class="col-lg-12 text-center">
         <div class="row align-items-center">
             <div class="col-lg-10 offset-lg-1 px-0">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="form-group">
-            <h5 class="my-4 text-justify mx-lg-5"><strong>{{$count}}. {{$question->title}}</strong></h5>
+            <h5 class="my-4 text-left question-title-margin"><strong>{{$count}}. {{$question->title}}</strong></h5>
             <input type="hidden" name="quiz_question_id" value="{{$question->id}}"/>
             <input type="hidden" name="quiz_assessment_id" value="{{$quiz_assessment_id}}"/>
         </div>
@@ -104,7 +104,7 @@
                     {!! $qd->description !!}
                 </div>
 
-                <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-12 d-flex justify-content-center mt-4">
                     <button type="button" class="btn btn-primary go-on-btn">এগিয়ে যান</button>
                 </div>
             </div>

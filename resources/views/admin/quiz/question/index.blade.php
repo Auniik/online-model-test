@@ -69,12 +69,12 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class=" row">
-                            <h4 class="col-11"><span id="header-title">{{$quiz->name}}- এর প্রশ্নসমূহ সেট করুন
+                        <div class=" row d-flex justify-content-between">
+                            <h4 class="col-lg-8"><span id="header-title">{{$quiz->name}}- এর প্রশ্নসমূহ সেট করুন
                                     </span><br>
                                 <small> মোট প্রশ্ন: {{$quiz->questions->count()}}</small>
                             </h4>
-                            <button type="button" id="add-new" class="btn btn-secondary col-2"
+                            <button type="button" id="add-new" class="btn btn-secondary col-lg-2"
                                     style="height: 35px;">
                                 নতুন  প্রশ্ন যুক্ত করুন
                             </button>
@@ -94,7 +94,7 @@
                                         <th> অপশন  ২</th>
                                         <th> অপশন  ৩</th>
                                         <th> অপশন  ৪</th>
-                                        <th width="8%">Action</th>
+                                        <th width="5%">#</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -121,7 +121,9 @@
                                                 <a
                                                    title="প্রশ্নপূর্বক বিবরণ যুক্ত করুন"
                                                    href="{{route('quiz-discussion.index',  $question->id)}}">
-                                                    <i class="fa fa fa-plus-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa fa-plus-circle {{$question->discussion ?
+                                                    'text-success' : 'text-warning'}}"
+                                                       aria-hidden="true"></i>
                                                 </a>
                                                 <a class="deletable"
                                                    title="Delete"
