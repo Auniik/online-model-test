@@ -8,54 +8,51 @@
                     <a class="btn btn-primary" href="{{route('galleries.create')}}"> নতুন গ্যালারী যোগ করুন</a>
                 </div>
                 <div class="card-body">
-                    <table  class="table table-striped table-sm table-bordered w-100">
-                        <thead>
-                        <tr>
-                            <th width="1%">#</th>
-                            <th>নাম</th>
-                            <th> কভার ছবি</th>
-                            <th> ছবিসমূহ</th>
-                            <th>  স্লাইড</th>
-                            <th width="10%">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @php($i = 1)
-                        @foreach($galleries as $gallery)
-                            <tr>
-                                <td>{{$i++}}</td>
-                                <td>{{$gallery->title}}</td>
-                                <td><img src="{{asset($gallery->image)}}" width="50" height="30"></td>
-                                <td>
-                                    <a class="btn btn-sm btn-success" href="{{route('gallery-photos.index', $gallery)
-                                    }}">
-                                        ছবিসমূহ ({{$gallery->photos_count}})</a>
-                                </td>
-                                <td>
+
+                    @foreach($galleries as $gallery)
+                        <div class="card" style="width: 18rem;">
+                            <a href="{{route('gallery-photos.index', $gallery) }}">
+                                <img class="card-img-top" src="{{asset($gallery->image)}}" alt="{{$gallery->title}}">
+                            </a>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{$gallery->title}}</h5>
+                                <p class="card-text">
+                                    {{\Illuminate\Support\Str::limit($gallery->short_descriptions, 100)}}
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush text-center">
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                        <a class="btn btn-sm btn-success" href="{{route('gallery-photos.index', $gallery) }}"> ছবিসমূহ ({{$gallery->photos_count}})</a>
+                                    </div>
+                                    <div>
+                                        <a href="{{route('galleries.edit', $gallery)}}" class=""><i class="fa
+                                fa-edit"></i></a>
+                                        <a href="{{route('galleries.destroy', $gallery)}}" class="deletable"><i class="fa
+                                fa-trash"></i></a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
                                     @if ($gallery->is_slider)
                                         <a class="btn btn-success btn-circle" href="#">
-                                            Yes
+                                            স্লাইডার অন হয়েছে
                                         </a>
                                     @else
                                         <form action="{{route('galleries.slider', $gallery)}}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-secondary btn-circle">
-                                                No
+                                                স্লাইডার হিসেবে চিহ্নিত করুন
                                             </button>
                                         </form>
 
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="{{route('galleries.edit', $gallery)}}" class=""><i class="fa
-                                    fa-edit"></i></a>
-                                    <a href="{{route('galleries.destroy', $gallery)}}" class="deletable"><i class="fa
-                                    fa-trash"></i></a>
-                                </td>
-                            </tr>
+                                     @endif
+                                </li>
+                            </ul>
                         @endforeach
-                        </tbody>
-                    </table>
+
+                            {{$galleries->links()}}
+
                 </div>
             </div>
         </div>

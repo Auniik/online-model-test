@@ -1,51 +1,58 @@
 <?php
 
 
+use App\Http\Controllers\OnlineExam\AssessmentAnswerController;
+use App\Http\Controllers\OnlineExam\ExamController;
+use App\Http\Controllers\OnlineExam\ExamQuestionController;
+use App\Http\Controllers\OnlineExam\ParticipantAssessmentController;
+use App\Http\Controllers\OnlineExam\ParticipantController;
+use App\Http\Controllers\OnlineExam\ParticipantExamineController;
+use App\Http\Controllers\OnlineExam\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '', 'middleware' => ['auth']], function () {
 
 
-    Route::get('exams/{exam}/questions', 'OnlineExam\ExamQuestionController@index')
+    Route::get('exams/{exam}/questions', [ExamQuestionController::class, 'index'])
         ->name('exam-questions.index');
-    Route::post('exams/{exam}/questions', 'OnlineExam\ExamQuestionController@store')
+    Route::post('exams/{exam}/questions', [ExamQuestionController::class, 'store'])
         ->name('exam-questions.store');
-    Route::DELETE('exam-questions/{question}', 'OnlineExam\ExamQuestionController@destroy')
+    Route::DELETE('exam-questions/{question}', [ExamQuestionController::class, 'destroy'])
         ->name('exam-questions.destroy');
-    Route::get('exam-questions/{question}', 'OnlineExam\ExamQuestionController@show')
+    Route::get('exam-questions/{question}', [ExamQuestionController::class, 'show'])
         ->name('exam-questions.show');
-    Route::patch('exam-questions/{question}', 'OnlineExam\ExamQuestionController@update')
+    Route::patch('exam-questions/{question}', [ExamQuestionController::class, 'update'])
         ->name('exam-questions.update');
 
-    Route::get('assessments', 'OnlineExam\ParticipantAssessmentController@index')
+    Route::get('assessments', [ParticipantAssessmentController::class, 'index'])
         ->name('assessments.index');
-    Route::get('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@create')
+    Route::get('exams/{exam}/participants', [ParticipantAssessmentController::class, 'create'])
         ->name('exam-participants.create');
-    Route::post('exams/{exam}/participants', 'OnlineExam\ParticipantAssessmentController@store')
+    Route::post('exams/{exam}/participants', [ParticipantAssessmentController::class, 'store'])
         ->name('exam-participants.store');
-    Route::DELETE('exams-participants/{id}', 'OnlineExam\ParticipantAssessmentController@destroy')
+    Route::DELETE('exams-participants/{id}', [ParticipantAssessmentController::class, 'destroy'])
         ->name('exam-participants.destroy');
-    Route::get('assessments/{assessment}/examine', 'OnlineExam\ParticipantExamineController@index')
+    Route::get('assessments/{assessment}/examine', [ParticipantExamineController::class, 'index'])
         ->name('assessments-examine.index');
-    Route::post('assessments/{assessment}/answers/{answer}', 'OnlineExam\ParticipantExamineController@store')
+    Route::post('assessments/{assessment}/answers/{answer}', [ParticipantExamineController::class, 'store'])
         ->name('assessments-examine.store');
 
-    Route::get('assessments-answers/{answer}', 'OnlineExam\AssessmentAnswerController@show')
+    Route::get('assessments-answers/{answer}', [AssessmentAnswerController::class, 'show'])
         ->name('assessments-answers.show');
 
-    Route::post('answers/{answer}/remark', 'OnlineExam\AssessmentAnswerController@store')
+    Route::post('answers/{answer}/remark', [AssessmentAnswerController::class, 'store'])
         ->name('answers-remark.store');
 
-    Route::get('participants', 'OnlineExam\ParticipantController@index')
+    Route::get('participants', [ParticipantController::class, 'index'])
         ->name('participants.index');
-    Route::post('participants', 'OnlineExam\ParticipantController@store')
+    Route::post('participants', [ParticipantController::class, 'store'])
         ->name('participants.store');
-    Route::DELETE('participants/{participant}', 'OnlineExam\ParticipantController@destroy')
+    Route::DELETE('participants/{participant}', [ParticipantController::class, 'destroy'])
         ->name('participants.destroy');
 
 
 
-    Route::resource('subjects', 'OnlineExam\SubjectController');
+    Route::resource('subjects', SubjectController::class);
 
-    Route::resource('exams', 'OnlineExam\ExamController');
+    Route::resource('exams', ExamController::class);
 });
