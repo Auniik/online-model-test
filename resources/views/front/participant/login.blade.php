@@ -22,7 +22,7 @@
                                 <div class="col-lg-12 col-md-12 my-3">
                                     <div class="row">
                                         <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
-                                            <label for=""> Email or Mobile</label>
+                                            <label for=""> ইমেইল অথবা মোবাইল নং</label>
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <input type="text"
@@ -38,7 +38,7 @@
                                 <div class="col-lg-12 col-md-12 my-3">
                                     <div class="row">
                                         <div class="col-lg-2 offset-lg-2 text-lg-right text-md-left text-sm-left">
-                                            <label for=""> Password </label>
+                                            <label for="">  পাসওয়ার্ড </label>
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <input type="password"
@@ -52,14 +52,14 @@
                                 </div>
 
                                 <div class="col-sm-4 offset-sm-4 mt-4 text-right">
-                                    <button type="submit" class="btn btn-md btn-block btn-success"> Login </button>
+                                    <button type="submit" class="btn btn-md btn-block btn-success">  লগিন করুন </button>
                                 </div>
                                 <div class="col-sm-4 offset-sm-4 mt-4 text-right">
                                     @php
                                         $to = request('next') ? "?to=".request('next') : '';
                                     @endphp
-                                    You don't have any account yet ? <a href="/participants/register{{$to}}"
-                                    class="btn btn-md btn-outline-primary"> Register Now</a>
+                                     এখনও টেকসইবিডিতে যুক্ত হননি? <a href="/participants/register{{$to}}"
+                                    class="btn btn-md btn-outline-primary">  রেজিস্টার করুন</a>
                                 </div>
                             </div>
 

@@ -145,6 +145,12 @@
             $('#stage').val('question');
             $('.discussion-wrapper').hide(500)
             $('#wrapper').show(500)
+            if(timerStarted) {
+                startTimer(duration);
+                timerStarted = false
+            } else {
+                document.getElementById('timer').innerHTML = duration
+            }
         })
 
         $(document).on('click', '#show-options-btn', function () {
@@ -152,13 +158,6 @@
             $('#nextButton').show(300)
             $('.option-wrapper').show(300)
             $('#stage').val('option')
-            if(timerStarted) {
-                startTimer(duration);
-                timerStarted = false
-            } else {
-                document.getElementById('timer').innerHTML = duration
-            }
-
         })
 
         $(document).on('click', '#nextButton', function () {
@@ -245,8 +244,10 @@
                 location.href = `complete-quiz/{{$assessment_id}}`;
                 // alert('timer completed')
             } else {
-
-                document.getElementById('timer').innerHTML = `${m}:${s}`;
+                console.log(s)
+                if(!isNaN(s)) {
+                    document.getElementById('timer').innerHTML = `${m}:${s}`;
+                }
                 setTimeout(startTimer, 1000);
             }
         }
