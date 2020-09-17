@@ -22,11 +22,14 @@ class ParticipantProfileController extends Controller
         if (!$participant) {
             return redirect('/participants/login');
         }
-        if (!$participant->password && auth('participant')->user()) {
-            return view('front.participant.edit', [
-                'participant' => $participant
-            ]);
+        if ($participant->id == auth('participant')->id()) {
+            if (!$participant->password && auth('participant')->user()) {
+                return view('front.participant.edit', [
+                    'participant' => $participant
+                ]);
+            }
         }
+
 
         return view('front.participant.profile', [
             'participant' => $participant,

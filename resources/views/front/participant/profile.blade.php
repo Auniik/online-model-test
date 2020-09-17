@@ -22,10 +22,13 @@
                                 <div class="row justify-content-between">
                                     <div class="col-lg-12 d-flex justify-content-between">
                                         <h3 class="title mb-0">{{$participant->name}}</h3>
-                                        <a class="btn btn-secondary btn-sm" href="{{route('participant-profile.edit')
+                                        @if (auth('participant')->id() == $participant->id)
+                                            <a class="btn btn-secondary btn-sm" href="{{route('participant-profile.edit')
                                         }}">
-                                            <i class="fas fa-cogs text-white"></i>
-                                        </a>
+                                                <i class="fas fa-cogs text-white"></i>
+                                            </a>
+                                        @endif
+
                                     </div>
                                     <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
                                         <p class="mb-0"> ইমেইল: <span
