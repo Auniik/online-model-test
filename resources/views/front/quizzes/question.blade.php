@@ -222,9 +222,9 @@
     </script>
 
     <script>
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function( ) {
             window.setTimeout(function () {
-                window.location = `/complete-quiz/${assessment.id}`;
+                window.location = `/complete-quiz/{{$assessment_id}}`;
              }, 0);
             window.onbeforeunload = null;
         }
@@ -244,7 +244,6 @@
                 location.href = `complete-quiz/{{$assessment_id}}`;
                 // alert('timer completed')
             } else {
-                console.log(s)
                 if(!isNaN(s)) {
                     document.getElementById('timer').innerHTML = `${m}:${s}`;
                 }
