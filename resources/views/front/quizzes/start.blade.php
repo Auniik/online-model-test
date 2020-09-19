@@ -86,7 +86,7 @@
                                     <input type="hidden" name="participant_type" value="{{$type}}">
 
                                     <div class="col-12 mt-4 text-center">
-                                        <button class="btn btn-lg btn-outline-success">Start Quiz Now</button>
+                                        <button class="btn btn-md btn-outline-info px-4"> শুরু করুন</button>
                                     </div>
                                 </div>
 

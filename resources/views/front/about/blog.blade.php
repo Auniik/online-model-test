@@ -119,6 +119,13 @@
     </section>
     <!-- About Start -->
 
+    <section id="communication-part">
+        <div class="container-fulied contact-form">
+            <div class="text_center">
+                <h1> গ্যালারি</h1>
+            </div>
+        </div>
+    </section>
     @if ($slider)
         <section class="section pt-0 pb-5">
             <div class="container-fluid bg-dark" style="padding-bottom: 40px;">

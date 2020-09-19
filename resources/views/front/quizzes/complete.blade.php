@@ -4,7 +4,7 @@
         <div class="overlay">
             <div class="container-fulied">
                 <div class="text_center animated zoomIn">
-                    <h1> Thank You! </h1>
+                    <h1>  ধন্যবাদ </h1>
                 </div>
             </div>
         </div>
@@ -14,9 +14,10 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
-                    <div class="alert alert-success">Thank you for your participation. Soon we will let you know the result</div>
+                    <div class="alert alert-success"> সাথে থাকার জন্য ধন্যবাদ;  শীঘ্রই আপনার রেজাল্ট জানতে পারবেন-
+                    </div>
                     <br>
-                    Go back to <a href="{{url('/')}}" class="btn btn-lg btn-outline-success">HOME</a>
+                     ফিরে যান- <a href="{{url('/')}}" class="btn btn-lg btn-outline-success">হোম</a>
                 </div>
             </div>
         </div>

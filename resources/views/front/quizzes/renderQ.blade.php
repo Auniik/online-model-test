@@ -64,14 +64,14 @@
                            class="btn btn-primary"
                            style="width: 130px;
                            @if ($qd_check) display:none @endif"
-                           value="পরবর্তী"
+                           value="উত্তর দিন"
                     />
                     <input type="button"
                            id="show-options-btn"
                            class="btn btn-primary"
                            style="width: 130px;
                            @if (!$qd_check) display:none @endif"
-                           value="উত্তর  দিন"
+                           value="অপশন"
                     />
 
                 </div>
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="col-lg-12 d-flex justify-content-center mt-4">
-                    <button type="button" class="btn btn-primary go-on-btn">এগিয়ে যান</button>
+                    <button type="button" class="btn btn-primary px-3 go-on-btn"> আপনার কুইজ</button>
                 </div>
             </div>
         </div>

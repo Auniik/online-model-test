@@ -10,7 +10,7 @@
         #countdown {
             font-family: 'Major Mono Display', monospace;
             font-size: 27px;
-            color: black;
+            color: #ff2121;
             font-weight: 800;
         }
         .unselectable {

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 mt-4 text-justify text-center">
-                    <h5> আপনাকে স্বাগতম টেকসই বিডি তে</h5>
+                    <h5>  টেকসইবিডি অনলাইন প্ল্যাটফর্মে আপনাকে স্বাগতম !</h5>
                 </div>
             </div>
         </div>
@@ -58,8 +58,8 @@
                                     @php
                                         $to = request('next') ? "?to=".request('next') : '';
                                     @endphp
-                                     এখনও টেকসইবিডিতে যুক্ত হননি? <a href="/participants/register{{$to}}"
-                                    class="btn btn-md btn-outline-primary">  রেজিস্টার করুন</a>
+                                      আপনার একাউন্ট খোলা হয়নি ? <a href="/participants/register{{$to}}"
+                                    class="btn btn-md btn-outline-primary">  রেজিস্ট্রেশন করুন</a>
                                 </div>
                             </div>
 
