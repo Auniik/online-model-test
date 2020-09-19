@@ -29,6 +29,29 @@
                 margin-left: 5.5rem!important;
             }
         }
+        .selectedOption {
+            background: #81daff !important;
+
+        }
+        .custom-radio {
+            background: #ffe6c8;
+        }
+        .custom-radio .custom-control-label::before {
+            border-radius: 0;
+        }
+        .custom-radio .custom-control-label::after {
+            border-radius: 0;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        body {
+            cursor: not-allowed;
+        }
+
+        #wrapper, .discussion-wrapper {
+            cursor: default;
+        }
 
     </style>
 
@@ -89,137 +112,138 @@
     </script>
 
 {{--    initializations--}}
-    <script>
+<script>
 
-        var duration = "{{$duration}}";
-        var assessment_id = "{{$assessment_id}}";
-        const timeArray = duration.split(':')
-        const seconds = (parseInt(timeArray[0]) * 60) + parseInt(timeArray[1]);
-        const type = "{{$participant_type}}";
+    var duration = "{{$duration}}";
+    var assessment_id = "{{$assessment_id}}";
+    const timeArray = duration.split(':')
+    const seconds = (parseInt(timeArray[0]) * 60) + parseInt(timeArray[1]);
+    const type = "{{$participant_type}}";
 
-        document.getElementById('timer').innerHTML = duration
-
-
-    </script>
+    document.getElementById('timer').innerHTML = duration
 
 
-{{--    definations--}}
-    <script>
-        var timerStarted = false;
-
-        function scrollToTop() {
-            window.scroll({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        loadQuestion();
+</script>
 
 
-        function loadQuestion() {
-            $.ajax({
-                url: `/render-question/{{$assessment_id}}`,
-                type: 'GET',
-                dataType: 'HTML',
-            }).done(function (data) {
-                if(data === 'COMPLETED') {
-                    completedAction()
-                } else {
-                    scrollToTop()
-                    $('.questions-row').html(data).show(500)
+<script>
+    var timerStarted = false;
 
-                    if($('#stage').val() === 'qd') {
-                        document.getElementById('timer').innerHTML = '--:--'
-                        timerStarted = true;
-                    } else {
-                        startTimer(duration);
-                        timerStarted = true
-                    }
-                }
-            });
-        }
+    function scrollToTop() {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
 
-        $(document).on('click', '.go-on-btn', function () {
-            $('#stage').val('question');
-            $('.discussion-wrapper').hide(500)
-            $('#wrapper').show(500)
-            if(timerStarted) {
-                startTimer(duration);
-                timerStarted = false
+    loadQuestion();
+
+
+    function loadQuestion() {
+        $.ajax({
+            url: `/render-question/{{$assessment_id}}`,
+            type: 'GET',
+            dataType: 'HTML',
+        }).done(function (data) {
+            if(data === 'COMPLETED') {
+                completedAction()
             } else {
-                document.getElementById('timer').innerHTML = duration
-            }
-        })
-
-        $(document).on('click', '#show-options-btn', function () {
-            $(this).hide(300)
-            $('#nextButton').show(300)
-            $('.option-wrapper').show(300)
-            $('#stage').val('option')
-        })
-
-        $(document).on('click', '#nextButton', function () {
-            $('#question-row').hide(200);
-            const data = $('#form').serializeArray().reduce((obj, item) => {
-                obj[item.name] = item.value;
-                return obj;
-            }, {})
-            $.ajax({
-                url: `/save-answer`,
-                data,
-                type: 'POST',
-                dataType: 'HTML',
-            }).done(data => goNextStep(data));
-        })
-
-        $(document).on('click', '#skipButton', function () {
-            $('#question-row').hide(200);
-            let data = {
-                quiz_question_id: $("input[name=quiz_question_id]").val(),
-                quiz_assessment_id: $("input[name=quiz_assessment_id]").val(),
-                quiz_option_id: null,
-                _token: "{{csrf_token()}}"
-            }
-            $.ajax({
-                url: `/save-answer`,
-                data,
-                type: 'POST',
-                dataType: 'HTML',
-            }).done(data => goNextStep(data));
-        })
-
-        function goNextStep(data) {
-            if(data === 'COMPLETED') { completedAction() }
-            else {
                 scrollToTop()
-                $('#nextButton').attr('disabled', true)
                 $('.questions-row').html(data).show(500)
-                if (type === 'vip') {
-                    if(timerStarted) {
-                        startTimer(duration);
-                        timerStarted = false
-                    } else {
-                        document.getElementById('timer').innerHTML =  $('#stage').val() === 'qd' ? '--:--' : duration
-                    }
+
+                if($('#stage').val() === 'qd') {
+                    document.getElementById('timer').innerHTML = '--:--'
+                    timerStarted = true;
+                } else {
+                    startTimer(duration);
+                    timerStarted = true
+                }
+            }
+        });
+    }
+
+    $(document).on('click', '.go-on-btn', function () {
+        $('#stage').val('question');
+        $('.discussion-wrapper').hide(500)
+        $('#wrapper').show(500)
+        if(timerStarted) {
+            startTimer(duration);
+            timerStarted = false
+        } else {
+            document.getElementById('timer').innerHTML = duration
+        }
+    })
+
+    $(document).on('click', '#show-options-btn', function () {
+        $(this).hide(300)
+        $('#nextButton').show(300)
+        $('.option-wrapper').show(300)
+        $('#stage').val('option')
+    })
+
+    $(document).on('click', '#nextButton', function () {
+        const data = $('#form').serializeArray().reduce((obj, item) => {
+            obj[item.name] = item.value;
+            return obj;
+        }, {})
+        submitAnswer(data);
+    })
+
+    $(document).on('click', '#skipButton', function () {
+        const data = {
+            quiz_question_id: $("input[name=quiz_question_id]").val(),
+            quiz_assessment_id: $("input[name=quiz_assessment_id]").val(),
+            quiz_option_id: null,
+            _token: "{{csrf_token()}}"
+        }
+        submitAnswer(data);
+    });
+
+    function submitAnswer(data) {
+        $('#question-row').hide(200);
+        $.ajax({
+            url: `/save-answer`,
+            data,
+            type: 'POST',
+            dataType: 'HTML',
+        }).done(data => goNextStep(data));
+    }
+
+    function goNextStep(data) {
+        if(data === 'COMPLETED') { completedAction() }
+        else {
+            scrollToTop()
+            $('#nextButton').attr('disabled', true)
+            $('.questions-row').html(data).show(500)
+            if (type === 'vip') {
+                if(timerStarted) {
+                    startTimer(duration);
+                    timerStarted = false
+                } else {
+                    document.getElementById('timer').innerHTML =  $('#stage').val() === 'qd' ? '--:--' : duration
                 }
             }
         }
+    }
 
-        $(document).on('click', '.custom-control-label, .custom-control-input', () => {
-            $('#nextButton').attr('disabled', false)
-        })
+    $(document).on('click', '.custom-control-label, .custom-control-input', '.option-wrapper' , (e) => {
+        $('#nextButton').attr('disabled', false)
+        $('.custom-radio').removeClass('selectedOption')
+
+        $(e.target).parents('.custom-radio').addClass('selectedOption')
+    })
 
 
-        function completedAction() {
-            $('#nextButton').hide()
-            $('#skipButton').hide()
-            $('#timer').hide()
-            location.href = `complete-quiz/{{$assessment_id}}`
-        }
+    function completedAction() {
+        $('#nextButton').hide()
+        $('#skipButton').hide()
+        $('#timer').hide()
+        location.href = `complete-quiz/{{$assessment_id}}`
+    }
 
-    </script>
+</script>
+{{--    definations--}}
 
     <script>
         window.onbeforeunload = function( ) {
@@ -241,7 +265,14 @@
             if (s === 59) m--
 
             if (m < 0) {
-                location.href = `complete-quiz/{{$assessment_id}}`;
+                if(type === 'vip') {
+                    $('#skipButton').click();
+                    startTimer(duration);
+                    timerStarted = false
+                } else {
+                    location.href = `complete-quiz/{{$assessment_id}}`;
+                }
+
                 // alert('timer completed')
             } else {
                 if(!isNaN(s)) {

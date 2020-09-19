@@ -29,7 +29,7 @@
                                    name="quiz_option_id" required
                                    class="custom-control-input"
                                    value="{{$option->id}}"/>
-                            <label class="custom-control-label pt-0"
+                            <label class="custom-control-label pt-0 cursor-pointer"
                                    for="customRadio{{$key}}">{{$option->value}}</label>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <input type="radio" id="customRadio{{$key}}" name="quiz_option_id" required
                                    class="custom-control-input"
                                    value="{{$option->id}}"/>
-                            <label class="custom-control-label pt-0"
+                            <label class="custom-control-label pt-0 cursor-pointer"
                                    for="customRadio{{$key}}">{{$option->value}}</label>
                         </div>
                     </div>
