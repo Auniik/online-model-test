@@ -71,6 +71,7 @@
                     <div class="row p-4 shadow bg-white">
                         <div class="col-lg-12">
                             <form id="form" class="question-form">
+                                <input type="hidden" value="" name="start_time" id="start_time">
                                 @csrf
                                 <div class="row questions-row" id="question-row" style="display: none">
 
@@ -167,6 +168,7 @@
         $('#stage').val('question');
         $('.discussion-wrapper').hide(500)
         $('#wrapper').show(500)
+        $('#start_time').val(new Date().toLocaleString())
         if(timerStarted) {
             startTimer(duration);
             timerStarted = false
@@ -195,6 +197,7 @@
             quiz_question_id: $("input[name=quiz_question_id]").val(),
             quiz_assessment_id: $("input[name=quiz_assessment_id]").val(),
             quiz_option_id: null,
+            start_time: $("#start_time").val(),
             _token: "{{csrf_token()}}"
         }
         submitAnswer(data);
@@ -246,12 +249,12 @@
 {{--    definations--}}
 
     <script>
-        window.onbeforeunload = function( ) {
-            window.setTimeout(function () {
-                window.location = `/complete-quiz/{{$assessment_id}}`;
-             }, 0);
-            window.onbeforeunload = null;
-        }
+        {{--window.onbeforeunload = function( ) {--}}
+        {{--    window.setTimeout(function () {--}}
+        {{--        window.location = `/complete-quiz/{{$assessment_id}}`;--}}
+        {{--     }, 0);--}}
+        {{--    window.onbeforeunload = null;--}}
+        {{--}--}}
     </script>
 
 {{--Timer--}}

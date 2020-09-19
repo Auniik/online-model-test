@@ -45,13 +45,34 @@ class QuizAssessment extends Model
     public function consumedTime()
     {
         if ($to = $this->end_at) {
+
+            if ($this->participant_type == 'vip') {
+                return $this->guestConsumedTime();
+            }
+
             $seconds = Carbon::parse($to)->diffInSeconds(Carbon::parse($this->start_at));
-            $secs = floor($seconds);
-            $minutes = (($secs / 60) % 60);
-            $seconds = $secs % 60;
-            return "{$minutes}m {$seconds}s";
+            return $this->parseConsumedTime($seconds);
         }
         return 'N/A';
+    }
+
+    private function guestConsumedTime()
+    {
+        $secs = $this->guestTimes()->sum('time');
+        return $this->parseConsumedTime($secs);
+    }
+
+    public function guestTimes()
+    {
+        return $this->hasMany(QuizGuestTime::class);
+    }
+
+    private function parseConsumedTime($seconds)
+    {
+        $secs = floor($seconds);
+        $minutes = (($secs / 60) % 60);
+        $seconds = $secs % 60;
+        return "{$minutes}m {$seconds}s";
     }
 
     public function wrongCount()

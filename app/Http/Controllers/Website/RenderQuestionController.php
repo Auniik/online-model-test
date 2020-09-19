@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\Quiz\QuizAssessment;
 use App\Models\Quiz\QuizAssessmentAnswer;
+use App\Models\Quiz\QuizGuestTime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -60,13 +62,17 @@ class RenderQuestionController extends Controller
         return DB::transaction(function () use ($request) {
             $assessment = QuizAssessment::query()->find($request->quiz_assessment_id);
 
+            if ($assessment->participant_type == 'vip') {
+                $this->timeTouch($request);
+            }
+
             if ($assessment->end_at) {
                 /** @var QuizAssessment $assessment */
                 return $this->complete($assessment);
             }
 
             $answer = QuizAssessmentAnswer::query()
-                ->create($request->except('_token'));
+                ->create($request->except('_token', 'start_time'));
             return $this->show($answer->assessment);
         });
 
@@ -89,6 +95,15 @@ class RenderQuestionController extends Controller
         }
         $assessment->update($attributes);
         return true;
+    }
+
+    public function timeTouch(Request $request)
+    {
+        if ($value = $request->start_time) {
+            QuizGuestTime::query()->create(array_merge([
+                'time' => now()->diffInSeconds(Carbon::parse($value)),
+            ], $request->only('quiz_assessment_id', 'quiz_question_id')));
+        }
     }
 
 }
