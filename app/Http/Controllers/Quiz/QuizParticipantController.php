@@ -10,24 +10,30 @@ use App\Models\Quiz\Quiz;
 use App\Models\Quiz\QuizAssessment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class QuizParticipantController extends Controller
 {
 
     public function create(Request $request, Quiz $quiz)
     {
-        $assignedParticipants = $quiz->assignedParticipants;
+        $assessments = $quiz->assignedParticipants;
 
         if ($request->filled('participant_type')) {
-            $assignedParticipants = $assignedParticipants
+            $assessments = $assessments
                 ->where('participant_type', $request->get('participant_type'));
         }
+
+        $assessments = $assessments
+            ->sortByDesc(fn ($a) => $a->score)
+            ->groupBy('score')
+            ->map(fn($g) => $g->sortBy(fn ($a) => $a->consumedTimeScore ))
+            ->flatten();
+
 
         $assigned = $quiz->assignedParticipants->pluck('participant_id');
         return view('admin.quiz.participant.index', [
             'quiz' => $quiz,
-            'assignedParticipants' => $assignedParticipants,
+            'assignedParticipants' => $assessments,
             'participants' => Participant::query()
                 ->whereNotIn('id', $assigned)
                 ->pluck('name', 'id')

@@ -4,18 +4,22 @@
 namespace App\Http\Controllers\Quiz;
 
 
+use App\Helpers\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\OnlineExam\Participant;
 use App\Models\Quiz\Quiz;
 use App\Models\Quiz\QuizAssessment;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class QuizResultsController extends Controller
 {
+    use Helpers;
     public function index(Request $request)
     {
         $assessments = QuizAssessment::with('participant', 'quiz')
-            ->withCount('answers');
+            ->withCount('answers')
+            ->orderByDesc('score');
 
         if ($request->filled('quiz_id')) {
             $assessments->where('quiz_id', $request->quiz_id);
@@ -30,10 +34,21 @@ class QuizResultsController extends Controller
             $assessments->where('participant_id', $request->participant_id);
         }
 
+        if ($request->isRanked) {
+            $assessments = $assessments
+                ->get()
+                ->sortByDesc(fn ($a) => $a->score)
+                ->groupBy('score')
+                ->map(fn($g) => $g->sortBy(fn ($a) => $a->consumedTimeScore ))
+                ->flatten();
+        }
+
+
         return view('admin.quiz.results.index', [
-            'assessments' => $assessments->paginate(50),
-            'quizzes' => Quiz::query()->latest()->pluck('name', 'id'),
-            'participants' => Participant::query()->latest()->pluck('name', 'id'),
+            'assessments' => $assessments instanceof Builder
+                ? $assessments->paginate($request->get('per_page', 15))
+                : $this->paginate($assessments),
+            'quizzes' => Quiz::query()->latest()->pluck('name', 'id')
         ]);
     }
 

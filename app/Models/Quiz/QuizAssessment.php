@@ -5,6 +5,7 @@ namespace App\Models\Quiz;
 use App\Models\OnlineExam\Participant;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use function GuzzleHttp\Psr7\str;
 
 class QuizAssessment extends Model
 {
@@ -47,19 +48,27 @@ class QuizAssessment extends Model
         if ($to = $this->end_at) {
 
             if ($this->participant_type == 'vip') {
-                return $this->guestConsumedTime();
+                $seconds = $this->guestTimes()->sum('time');
+            } else {
+                $seconds = Carbon::parse($to)->diffInSeconds(Carbon::parse($this->start_at));
             }
-
-            $seconds = Carbon::parse($to)->diffInSeconds(Carbon::parse($this->start_at));
             return $this->parseConsumedTime($seconds);
         }
         return 'N/A';
     }
 
-    private function guestConsumedTime()
+    public function getConsumedTimeScoreAttribute()
     {
-        $secs = $this->guestTimes()->sum('time');
-        return $this->parseConsumedTime($secs);
+        if ($to = $this->end_at) {
+
+            if ($this->participant_type == 'vip') {
+                $seconds = $this->guestTimes()->sum('time');
+            } else {
+                $seconds = Carbon::parse($to)->diffInSeconds(Carbon::parse($this->start_at));
+            }
+            return $seconds;
+        }
+        return 0;
     }
 
     public function guestTimes()

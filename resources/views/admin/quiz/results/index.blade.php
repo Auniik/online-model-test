@@ -10,8 +10,15 @@
                             <h4 class="header-title"><span id="header-title">  কুইজের সকল ফলাফল সমূহ
                                 </span></h4>
                         </div>
-                        <div class="col-lg-4 offset-md-3 text-right">
+                        <div class="col-lg-7 text-right">
                             <form action="">
+                                <select name="quiz_id" onchange="this.form.submit()" style="height: 36px"
+                                        class="quiz_id" >
+                                    <option value=""> সব দেখুন</option>
+                                    @foreach($quizzes as $id => $name)
+                                        <option value="{{$id}}">{{$name}}</option>
+                                    @endforeach
+                                </select>
                                 <select name="participant_type" onchange="this.form.submit()" style="height: 36px"
                                         class="participant_type" >
                                     <option value=""> সব দেখুন</option>
@@ -29,9 +36,12 @@
                                     <option value="25"> ২৫</option>
                                     <option value="50"> ৫০</option>
                                     <option value="100"> ১০০</option>
-                                    <option value="200"> ২০০</option>
-                                    <option value="500"> ৫০০</option>
                                 </select>
+                                <input type="hidden" name="isRanked" id="is-ranked" value="{{request('isRanked', 0)}}">
+                                <button type="button"
+                                        class="btn btn-secondary rank-btn mx-1 {{request('isRanked') ? 'active' : ''}}"
+                                        onclick="seeRank(event)"
+                                        style="height: 35px; display: none"> র‍্যাংক দেখুন</button>
                             </form>
                         </div>
                         <div class="col-lg-1">
@@ -111,6 +121,9 @@
                         </div>
 
                     </div>
+                    <div class="pull-right">
+                        {{$assessments->links()}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,7 +132,23 @@
 
 @push('script')
     <script>
+        function seeRank(e) {
+            const elem = $(e.target)
+                .siblings('#is-ranked');
+
+            let val =  elem.val()
+                if(val == 1) {
+                    elem.val(0)
+                } else {
+                    elem.val(1)
+                }
+
+            elem.parent('form')
+                .submit()
+        }
+
         $(document).ready(function () {
+
             @if($type = request('participant_type'))
             $('.participant_type').val("{{$type}}")
             @endif
@@ -128,6 +157,18 @@
             @endif
             @if(request()->filled('per_page'))
             $('.per_page').val("{{request('per_page')}}")
+            @endif
+            @if(request()->filled('quiz_id'))
+            $('.quiz_id').val("{{request('quiz_id')}}")
+            @endif
+
+
+            @if(!!request('participant_type') && !!request('participated') && request()->filled('quiz_id'))
+                $(".rank-btn").show()
+            @else
+                $(".rank-btn").hide()
+                $('#is-ranked').val(0)
+
             @endif
 
         })
