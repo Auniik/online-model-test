@@ -107,7 +107,7 @@
         }
 
 
-        // body.oncontextmenu = handler;
+         body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -249,12 +249,12 @@
 {{--    definations--}}
 
     <script>
-        {{--window.onbeforeunload = function( ) {--}}
-        {{--    window.setTimeout(function () {--}}
-        {{--        window.location = `/complete-quiz/{{$assessment_id}}`;--}}
-        {{--     }, 0);--}}
-        {{--    window.onbeforeunload = null;--}}
-        {{--}--}}
+        window.onbeforeunload = function( ) {
+            window.setTimeout(function () {
+                window.location = `/complete-quiz/{{$assessment_id}}`;
+             }, 0);
+            window.onbeforeunload = null;
+        }
     </script>
 
 {{--Timer--}}
