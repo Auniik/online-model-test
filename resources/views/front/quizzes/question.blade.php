@@ -107,7 +107,7 @@
         }
 
 
-        body.oncontextmenu = handler;
+        // body.oncontextmenu = handler;
         // body.onmousedown = handler;
         // body.onmouseup = handler;
     </script>
@@ -168,7 +168,7 @@
         $('#stage').val('question');
         $('.discussion-wrapper').hide(500)
         $('#wrapper').show(500)
-        $('#start_time').val(new Date().toLocaleString())
+        $('#start_time').val(new Date().toLocaleString('en-US'))
         if(timerStarted) {
             startTimer(duration);
             timerStarted = false
