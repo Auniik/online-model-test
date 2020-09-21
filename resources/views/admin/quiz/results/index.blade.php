@@ -66,6 +66,7 @@
                             <table class="table table-sm" >
                                 <thead>
                                 <tr>
+                                    <th> #</th>
                                     <th> নাম</th>
                                     <th> মোবাইল নং</th>
                                     <th> ইমেইল</th>
@@ -79,8 +80,12 @@
                                 <tbody>
 
 
-                                @foreach($assessments as $assessment)
+                                @php($i = $assessments->firstItem())
+                                @foreach($assessments as $key => $assessment)
                                     <tr>
+                                        <td>
+                                            {{$i++}}
+                                        </td>
                                         <td>
                                             <a class="text-info"
                                                href="{{route('participants.show', $assessment->participant_id)}}">

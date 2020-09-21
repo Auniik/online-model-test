@@ -24,7 +24,7 @@
                             <div class="btn-group pull-right">
                                 <button class="btn btn-secondary btn-xs dropdown-toggle" type="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    +  নতুন  পার্টিসিপেন্ট যোগ করুন
+                                    +  নতুন পার্টিসিপেন্ট যোগ করুন
                                 </button>
                                 <div class="dropdown-menu">
                                     <a title=" অতিথি"
@@ -39,55 +39,65 @@
                                     </a>
                                 </div>
                             </div>
+                            <button type="button" class="btn btn-secondary mx-1"  onclick="printDiv('print-this')"
+                                    style="height: 35px; "><i
+                                    class="fa fa-print"></i></button>
                         </div>
                     </div>
 
                 </div>
                 <div class="card-body">
                     @include('front.partials.notifications')
-                    <div class="question-block">
+                    <div class="question-block" id="print-this">
+                        <div class="text-center my-5 no-screen">
+                            <h2>{{$quiz->name}}- কুইজের ফলাফল</h2>
+                        </div>
                         <div class="table-responsive-sm">
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
+                                    <th> #</th>
                                     <th> নাম</th>
                                     <th> ইমেইল</th>
-                                    <th>  মোবাইল</th>
+                                    <th> মোবাইল</th>
                                     <th> টাইপ</th>
                                     <th> অংশগ্রহন করেছেন ?</th>
-                                    <th>  অতিবাহিত সময়</th>
-                                    <th>  ফলাফল</th>
-                                    <th width="6%">#</th>
+                                    <th> অতিবাহিত সময়</th>
+                                    <th> ফলাফল</th>
+                                    <th width="6%" class='no-print'>#</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-
-                                @foreach($assignedParticipants as $assignedParticipant)
-                                    <tr>
-                                        <td>{{$assignedParticipant->participant->name}}</td>
-                                        <td>{{$assignedParticipant->participant->email}}</td>
-                                        <td>{{$assignedParticipant->participant->mobile_number}}</td>
-                                        <td>{{$assignedParticipant->participant_type}}</td>
-                                        <td>{{$assignedParticipant->is_attended ? ' হ্যাঁ' : ' এখনও নয়'}}</td>
+                                @foreach($assignedParticipants as $k => $ap)
+                                    <tr
+                                        class="{{!$ap->is_attended || !$ap->score  ? 'no-print'  : ''}}">
+                                        <td> {{++$k}} </td>
+                                        <td>{{$ap->participant->name}}</td>
+                                        <td>{{$ap->participant->email}}</td>
+                                        <td>{{$ap->participant->mobile_number}}</td>
+                                        <td>{{$ap->translatedParticipantType}}</td>
+                                        <td class="no-print">
+                                            {{$ap->is_attended ? ' হ্যাঁ' : ' এখনও নয়'}}
+                                        </td>
                                         <td>
-                                            {{$assignedParticipant->consumedTime() }}
+                                            {{$ap->consumedTime() }}
 
                                         </td>
                                         <td>
-                                            {{$assignedParticipant->score}}
+                                            {{$ap->score}}
                                         </td>
-                                        <td>
-                                            @if ($assignedParticipant->end_at)
+                                        <td class='no-print'>
+                                            @if ($ap->end_at)
                                                 <a title="Examine"
-                                                   href="{{route('quiz-assessment.show',  $assignedParticipant->id)}}">
+                                                   href="{{route('quiz-assessment.show',  $ap->id)}}">
                                                     <i class="fa fa fa-eye" aria-hidden="true"></i>
                                                 </a>
                                             @endif
-                                                @if (!$assignedParticipant->start_at)
+                                                @if (!$ap->start_at)
                                                     <a class="deletable"
                                                        title="Delete"
-                                                       href="{{route('quiz-participants.destroy',  $assignedParticipant->id)}}">
+                                                       href="{{route('quiz-participants.destroy',  $ap->id)}}">
                                                         <i class="fa fa fa-trash" aria-hidden="true"></i>
                                                     </a>
                                                 @endif

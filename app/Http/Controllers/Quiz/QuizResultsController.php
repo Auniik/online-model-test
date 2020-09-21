@@ -36,6 +36,7 @@ class QuizResultsController extends Controller
 
         if ($request->isRanked) {
             $assessments = $assessments
+                ->where('score', '>', 0)
                 ->get()
                 ->sortByDesc(fn ($a) => $a->score)
                 ->groupBy('score')
@@ -47,7 +48,7 @@ class QuizResultsController extends Controller
         return view('admin.quiz.results.index', [
             'assessments' => $assessments instanceof Builder
                 ? $assessments->paginate($request->get('per_page', 15))
-                : $this->paginate($assessments),
+                : $this->paginate($assessments, $request->get('per_page', 15)),
             'quizzes' => Quiz::query()->latest()->pluck('name', 'id')
         ]);
     }
